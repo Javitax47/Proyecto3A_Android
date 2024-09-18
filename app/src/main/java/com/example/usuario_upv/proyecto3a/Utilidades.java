@@ -19,7 +19,7 @@ public class Utilidades {
 
     // -------------------------------------------------------------------------------
     // -------------------------------------------------------------------------------
-    public static UUID stringToUUID( String uuid ) {
+    public static UUID stringToUUID(String uuid ) {
         if ( uuid.length() != 16 ) {
             throw new Error( "stringUUID: string no tiene 16 caracteres ");
         }
