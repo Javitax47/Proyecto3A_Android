@@ -9,14 +9,12 @@
         android:id="@+id/botonBuscarDispositivosBTLE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:onClick="botonBuscarDispositivosBTLEPulsado"
         android:text="Buscar Dispositivos BTLE nou 4"
-        app:layout_constraintBottom_toTopOf="@+id/botonDetenerBusquedaDispositivosBTLE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valor1"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/valor2" />
 
     <Button
         android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
@@ -24,12 +22,9 @@
         android:layout_height="wrap_content"
         android:onClick="botonDetenerBusquedaDispositivosBTLEPulsado"
         android:text="Detener búsaqueda Dispositivos BTLE"
-        app:layout_constraintBottom_toTopOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonBuscarDispositivosBTLE"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintEnd_toEndOf="@+id/botonBuscarDispositivosBTLE"
+        app:layout_constraintStart_toStartOf="@+id/botonBuscarDispositivosBTLE"
+        app:layout_constraintTop_toBottomOf="@+id/botonBuscarDispositivosBTLE" />
 
     <Button
         android:id="@+id/botonBuscarNuestroDispositivoBTLE"
@@ -37,25 +32,31 @@
         android:layout_height="wrap_content"
         android:onClick="botonBuscarNuestroDispositivoBTLEPulsado"
         android:text="Buscar nuestro dispositivo  BTLE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonDetenerBusquedaDispositivosBTLE"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintEnd_toEndOf="@+id/botonDetenerBusquedaDispositivosBTLE"
+        app:layout_constraintStart_toStartOf="@+id/botonDetenerBusquedaDispositivosBTLE"
+        app:layout_constraintTop_toBottomOf="@+id/botonDetenerBusquedaDispositivosBTLE" />
 
     <TextView
         android:id="@+id/valor1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/botonBuscarDispositivosBTLE"
+        android:layout_marginTop="82dp"
+        android:text="CO2: Off"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/valor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="ºC: Off"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="@+id/valor1"
+        app:layout_constraintStart_toStartOf="@+id/valor1"
+        app:layout_constraintTop_toBottomOf="@+id/valor1" />
 
     <ImageView
         android:id="@+id/valor1_image"
@@ -65,4 +66,52 @@
         app:layout_constraintStart_toEndOf="@+id/valor1"
         app:layout_constraintTop_toTopOf="@+id/valor1"
         app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+    <ImageView
+        android:id="@+id/valor2_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/valor2"
+        app:layout_constraintTop_toTopOf="@+id/valor2"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+    <ImageView
+        android:id="@+id/image_buscarDispositivos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/botonBuscarDispositivosBTLE"
+        app:layout_constraintTop_toTopOf="@+id/botonBuscarDispositivosBTLE"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+    <ImageView
+        android:id="@+id/image_buscarNuestro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
+        app:layout_constraintTop_toBottomOf="@+id/botonDetenerBusquedaDispositivosBTLE"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE">
+
+        <LinearLayout
+            android:id="@+id/contenedorBeacons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
