@@ -9,12 +9,12 @@
         android:id="@+id/botonBuscarDispositivosBTLE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:onClick="botonBuscarDispositivosBTLEPulsado"
         android:text="Buscar Dispositivos BTLE nou 4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valor2" />
+        app:layout_constraintTop_toBottomOf="@+id/cuentaAtrasTemperatura" />
 
     <Button
         android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
@@ -40,7 +40,7 @@
         android:id="@+id/valor1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="64dp"
         android:text="CO2: Off"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,12 +51,30 @@
         android:id="@+id/valor2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="ºC: Off"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="@+id/valor1"
         app:layout_constraintStart_toStartOf="@+id/valor1"
+        app:layout_constraintTop_toBottomOf="@+id/cuentaAtrasCO2" />
+
+    <TextView
+        android:id="@+id/cuentaAtrasCO2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiempo restante CO2: 0s"
+        app:layout_constraintEnd_toEndOf="@+id/valor1"
+        app:layout_constraintStart_toStartOf="@+id/valor1"
         app:layout_constraintTop_toBottomOf="@+id/valor1" />
+
+    <TextView
+        android:id="@+id/cuentaAtrasTemperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiempo restante Temperatura: 0s"
+        app:layout_constraintEnd_toEndOf="@+id/valor2"
+        app:layout_constraintStart_toStartOf="@+id/valor2"
+        app:layout_constraintTop_toBottomOf="@+id/valor2" />
 
     <ImageView
         android:id="@+id/valor1_image"
@@ -95,23 +113,29 @@
         app:srcCompat="@android:drawable/ic_notification_overlay" />
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:fillViewport="true"
+        android:background="@drawable/border_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE">
+        app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/contenedorBeacons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

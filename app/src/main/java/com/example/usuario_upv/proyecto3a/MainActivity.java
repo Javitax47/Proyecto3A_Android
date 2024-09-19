@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean beaconCO2Activo = false;
     private boolean beaconTemperaturaActivo = false;
 
-
-
     private LinearLayout contenedorBeacons;
 
     // Mapa que almacena las vistas correspondientes a cada dispositivo detectado
@@ -141,12 +139,12 @@ public class MainActivity extends AppCompatActivity {
         BluetoothDevice bluetoothDevice = resultado.getDevice();
         byte[] bytes = resultado.getScanRecord().getBytes();
 
-        String direccionMAC = bluetoothDevice.getAddress();
         TramaIBeacon tib = new TramaIBeacon(bytes);
+        String uuid = Utilidades.bytesToString(tib.getUUID());
 
         // Reiniciar o crear el temporizador para este dispositivo
         int majorValue = Utilidades.bytesToInt(tib.getMajor());
-        reiniciarTemporizador(direccionMAC, majorValue, tib, dispositivoBuscado); // Reinicia el temporizador al recibir el beacon
+        reiniciarTemporizador(uuid, majorValue, tib, dispositivoBuscado); // Reinicia el temporizador al recibir el beacon
 
         int minorValue = Utilidades.bytesToInt(tib.getMinor());
 
@@ -162,9 +160,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Verificar si ya tenemos una vista para este dispositivo
-        if (vistasDispositivosDetectados.containsKey(direccionMAC)) {
+        if (vistasDispositivosDetectados.containsKey(uuid)) {
             // El dispositivo ya fue detectado, actualizamos solo los valores visuales de major y minor
-            View vistaExistente = vistasDispositivosDetectados.get(direccionMAC);
+            View vistaExistente = vistasDispositivosDetectados.get(uuid);
 
             // Actualizamos los valores de major y minor en la vista existente
             TextView majorTextView = vistaExistente.findViewById(R.id.majorTextView);
@@ -182,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // El dispositivo no ha sido detectado antes, agregamos una nueva vista
             View nuevaVista = crearVistaDispositivo(bluetoothDevice, tib, dispositivoBuscado);
-            vistasDispositivosDetectados.put(direccionMAC, nuevaVista);
+            vistasDispositivosDetectados.put(uuid, nuevaVista);
 
             // Agregar la vista al contenedor visual, por ejemplo un LinearLayout en el NestedScrollView
             LinearLayout contenedor = findViewById(R.id.contenedorBeacons);
@@ -231,31 +229,54 @@ public class MainActivity extends AppCompatActivity {
         return view;
     }
 
-    private void reiniciarTemporizador(final String direccionMAC, final int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
+    private void reiniciarTemporizador(final String uuid, final int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
         // Si ya existe un temporizador para este dispositivo, cancélalo
-        if (temporizadoresDispositivos.containsKey(direccionMAC)) {
-            Handler temporizadorExistente = temporizadoresDispositivos.get(direccionMAC);
+        if (temporizadoresDispositivos.containsKey(uuid)) {
+            Handler temporizadorExistente = temporizadoresDispositivos.get(uuid);
             temporizadorExistente.removeCallbacksAndMessages(null);
         }
 
-        // Crear un nuevo temporizador para eliminar la vista después de 3 segundos
+        // Crear un nuevo temporizador
         Handler nuevoTemporizador = new Handler();
-        nuevoTemporizador.postDelayed(new Runnable() {
+        final long tiempoTotal = 5000; // 5 segundos
+        final long intervalo = 1000;   // 1 segundo
+
+        final TextView cuentaAtrasCO2 = findViewById(R.id.cuentaAtrasCO2); // Asegúrate de tener este TextView en tu layout
+        final TextView cuentaAtrasTemperatura = findViewById(R.id.cuentaAtrasTemperatura); // Asegúrate de tener este TextView en tu layout
+
+        Runnable actualizarCuentaAtras = new Runnable() {
+            long tiempoRestante = tiempoTotal;
+
             @Override
             public void run() {
-                // Eliminar la vista y actualizar el TextView a "Off"
-                eliminarVistaDispositivo(direccionMAC, majorValue, tib, dispositivoBuscado);
+                long segundosRestantes = tiempoRestante / 1000;
+
+                if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 1) {
+                    cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantes + "s...");
+                } else if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 2) {
+                    cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantes + "s...");
+                }
+
+                if (tiempoRestante > 0) {
+                    tiempoRestante -= intervalo;
+                    nuevoTemporizador.postDelayed(this, intervalo);
+                } else {
+                    // Cuando el tiempo se acabe, elimina la vista
+                    eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
+                }
             }
-        }, 5000); // 5 segundos de espera para considerar que el beacon ha dejado de ser detectado
+        };
+
+        // Iniciar la cuenta atrás
+        nuevoTemporizador.post(actualizarCuentaAtras);
 
         // Almacenar el nuevo temporizador
-        temporizadoresDispositivos.put(direccionMAC, nuevoTemporizador);
+        temporizadoresDispositivos.put(uuid, nuevoTemporizador);
     }
 
-
-    private void eliminarVistaDispositivo(String direccionMAC, int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
-        if (vistasDispositivosDetectados.containsKey(direccionMAC)) {
-            View vistaAEliminar = vistasDispositivosDetectados.get(direccionMAC);
+    private void eliminarVistaDispositivo(String uuid, int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
+        if (vistasDispositivosDetectados.containsKey(uuid)) {
+            View vistaAEliminar = vistasDispositivosDetectados.get(uuid);
 
             // Determinar si es el beacon de CO2 o temperatura según el valor de major
             runOnUiThread(() -> {
@@ -273,10 +294,10 @@ public class MainActivity extends AppCompatActivity {
             contenedor.removeView(vistaAEliminar);
 
             // Remover el dispositivo del mapa de vistas y del mapa de temporizadores
-            vistasDispositivosDetectados.remove(direccionMAC);
-            temporizadoresDispositivos.remove(direccionMAC);
+            vistasDispositivosDetectados.remove(uuid);
+            temporizadoresDispositivos.remove(uuid);
 
-            Log.d(ETIQUETA_LOG, "Dispositivo eliminado por inactividad: " + direccionMAC);
+            Log.d(ETIQUETA_LOG, "Dispositivo eliminado por inactividad: " + uuid);
         }
     }
 
