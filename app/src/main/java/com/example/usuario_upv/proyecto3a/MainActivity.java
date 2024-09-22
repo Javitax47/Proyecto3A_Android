@@ -19,19 +19,28 @@ import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.IOError;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
@@ -57,8 +66,14 @@ public class MainActivity extends AppCompatActivity {
     private ImageView image3;
     private ImageView image4;
 
+    private String sensor;
+
+    private EditText ipInput;
+
     private boolean beaconCO2Activo = false;
     private boolean beaconTemperaturaActivo = false;
+
+    SensorApi api;
 
     private LinearLayout contenedorBeacons;
 
@@ -91,10 +106,52 @@ public class MainActivity extends AppCompatActivity {
         image3 = findViewById(R.id.image_buscarDispositivos);
         image4 = findViewById(R.id.image_buscarNuestro);
 
+        ipInput = findViewById(R.id.serverIP);
+        Button ipButton = findViewById(R.id.submitIP);
+
         // Inicializar el contenedor de los beacons
         contenedorBeacons = findViewById(R.id.contenedorBeacons);
 
     } // onCreate()
+
+    public void actualizarIP(View view){
+        String ip = ipInput.getText().toString().trim();
+
+        // Validar que la IP no esté vacía
+        if (ip.isEmpty()) {
+            Toast.makeText(MainActivity.this, "Please enter a valid IP", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Configurar la URL base para Retrofit
+        String baseUrl = "http://" + ip + ":13000/";
+        api = RetrofitClient.getClient(baseUrl).create(SensorApi.class);
+
+        Toast.makeText(MainActivity.this, "Server IP set to: " + baseUrl, Toast.LENGTH_SHORT).show();
+
+        checkConnection();
+    }
+
+    // Método para comprobar la conexión con el servidor
+    private void checkConnection() {
+        Call<Void> call = api.checkConnection();  // Llamamos al endpoint 'setup' para verificar la conexión
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Connected to server", Toast.LENGTH_SHORT).show();
+                    // Aquí puedes realizar otras operaciones como insertar datos o usuarios
+                } else {
+                    Toast.makeText(MainActivity.this, "Failed to connect to server", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Connection error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -138,8 +195,34 @@ public class MainActivity extends AppCompatActivity {
     private void mostrarInformacionDispositivoBTLE(ScanResult resultado, UUID dispositivoBuscado) {
         BluetoothDevice bluetoothDevice = resultado.getDevice();
         byte[] bytes = resultado.getScanRecord().getBytes();
-
+        int rssi = resultado.getRssi();
         TramaIBeacon tib = new TramaIBeacon(bytes);
+
+        // Log
+        Log.d(ETIQUETA_LOG, " ****************************************************");
+        Log.d(ETIQUETA_LOG, " ****** DISPOSITIVO DETECTADO BTLE ****************** ");
+        Log.d(ETIQUETA_LOG, " ****************************************************");
+        Log.d(ETIQUETA_LOG, " nombre = " + bluetoothDevice.getName());
+        Log.d(ETIQUETA_LOG, " toString = " + bluetoothDevice.toString());
+        Log.d(ETIQUETA_LOG, " dirección = " + bluetoothDevice.getAddress());
+        Log.d(ETIQUETA_LOG, " rssi = " + rssi);
+        Log.d(ETIQUETA_LOG, " bytes = " + new String(bytes));
+        Log.d(ETIQUETA_LOG, " bytes (" + bytes.length + ") = " + Utilidades.bytesToHexString(bytes));
+
+        Log.d(ETIQUETA_LOG, " ----------------------------------------------------");
+        Log.d(ETIQUETA_LOG, " prefijo  = " + Utilidades.bytesToHexString(tib.getPrefijo()));
+        Log.d(ETIQUETA_LOG, "          advFlags = " + Utilidades.bytesToHexString(tib.getAdvFlags()));
+        Log.d(ETIQUETA_LOG, "          advHeader = " + Utilidades.bytesToHexString(tib.getAdvHeader()));
+        Log.d(ETIQUETA_LOG, "          companyID = " + Utilidades.bytesToHexString(tib.getCompanyID()));
+        Log.d(ETIQUETA_LOG, "          iBeacon type = " + Integer.toHexString(tib.getiBeaconType()));
+        Log.d(ETIQUETA_LOG, "          iBeacon length 0x = " + Integer.toHexString(tib.getiBeaconLength()) + " ( " + tib.getiBeaconLength() + " ) ");
+        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToHexString(tib.getUUID()));
+        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToString(tib.getUUID()));
+        Log.d(ETIQUETA_LOG, " major  = " + Utilidades.bytesToHexString(tib.getMajor()) + "( " + Utilidades.bytesToInt(tib.getMajor()) + " ) ");
+        Log.d(ETIQUETA_LOG, " minor  = " + Utilidades.bytesToHexString(tib.getMinor()) + "( " + Utilidades.bytesToInt(tib.getMinor()) + " ) ");
+        Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
+        Log.d(ETIQUETA_LOG, " ****************************************************");
+
         String uuid = Utilidades.bytesToString(tib.getUUID());
 
         // Reiniciar o crear el temporizador para este dispositivo
@@ -238,30 +321,33 @@ public class MainActivity extends AppCompatActivity {
 
         // Crear un nuevo temporizador
         Handler nuevoTemporizador = new Handler();
-        final long tiempoTotal = 5000; // 5 segundos
+        final long tiempoTotal = 10000; // 10 segundos
         final long intervalo = 1000;   // 1 segundo
 
-        final TextView cuentaAtrasCO2 = findViewById(R.id.cuentaAtrasCO2); // Asegúrate de tener este TextView en tu layout
-        final TextView cuentaAtrasTemperatura = findViewById(R.id.cuentaAtrasTemperatura); // Asegúrate de tener este TextView en tu layout
+        final TextView cuentaAtrasCO2 = findViewById(R.id.cuentaAtrasCO2);
+        final TextView cuentaAtrasTemperatura = findViewById(R.id.cuentaAtrasTemperatura);
 
         Runnable actualizarCuentaAtras = new Runnable() {
-            long tiempoRestante = tiempoTotal;
+            long tiempoRestanteCO2 = tiempoTotal;
+            long tiempoRestanteTemperatura = tiempoTotal;
 
             @Override
             public void run() {
-                long segundosRestantes = tiempoRestante / 1000;
+                long segundosRestantesCO2 = tiempoRestanteCO2 / 1000;
+                long segundosRestantesTemperatura = tiempoRestanteTemperatura / 1000;
 
                 if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 1) {
-                    cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantes + "s...");
+                    cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantesCO2 + "s...");
+                    tiempoRestanteCO2 -= intervalo; // Solo actualiza el tiempo restante de CO2
                 } else if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 2) {
-                    cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantes + "s...");
+                    cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantesTemperatura + "s...");
+                    tiempoRestanteTemperatura -= intervalo; // Solo actualiza el tiempo restante de Temperatura
                 }
 
-                if (tiempoRestante > 0) {
-                    tiempoRestante -= intervalo;
+                if (tiempoRestanteCO2 > 0) {
                     nuevoTemporizador.postDelayed(this, intervalo);
                 } else {
-                    // Cuando el tiempo se acabe, elimina la vista
+                    // Cuando el tiempo de CO2 se acabe, elimina la vista
                     eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
                 }
             }
@@ -273,6 +359,7 @@ public class MainActivity extends AppCompatActivity {
         // Almacenar el nuevo temporizador
         temporizadoresDispositivos.put(uuid, nuevoTemporizador);
     }
+
 
     private void eliminarVistaDispositivo(String uuid, int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
         if (vistasDispositivosDetectados.containsKey(uuid)) {
@@ -348,6 +435,35 @@ public class MainActivity extends AppCompatActivity {
 
                     // Llamar al nuevo método para actualizar la interfaz de usuario
                     actualizarVistaCO2yTemperatura(majorValue, minorValue);
+
+                    if (procesarBeacon(majorValue, minorValue) == 1) {
+                        sensor = "CO2";
+                    } else if (procesarBeacon(majorValue, minorValue) == 2) {
+                        sensor = "Temperatura";
+                    }
+
+                    SensorData sensorData = new SensorData(sensor, minorValue, 1);
+
+                    Call<Void> call;
+                    try {
+                        call = api.createSensorData(sensorData); // Instanciar call dentro del try
+                    } catch (IOError e) { // Asegúrate de capturar la excepción correcta
+                        Log.d(ETIQUETA_LOG, "Error al crear paquete de datos: " + e);
+                        return;
+                    }
+
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                                Toast.makeText(MainActivity.this, "Medición insertada con éxito", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            Toast.makeText(MainActivity.this, "Error al insertar medición", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     Log.d(ETIQUETA_LOG, "Dispositivo no objetivo encontrado: " + uuid);
                 }
@@ -384,6 +500,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, " boton nuestro dispositivo BTLE Pulsado");
         runOnUiThread(() -> image4.setVisibility(View.VISIBLE));
         this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID("HeyJavierJavier!"));
+        //this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID("EPSG-GTI-PROY-3A"));
     } // ()
 
     // --------------------------------------------------------------
