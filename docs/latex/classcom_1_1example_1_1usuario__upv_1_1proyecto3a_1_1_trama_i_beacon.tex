@@ -1,0 +1,147 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+
+
+Clase que representa la trama de un beacon i\+Beacon.  
+
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_af257d74daaeddfad2d4a1bf3358b4734}{get\+Prefijo}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a0fb83b96c5a9714e38ec57bf532d10a7}{get\+UUID}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ac25d6c8e8749abe0ffc67710c89a952a}{get\+Major}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a5cbed19abc2be22114da86adef0f9df5}{get\+Minor}} ()
+\item 
+byte \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aba95d3aa037aaec9b21afab511460802}{get\+Tx\+Power}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_afd5ef17b1ce73f85c60fd3406dd662f7}{get\+Los\+Bytes}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a3e75410dfbe890908250ba63b06803ba}{get\+Adv\+Flags}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aeb7056aef63963924a6d70c46c3a07aa}{get\+Adv\+Header}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ab4dfc14f4521c619a5c5c8634b78e38d}{get\+Company\+ID}} ()
+\item 
+byte \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a833e0eceda5e2e35d0e2b24465c39c80}{geti\+Beacon\+Type}} ()
+\item 
+byte \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ae260c04cfe122fe05fb1e4d300e20326}{geti\+Beacon\+Length}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a2f518fc81fb07428e53f3b86446ce1fb}{set\+Major}} (byte\mbox{[}$\,$\mbox{]} major)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ad93efbfba2eb6504190f7b29b5e78501}{set\+Minor}} (byte\mbox{[}$\,$\mbox{]} minor)
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aea0b44e643d186a87af83e502632011d}{Trama\+IBeacon}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Constructor que crea una instancia de \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon}{Trama\+IBeacon}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase que representa la trama de un beacon i\+Beacon. 
+
+Esta clase se encarga de interpretar los datos de un beacon i\+Beacon a partir de un array de bytes. Extrae información relevante como el UUID, el major, el minor y el Tx\+Power. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aea0b44e643d186a87af83e502632011d}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!TramaIBeacon@{TramaIBeacon}}
+\index{TramaIBeacon@{TramaIBeacon}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{TramaIBeacon()}{TramaIBeacon()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aea0b44e643d186a87af83e502632011d} 
+com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+Trama\+IBeacon (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor que crea una instancia de \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon}{Trama\+IBeacon}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bytes} & Array de bytes que contiene los datos del beacon. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a3e75410dfbe890908250ba63b06803ba}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getAdvFlags@{getAdvFlags}}
+\index{getAdvFlags@{getAdvFlags}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getAdvFlags()}{getAdvFlags()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a3e75410dfbe890908250ba63b06803ba} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Adv\+Flags (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aeb7056aef63963924a6d70c46c3a07aa}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getAdvHeader@{getAdvHeader}}
+\index{getAdvHeader@{getAdvHeader}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getAdvHeader()}{getAdvHeader()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aeb7056aef63963924a6d70c46c3a07aa} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Adv\+Header (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ab4dfc14f4521c619a5c5c8634b78e38d}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getCompanyID@{getCompanyID}}
+\index{getCompanyID@{getCompanyID}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getCompanyID()}{getCompanyID()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ab4dfc14f4521c619a5c5c8634b78e38d} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Company\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ae260c04cfe122fe05fb1e4d300e20326}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getiBeaconLength@{getiBeaconLength}}
+\index{getiBeaconLength@{getiBeaconLength}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getiBeaconLength()}{getiBeaconLength()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ae260c04cfe122fe05fb1e4d300e20326} 
+byte com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+geti\+Beacon\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a833e0eceda5e2e35d0e2b24465c39c80}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getiBeaconType@{getiBeaconType}}
+\index{getiBeaconType@{getiBeaconType}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getiBeaconType()}{getiBeaconType()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a833e0eceda5e2e35d0e2b24465c39c80} 
+byte com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+geti\+Beacon\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_afd5ef17b1ce73f85c60fd3406dd662f7}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getLosBytes@{getLosBytes}}
+\index{getLosBytes@{getLosBytes}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getLosBytes()}{getLosBytes()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_afd5ef17b1ce73f85c60fd3406dd662f7} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Los\+Bytes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ac25d6c8e8749abe0ffc67710c89a952a}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getMajor@{getMajor}}
+\index{getMajor@{getMajor}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getMajor()}{getMajor()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ac25d6c8e8749abe0ffc67710c89a952a} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Major (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a5cbed19abc2be22114da86adef0f9df5}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getMinor@{getMinor}}
+\index{getMinor@{getMinor}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getMinor()}{getMinor()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a5cbed19abc2be22114da86adef0f9df5} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Minor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_af257d74daaeddfad2d4a1bf3358b4734}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getPrefijo@{getPrefijo}}
+\index{getPrefijo@{getPrefijo}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getPrefijo()}{getPrefijo()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_af257d74daaeddfad2d4a1bf3358b4734} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Prefijo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aba95d3aa037aaec9b21afab511460802}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getTxPower@{getTxPower}}
+\index{getTxPower@{getTxPower}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getTxPower()}{getTxPower()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_aba95d3aa037aaec9b21afab511460802} 
+byte com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+Tx\+Power (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a0fb83b96c5a9714e38ec57bf532d10a7}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!getUUID@{getUUID}}
+\index{getUUID@{getUUID}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getUUID()}{getUUID()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a0fb83b96c5a9714e38ec57bf532d10a7} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+get\+UUID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a2f518fc81fb07428e53f3b86446ce1fb}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!setMajor@{setMajor}}
+\index{setMajor@{setMajor}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{setMajor()}{setMajor()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_a2f518fc81fb07428e53f3b86446ce1fb} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+set\+Major (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{major}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ad93efbfba2eb6504190f7b29b5e78501}\index{com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}!setMinor@{setMinor}}
+\index{setMinor@{setMinor}!com.example.usuario\_upv.proyecto3a.TramaIBeacon@{com.example.usuario\_upv.proyecto3a.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{setMinor()}{setMinor()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon_ad93efbfba2eb6504190f7b29b5e78501} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Trama\+IBeacon.\+set\+Minor (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{minor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_trama_i_beacon_8java}{Trama\+IBeacon.\+java}}\end{DoxyCompactItemize}

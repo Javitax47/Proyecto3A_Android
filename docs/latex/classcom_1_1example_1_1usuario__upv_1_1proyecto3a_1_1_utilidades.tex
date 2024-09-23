@@ -1,0 +1,235 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+
+
+Clase utilitaria para conversiones entre diferentes tipos de datos.  
+
+
+\doxysubsubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a635c7c0d064e9d2ad7f3f21ca554e484}{string\+To\+Bytes}} (String texto)
+\begin{DoxyCompactList}\small\item\em Convierte una cadena a un arreglo de bytes. \end{DoxyCompactList}\item 
+static UUID \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f15e4d007dd843c17572e4d37a}{string\+To\+UUID}} (String uuid)
+\begin{DoxyCompactList}\small\item\em Convierte una cadena de 16 caracteres a un UUID. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a2c68da28d4324aa9f56e6016416afe9e}{uuid\+To\+String}} (UUID uuid)
+\begin{DoxyCompactList}\small\item\em Convierte un UUID a una cadena. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_aa358f070cc8dc050c75b31a676eedb3c}{uuid\+To\+Hex\+String}} (UUID uuid)
+\begin{DoxyCompactList}\small\item\em Convierte un UUID a una cadena hexadecimal. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a476aab034e0394720a79d6a1200459c5}{bytes\+To\+String}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Convierte un arreglo de bytes a una cadena. \end{DoxyCompactList}\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a933ed17994e1301dd12d66df73d3b4fd}{dos\+Long\+To\+Bytes}} (long mas\+Significativos, long menos\+Significativos)
+\begin{DoxyCompactList}\small\item\em Convierte dos longitudes a un arreglo de bytes. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_af2fdab918c995939d335fc0bdcd875e5}{bytes\+To\+Int}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Convierte un arreglo de bytes a un entero. \end{DoxyCompactList}\item 
+static long \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a4cbaf6ba4a56784da0fa0b13b94a6c50}{bytes\+To\+Long}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Convierte un arreglo de bytes a un long. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a06295765cb51dd18184e1ea99e2bed6e}{bytes\+To\+Int\+OK}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Convierte un arreglo de bytes a un entero, manejando excepciones. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a67d2f414f335f0b2a884bda9cc4050ff}{bytes\+To\+Hex\+String}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Convierte un arreglo de bytes a una cadena hexadecimal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase utilitaria para conversiones entre diferentes tipos de datos. 
+
+Esta clase contiene métodos para convertir entre cadenas, UUIDs y arreglos de bytes, así como otros métodos de utilidad. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a67d2f414f335f0b2a884bda9cc4050ff}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!bytesToHexString@{bytesToHexString}}
+\index{bytesToHexString@{bytesToHexString}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToHexString()}{bytesToHexString()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a67d2f414f335f0b2a884bda9cc4050ff} 
+static String com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+bytes\+To\+Hex\+String (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte un arreglo de bytes a una cadena hexadecimal. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bytes} & Arreglo de bytes a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La representación hexadecimal del arreglo de bytes. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_af2fdab918c995939d335fc0bdcd875e5}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!bytesToInt@{bytesToInt}}
+\index{bytesToInt@{bytesToInt}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToInt()}{bytesToInt()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_af2fdab918c995939d335fc0bdcd875e5} 
+static int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+bytes\+To\+Int (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte un arreglo de bytes a un entero. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bytes} & Arreglo de bytes a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El entero correspondiente. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a06295765cb51dd18184e1ea99e2bed6e}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!bytesToIntOK@{bytesToIntOK}}
+\index{bytesToIntOK@{bytesToIntOK}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToIntOK()}{bytesToIntOK()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a06295765cb51dd18184e1ea99e2bed6e} 
+static int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+bytes\+To\+Int\+OK (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte un arreglo de bytes a un entero, manejando excepciones. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bytes} & Arreglo de bytes a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El entero correspondiente. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em Error} & Si el arreglo de bytes es nulo o tiene más de 4 bytes. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a4cbaf6ba4a56784da0fa0b13b94a6c50}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!bytesToLong@{bytesToLong}}
+\index{bytesToLong@{bytesToLong}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToLong()}{bytesToLong()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a4cbaf6ba4a56784da0fa0b13b94a6c50} 
+static long com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+bytes\+To\+Long (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte un arreglo de bytes a un long. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bytes} & Arreglo de bytes a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El long correspondiente. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a476aab034e0394720a79d6a1200459c5}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!bytesToString@{bytesToString}}
+\index{bytesToString@{bytesToString}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToString()}{bytesToString()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a476aab034e0394720a79d6a1200459c5} 
+static String com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+bytes\+To\+String (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte un arreglo de bytes a una cadena. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bytes} & Arreglo de bytes a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La cadena correspondiente al arreglo de bytes. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a933ed17994e1301dd12d66df73d3b4fd}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!dosLongToBytes@{dosLongToBytes}}
+\index{dosLongToBytes@{dosLongToBytes}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{dosLongToBytes()}{dosLongToBytes()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a933ed17994e1301dd12d66df73d3b4fd} 
+static byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+dos\+Long\+To\+Bytes (\begin{DoxyParamCaption}\item[{long}]{mas\+Significativos}{, }\item[{long}]{menos\+Significativos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte dos longitudes a un arreglo de bytes. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em mas\+Significativos} & Longitud más significativa. \\
+\hline
+{\em menos\+Significativos} & Longitud menos significativa. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Arreglo de bytes que representa las dos longitudes. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a635c7c0d064e9d2ad7f3f21ca554e484}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!stringToBytes@{stringToBytes}}
+\index{stringToBytes@{stringToBytes}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{stringToBytes()}{stringToBytes()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a635c7c0d064e9d2ad7f3f21ca554e484} 
+static byte\mbox{[}$\,$\mbox{]} com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+string\+To\+Bytes (\begin{DoxyParamCaption}\item[{String}]{texto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte una cadena a un arreglo de bytes. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em texto} & Cadena a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Arreglo de bytes correspondiente a la cadena. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f15e4d007dd843c17572e4d37a}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!stringToUUID@{stringToUUID}}
+\index{stringToUUID@{stringToUUID}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{stringToUUID()}{stringToUUID()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f15e4d007dd843c17572e4d37a} 
+static UUID com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+string\+To\+UUID (\begin{DoxyParamCaption}\item[{String}]{uuid}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte una cadena de 16 caracteres a un UUID. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em uuid} & Cadena de 16 caracteres que representa un UUID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El UUID correspondiente. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em Error} & Si la cadena no tiene 16 caracteres. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_aa358f070cc8dc050c75b31a676eedb3c}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!uuidToHexString@{uuidToHexString}}
+\index{uuidToHexString@{uuidToHexString}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{uuidToHexString()}{uuidToHexString()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_aa358f070cc8dc050c75b31a676eedb3c} 
+static String com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+uuid\+To\+Hex\+String (\begin{DoxyParamCaption}\item[{UUID}]{uuid}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte un UUID a una cadena hexadecimal. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em uuid} & El UUID a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La representación hexadecimal del UUID. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a2c68da28d4324aa9f56e6016416afe9e}\index{com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}!uuidToString@{uuidToString}}
+\index{uuidToString@{uuidToString}!com.example.usuario\_upv.proyecto3a.Utilidades@{com.example.usuario\_upv.proyecto3a.Utilidades}}
+\doxysubsubsection{\texorpdfstring{uuidToString()}{uuidToString()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a2c68da28d4324aa9f56e6016416afe9e} 
+static String com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Utilidades.\+uuid\+To\+String (\begin{DoxyParamCaption}\item[{UUID}]{uuid}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Convierte un UUID a una cadena. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em uuid} & El UUID a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La representación de cadena del UUID. 
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_utilidades_8java}{Utilidades.\+java}}\end{DoxyCompactItemize}

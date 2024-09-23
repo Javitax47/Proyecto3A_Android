@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto3A_Android: Proyecto3A_Android</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Proyecto3A_Android
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Proyecto3A_Android </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
+<p>Este proyecto es una aplicación Android que utiliza beacons para medir niveles de CO2 y temperatura. La aplicación se conecta a un servidor para almacenar y recuperar datos de sensores a través de una API REST.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Funcionalidades</h1>
+<ul>
+<li><b>Detección de Dispositivos BTLE</b>: La aplicación busca y se conecta a beacons Bluetooth Low Energy.</li>
+<li><b>Medición de Sensores</b>: Recopila datos de sensores (CO2 y temperatura) y los envía al servidor.</li>
+<li><b>Gestión de Usuarios</b>: Permite la creación y eliminación de usuarios en el sistema.</li>
+<li><b>Interfaz de Usuario</b>: Interfaz sencilla para interactuar con la aplicación y visualizar datos.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Requisitos</h1>
+<ul>
+<li>Android Studio</li>
+<li>SDK de Android (versión mínima recomendada: 21)</li>
+<li>Dependencias:<ul>
+<li>Retrofit para la comunicación con la API REST</li>
+<li>Gson para la conversión de JSON</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Estructura del Proyecto</h1>
+<div class="fragment"><div class="line">/app </div>
+<div class="line">    /src </div>
+<div class="line">        /main </div>
+<div class="line">            /java </div>
+<div class="line">                /com.example.usuario_upv.proyecto3a</div>
+<div class="line">                - MainActivity.java </div>
+<div class="line">                - RetrofitClient.java </div>
+<div class="line">                - SensorApi.java </div>
+<div class="line">                - SensorData.java </div>
+<div class="line">                - User.java </div>
+<div class="line">                - Utilidades.java </div>
+<div class="line">                - TramaIBeacon.java </div>
+<div class="line">            /res </div>
+<div class="line">                /layout </div>
+<div class="line">                /drawable </div>
+<div class="line">                /values</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+Estructura de la Base de Datos</h2>
+<ul>
+<li><b>Tabla <code>sensors</code></b>:<ul>
+<li><code>id</code>: Identificador único.</li>
+<li><code>type</code>: Tipo de sensor (CO2, temperatura).</li>
+<li><code>value</code>: Valor medido.</li>
+<li><code>timestamp</code>: Marca de tiempo de la medición.</li>
+<li><code>user_id</code>: Identificador del usuario.</li>
+</ul>
+</li>
+<li><b>Tabla <code>users</code></b>:<ul>
+<li><code>id</code>: Identificador único.</li>
+<li><code>username</code>: Nombre de usuario.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Instalación</h1>
+<ol type="1">
+<li><p class="startli">Clona este repositorio:</p>
+<div class="fragment"><div class="line">git clone https://github.com/Javitax47/Proyecto3A_Android.git</div>
+</div><!-- fragment --></li>
+<li>Abre el proyecto en Android Studio.</li>
+<li>Asegúrate de tener configuradas las dependencias necesarias en tu archivo build.gradle.</li>
+<li>Ejecuta la aplicación en un dispositivo Android.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Uso</h1>
+<ol type="1">
+<li>Abre la aplicación en tu dispositivo Android.</li>
+<li>Usa los botones de la interfaz para buscar dispositivos BTLE y detener la búsqueda.</li>
+<li>Se mostrarán los datos de los sensores en la interfaz.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Contribuciones</h1>
+<p>Si deseas contribuir a este proyecto, por favor, crea un fork del repositorio y envía un pull request con tus cambios.</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Licencia</h1>
+<p>Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles. </p>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
