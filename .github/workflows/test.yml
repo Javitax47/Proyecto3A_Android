@@ -12,18 +12,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14, 16]
-
     steps:
     - name: Check out repository
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+    - name: Clean npm cache
+      run: npm cache clean --force
+
+    - name: Remove node_modules
+      run: rm -rf node_modules
 
     - name: Install dependencies
       run: npm install
