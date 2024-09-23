@@ -337,21 +337,27 @@ public class MainActivity extends AppCompatActivity {
                 long segundosRestantesTemperatura = tiempoRestanteTemperatura / 1000;
 
                 if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 1) {
-                    cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantesCO2 + "s...");
-                    tiempoRestanteCO2 -= intervalo; // Solo actualiza el tiempo restante de CO2
+                    if (tiempoRestanteCO2 >= 0) {
+                        cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantesCO2 + "s...");
+                        tiempoRestanteCO2 -= intervalo;
+                    } else {
+                        eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
+                        return; // Detener ejecución cuando el tiempo de CO2 llegue a 0
+                    }
                 } else if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 2) {
-                    cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantesTemperatura + "s...");
-                    tiempoRestanteTemperatura -= intervalo; // Solo actualiza el tiempo restante de Temperatura
+                    if (tiempoRestanteTemperatura >= 0) {
+                        cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantesTemperatura + "s...");
+                        tiempoRestanteTemperatura -= intervalo;
+                    } else {
+                        eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
+                        return; // Detener ejecución cuando el tiempo de Temperatura llegue a 0
+                    }
                 }
 
-                if (tiempoRestanteCO2 > 0) {
-                    nuevoTemporizador.postDelayed(this, intervalo);
-                } else {
-                    // Cuando el tiempo de CO2 se acabe, elimina la vista
-                    eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
-                }
+                nuevoTemporizador.postDelayed(this, intervalo);
             }
         };
+
 
         // Iniciar la cuenta atrás
         nuevoTemporizador.post(actualizarCuentaAtras);
@@ -439,7 +445,7 @@ public class MainActivity extends AppCompatActivity {
                     if (procesarBeacon(majorValue, minorValue) == 1) {
                         sensor = "CO2";
                     } else if (procesarBeacon(majorValue, minorValue) == 2) {
-                        sensor = "Temperatura";
+                        sensor = "temperature";
                     }
 
                     SensorData sensorData = new SensorData(sensor, minorValue, 1);
@@ -499,8 +505,8 @@ public class MainActivity extends AppCompatActivity {
     public void botonBuscarNuestroDispositivoBTLEPulsado(View v) {
         Log.d(ETIQUETA_LOG, " boton nuestro dispositivo BTLE Pulsado");
         runOnUiThread(() -> image4.setVisibility(View.VISIBLE));
-        this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID("HeyJavierJavier!"));
-        //this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID("EPSG-GTI-PROY-3A"));
+        //this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID("HeyJavierJavier!"));
+        this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID("EPSG-GTI-PROY-3A"));
     } // ()
 
     // --------------------------------------------------------------
