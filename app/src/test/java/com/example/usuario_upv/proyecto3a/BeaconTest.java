@@ -13,12 +13,14 @@ public class BeaconTest {
     private final UUID UUID_DISPOSITIVO_BUSCADO = Utilidades.stringToUUID("EPSG-GTI-PROY-3A");
     private ScanResult mockResultado;
     private TramaIBeacon mockTramaIBeacon;
+    private MainActivity mainActivity;
 
     @Before
     public void setUp() {
         // Inicializamos los mocks
         mockResultado = Mockito.mock(ScanResult.class);
         mockTramaIBeacon = Mockito.mock(TramaIBeacon.class);
+        mainActivity = new MainActivity(); // Crear instancia de MainActivity
 
         // Simulamos los valores del beacon
         Mockito.when(mockResultado.getDevice().getName()).thenReturn("Sensor CO2");
@@ -32,15 +34,15 @@ public class BeaconTest {
     @Test
     public void testBeaconCO2Detection() {
         // Simulamos el escaneo de un beacon y procesamos la información
-        MainActivity.mostrarInformacionDispositivoBTLE(mockResultado, UUID_DISPOSITIVO_BUSCADO);
+        mainActivity.mostrarInformacionDispositivoBTLE(mockResultado, UUID_DISPOSITIVO_BUSCADO);
 
         // Verificamos que el tipo de sensor sea CO2
-        int tipoSensor = MainActivity.procesarBeacon(0x0B01, 0x0064); // Major (CO2) y Minor (valor)
+        int tipoSensor = mainActivity.procesarBeacon(0x0B01, 0x0064); // Major (CO2) y Minor (valor)
         assertEquals(1, tipoSensor); // 1 indica CO2
 
         // Verificamos que el valor del sensor sea correcto
-        assertTrue(MainActivity.beaconCO2Activo);
-        assertEquals("CO2: 100", MainActivity.dato1.getText().toString());
+        assertTrue(mainActivity.beaconCO2Activo);
+        assertEquals("CO2: 100", mainActivity.dato1.getText().toString());
     }
 
     @Test
@@ -50,14 +52,14 @@ public class BeaconTest {
         Mockito.when(mockTramaIBeacon.getMinor()).thenReturn(new byte[]{0x00, 0x1E}); // Valor de temperatura = 30
 
         // Simulamos el escaneo y procesamos la información
-        MainActivity.mostrarInformacionDispositivoBTLE(mockResultado, UUID_DISPOSITIVO_BUSCADO);
+        mainActivity.mostrarInformacionDispositivoBTLE(mockResultado, UUID_DISPOSITIVO_BUSCADO);
 
         // Verificamos que el tipo de sensor sea Temperatura
-        int tipoSensor = MainActivity.procesarBeacon(0x0C01, 0x001E); // Major (Temperatura) y Minor (valor)
+        int tipoSensor = mainActivity.procesarBeacon(0x0C01, 0x001E); // Major (Temperatura) y Minor (valor)
         assertEquals(2, tipoSensor); // 2 indica Temperatura
 
         // Verificamos que el valor del sensor sea correcto
-        assertTrue(MainActivity.beaconTemperaturaActivo);
-        assertEquals("ºC: 30", MainActivity.dato2.getText().toString());
+        assertTrue(mainActivity.beaconTemperaturaActivo);
+        assertEquals("ºC: 30", mainActivity.dato2.getText().toString());
     }
 }
