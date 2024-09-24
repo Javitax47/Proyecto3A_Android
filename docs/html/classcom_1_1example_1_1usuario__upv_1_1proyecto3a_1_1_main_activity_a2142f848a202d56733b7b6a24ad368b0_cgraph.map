@@ -1,0 +1,5 @@
+<map id="com.example.usuario_upv.proyecto3a.MainActivity.actualizarIP" name="com.example.usuario_upv.proyecto3a.MainActivity.actualizarIP">
+<area shape="rect" id="Node000001" title="Actualiza la dirección IP del servidor para la conexión con la API." alt="" coords="5,13,270,56"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client.html#a219b081cb35f8af305c9799cc54be65b" title="Obtiene la instancia de Retrofit." alt="" coords="318,5,537,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,32,302,32,302,37,270,37"/>
+</map>

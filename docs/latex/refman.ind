@@ -1,0 +1,261 @@
+\begin{theindex}
+
+  \item {actualizarIP}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{15}
+  \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/MainActivity.java}, 
+		\hyperpage{37}
+  \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/RetrofitClient.java}, 
+		\hyperpage{38}
+  \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/SensorApi.java}, 
+		\hyperpage{38}
+  \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/SensorData.java}, 
+		\hyperpage{39}
+  \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/TramaIBeacon.java}, 
+		\hyperpage{40}
+  \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/User.java}, 
+		\hyperpage{40}
+  \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/Utilidades.java}, 
+		\hyperpage{41}
+
+  \indexspace
+
+  \item {botonBuscarDispositivosBTLEPulsado}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{15}
+  \item {botonBuscarNuestroDispositivoBTLEPulsado}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{16}
+  \item {botonDetenerBusquedaDispositivosBTLEPulsado}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{16}
+  \item {bytesToHexString}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{31}
+  \item {bytesToInt}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{32}
+  \item {bytesToIntOK}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{32}
+  \item {bytesToLong}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{32}
+  \item {bytesToString}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{33}
+
+  \indexspace
+
+  \item {checkConnection}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
+		\hyperpage{20}
+  \item {com.example.usuario\_upv.proyecto3a}, \hyperpage{11}
+  \item {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{13}
+    \subitem {actualizarIP}, \hyperpage{15}
+    \subitem {botonBuscarDispositivosBTLEPulsado}, \hyperpage{15}
+    \subitem {botonBuscarNuestroDispositivoBTLEPulsado}, \hyperpage{16}
+    \subitem {botonDetenerBusquedaDispositivosBTLEPulsado}, 
+		\hyperpage{16}
+    \subitem {onCreate}, \hyperpage{16}
+    \subitem {onRequestPermissionsResult}, \hyperpage{17}
+    \subitem {procesarBeacon}, \hyperpage{17}
+  \item {com.example.usuario\_upv.proyecto3a.RetrofitClient}, 
+		\hyperpage{18}
+    \subitem {getClient}, \hyperpage{18}
+  \item {com.example.usuario\_upv.proyecto3a.SensorApi}, \hyperpage{19}
+    \subitem {checkConnection}, \hyperpage{20}
+    \subitem {createSensorData}, \hyperpage{20}
+    \subitem {createUser}, \hyperpage{20}
+    \subitem {deleteUser}, \hyperpage{22}
+    \subitem {resetTables}, \hyperpage{22}
+    \subitem {setupTables}, \hyperpage{22}
+  \item {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{23}
+    \subitem {getTimestamp}, \hyperpage{24}
+    \subitem {getType}, \hyperpage{24}
+    \subitem {getUserId}, \hyperpage{24}
+    \subitem {getValue}, \hyperpage{24}
+    \subitem {SensorData}, \hyperpage{24}
+    \subitem {setTimestamp}, \hyperpage{24}
+    \subitem {setType}, \hyperpage{25}
+    \subitem {setUserId}, \hyperpage{25}
+    \subitem {setValue}, \hyperpage{25}
+  \item {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{26}
+    \subitem {getAdvFlags}, \hyperpage{27}
+    \subitem {getAdvHeader}, \hyperpage{27}
+    \subitem {getCompanyID}, \hyperpage{27}
+    \subitem {getiBeaconLength}, \hyperpage{27}
+    \subitem {getiBeaconType}, \hyperpage{27}
+    \subitem {getLosBytes}, \hyperpage{27}
+    \subitem {getMajor}, \hyperpage{28}
+    \subitem {getMinor}, \hyperpage{28}
+    \subitem {getPrefijo}, \hyperpage{28}
+    \subitem {getTxPower}, \hyperpage{28}
+    \subitem {getUUID}, \hyperpage{28}
+    \subitem {setMajor}, \hyperpage{28}
+    \subitem {setMinor}, \hyperpage{28}
+    \subitem {TramaIBeacon}, \hyperpage{27}
+  \item {com.example.usuario\_upv.proyecto3a.User}, \hyperpage{29}
+    \subitem {getUsername}, \hyperpage{30}
+    \subitem {setUsername}, \hyperpage{30}
+    \subitem {User}, \hyperpage{29}
+  \item {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{30}
+    \subitem {bytesToHexString}, \hyperpage{31}
+    \subitem {bytesToInt}, \hyperpage{32}
+    \subitem {bytesToIntOK}, \hyperpage{32}
+    \subitem {bytesToLong}, \hyperpage{32}
+    \subitem {bytesToString}, \hyperpage{33}
+    \subitem {dosLongToBytes}, \hyperpage{33}
+    \subitem {stringToBytes}, \hyperpage{34}
+    \subitem {stringToUUID}, \hyperpage{34}
+    \subitem {uuidToHexString}, \hyperpage{35}
+    \subitem {uuidToString}, \hyperpage{36}
+  \item {createSensorData}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
+		\hyperpage{20}
+  \item {createUser}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
+		\hyperpage{20}
+
+  \indexspace
+
+  \item {deleteUser}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
+		\hyperpage{22}
+  \item {dosLongToBytes}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{33}
+
+  \indexspace
+
+  \item {getAdvFlags}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{27}
+  \item {getAdvHeader}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{27}
+  \item {getClient}
+    \subitem {com.example.usuario\_upv.proyecto3a.RetrofitClient}, 
+		\hyperpage{18}
+  \item {getCompanyID}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{27}
+  \item {getiBeaconLength}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{27}
+  \item {getiBeaconType}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{27}
+  \item {getLosBytes}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{27}
+  \item {getMajor}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{28}
+  \item {getMinor}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{28}
+  \item {getPrefijo}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{28}
+  \item {getTimestamp}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{24}
+  \item {getTxPower}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{28}
+  \item {getType}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{24}
+  \item {getUserId}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{24}
+  \item {getUsername}
+    \subitem {com.example.usuario\_upv.proyecto3a.User}, \hyperpage{30}
+  \item {getUUID}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{28}
+  \item {getValue}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{24}
+
+  \indexspace
+
+  \item {onCreate}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{16}
+  \item {onRequestPermissionsResult}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{17}
+
+  \indexspace
+
+  \item {procesarBeacon}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{17}
+  \item {Proyecto3A\_Android}, \hyperpage{1}
+
+  \indexspace
+
+  \item {README.md}, \hyperpage{41}
+  \item {resetTables}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
+		\hyperpage{22}
+
+  \indexspace
+
+  \item {SensorData}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{24}
+  \item {setMajor}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{28}
+  \item {setMinor}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{28}
+  \item {setTimestamp}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{24}
+  \item {setType}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{25}
+  \item {setupTables}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
+		\hyperpage{22}
+  \item {setUserId}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{25}
+  \item {setUsername}
+    \subitem {com.example.usuario\_upv.proyecto3a.User}, \hyperpage{30}
+  \item {setValue}
+    \subitem {com.example.usuario\_upv.proyecto3a.SensorData}, 
+		\hyperpage{25}
+  \item {stringToBytes}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{34}
+  \item {stringToUUID}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{34}
+
+  \indexspace
+
+  \item {TramaIBeacon}
+    \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
+		\hyperpage{27}
+
+  \indexspace
+
+  \item {User}
+    \subitem {com.example.usuario\_upv.proyecto3a.User}, \hyperpage{29}
+  \item {uuidToHexString}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{35}
+  \item {uuidToString}
+    \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
+		\hyperpage{36}
+
+\end{theindex}

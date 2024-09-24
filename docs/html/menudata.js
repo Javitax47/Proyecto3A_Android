@@ -29,7 +29,7 @@ var menudata={children:[
 {text:"Clases",url:"annotated.html",children:[
 {text:"Lista de clases",url:"annotated.html"},
 {text:"Índice de clases",url:"classes.html"},
-{text:"Jerarquía de clases",url:"hierarchy.html"},
+{text:"Jerarquía de clases",url:"inherits.html"},
 {text:"Miembros de clases",url:"functions.html",children:[
 {text:"Todos",url:"functions.html",children:[
 {text:"a",url:"functions.html#index_a"},

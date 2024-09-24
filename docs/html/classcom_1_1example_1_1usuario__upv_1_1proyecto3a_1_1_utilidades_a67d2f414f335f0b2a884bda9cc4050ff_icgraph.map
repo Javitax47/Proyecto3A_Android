@@ -1,0 +1,5 @@
+<map id="com.example.usuario_upv.proyecto3a.Utilidades.bytesToHexString" name="com.example.usuario_upv.proyecto3a.Utilidades.bytesToHexString">
+<area shape="rect" id="Node000001" title="Convierte un arreglo de bytes a una cadena hexadecimal." alt="" coords="260,5,474,64"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades.html#aa358f070cc8dc050c75b31a676eedb3c" title="Convierte un UUID a una cadena hexadecimal." alt="" coords="5,5,212,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,37,212,37,212,32,244,32"/>
+</map>
