@@ -1,29 +1,26 @@
-name: Node.js CI
+name: Run Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Clean npm cache
-      run: npm cache clean --force
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # o la versión que estés usando
 
-    - name: Remove node_modules
-      run: rm -rf node_modules
+      - name: Install dependencies
+        run: npm install
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run tests
-      run: npx jest
+      - name: Run tests
+        run: npm test
