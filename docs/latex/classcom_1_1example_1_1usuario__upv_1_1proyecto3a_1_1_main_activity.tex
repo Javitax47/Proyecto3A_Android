@@ -8,28 +8,18 @@
 
 
 Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Main\+Activity
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=272pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Main\+Activity\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=322pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142f848a202d56733b7b6a24ad368b0}{actualizar\+IP}} (View view)
 \begin{DoxyCompactList}\small\item\em Actualiza la dirección IP del servidor para la conexión con la API. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6cf7ec4f2c81a3e7281aefb760872c74}{actualizar\+Uuid}} (View view)
+\item 
 int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a1395b32176d9ba8bf350106bf0f8e6c2}{procesar\+Beacon}} (int major, int minor)
 \begin{DoxyCompactList}\small\item\em Procesa la información del beacon detectado. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6106cd52543793a4decb28c4ce49d674}{boton\+Buscar\+Nuestro\+Dispositivo\+BTLEPulsado}} (View v)
@@ -70,14 +60,19 @@ Este método es llamado cuando el usuario introduce una IP y presiona el botón 
 {\em view} & La vista que desencadena este método, generalmente el botón de envío de la IP. \\
 \hline
 \end{DoxyParams}
-Gráfico de llamadas de esta función\+:
-\nopagebreak
+Gráfico de llamadas de esta función\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142f848a202d56733b7b6a24ad368b0_cgraph}
 \end{center}
 \end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6cf7ec4f2c81a3e7281aefb760872c74}\index{com.example.usuario\_upv.proyecto3a.MainActivity@{com.example.usuario\_upv.proyecto3a.MainActivity}!actualizarUuid@{actualizarUuid}}
+\index{actualizarUuid@{actualizarUuid}!com.example.usuario\_upv.proyecto3a.MainActivity@{com.example.usuario\_upv.proyecto3a.MainActivity}}
+\doxysubsubsection{\texorpdfstring{actualizarUuid()}{actualizarUuid()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6cf7ec4f2c81a3e7281aefb760872c74} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Main\+Activity.\+actualizar\+Uuid (\begin{DoxyParamCaption}\item[{View}]{view}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_ac30503113d8f49c7fb0cadb139b7115e}\index{com.example.usuario\_upv.proyecto3a.MainActivity@{com.example.usuario\_upv.proyecto3a.MainActivity}!botonBuscarDispositivosBTLEPulsado@{botonBuscarDispositivosBTLEPulsado}}
 \index{botonBuscarDispositivosBTLEPulsado@{botonBuscarDispositivosBTLEPulsado}!com.example.usuario\_upv.proyecto3a.MainActivity@{com.example.usuario\_upv.proyecto3a.MainActivity}}
 \doxysubsubsection{\texorpdfstring{botonBuscarDispositivosBTLEPulsado()}{botonBuscarDispositivosBTLEPulsado()}}
@@ -112,8 +107,7 @@ Este método se invoca cuando se pulsa el botón correspondiente en la interfaz 
 {\em v} & La vista que ha sido pulsada (el botón). \\
 \hline
 \end{DoxyParams}
-Gráfico de llamadas de esta función\+:
-\nopagebreak
+Gráfico de llamadas de esta función\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -154,6 +148,8 @@ Este método inicializa la actividad, configurando el layout y asignando las ref
 {\em saved\+Instance\+State} & Estado previamente guardado de la actividad, si existe. \\
 \hline
 \end{DoxyParams}
+Gráfico de llamadas de esta función\+:
+% FIG 2
 \Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_afdbd4eed9230ad64c9ecb6c3142e433b}\index{com.example.usuario\_upv.proyecto3a.MainActivity@{com.example.usuario\_upv.proyecto3a.MainActivity}!onRequestPermissionsResult@{onRequestPermissionsResult}}
 \index{onRequestPermissionsResult@{onRequestPermissionsResult}!com.example.usuario\_upv.proyecto3a.MainActivity@{com.example.usuario\_upv.proyecto3a.MainActivity}}
 \doxysubsubsection{\texorpdfstring{onRequestPermissionsResult()}{onRequestPermissionsResult()}}
