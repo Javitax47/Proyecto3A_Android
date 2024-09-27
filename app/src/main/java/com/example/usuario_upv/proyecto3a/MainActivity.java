@@ -122,7 +122,14 @@ public class MainActivity extends AppCompatActivity {
      */
     private EditText uuidDeseado;
 
+    /**
+     * @brief String para asignar el nuevo UUID que se quiere detectar.
+     */
     private String nuevoUuid;
+
+    /**
+     * @brief String de puerto e ip por defecto (localhost).
+     */
     private String ip = "http://0.0.0.0:13000/";
 
     // --------------------------------------------------------------
