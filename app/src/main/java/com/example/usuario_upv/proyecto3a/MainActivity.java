@@ -7,14 +7,12 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
-import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +28,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.IOError;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -121,6 +117,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private EditText ipInput;
 
+    /**
+     * @brief EditText donde el usuario ingresa la UUID para detectar el beacon deseado.
+     */
+    private EditText uuidDeseado;
+
+    private String nuevoUuid;
+
     // --------------------------------------------------------------
     // Estados de los beacons
     // --------------------------------------------------------------
@@ -185,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, "onCreate(): termina");
 
+        nuevoUuid = "EPSG-GTI-PROY-3A";
+
         // Inicializa los TextView
         dato1 = findViewById(R.id.valor1);
         dato2 = findViewById(R.id.valor2);
@@ -198,8 +203,8 @@ public class MainActivity extends AppCompatActivity {
         // Inicializa el EditText para la IP del servidor
         ipInput = findViewById(R.id.serverIP);
 
-        // Inicializa el botón de envío de la IP
-        Button ipButton = findViewById(R.id.submitIP);
+        // Inicializa el EditText para la IP del servidor
+        uuidDeseado = findViewById(R.id.elegirUuid);
 
         // Inicializa el contenedor para los beacons detectados
         contenedorBeacons = findViewById(R.id.contenedorBeacons);
@@ -233,6 +238,18 @@ public class MainActivity extends AppCompatActivity {
 
         // Verificar la conexión con el servidor
         checkConnection();
+    }
+
+    public void actualizarUuid(View view) {
+        // Obtener la UUID ingresada por el usuario
+        nuevoUuid = uuidDeseado.getText().toString().trim();
+
+        // Validar que la IP no esté vacía
+        if (nuevoUuid.isEmpty()) {
+            Toast.makeText(MainActivity.this, "Please enter a valid UUID", Toast.LENGTH_SHORT).show();
+        }
+
+        Toast.makeText(MainActivity.this, "UUID actualizado", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -776,8 +793,8 @@ public class MainActivity extends AppCompatActivity {
         // Mostrar la imagen indicando que la búsqueda está en curso
         runOnUiThread(() -> image4.setVisibility(View.VISIBLE));
 
-        // Llamar al método para buscar el dispositivo BLE con el UUID especificado
-        this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID("EPSG-GTI-PROY-3A"));
+        // Llamar al método para buscar el dispositivo BTLE con el UUID especificado
+        this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID(nuevoUuid));
     }
 
 

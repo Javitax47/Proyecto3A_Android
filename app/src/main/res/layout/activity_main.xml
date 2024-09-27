@@ -6,6 +6,31 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/submitIP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="actualizarIP"
+        android:text="Actualizar"
+        app:layout_constraintBottom_toBottomOf="@+id/serverIP"
+        app:layout_constraintStart_toEndOf="@+id/serverIP"
+        app:layout_constraintTop_toTopOf="@+id/serverIP"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/elegirUuid"
+        android:layout_width="350dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Beacon UUID"
+        android:inputType="text"
+        android:text="EPSG-GTI-PROY-3A"
+        app:layout_constraintEnd_toEndOf="@+id/submitIP2"
+        app:layout_constraintStart_toStartOf="@+id/serverIP"
+        app:layout_constraintTop_toBottomOf="@+id/serverIP" />
+
+    <Button
         android:id="@+id/botonBuscarDispositivosBTLE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,17 +142,15 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/border_drawable"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/serverIP"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/actualizarUuid">
 
         <LinearLayout
             android:id="@+id/contenedorBeacons"
@@ -153,14 +176,14 @@
         app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE" />
 
     <Button
-        android:id="@+id/submitIP"
-        android:layout_width="wrap_content"
+        android:id="@+id/actualizarUuid"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:onClick="actualizarIP"
-        android:text="Actualizar"
-        app:layout_constraintBottom_toBottomOf="@+id/serverIP"
-        app:layout_constraintStart_toEndOf="@+id/serverIP"
-        app:layout_constraintTop_toTopOf="@+id/serverIP" />
+        android:layout_marginTop="8dp"
+        android:onClick="actualizarUuid"
+        android:text="Actualizar UUID"
+        app:layout_constraintEnd_toEndOf="@+id/elegirUuid"
+        app:layout_constraintStart_toStartOf="@+id/elegirUuid"
+        app:layout_constraintTop_toBottomOf="@+id/elegirUuid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
