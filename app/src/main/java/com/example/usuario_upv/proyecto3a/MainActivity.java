@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText uuidDeseado;
 
     private String nuevoUuid;
+    private String ip = "http://0.0.0.0:13000/";
 
     // --------------------------------------------------------------
     // Estados de los beacons
@@ -190,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
 
         nuevoUuid = "EPSG-GTI-PROY-3A";
 
+        api = RetrofitClient.getClient(ip).create(SensorApi.class);
+
         // Inicializa los TextView
         dato1 = findViewById(R.id.valor1);
         dato2 = findViewById(R.id.valor2);
@@ -221,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void actualizarIP(View view) {
         // Obtener la IP ingresada por el usuario
-        String ip = ipInput.getText().toString().trim();
+        ip = ipInput.getText().toString().trim();
 
         // Validar que la IP no esté vacía
         if (ip.isEmpty()) {
@@ -232,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
         // Configurar la URL base para Retrofit
         String baseUrl = "http://" + ip + ":13000/";
         api = RetrofitClient.getClient(baseUrl).create(SensorApi.class);
+
 
         // Mostrar un mensaje con la IP configurada
         Toast.makeText(MainActivity.this, "Server IP set to: " + baseUrl, Toast.LENGTH_SHORT).show();
@@ -442,10 +446,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Crear una clave única para cada combinación de UUID y tipo de sensor (majorValue)
+        String claveVista = uuid + "_" + majorValue;
+
         // Verificar si el dispositivo ya tiene una vista asociada y actualizarla, o crear una nueva
-        if (vistasDispositivosDetectados.containsKey(uuid)) {
+        if (vistasDispositivosDetectados.containsKey(claveVista)) {
             // Actualizar vista existente
-            View vistaExistente = vistasDispositivosDetectados.get(uuid);
+            View vistaExistente = vistasDispositivosDetectados.get(claveVista);
             TextView majorTextView = vistaExistente.findViewById(R.id.majorTextView);
             TextView minorTextView = vistaExistente.findViewById(R.id.minorTextView);
 
@@ -460,7 +467,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // Crear nueva vista para el dispositivo detectado
             View nuevaVista = crearVistaDispositivo(bluetoothDevice, tib, dispositivoBuscado);
-            vistasDispositivosDetectados.put(uuid, nuevaVista);
+            vistasDispositivosDetectados.put(claveVista, nuevaVista);
 
             // Agregar la nueva vista al contenedor visual
             LinearLayout contenedor = findViewById(R.id.contenedorBeacons);
@@ -553,10 +560,22 @@ public class MainActivity extends AppCompatActivity {
      * @param dispositivoBuscado UUID del dispositivo específico que se está buscando, si corresponde.
      */
     private void reiniciarTemporizador(final String uuid, final int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
-        // Si ya existe un temporizador para este dispositivo, cancélalo
-        if (temporizadoresDispositivos.containsKey(uuid)) {
-            Handler temporizadorExistente = temporizadoresDispositivos.get(uuid);
-            temporizadorExistente.removeCallbacksAndMessages(null);
+        // Crear una clave única basada en el UUID y el tipo de sensor (majorValue)
+        String claveVista = uuid + "_" + majorValue;
+
+        // Verificar si la vista ya existe en el mapa
+        if (!vistasDispositivosDetectados.containsKey(claveVista)) {
+            Log.e(ETIQUETA_LOG, "Error: No se encontró la vista para el dispositivo con UUID: " + uuid + " y major: " + majorValue);
+            return;  // Detener ejecución si no existe la vista
+        }
+
+        // Obtener la vista correspondiente al dispositivo
+        View vistaDispositivo = vistasDispositivosDetectados.get(claveVista);
+
+        // Asegurarse de que la vista no sea nula
+        if (vistaDispositivo == null) {
+            Log.e(ETIQUETA_LOG, "Error: La vista del dispositivo es nula para el UUID: " + uuid + " y major: " + majorValue);
+            return;  // Detener ejecución si la vista es nula
         }
 
         // Crear un nuevo temporizador
@@ -564,19 +583,24 @@ public class MainActivity extends AppCompatActivity {
         final long tiempoTotal = 10000; // 10 segundos
         final long intervalo = 1000;   // 1 segundo
 
+        // Inicializar variables de tiempo restante para CO2 y Temperatura de forma independiente
         final TextView cuentaAtrasCO2 = findViewById(R.id.cuentaAtrasCO2);
         final TextView cuentaAtrasTemperatura = findViewById(R.id.cuentaAtrasTemperatura);
+
+        TextView cuentaAtrasTextView = vistaDispositivo.findViewById(R.id.cuentaAtrasTextView);
 
         Runnable actualizarCuentaAtras = new Runnable() {
             long tiempoRestanteCO2 = tiempoTotal;
             long tiempoRestanteTemperatura = tiempoTotal;
+            long tiempoRestante = tiempoTotal;
 
             @Override
             public void run() {
-                long segundosRestantesCO2 = tiempoRestanteCO2 / 1000;
-                long segundosRestantesTemperatura = tiempoRestanteTemperatura / 1000;
+                // Obtener el tipo de beacon (CO2 o Temperatura) basado en el majorValue
+                int tipoBeacon = procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor()));
 
-                if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 1) {
+                if (tipoBeacon == 1) { // CO2
+                    long segundosRestantesCO2 = tiempoRestanteCO2 / 1000;
                     if (tiempoRestanteCO2 >= 0) {
                         cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantesCO2 + "s...");
                         tiempoRestanteCO2 -= intervalo;
@@ -584,7 +608,8 @@ public class MainActivity extends AppCompatActivity {
                         eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
                         return; // Detener ejecución cuando el tiempo de CO2 llegue a 0
                     }
-                } else if (procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor())) == 2) {
+                } else if (tipoBeacon == 2) { // Temperatura
+                    long segundosRestantesTemperatura = tiempoRestanteTemperatura / 1000;
                     if (tiempoRestanteTemperatura >= 0) {
                         cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantesTemperatura + "s...");
                         tiempoRestanteTemperatura -= intervalo;
@@ -592,8 +617,15 @@ public class MainActivity extends AppCompatActivity {
                         eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
                         return; // Detener ejecución cuando el tiempo de Temperatura llegue a 0
                     }
+                } else {
+                    if (tiempoRestante >= 0) {
+                        long segundosRestantes = tiempoRestante / 1000;
+                        cuentaAtrasTextView.setText("Desconectando en: " + segundosRestantes + "s...");
+                        tiempoRestante -= intervalo;
+                    } else {
+                        eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
+                    }
                 }
-
                 nuevoTemporizador.postDelayed(this, intervalo); // Repetir el runnable cada segundo
             }
         };
@@ -601,11 +633,9 @@ public class MainActivity extends AppCompatActivity {
         // Iniciar la cuenta atrás
         nuevoTemporizador.post(actualizarCuentaAtras);
 
-        // Almacenar el nuevo temporizador
-        temporizadoresDispositivos.put(uuid, nuevoTemporizador);
+        // Almacenar el nuevo temporizador con la clave basada en UUID y tipo de sensor
+        temporizadoresDispositivos.put(claveVista, nuevoTemporizador);
     }
-
-
 
     /**
      * @brief Elimina la vista de un dispositivo detectado de la interfaz de usuario.
@@ -621,9 +651,12 @@ public class MainActivity extends AppCompatActivity {
      * @param dispositivoBuscado UUID del dispositivo específico que se está buscando, si corresponde.
      */
     private void eliminarVistaDispositivo(String uuid, int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
-        // Verifica si hay una vista existente para el dispositivo
-        if (vistasDispositivosDetectados.containsKey(uuid)) {
-            View vistaAEliminar = vistasDispositivosDetectados.get(uuid);
+        // Crear una clave única basada en el UUID y el tipo de sensor (majorValue)
+        String claveVista = uuid + "_" + majorValue;
+
+        // Verifica si hay una vista existente para el dispositivo y tipo de sensor
+        if (vistasDispositivosDetectados.containsKey(claveVista)) {
+            View vistaAEliminar = vistasDispositivosDetectados.get(claveVista);
 
             // Determinar si es el beacon de CO2 o temperatura según el valor de major
             runOnUiThread(() -> {
@@ -641,13 +674,14 @@ public class MainActivity extends AppCompatActivity {
             contenedor.removeView(vistaAEliminar);
 
             // Remover el dispositivo del mapa de vistas y del mapa de temporizadores
-            vistasDispositivosDetectados.remove(uuid);
-            temporizadoresDispositivos.remove(uuid);
+            vistasDispositivosDetectados.remove(claveVista);
+            temporizadoresDispositivos.remove(claveVista);
 
-            Log.d(ETIQUETA_LOG, "Dispositivo eliminado por inactividad: " + uuid);
+            Log.d(ETIQUETA_LOG, "Dispositivo eliminado por inactividad: " + claveVista);
+        } else {
+            Log.d(ETIQUETA_LOG, "No se encontró vista para eliminar con clave: " + claveVista);
         }
     }
-
 
     /**
      * @brief Procesa la información del beacon detectado.
@@ -726,26 +760,20 @@ public class MainActivity extends AppCompatActivity {
 
                     SensorData sensorData = new SensorData(sensor, minorValue, 1);
 
-                    Call<Void> call;
-                    try {
-                        call = api.createSensorData(sensorData); // Instanciar call dentro del try
-                    } catch (IOError e) { // Asegúrate de capturar la excepción correcta
-                        Log.d(ETIQUETA_LOG, "Error al crear paquete de datos: " + e);
-                        return;
-                    }
+                    Call<Void> call = api.createSensorData(sensorData); // Instanciar call dentro del try
 
                     // Enviar datos del sensor al servidor
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "Medición insertada con éxito", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Medición insertada con éxito en el servidor", Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {
-                            Toast.makeText(MainActivity.this, "Error al insertar medición", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Error al insertar medición en el servidor", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
