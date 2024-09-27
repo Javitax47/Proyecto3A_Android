@@ -3,6 +3,9 @@
   \item {actualizarIP}
     \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
 		\hyperpage{15}
+  \item {actualizarUuid}
+    \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
+		\hyperpage{15}
   \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/MainActivity.java}, 
 		\hyperpage{37}
   \item {app/src/main/java/com/example/usuario\_upv/proyecto3a/RetrofitClient.java}, 
@@ -49,26 +52,27 @@
 
   \item {checkConnection}
     \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
-		\hyperpage{20}
+		\hyperpage{21}
   \item {com.example.usuario\_upv.proyecto3a}, \hyperpage{11}
   \item {com.example.usuario\_upv.proyecto3a.MainActivity}, 
 		\hyperpage{13}
     \subitem {actualizarIP}, \hyperpage{15}
+    \subitem {actualizarUuid}, \hyperpage{15}
     \subitem {botonBuscarDispositivosBTLEPulsado}, \hyperpage{15}
     \subitem {botonBuscarNuestroDispositivoBTLEPulsado}, \hyperpage{16}
     \subitem {botonDetenerBusquedaDispositivosBTLEPulsado}, 
 		\hyperpage{16}
-    \subitem {onCreate}, \hyperpage{16}
+    \subitem {onCreate}, \hyperpage{17}
     \subitem {onRequestPermissionsResult}, \hyperpage{17}
     \subitem {procesarBeacon}, \hyperpage{17}
   \item {com.example.usuario\_upv.proyecto3a.RetrofitClient}, 
 		\hyperpage{18}
-    \subitem {getClient}, \hyperpage{18}
-  \item {com.example.usuario\_upv.proyecto3a.SensorApi}, \hyperpage{19}
-    \subitem {checkConnection}, \hyperpage{20}
-    \subitem {createSensorData}, \hyperpage{20}
-    \subitem {createUser}, \hyperpage{20}
-    \subitem {deleteUser}, \hyperpage{22}
+    \subitem {getClient}, \hyperpage{19}
+  \item {com.example.usuario\_upv.proyecto3a.SensorApi}, \hyperpage{20}
+    \subitem {checkConnection}, \hyperpage{21}
+    \subitem {createSensorData}, \hyperpage{21}
+    \subitem {createUser}, \hyperpage{21}
+    \subitem {deleteUser}, \hyperpage{21}
     \subitem {resetTables}, \hyperpage{22}
     \subitem {setupTables}, \hyperpage{22}
   \item {com.example.usuario\_upv.proyecto3a.SensorData}, 
@@ -116,16 +120,16 @@
     \subitem {uuidToString}, \hyperpage{36}
   \item {createSensorData}
     \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
-		\hyperpage{20}
+		\hyperpage{21}
   \item {createUser}
     \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
-		\hyperpage{20}
+		\hyperpage{21}
 
   \indexspace
 
   \item {deleteUser}
     \subitem {com.example.usuario\_upv.proyecto3a.SensorApi}, 
-		\hyperpage{22}
+		\hyperpage{21}
   \item {dosLongToBytes}
     \subitem {com.example.usuario\_upv.proyecto3a.Utilidades}, 
 		\hyperpage{33}
@@ -140,7 +144,7 @@
 		\hyperpage{27}
   \item {getClient}
     \subitem {com.example.usuario\_upv.proyecto3a.RetrofitClient}, 
-		\hyperpage{18}
+		\hyperpage{19}
   \item {getCompanyID}
     \subitem {com.example.usuario\_upv.proyecto3a.TramaIBeacon}, 
 		\hyperpage{27}
@@ -187,7 +191,7 @@
 
   \item {onCreate}
     \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
-		\hyperpage{16}
+		\hyperpage{17}
   \item {onRequestPermissionsResult}
     \subitem {com.example.usuario\_upv.proyecto3a.MainActivity}, 
 		\hyperpage{17}

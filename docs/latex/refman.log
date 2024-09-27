@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.24)  25 SEP 2024 13:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.24)  27 SEP 2024 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1002,54 +1002,54 @@ Cap\'{\i }tulo 7.
 lasscom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__inherit__gr
 aph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__inherit__
-graph.pdf, id=683, 273.02pt x 353.32pt>
+graph.pdf, id=688, 273.02pt x 369.38pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__inhe
 rit__graph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__inher
 it__graph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 main_activity__inherit__graph.pdf  used on input line 15.
-(pdftex.def)             Requested size: 272.0pt x 352.01985pt.
+(pdftex.def)             Requested size: 272.0pt x 368.02074pt.
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__coll__
 graph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__coll__gra
-ph.pdf, id=698, 323.2075pt x 457.71pt>
+ph.pdf, id=703, 323.2075pt x 473.77pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__coll
 __graph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__coll_
 _graph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 main_activity__coll__graph.pdf  used on input line 25.
-(pdftex.def)             Requested size: 322.0pt x 456.02573pt.
+(pdftex.def)             Requested size: 322.0pt x 472.02661pt.
 
 
 [13]
 
-LaTeX Info: Redefining \. on input line 47.
-LaTeX Info: Redefining \% on input line 47.
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
 [14]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 59.
+(Font)              scaled to size 7.19995pt on input line 61.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 60.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 62.
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142f8
 48a202d56733b7b6a24ad368b0_cgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142f848a
-202d56733b7b6a24ad368b0_cgraph.pdf, id=741, 480.79625pt x 124.465pt>
+202d56733b7b6a24ad368b0_cgraph.pdf, id=747, 480.79625pt x 124.465pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142
 f848a202d56733b7b6a24ad368b0_cgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142f
 848a202d56733b7b6a24ad368b0_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 main_activity_a2142f848a202d56733b7b6a24ad368b0_cgraph.pdf  used on input line 
-78.
+79.
 (pdftex.def)             Requested size: 350.0pt x 90.60799pt.
 
 
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 []\T1/pcr/m/n/8 void com.[]example.[]usuario[]_[]upv.[]proyecto3a.[]Main[]Activ
 ity.[]boton[]Buscar[]Nuestro[]Dispositivo[]BTLEPulsado
  []
@@ -1057,23 +1057,40 @@ ity.[]boton[]Buscar[]Nuestro[]Dispositivo[]BTLEPulsado
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6106cd
 52543793a4decb28c4ce49d674_cgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6106cd525
-43793a4decb28c4ce49d674_cgraph.pdf, id=762, 666.49pt x 124.465pt>
+43793a4decb28c4ce49d674_cgraph.pdf, id=768, 666.49pt x 124.465pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6106
 cd52543793a4decb28c4ce49d674_cgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a6106c
 d52543793a4decb28c4ce49d674_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 main_activity_a6106cd52543793a4decb28c4ce49d674_cgraph.pdf  used on input line 
-120.
+126.
 (pdftex.def)             Requested size: 350.0pt x 65.36218pt.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 144.
 
 
-LaTeX Info: Redefining \. on input line 156.
-LaTeX Info: Redefining \% on input line 156.
+LaTeX Info: Redefining \. on input line 145.
+LaTeX Info: Redefining \% on input line 145.
 [16]
-Underfull \hbox (badness 10000) detected at line 197
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 150.
+ <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2c2bbc
+12224b5e242e827cfad993597d_cgraph.pdf>
+<classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2c2bbc122
+24b5e242e827cfad993597d_cgraph.pdf, id=785, 439.6425pt x 124.465pt>
+File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2c2b
+bc12224b5e242e827cfad993597d_cgraph.pdf Graphic file (type pdf)
+<use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2c2bb
+c12224b5e242e827cfad993597d_cgraph.pdf>
+Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
+main_activity_a2c2bbc12224b5e242e827cfad993597d_cgraph.pdf  used on input line 
+168.
+(pdftex.def)             Requested size: 350.0pt x 99.08974pt.
+
+
+LaTeX Info: Redefining \. on input line 210.
+LaTeX Info: Redefining \% on input line 210.
+[17]
+Underfull \hbox (badness 10000) detected at line 211
 [][][]
  []
 
@@ -1081,76 +1098,68 @@ Underfull \hbox (badness 10000) detected at line 197
 <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client__coll_
 _graph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client__coll__g
-raph.pdf, id=780, 222.8325pt x 144.54pt>
+raph.pdf, id=802, 222.8325pt x 144.54pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client__co
 ll__graph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client__col
 l__graph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-retrofit_client__coll__graph.pdf  used on input line 15.
+retrofit_client__coll__graph.pdf  used on input line 14.
 (pdftex.def)             Requested size: 222.0pt x 144.00148pt.
 
 
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
-[17]
-Underfull \hbox (badness 10000) detected at line 48
+LaTeX Info: Redefining \. on input line 29.
+LaTeX Info: Redefining \% on input line 29.
+[18]
+Underfull \hbox (badness 10000) detected at line 47
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client_a219b
 081cb35f8af305c9799cc54be65b_icgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client_a219b081
-cb35f8af305c9799cc54be65b_icgraph.pdf, id=802, 480.79625pt x 124.465pt>
+cb35f8af305c9799cc54be65b_icgraph.pdf, id=825, 480.79625pt x 174.6525pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client_a21
 9b081cb35f8af305c9799cc54be65b_icgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client_a219
 b081cb35f8af305c9799cc54be65b_icgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 retrofit_client_a219b081cb35f8af305c9799cc54be65b_icgraph.pdf  used on input li
-ne 56.
-(pdftex.def)             Requested size: 350.0pt x 90.60799pt.
-
-
-LaTeX Info: Redefining \. on input line 59.
-LaTeX Info: Redefining \% on input line 59.
-[18])
+ne 55.
+(pdftex.def)             Requested size: 350.0pt x 127.14348pt.
+)
 (./interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api.tex <./
 interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api__coll__gra
 ph.pdf>
 <interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api__coll__gr
-aph.pdf, id=820, 209.78375pt x 224.84pt>
+aph.pdf, id=834, 209.78375pt x 224.84pt>
 File: interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api__col
 l__graph.pdf Graphic file (type pdf)
 <use interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api__coll
 __graph.pdf>
 Package pdftex.def Info: interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_
-1_1_sensor_api__coll__graph.pdf  used on input line 15.
+1_1_sensor_api__coll__graph.pdf  used on input line 14.
 (pdftex.def)             Requested size: 209.0pt x 223.9989pt.
 
 
-LaTeX Info: Redefining \. on input line 30.
-LaTeX Info: Redefining \% on input line 30.
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
 [19]
-Underfull \hbox (badness 10000) detected at line 53
-[][][]
- []
 
-
-Underfull \hbox (badness 10000) detected at line 73
-[][][]
- []
-
-
-
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
+LaTeX Info: Redefining \. on input line 52.
+LaTeX Info: Redefining \% on input line 52.
 [20]
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
 
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
-[21]
-Underfull \hbox (badness 10000) detected at line 93
+
+Underfull \hbox (badness 10000) detected at line 72
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 92
 [][][]
  []
 
@@ -1160,17 +1169,21 @@ Overfull \hbox (1.47571pt too wide) in paragraph at lines 1--1
  []
 
 
-Underfull \hbox (badness 10000) detected at line 113
+
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
+[21]
+Underfull \hbox (badness 10000) detected at line 112
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 128
+Underfull \hbox (badness 10000) detected at line 127
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 143
+Underfull \hbox (badness 10000) detected at line 142
 [][][]
  []
 
@@ -1178,51 +1191,51 @@ Underfull \hbox (badness 10000) detected at line 143
 lasscom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data__coll__graph.p
 df>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data__coll__graph
-.pdf, id=880, 216.81pt x 273.02pt>
+.pdf, id=899, 216.81pt x 273.02pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data__coll__
 graph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data__coll__g
 raph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-sensor_data__coll__graph.pdf  used on input line 15.
+sensor_data__coll__graph.pdf  used on input line 14.
 (pdftex.def)             Requested size: 216.0pt x 272.01534pt.
 
 
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
 [22]
 
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
 [23]
 Overfull \hbox (1.47571pt too wide) in paragraph at lines 5--5
 []\T1/phv/m/sl/10 user[] 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 75
+Underfull \hbox (badness 10000) detected at line 74
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 84
+Underfull \hbox (badness 10000) detected at line 83
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 93
+Underfull \hbox (badness 10000) detected at line 92
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 102
+Underfull \hbox (badness 10000) detected at line 101
 [][][]
  []
 
 
 
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
+LaTeX Info: Redefining \. on input line 114.
+LaTeX Info: Redefining \% on input line 114.
 [24]
 Overfull \hbox (1.47571pt too wide) in paragraph at lines 1--1
 []\T1/phv/m/sl/10 user[] 
@@ -1232,47 +1245,47 @@ Overfull \hbox (1.47571pt too wide) in paragraph at lines 1--1
 ./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon__coll__g
 raph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon__coll__gr
-aph.pdf, id=936, 228.855pt x 353.32pt>
+aph.pdf, id=954, 228.855pt x 353.32pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon__col
 l__graph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon__coll
 __graph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-trama_i_beacon__coll__graph.pdf  used on input line 15.
+trama_i_beacon__coll__graph.pdf  used on input line 14.
 (pdftex.def)             Requested size: 228.0pt x 352.01445pt.
 
 
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
 [25]
 
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
+LaTeX Info: Redefining \. on input line 53.
+LaTeX Info: Redefining \% on input line 53.
 [26]
 
-LaTeX Info: Redefining \. on input line 131.
-LaTeX Info: Redefining \% on input line 131.
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
 [27]) (./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user.tex <./clas
 scom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user__coll__graph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user__coll__graph.pdf, i
-d=1003, 185.69376pt x 176.66pt>
+d=1021, 185.69376pt x 176.66pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user__coll__graph.p
 df Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user__coll__graph.pd
 f>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-user__coll__graph.pdf  used on input line 15.
+user__coll__graph.pdf  used on input line 14.
 (pdftex.def)             Requested size: 185.0pt x 176.00452pt.
 
 
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
 [28]
 
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
 [29]
-Underfull \hbox (badness 10000) detected at line 63
+Underfull \hbox (badness 10000) detected at line 62
 [][][]
  []
 
@@ -1280,182 +1293,182 @@ Underfull \hbox (badness 10000) detected at line 63
 asscom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades__coll__graph.pdf
 >
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades__coll__graph.
-pdf, id=1039, 207.77625pt x 289.08pt>
+pdf, id=1057, 207.77625pt x 289.08pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades__coll__g
 raph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades__coll__gr
 aph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-utilidades__coll__graph.pdf  used on input line 15.
+utilidades__coll__graph.pdf  used on input line 14.
 (pdftex.def)             Requested size: 207.0pt x 288.01181pt.
 
 
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+LaTeX Info: Redefining \. on input line 21.
+LaTeX Info: Redefining \% on input line 21.
 [30]
-Underfull \hbox (badness 10000) detected at line 64
+Underfull \hbox (badness 10000) detected at line 63
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a67d2f414f
 335f0b2a884bda9cc4050ff_icgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a67d2f414f335
-f0b2a884bda9cc4050ff_icgraph.pdf, id=1072, 433.62pt x 124.465pt>
+f0b2a884bda9cc4050ff_icgraph.pdf, id=1090, 433.62pt x 124.465pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a67d2f41
 4f335f0b2a884bda9cc4050ff_icgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a67d2f414
 f335f0b2a884bda9cc4050ff_icgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-utilidades_a67d2f414f335f0b2a884bda9cc4050ff_icgraph.pdf  used on input line 72
+utilidades_a67d2f414f335f0b2a884bda9cc4050ff_icgraph.pdf  used on input line 70
 .
 (pdftex.def)             Requested size: 350.0pt x 100.46854pt.
 
 
-LaTeX Info: Redefining \. on input line 77.
-LaTeX Info: Redefining \% on input line 77.
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
 [31]
-Underfull \hbox (badness 10000) detected at line 90
+Underfull \hbox (badness 10000) detected at line 88
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 108
+Underfull \hbox (badness 10000) detected at line 106
 [][][]
  []
 
 
 
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
 [32]
-Underfull \hbox (badness 10000) detected at line 131
+Underfull \hbox (badness 10000) detected at line 129
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a4cbaf6ba4
 a56784da0fa0b13b94a6c50_icgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a4cbaf6ba4a56
-784da0fa0b13b94a6c50_icgraph.pdf, id=1107, 666.49pt x 124.465pt>
+784da0fa0b13b94a6c50_icgraph.pdf, id=1125, 666.49pt x 124.465pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a4cbaf6b
 a4a56784da0fa0b13b94a6c50_icgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a4cbaf6ba
 4a56784da0fa0b13b94a6c50_icgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 utilidades_a4cbaf6ba4a56784da0fa0b13b94a6c50_icgraph.pdf  used on input line 13
-9.
+6.
 (pdftex.def)             Requested size: 350.0pt x 65.36218pt.
 
-Underfull \hbox (badness 10000) detected at line 157
+Underfull \hbox (badness 10000) detected at line 154
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a476aab034
 e0394720a79d6a1200459c5_icgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a476aab034e03
-94720a79d6a1200459c5_icgraph.pdf, id=1115, 433.62pt x 124.465pt>
+94720a79d6a1200459c5_icgraph.pdf, id=1133, 433.62pt x 124.465pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a476aab0
 34e0394720a79d6a1200459c5_icgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a476aab03
 4e0394720a79d6a1200459c5_icgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 utilidades_a476aab034e0394720a79d6a1200459c5_icgraph.pdf  used on input line 16
-5.
+1.
 (pdftex.def)             Requested size: 350.0pt x 100.46854pt.
 
 
-LaTeX Info: Redefining \. on input line 184.
-LaTeX Info: Redefining \% on input line 184.
+LaTeX Info: Redefining \. on input line 180.
+LaTeX Info: Redefining \% on input line 180.
 [33]
-Underfull \hbox (badness 10000) detected at line 185
+Underfull \hbox (badness 10000) detected at line 181
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a933ed1799
 4e1301dd12d66df73d3b4fd_icgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a933ed17994e1
-301dd12d66df73d3b4fd_icgraph.pdf, id=1132, 424.58624pt x 186.6975pt>
+301dd12d66df73d3b4fd_icgraph.pdf, id=1150, 424.58624pt x 186.6975pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a933ed17
 994e1301dd12d66df73d3b4fd_icgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a933ed179
 94e1301dd12d66df73d3b4fd_icgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-utilidades_a933ed17994e1301dd12d66df73d3b4fd_icgraph.pdf  used on input line 19
-3.
+utilidades_a933ed17994e1301dd12d66df73d3b4fd_icgraph.pdf  used on input line 18
+8.
 (pdftex.def)             Requested size: 350.0pt x 153.90768pt.
 
-Underfull \hbox (badness 10000) detected at line 211
+Underfull \hbox (badness 10000) detected at line 206
 [][][]
  []
 
 
 
-LaTeX Info: Redefining \. on input line 228.
-LaTeX Info: Redefining \% on input line 228.
+LaTeX Info: Redefining \. on input line 223.
+LaTeX Info: Redefining \% on input line 223.
 [34]
-Underfull \hbox (badness 10000) detected at line 229
+Underfull \hbox (badness 10000) detected at line 224
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f15
 e4d007dd843c17572e4d37a_cgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f15e4d
-007dd843c17572e4d37a_cgraph.pdf, id=1148, 439.6425pt x 124.465pt>
+007dd843c17572e4d37a_cgraph.pdf, id=1166, 439.6425pt x 124.465pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f
 15e4d007dd843c17572e4d37a_cgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f1
 5e4d007dd843c17572e4d37a_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-utilidades_a04bf03f15e4d007dd843c17572e4d37a_cgraph.pdf  used on input line 242
+utilidades_a04bf03f15e4d007dd843c17572e4d37a_cgraph.pdf  used on input line 236
 .
 (pdftex.def)             Requested size: 350.0pt x 99.08974pt.
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f15
 e4d007dd843c17572e4d37a_icgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f15e4d
-007dd843c17572e4d37a_icgraph.pdf, id=1156, 468.75125pt x 124.465pt>
+007dd843c17572e4d37a_icgraph.pdf, id=1175, 468.75125pt x 124.465pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f
 15e4d007dd843c17572e4d37a_icgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a04bf03f1
 5e4d007dd843c17572e4d37a_icgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-utilidades_a04bf03f15e4d007dd843c17572e4d37a_icgraph.pdf  used on input line 25
-0.
+utilidades_a04bf03f15e4d007dd843c17572e4d37a_icgraph.pdf  used on input line 24
+3.
 (pdftex.def)             Requested size: 350.0pt x 92.93259pt.
 
-Underfull \hbox (badness 10000) detected at line 268
+Underfull \hbox (badness 10000) detected at line 261
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_aa358f070c
 c8dc050c75b31a676eedb3c_cgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_aa358f070cc8d
-c050c75b31a676eedb3c_cgraph.pdf, id=1164, 433.62pt x 186.6975pt>
+c050c75b31a676eedb3c_cgraph.pdf, id=1183, 433.62pt x 186.6975pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_aa358f07
 0cc8dc050c75b31a676eedb3c_cgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_aa358f070
 cc8dc050c75b31a676eedb3c_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-utilidades_aa358f070cc8dc050c75b31a676eedb3c_cgraph.pdf  used on input line 276
+utilidades_aa358f070cc8dc050c75b31a676eedb3c_cgraph.pdf  used on input line 268
 .
 (pdftex.def)             Requested size: 350.0pt x 150.7028pt.
 
 
-LaTeX Info: Redefining \. on input line 279.
-LaTeX Info: Redefining \% on input line 279.
+LaTeX Info: Redefining \. on input line 271.
+LaTeX Info: Redefining \% on input line 271.
 [35]
-Underfull \hbox (badness 10000) detected at line 294
+Underfull \hbox (badness 10000) detected at line 286
 [][][]
  []
 
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a2c68da28d
 4324aa9f56e6016416afe9e_cgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a2c68da28d432
-4aa9f56e6016416afe9e_cgraph.pdf, id=1182, 433.62pt x 186.6975pt>
+4aa9f56e6016416afe9e_cgraph.pdf, id=1200, 433.62pt x 186.6975pt>
 File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a2c68da2
 8d4324aa9f56e6016416afe9e_cgraph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades_a2c68da28
 d4324aa9f56e6016416afe9e_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-utilidades_a2c68da28d4324aa9f56e6016416afe9e_cgraph.pdf  used on input line 302
+utilidades_a2c68da28d4324aa9f56e6016416afe9e_cgraph.pdf  used on input line 293
 .
 (pdftex.def)             Requested size: 350.0pt x 150.7028pt.
 )
@@ -1465,17 +1478,17 @@ LaTeX Info: Redefining \% on input line 255.
 [36]
 Cap\'{\i }tulo 8.
 (./_main_activity_8java.tex <./_main_activity_8java__incl.pdf>
-<_main_activity_8java__incl.pdf, id=1199, 224.84pt x 180.675pt>
+<_main_activity_8java__incl.pdf, id=1217, 224.84pt x 180.675pt>
 File: _main_activity_8java__incl.pdf Graphic file (type pdf)
 <use _main_activity_8java__incl.pdf>
-Package pdftex.def Info: _main_activity_8java__incl.pdf  used on input line 9.
+Package pdftex.def Info: _main_activity_8java__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 224.0pt x 180.00737pt.
 )
 (./_retrofit_client_8java.tex <./_retrofit_client_8java__incl.pdf>
-<_retrofit_client_8java__incl.pdf, id=1210, 229.85875pt x 180.675pt>
+<_retrofit_client_8java__incl.pdf, id=1228, 229.85875pt x 180.675pt>
 File: _retrofit_client_8java__incl.pdf Graphic file (type pdf)
 <use _retrofit_client_8java__incl.pdf>
-Package pdftex.def Info: _retrofit_client_8java__incl.pdf  used on input line 9
+Package pdftex.def Info: _retrofit_client_8java__incl.pdf  used on input line 8
 .
 (pdftex.def)             Requested size: 229.0pt x 180.01013pt.
 
@@ -1483,44 +1496,44 @@ Package pdftex.def Info: _retrofit_client_8java__incl.pdf  used on input line 9
 [37
 
 ]) (./_sensor_api_8java.tex <./_sensor_api_8java__incl.pdf>
-<_sensor_api_8java__incl.pdf, id=1229, 216.81pt x 180.675pt>
+<_sensor_api_8java__incl.pdf, id=1247, 216.81pt x 180.675pt>
 File: _sensor_api_8java__incl.pdf Graphic file (type pdf)
 <use _sensor_api_8java__incl.pdf>
-Package pdftex.def Info: _sensor_api_8java__incl.pdf  used on input line 9.
+Package pdftex.def Info: _sensor_api_8java__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 216.0pt x 180.01013pt.
 
 
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
 [38]) (./_sensor_data_8java.tex <./_sensor_data_8java__incl.pdf>
-<_sensor_data_8java__incl.pdf, id=1248, 223.83624pt x 180.675pt>
+<_sensor_data_8java__incl.pdf, id=1266, 223.83624pt x 180.675pt>
 File: _sensor_data_8java__incl.pdf Graphic file (type pdf)
 <use _sensor_data_8java__incl.pdf>
-Package pdftex.def Info: _sensor_data_8java__incl.pdf  used on input line 9.
+Package pdftex.def Info: _sensor_data_8java__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 223.0pt x 180.00462pt.
 )
 (./_trama_i_beacon_8java.tex <./_trama_i_beacon_8java__incl.pdf>
-<_trama_i_beacon_8java__incl.pdf, id=1258, 235.88126pt x 180.675pt>
+<_trama_i_beacon_8java__incl.pdf, id=1276, 235.88126pt x 180.675pt>
 File: _trama_i_beacon_8java__incl.pdf Graphic file (type pdf)
 <use _trama_i_beacon_8java__incl.pdf>
-Package pdftex.def Info: _trama_i_beacon_8java__incl.pdf  used on input line 9.
+Package pdftex.def Info: _trama_i_beacon_8java__incl.pdf  used on input line 8.
 
 (pdftex.def)             Requested size: 235.0pt x 180.00186pt.
 
 
-LaTeX Info: Redefining \. on input line 12.
-LaTeX Info: Redefining \% on input line 12.
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
 [39]) (./_user_8java.tex) (./_utilidades_8java.tex <./_utilidades_8java__incl.p
 df>
-<_utilidades_8java__incl.pdf, id=1280, 215.80624pt x 180.675pt>
+<_utilidades_8java__incl.pdf, id=1299, 215.80624pt x 180.675pt>
 File: _utilidades_8java__incl.pdf Graphic file (type pdf)
 <use _utilidades_8java__incl.pdf>
-Package pdftex.def Info: _utilidades_8java__incl.pdf  used on input line 9.
+Package pdftex.def Info: _utilidades_8java__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 215.0pt x 180.00462pt.
 
 
-LaTeX Info: Redefining \. on input line 12.
-LaTeX Info: Redefining \% on input line 12.
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
 [40]) (./_r_e_a_d_m_e_8md.tex)
 
 LaTeX Info: Redefining \. on input line 266.
@@ -1535,50 +1548,45 @@ LaTeX Info: Redefining \% on input line 266.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
 
-Overfull \hbox (72.18547pt too wide) in paragraph at lines 6--8
+Overfull \hbox (72.18547pt too wide) in paragraph at lines 9--11
 []\T1/phv/m/n/10 app/src/main/java/com/example/usuario_upv/proyecto3a/MainActiv
 ity.java,
  []
 
 
-Overfull \hbox (77.09029pt too wide) in paragraph at lines 8--10
+Overfull \hbox (77.09029pt too wide) in paragraph at lines 11--13
 []\T1/phv/m/n/10 app/src/main/java/com/example/usuario_upv/proyecto3a/RetrofitC
 lient.java,
  []
 
 
-Overfull \hbox (66.59657pt too wide) in paragraph at lines 10--12
+Overfull \hbox (66.59657pt too wide) in paragraph at lines 13--15
 []\T1/phv/m/n/10 app/src/main/java/com/example/usuario_upv/proyecto3a/SensorApi
 .java,
  []
 
 
-Overfull \hbox (72.59946pt too wide) in paragraph at lines 12--14
+Overfull \hbox (72.59946pt too wide) in paragraph at lines 15--17
 []\T1/phv/m/n/10 app/src/main/java/com/example/usuario_upv/proyecto3a/SensorDat
 a.java,
  []
 
 
-Overfull \hbox (82.93134pt too wide) in paragraph at lines 14--16
+Overfull \hbox (82.93134pt too wide) in paragraph at lines 17--19
 []\T1/phv/m/n/10 app/src/main/java/com/example/usuario_upv/proyecto3a/TramaIBea
 con.java,
  []
 
 
-Overfull \hbox (43.62904pt too wide) in paragraph at lines 16--18
+Overfull \hbox (43.62904pt too wide) in paragraph at lines 19--21
 []\T1/phv/m/n/10 app/src/main/java/com/example/usuario_upv/proyecto3a/User.java
 ,
  []
 
 
-Overfull \hbox (64.45468pt too wide) in paragraph at lines 18--20
+Overfull \hbox (64.45468pt too wide) in paragraph at lines 21--23
 []\T1/phv/m/n/10 app/src/main/java/com/example/usuario_upv/proyecto3a/Utilidade
 s.java,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--35
-[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
  []
 
 
@@ -1602,19 +1610,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--47
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--53
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 []| \T1/phv/m/n/10 bo-ton-De-te-ner-Bus-que-da-Dis-po-si-ti-vosBTLE-Pul-sa-do,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
 []\T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.TramaIBeacon,
  []
 
@@ -1624,58 +1637,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 118--120
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
+Underfull \hbox (badness 10000) in paragraph at lines 125--127
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--129
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--132
+Underfull \hbox (badness 10000) in paragraph at lines 134--136
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
  []
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--208
+Underfull \hbox (badness 10000) in paragraph at lines 210--212
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--240
-[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
- []
 
-
-
-LaTeX Info: Redefining \. on input line 241.
-LaTeX Info: Redefining \% on input line 241.
+LaTeX Info: Redefining \. on input line 242.
+LaTeX Info: Redefining \% on input line 242.
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 241--243
+Underfull \hbox (badness 10000) in paragraph at lines 242--244
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--257
+Underfull \hbox (badness 10000) in paragraph at lines 245--247
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 259--261
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
  []
 
@@ -1683,8 +1696,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 258--260
 
 
 
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
+LaTeX Info: Redefining \. on input line 265.
+LaTeX Info: Redefining \% on input line 265.
 [45
 
 ]) (./refman.aux
@@ -1696,16 +1709,16 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 2AD9501B403966358DE8E3EEB0438FFB;25148.
+(rerunfilecheck)             Checksum: 7B8C4BC598A194E4B3260FCC91A11DFB;25350.
  ) 
 Here is how much of TeX's memory you used:
- 20054 strings out of 473579
- 348328 string characters out of 5732263
- 767065 words of memory out of 5000000
- 42255 multiletter control sequences out of 15000+600000
+ 20068 strings out of 473579
+ 349677 string characters out of 5732263
+ 767357 words of memory out of 5000000
+ 42266 multiletter control sequences out of 15000+600000
  618108 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,15n,117p,632b,796s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,15n,117p,632b,795s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist
@@ -1716,10 +1729,10 @@ exlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/tex
 mf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb><c:/texlive/2024/texmf-dist/fonts/
 type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helve
 tic/uhvro8a.pfb>
-Output written on refman.pdf (51 pages, 686599 bytes).
+Output written on refman.pdf (51 pages, 705281 bytes).
 PDF statistics:
- 1564 PDF objects out of 1728 (max. 8388607)
- 1374 compressed objects within 14 object streams
- 313 named destinations out of 1000 (max. 500000)
- 958 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1584 PDF objects out of 1728 (max. 8388607)
+ 1390 compressed objects within 14 object streams
+ 316 named destinations out of 1000 (max. 500000)
+ 971 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -24,23 +24,24 @@
 \contentsline {subsection}{\numberline {7.1.1}Descripción detallada}{15}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Documentación de funciones miembro}{15}{subsection.7.1.2}%
 \contentsline {subsubsection}{\numberline {7.1.2.1}actualizarIP()}{15}{subsubsection.7.1.2.1}%
-\contentsline {subsubsection}{\numberline {7.1.2.2}botonBuscarDispositivosBTLEPulsado()}{15}{subsubsection.7.1.2.2}%
-\contentsline {subsubsection}{\numberline {7.1.2.3}botonBuscarNuestroDispositivoBTLEPulsado()}{16}{subsubsection.7.1.2.3}%
-\contentsline {subsubsection}{\numberline {7.1.2.4}botonDetenerBusquedaDispositivosBTLEPulsado()}{16}{subsubsection.7.1.2.4}%
-\contentsline {subsubsection}{\numberline {7.1.2.5}onCreate()}{16}{subsubsection.7.1.2.5}%
-\contentsline {subsubsection}{\numberline {7.1.2.6}onRequestPermissionsResult()}{17}{subsubsection.7.1.2.6}%
-\contentsline {subsubsection}{\numberline {7.1.2.7}procesarBeacon()}{17}{subsubsection.7.1.2.7}%
+\contentsline {subsubsection}{\numberline {7.1.2.2}actualizarUuid()}{15}{subsubsection.7.1.2.2}%
+\contentsline {subsubsection}{\numberline {7.1.2.3}botonBuscarDispositivosBTLEPulsado()}{16}{subsubsection.7.1.2.3}%
+\contentsline {subsubsection}{\numberline {7.1.2.4}botonBuscarNuestroDispositivoBTLEPulsado()}{16}{subsubsection.7.1.2.4}%
+\contentsline {subsubsection}{\numberline {7.1.2.5}botonDetenerBusquedaDispositivosBTLEPulsado()}{16}{subsubsection.7.1.2.5}%
+\contentsline {subsubsection}{\numberline {7.1.2.6}onCreate()}{17}{subsubsection.7.1.2.6}%
+\contentsline {subsubsection}{\numberline {7.1.2.7}onRequestPermissionsResult()}{17}{subsubsection.7.1.2.7}%
+\contentsline {subsubsection}{\numberline {7.1.2.8}procesarBeacon()}{18}{subsubsection.7.1.2.8}%
 \contentsline {section}{\numberline {7.2}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Retrofit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client}{18}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Descripción detallada}{18}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Documentación de funciones miembro}{18}{subsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.2.1}getClient()}{18}{subsubsection.7.2.2.1}%
-\contentsline {section}{\numberline {7.3}Referencia de la interface com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Api}{19}{section.7.3}%
+\contentsline {subsection}{\numberline {7.2.1}Descripción detallada}{19}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Documentación de funciones miembro}{19}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}getClient()}{19}{subsubsection.7.2.2.1}%
+\contentsline {section}{\numberline {7.3}Referencia de la interface com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Api}{20}{section.7.3}%
 \contentsline {subsection}{\numberline {7.3.1}Descripción detallada}{20}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Documentación de funciones miembro}{20}{subsection.7.3.2}%
-\contentsline {subsubsection}{\numberline {7.3.2.1}checkConnection()}{20}{subsubsection.7.3.2.1}%
-\contentsline {subsubsection}{\numberline {7.3.2.2}createSensorData()}{20}{subsubsection.7.3.2.2}%
+\contentsline {subsection}{\numberline {7.3.2}Documentación de funciones miembro}{21}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}checkConnection()}{21}{subsubsection.7.3.2.1}%
+\contentsline {subsubsection}{\numberline {7.3.2.2}createSensorData()}{21}{subsubsection.7.3.2.2}%
 \contentsline {subsubsection}{\numberline {7.3.2.3}createUser()}{21}{subsubsection.7.3.2.3}%
-\contentsline {subsubsection}{\numberline {7.3.2.4}deleteUser()}{22}{subsubsection.7.3.2.4}%
+\contentsline {subsubsection}{\numberline {7.3.2.4}deleteUser()}{21}{subsubsection.7.3.2.4}%
 \contentsline {subsubsection}{\numberline {7.3.2.5}resetTables()}{22}{subsubsection.7.3.2.5}%
 \contentsline {subsubsection}{\numberline {7.3.2.6}setupTables()}{22}{subsubsection.7.3.2.6}%
 \contentsline {section}{\numberline {7.4}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{23}{section.7.4}%
@@ -103,4 +104,4 @@
 \contentsline {section}{\numberline {8.6}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User.java}{40}{section.8.6}%
 \contentsline {section}{\numberline {8.7}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utilidades.java}{41}{section.8.7}%
 \contentsline {section}{\numberline {8.8}Referencia del archivo README.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md}{41}{section.8.8}%
-\contentsline {chapter}{\'{I}ndice alfab\'{e}tico}{43}{section*.49}%
+\contentsline {chapter}{\'{I}ndice alfab\'{e}tico}{43}{section*.50}%
