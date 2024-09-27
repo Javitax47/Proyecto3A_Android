@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.24)  27 SEP 2024 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.24)  27 SEP 2024 23:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1008,7 +1008,7 @@ rit__graph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__inher
 it__graph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-main_activity__inherit__graph.pdf  used on input line 15.
+main_activity__inherit__graph.pdf  used on input line 14.
 (pdftex.def)             Requested size: 272.0pt x 368.02074pt.
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__coll__
 graph.pdf>
@@ -1019,19 +1019,19 @@ __graph.pdf Graphic file (type pdf)
 <use classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity__coll_
 _graph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
-main_activity__coll__graph.pdf  used on input line 25.
+main_activity__coll__graph.pdf  used on input line 23.
 (pdftex.def)             Requested size: 322.0pt x 472.02661pt.
 
 
 [13]
 
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
 [14]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 61.
+(Font)              scaled to size 7.19995pt on input line 59.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 62.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 60.
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142f8
 48a202d56733b7b6a24ad368b0_cgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2142f848a
@@ -1042,14 +1042,14 @@ f848a202d56733b7b6a24ad368b0_cgraph.pdf Graphic file (type pdf)
 848a202d56733b7b6a24ad368b0_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 main_activity_a2142f848a202d56733b7b6a24ad368b0_cgraph.pdf  used on input line 
-79.
+77.
 (pdftex.def)             Requested size: 350.0pt x 90.60799pt.
 
 
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 []\T1/pcr/m/n/8 void com.[]example.[]usuario[]_[]upv.[]proyecto3a.[]Main[]Activ
 ity.[]boton[]Buscar[]Nuestro[]Dispositivo[]BTLEPulsado
  []
@@ -1064,15 +1064,15 @@ cd52543793a4decb28c4ce49d674_cgraph.pdf Graphic file (type pdf)
 d52543793a4decb28c4ce49d674_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 main_activity_a6106cd52543793a4decb28c4ce49d674_cgraph.pdf  used on input line 
-126.
+124.
 (pdftex.def)             Requested size: 350.0pt x 65.36218pt.
 
 
-LaTeX Info: Redefining \. on input line 145.
-LaTeX Info: Redefining \% on input line 145.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
 [16]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 150.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 148.
  <./classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2c2bbc
 12224b5e242e827cfad993597d_cgraph.pdf>
 <classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity_a2c2bbc122
@@ -1083,14 +1083,14 @@ bc12224b5e242e827cfad993597d_cgraph.pdf Graphic file (type pdf)
 c12224b5e242e827cfad993597d_cgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 main_activity_a2c2bbc12224b5e242e827cfad993597d_cgraph.pdf  used on input line 
-168.
+165.
 (pdftex.def)             Requested size: 350.0pt x 99.08974pt.
 
 
-LaTeX Info: Redefining \. on input line 210.
-LaTeX Info: Redefining \% on input line 210.
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
 [17]
-Underfull \hbox (badness 10000) detected at line 211
+Underfull \hbox (badness 10000) detected at line 208
 [][][]
  []
 
@@ -1125,7 +1125,7 @@ File: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client_a21
 b081cb35f8af305c9799cc54be65b_icgraph.pdf>
 Package pdftex.def Info: classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_
 retrofit_client_a219b081cb35f8af305c9799cc54be65b_icgraph.pdf  used on input li
-ne 55.
+ne 54.
 (pdftex.def)             Requested size: 350.0pt x 127.14348pt.
 )
 (./interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api.tex <./

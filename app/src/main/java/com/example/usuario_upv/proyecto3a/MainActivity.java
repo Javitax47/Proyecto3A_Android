@@ -568,21 +568,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void reiniciarTemporizador(final String uuid, final int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
         // Crear una clave única basada en el UUID y el tipo de sensor (majorValue)
-        String claveVista = uuid + "_" + majorValue;
+        String claveTemporizador = uuid + "_" + majorValue;
 
-        // Verificar si la vista ya existe en el mapa
-        if (!vistasDispositivosDetectados.containsKey(claveVista)) {
-            Log.e(ETIQUETA_LOG, "Error: No se encontró la vista para el dispositivo con UUID: " + uuid + " y major: " + majorValue);
-            return;  // Detener ejecución si no existe la vista
-        }
-
-        // Obtener la vista correspondiente al dispositivo
-        View vistaDispositivo = vistasDispositivosDetectados.get(claveVista);
-
-        // Asegurarse de que la vista no sea nula
-        if (vistaDispositivo == null) {
-            Log.e(ETIQUETA_LOG, "Error: La vista del dispositivo es nula para el UUID: " + uuid + " y major: " + majorValue);
-            return;  // Detener ejecución si la vista es nula
+        // Si ya existe un temporizador para esta combinación de UUID y tipo de sensor, cancélalo
+        if (temporizadoresDispositivos.containsKey(claveTemporizador)) {
+            Handler temporizadorExistente = temporizadoresDispositivos.get(claveTemporizador);
+            temporizadorExistente.removeCallbacksAndMessages(null);
         }
 
         // Crear un nuevo temporizador
@@ -594,12 +585,9 @@ public class MainActivity extends AppCompatActivity {
         final TextView cuentaAtrasCO2 = findViewById(R.id.cuentaAtrasCO2);
         final TextView cuentaAtrasTemperatura = findViewById(R.id.cuentaAtrasTemperatura);
 
-        TextView cuentaAtrasTextView = vistaDispositivo.findViewById(R.id.cuentaAtrasTextView);
-
         Runnable actualizarCuentaAtras = new Runnable() {
             long tiempoRestanteCO2 = tiempoTotal;
             long tiempoRestanteTemperatura = tiempoTotal;
-            long tiempoRestante = tiempoTotal;
 
             @Override
             public void run() {
@@ -612,7 +600,7 @@ public class MainActivity extends AppCompatActivity {
                         cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantesCO2 + "s...");
                         tiempoRestanteCO2 -= intervalo;
                     } else {
-                        eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
+                        eliminarVistaDispositivo(uuid, majorValue);
                         return; // Detener ejecución cuando el tiempo de CO2 llegue a 0
                     }
                 } else if (tipoBeacon == 2) { // Temperatura
@@ -621,18 +609,11 @@ public class MainActivity extends AppCompatActivity {
                         cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantesTemperatura + "s...");
                         tiempoRestanteTemperatura -= intervalo;
                     } else {
-                        eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
+                        eliminarVistaDispositivo(uuid, majorValue);
                         return; // Detener ejecución cuando el tiempo de Temperatura llegue a 0
                     }
-                } else {
-                    if (tiempoRestante >= 0) {
-                        long segundosRestantes = tiempoRestante / 1000;
-                        cuentaAtrasTextView.setText("Desconectando en: " + segundosRestantes + "s...");
-                        tiempoRestante -= intervalo;
-                    } else {
-                        eliminarVistaDispositivo(uuid, majorValue, tib, dispositivoBuscado);
-                    }
                 }
+
                 nuevoTemporizador.postDelayed(this, intervalo); // Repetir el runnable cada segundo
             }
         };
@@ -641,7 +622,7 @@ public class MainActivity extends AppCompatActivity {
         nuevoTemporizador.post(actualizarCuentaAtras);
 
         // Almacenar el nuevo temporizador con la clave basada en UUID y tipo de sensor
-        temporizadoresDispositivos.put(claveVista, nuevoTemporizador);
+        temporizadoresDispositivos.put(claveTemporizador, nuevoTemporizador);
     }
 
     /**
@@ -654,10 +635,8 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param uuid El UUID del dispositivo cuya vista se va a eliminar.
      * @param majorValue El valor 'major' del beacon detectado.
-     * @param tib La instancia de TramaIBeacon que contiene la información del iBeacon.
-     * @param dispositivoBuscado UUID del dispositivo específico que se está buscando, si corresponde.
      */
-    private void eliminarVistaDispositivo(String uuid, int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
+    private void eliminarVistaDispositivo(String uuid, int majorValue) {
         // Crear una clave única basada en el UUID y el tipo de sensor (majorValue)
         String claveVista = uuid + "_" + majorValue;
 
@@ -834,11 +813,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * @brief Detiene la búsqueda de dispositivos BLE.
+     * @brief Detiene la búsqueda de dispositivos Bluetooth Low Energy (BTLE).
      *
-     * Este método cancela el escaneo activo de dispositivos BLE si existe
-     * un callback de escaneo registrado. También actualiza la interfaz
-     * de usuario para reflejar que no hay dispositivos detectados.
+     * Este método se encarga de detener el escaneo de dispositivos BTLE y eliminar todas las vistas
+     * asociadas a los dispositivos detectados. También actualiza la interfaz de usuario para indicar
+     * que los sensores están apagados.
+     *
+     * - Detiene el escaneo si hay un callback activo.
+     * - Elimina todas las vistas del contenedor visual.
+     * - Limpia los mapas que almacenan las vistas y temporizadores de los dispositivos.
+     * - Actualiza los TextView para mostrar "Off" y oculta las imágenes asociadas a los sensores.
      */
     private void detenerBusquedaDispositivosBTLE() {
         // Verificar si no hay un callback de escaneo activo
@@ -850,15 +834,22 @@ public class MainActivity extends AppCompatActivity {
         this.elEscanner.stopScan(this.callbackDelEscaneo);
         this.callbackDelEscaneo = null;
 
-        // Actualizar los TextView para mostrar "Off" y ocultar las imágenes
+        // Eliminar todas las vistas de dispositivos detectados
         runOnUiThread(() -> {
+            LinearLayout contenedor = findViewById(R.id.contenedorBeacons);
+            contenedor.removeAllViews();  // Elimina todas las vistas del contenedor
+
+            // Limpiar los mapas de vistas y temporizadores
+            vistasDispositivosDetectados.clear();
+            temporizadoresDispositivos.clear();
+
+            // Actualizar los TextView para mostrar "Off" y ocultar las imágenes
             image3.setVisibility(View.GONE);
             image4.setVisibility(View.GONE);
             dato1.setText("CO2: Off");
             dato2.setText("ºC: Off");
         });
     }
-
 
     /**
      * @brief Maneja el evento de pulsación del botón para buscar todos los dispositivos BLE.
