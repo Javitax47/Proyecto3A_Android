@@ -454,16 +454,16 @@ Gráfico de llamadas de esta función:</div>
 </div><div class="memdoc">
 
 <p>Procesa la información del beacon detectado. </p>
-<p>Este método determina el tipo de medición a partir del valor 'major' del beacon y registra el valor 'minor'. Los tipos de medición reconocidos son CO2 y Temperatura, identificados por sus respectivos códigos.</p>
+<p>Este método determina el tipo de medición a partir del valor 'major' del beacon y registra el valor 'minor'. Los tipos de medición reconocidos son ozono y Temperatura, identificados por sus respectivos códigos.</p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">major</td><td>El valor 'major' del beacon, que contiene el tipo de medición y un contador. </td></tr>
-    <tr><td class="paramname">minor</td><td>El valor 'minor' del beacon, que representa el dato medido (por ejemplo, CO2 o temperatura). </td></tr>
+    <tr><td class="paramname">minor</td><td>El valor 'minor' del beacon, que representa el dato medido (por ejemplo, ozono o temperatura). </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>Un entero que representa el tipo de medición:<ul>
-<li>1 si el dato es de CO2</li>
+<li>1 si el dato es de ozono</li>
 <li>2 si el dato es de temperatura</li>
 <li>0 si el tipo de dato no es reconocido. </li>
 </ul>

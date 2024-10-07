@@ -25,7 +25,7 @@
         android:ems="10"
         android:hint="Beacon UUID"
         android:inputType="text"
-        android:text="EPSG-GTI-PROY-3A"
+        android:text="EQUIPO-JAVIER-3A"
         app:layout_constraintEnd_toEndOf="@+id/submitIP2"
         app:layout_constraintStart_toStartOf="@+id/serverIP"
         app:layout_constraintTop_toBottomOf="@+id/serverIP" />
@@ -34,12 +34,12 @@
         android:id="@+id/botonBuscarDispositivosBTLE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:onClick="botonBuscarDispositivosBTLEPulsado"
         android:text="Buscar Dispositivos BTLE nou 4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cuentaAtrasTemperatura" />
+        app:layout_constraintTop_toBottomOf="@+id/valor2" />
 
     <Button
         android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
-        android:text="CO2: Off"
+        android:text="Ozono: Off"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,30 +76,13 @@
         android:id="@+id/valor2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="ºC: Off"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="@+id/valor1"
-        app:layout_constraintStart_toStartOf="@+id/valor1"
-        app:layout_constraintTop_toBottomOf="@+id/cuentaAtrasCO2" />
-
-    <TextView
-        android:id="@+id/cuentaAtrasCO2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tiempo restante CO2: 0s"
-        app:layout_constraintEnd_toEndOf="@+id/valor1"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/valor1"
         app:layout_constraintTop_toBottomOf="@+id/valor1" />
-
-    <TextView
-        android:id="@+id/cuentaAtrasTemperatura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tiempo restante Temperatura: 0s"
-        app:layout_constraintEnd_toEndOf="@+id/valor2"
-        app:layout_constraintStart_toStartOf="@+id/valor2"
-        app:layout_constraintTop_toBottomOf="@+id/valor2" />
 
     <ImageView
         android:id="@+id/valor1_image"

@@ -136,9 +136,9 @@ public class MainActivity extends AppCompatActivity {
     // Estados de los beacons
     // --------------------------------------------------------------
     /**
-     * @brief Estado que indica si el beacon de CO2 está activo.
+     * @brief Estado que indica si el beacon de ozono está activo.
      */
-    private boolean beaconCO2Activo = false;
+    private boolean beaconozonoActivo = false;
 
     /**
      * @brief Estado que indica si el beacon de temperatura está activo.
@@ -165,14 +165,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private Map<String, View> vistasDispositivosDetectados = new HashMap<>();
 
-    /**
-     * @brief Mapa que almacena los temporizadores para eliminar las vistas de dispositivos inactivos.
-     *
-     * La clave es el identificador único del dispositivo, y el valor es un temporizador
-     * para gestionar el tiempo de visualización.
-     */
-    private Map<String, Handler> temporizadoresDispositivos = new HashMap<>();
-
     // --------------------------------------------------------------
     // --------------------------------------------------------------
     /**
@@ -196,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, "onCreate(): termina");
 
-        nuevoUuid = "EPSG-GTI-PROY-3A";
+        nuevoUuid = "EQUIPO-JAVIER-3A";
 
         api = RetrofitClient.getClient(ip).create(SensorApi.class);
 
@@ -396,8 +388,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * Este método procesa los resultados obtenidos de un escaneo BTLE, extrayendo información del dispositivo
      * como el nombre, dirección, intensidad de señal (RSSI) y otros detalles específicos del protocolo iBeacon.
-     * Además, actualiza o crea una vista para mostrar la información del dispositivo, y reinicia el temporizador
-     * para gestionar la detección continua del dispositivo.
+     * Además, actualiza o crea una vista para mostrar la información del dispositivo.
      *
      * @param resultado Resultado del escaneo BTLE que contiene la información del dispositivo detectado.
      * @param dispositivoBuscado UUID del dispositivo específico que se está buscando, si corresponde. Puede ser null.
@@ -436,17 +427,14 @@ public class MainActivity extends AppCompatActivity {
 
         String uuid = Utilidades.bytesToString(tib.getUUID());
 
-        // Reiniciar o crear el temporizador para el dispositivo detectado
         int majorValue = Utilidades.bytesToInt(tib.getMajor());
-        reiniciarTemporizador(uuid, majorValue, tib, dispositivoBuscado);
-
         int minorValue = Utilidades.bytesToInt(tib.getMinor());
 
-        // Actualizar la interfaz de usuario con los valores de CO2 o temperatura según el beacon detectado
+        // Actualizar la interfaz de usuario con los valores de ozono o temperatura según el beacon detectado
         runOnUiThread(() -> {
             if (procesarBeacon(majorValue, minorValue) == 1 && Utilidades.stringToUUID(Utilidades.bytesToString(tib.getUUID())).equals(dispositivoBuscado)) {
-                beaconCO2Activo = true;
-                dato1.setText("CO2: " + minorValue); // Mostrar el valor de CO2 (minor)
+                beaconozonoActivo = true;
+                dato1.setText("Ozono: " + minorValue); // Mostrar el valor de ozono (minor)
             } else if (procesarBeacon(majorValue, minorValue) == 2 && Utilidades.stringToUUID(Utilidades.bytesToString(tib.getUUID())).equals(dispositivoBuscado)) {
                 beaconTemperaturaActivo = true;
                 dato2.setText("ºC: " + minorValue); // Mostrar el valor de temperatura (minor)
@@ -486,24 +474,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * @brief Actualiza la vista de la interfaz de usuario con los valores de CO2 y temperatura.
+     * @brief Actualiza la vista de la interfaz de usuario con los valores de ozono y temperatura.
      *
      * Este método se encarga de actualizar los `TextView` correspondientes en la interfaz de usuario
-     * para mostrar los valores de CO2 y temperatura según el beacon detectado. También gestiona la
+     * para mostrar los valores de ozono y temperatura según el beacon detectado. También gestiona la
      * visibilidad de las imágenes asociadas, mostrando brevemente un indicador visual al recibir
      * nuevos datos.
      *
      * @param majorValue El valor 'major' del beacon detectado.
-     * @param minorValue El valor 'minor' del beacon detectado, que representa los datos de CO2 o temperatura.
+     * @param minorValue El valor 'minor' del beacon detectado, que representa los datos de ozono o temperatura.
      */
-    private void actualizarVistaCO2yTemperatura(int majorValue, int minorValue) {
+    private void actualizarVistaozonoyTemperatura(int majorValue, int minorValue) {
         // Actualizar el TextView en la interfaz de usuario en el hilo principal
         runOnUiThread(() -> {
             if (procesarBeacon(majorValue, minorValue) == 1) {
-                beaconCO2Activo = true; // El beacon de CO2 está activo
-                dato1.setText("CO2: " + minorValue); // Mostrar el valor de CO2
+                beaconozonoActivo = true; // El beacon de ozono está activo
+                dato1.setText("Ozono: " + minorValue); // Mostrar el valor de ozono
                 dato_image.setVisibility(View.GONE); // Ocultar la imagen anterior
-                dato_image.setVisibility(View.VISIBLE); // Mostrar la imagen de CO2
+                dato_image.setVisibility(View.VISIBLE); // Mostrar la imagen de ozono
                 new Handler().postDelayed(() -> dato_image.setVisibility(View.GONE), 50); // Ocultar la imagen después de 50 ms
             } else if (procesarBeacon(majorValue, minorValue) == 2) {
                 beaconTemperaturaActivo = true; // El beacon de temperatura está activo
@@ -549,147 +537,27 @@ public class MainActivity extends AppCompatActivity {
         return view; // Retornar la vista configurada
     }
 
-
-    /**
-     * @brief Reinicia el temporizador para un dispositivo detectado.
-     *
-     * Este método gestiona el temporizador que controla el tiempo de desconexión de
-     * los dispositivos de tipo CO2 y temperatura. Si ya existe un temporizador para
-     * el dispositivo, lo cancela y crea uno nuevo. El temporizador cuenta regresivamente
-     * desde 10 segundos y actualiza la interfaz de usuario con el tiempo restante.
-     *
-     * Si el tiempo se agota, se llama al método para eliminar la vista del dispositivo
-     * correspondiente.
-     *
-     * @param uuid El UUID del dispositivo cuyo temporizador se va a reiniciar.
-     * @param majorValue El valor 'major' del beacon detectado.
-     * @param tib La instancia de TramaIBeacon que contiene la información del iBeacon.
-     * @param dispositivoBuscado UUID del dispositivo específico que se está buscando, si corresponde.
-     */
-    private void reiniciarTemporizador(final String uuid, final int majorValue, TramaIBeacon tib, UUID dispositivoBuscado) {
-        // Crear una clave única basada en el UUID y el tipo de sensor (majorValue)
-        String claveTemporizador = uuid + "_" + majorValue;
-
-        // Si ya existe un temporizador para esta combinación de UUID y tipo de sensor, cancélalo
-        if (temporizadoresDispositivos.containsKey(claveTemporizador)) {
-            Handler temporizadorExistente = temporizadoresDispositivos.get(claveTemporizador);
-            temporizadorExistente.removeCallbacksAndMessages(null);
-        }
-
-        // Crear un nuevo temporizador
-        Handler nuevoTemporizador = new Handler();
-        final long tiempoTotal = 10000; // 10 segundos
-        final long intervalo = 1000;   // 1 segundo
-
-        // Inicializar variables de tiempo restante para CO2 y Temperatura de forma independiente
-        final TextView cuentaAtrasCO2 = findViewById(R.id.cuentaAtrasCO2);
-        final TextView cuentaAtrasTemperatura = findViewById(R.id.cuentaAtrasTemperatura);
-
-        Runnable actualizarCuentaAtras = new Runnable() {
-            long tiempoRestanteCO2 = tiempoTotal;
-            long tiempoRestanteTemperatura = tiempoTotal;
-
-            @Override
-            public void run() {
-                // Obtener el tipo de beacon (CO2 o Temperatura) basado en el majorValue
-                int tipoBeacon = procesarBeacon(Utilidades.bytesToInt(tib.getMajor()), Utilidades.bytesToInt(tib.getMinor()));
-
-                if (tipoBeacon == 1) { // CO2
-                    long segundosRestantesCO2 = tiempoRestanteCO2 / 1000;
-                    if (tiempoRestanteCO2 >= 0) {
-                        cuentaAtrasCO2.setText("Desconectando CO2 en: " + segundosRestantesCO2 + "s...");
-                        tiempoRestanteCO2 -= intervalo;
-                    } else {
-                        eliminarVistaDispositivo(uuid, majorValue);
-                        return; // Detener ejecución cuando el tiempo de CO2 llegue a 0
-                    }
-                } else if (tipoBeacon == 2) { // Temperatura
-                    long segundosRestantesTemperatura = tiempoRestanteTemperatura / 1000;
-                    if (tiempoRestanteTemperatura >= 0) {
-                        cuentaAtrasTemperatura.setText("Desconectando Temperatura en: " + segundosRestantesTemperatura + "s...");
-                        tiempoRestanteTemperatura -= intervalo;
-                    } else {
-                        eliminarVistaDispositivo(uuid, majorValue);
-                        return; // Detener ejecución cuando el tiempo de Temperatura llegue a 0
-                    }
-                }
-
-                nuevoTemporizador.postDelayed(this, intervalo); // Repetir el runnable cada segundo
-            }
-        };
-
-        // Iniciar la cuenta atrás
-        nuevoTemporizador.post(actualizarCuentaAtras);
-
-        // Almacenar el nuevo temporizador con la clave basada en UUID y tipo de sensor
-        temporizadoresDispositivos.put(claveTemporizador, nuevoTemporizador);
-    }
-
-    /**
-     * @brief Elimina la vista de un dispositivo detectado de la interfaz de usuario.
-     *
-     * Este método verifica si existe una vista para el dispositivo especificado por su UUID.
-     * Si es así, actualiza la interfaz de usuario para reflejar que el dispositivo ha dejado de
-     * ser detectado (ya sea un beacon de CO2 o de temperatura), elimina la vista del contenedor
-     * visual, y también remueve el dispositivo de los mapas de vistas y temporizadores.
-     *
-     * @param uuid El UUID del dispositivo cuya vista se va a eliminar.
-     * @param majorValue El valor 'major' del beacon detectado.
-     */
-    private void eliminarVistaDispositivo(String uuid, int majorValue) {
-        // Crear una clave única basada en el UUID y el tipo de sensor (majorValue)
-        String claveVista = uuid + "_" + majorValue;
-
-        // Verifica si hay una vista existente para el dispositivo y tipo de sensor
-        if (vistasDispositivosDetectados.containsKey(claveVista)) {
-            View vistaAEliminar = vistasDispositivosDetectados.get(claveVista);
-
-            // Determinar si es el beacon de CO2 o temperatura según el valor de major
-            runOnUiThread(() -> {
-                if (procesarBeacon(majorValue, 0) == 1) {
-                    beaconCO2Activo = false; // El beacon de CO2 ha dejado de ser detectado
-                    dato1.setText("CO2: Off"); // Actualizar el TextView a "Off"
-                } else if (procesarBeacon(majorValue, 0) == 2) {
-                    beaconTemperaturaActivo = false; // El beacon de temperatura ha dejado de ser detectado
-                    dato2.setText("ºC: Off"); // Actualizar el TextView a "Off"
-                }
-            });
-
-            // Eliminar la vista del contenedor visual
-            LinearLayout contenedor = findViewById(R.id.contenedorBeacons);
-            contenedor.removeView(vistaAEliminar);
-
-            // Remover el dispositivo del mapa de vistas y del mapa de temporizadores
-            vistasDispositivosDetectados.remove(claveVista);
-            temporizadoresDispositivos.remove(claveVista);
-
-            Log.d(ETIQUETA_LOG, "Dispositivo eliminado por inactividad: " + claveVista);
-        } else {
-            Log.d(ETIQUETA_LOG, "No se encontró vista para eliminar con clave: " + claveVista);
-        }
-    }
-
     /**
      * @brief Procesa la información del beacon detectado.
      *
      * Este método determina el tipo de medición a partir del valor 'major' del beacon
-     * y registra el valor 'minor'. Los tipos de medición reconocidos son CO2 y
+     * y registra el valor 'minor'. Los tipos de medición reconocidos son ozono y
      * Temperatura, identificados por sus respectivos códigos.
      *
      * @param major El valor 'major' del beacon, que contiene el tipo de medición y un contador.
-     * @param minor El valor 'minor' del beacon, que representa el dato medido (por ejemplo, CO2 o temperatura).
+     * @param minor El valor 'minor' del beacon, que representa el dato medido (por ejemplo, ozono o temperatura).
      * @return Un entero que representa el tipo de medición:
-     *         - 1 si el dato es de CO2
+     *         - 1 si el dato es de ozono
      *         - 2 si el dato es de temperatura
      *         - 0 si el tipo de dato no es reconocido.
      */
     public int procesarBeacon(int major, int minor) {
-        int tipoMedicion = major >> 8;  // Obtener el identificador de la medición (CO2 o Temperatura)
+        int tipoMedicion = major >> 8;  // Obtener el identificador de la medición (ozono o Temperatura)
         int contador = major & 0xFF;    // Obtener el contador (opcional si es útil para tu lógica)
 
         switch (tipoMedicion) {
-            case 11:  // CO2
-                Log.d("Beacon", "Dato de CO2 detectado. Valor: " + minor + ", Contador: " + contador);
+            case 11:  // ozono
+                Log.d("Beacon", "Dato de ozono detectado. Valor: " + minor + ", Contador: " + contador);
                 return 1;
             case 12:  // Temperatura
                 Log.d("Beacon", "Dato de temperatura detectado. Valor: " + minor + ", Contador: " + contador);
@@ -735,11 +603,11 @@ public class MainActivity extends AppCompatActivity {
                     int minorValue = Utilidades.bytesToInt(tib.getMinor());
 
                     // Llamar al método para actualizar la interfaz de usuario
-                    actualizarVistaCO2yTemperatura(majorValue, minorValue);
+                    actualizarVistaozonoyTemperatura(majorValue, minorValue);
 
                     // Identificar el tipo de sensor
                     if (procesarBeacon(majorValue, minorValue) == 1) {
-                        sensor = "CO2";
+                        sensor = "ozono";
                     } else if (procesarBeacon(majorValue, minorValue) == 2) {
                         sensor = "temperature";
                     }
@@ -821,7 +689,6 @@ public class MainActivity extends AppCompatActivity {
      *
      * - Detiene el escaneo si hay un callback activo.
      * - Elimina todas las vistas del contenedor visual.
-     * - Limpia los mapas que almacenan las vistas y temporizadores de los dispositivos.
      * - Actualiza los TextView para mostrar "Off" y oculta las imágenes asociadas a los sensores.
      */
     private void detenerBusquedaDispositivosBTLE() {
@@ -839,14 +706,12 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout contenedor = findViewById(R.id.contenedorBeacons);
             contenedor.removeAllViews();  // Elimina todas las vistas del contenedor
 
-            // Limpiar los mapas de vistas y temporizadores
             vistasDispositivosDetectados.clear();
-            temporizadoresDispositivos.clear();
 
             // Actualizar los TextView para mostrar "Off" y ocultar las imágenes
             image3.setVisibility(View.GONE);
             image4.setVisibility(View.GONE);
-            dato1.setText("CO2: Off");
+            dato1.setText("Ozono: Off");
             dato2.setText("ºC: Off");
         });
     }

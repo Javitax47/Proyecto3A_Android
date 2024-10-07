@@ -17,7 +17,7 @@ import java.util.Locale;
  * y el ID del usuario asociado.
  */
 public class SensorData {
-    private String type;      ///< Tipo de medición (ej. "CO2", "temperatura").
+    private String type;      ///< Tipo de medición (ej. "ozono", "temperatura").
     private float value;      ///< Valor de la medición.
     private String timestamp;  ///< Marca de tiempo en formato ISO 8601.
     private int userId;      ///< ID del usuario asociado a la medición.
@@ -25,7 +25,7 @@ public class SensorData {
     /**
      * @brief Constructor de la clase SensorData.
      *
-     * @param type Tipo de medición (ej. "CO2", "temperatura").
+     * @param type Tipo de medición (ej. "ozono", "temperatura").
      * @param value Valor de la medición.
      * @param userId ID del usuario que realiza la medición.
      */

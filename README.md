@@ -1,11 +1,11 @@
 # Proyecto3A_Android
 
-Este proyecto es una aplicación Android que utiliza beacons para medir niveles de CO2 y temperatura. La aplicación se conecta a un servidor para almacenar y recuperar datos de sensores a través de una API REST.
+Este proyecto es una aplicación Android que utiliza beacons para medir niveles de ozono y temperatura. La aplicación se conecta a un servidor para almacenar y recuperar datos de sensores a través de una API REST.
 
 ## Funcionalidades
 
 - **Detección de Dispositivos BTLE**: La aplicación busca y se conecta a beacons Bluetooth Low Energy.
-- **Medición de Sensores**: Recopila datos de sensores (CO2 y temperatura) y los envía al servidor.
+- **Medición de Sensores**: Recopila datos de sensores (ozono y temperatura) y los envía al servidor.
 - **Gestión de Usuarios**: Permite la creación y eliminación de usuarios en el sistema.
 - **Interfaz de Usuario**: Interfaz sencilla para interactuar con la aplicación y visualizar datos.
 
@@ -42,7 +42,7 @@ Este proyecto es una aplicación Android que utiliza beacons para medir niveles 
 
 - **Tabla `sensors`**:
   - `id`: Identificador único.
-  - `type`: Tipo de sensor (CO2, temperatura).
+  - `type`: Tipo de sensor (ozono, temperatura).
   - `value`: Valor medido.
   - `timestamp`: Marca de tiempo de la medición.
   - `user_id`: Identificador del usuario.

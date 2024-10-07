@@ -196,19 +196,19 @@ int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Main\+Activity.\+procesar\+B
 
 Procesa la información del beacon detectado. 
 
-Este método determina el tipo de medición a partir del valor \textquotesingle{}major\textquotesingle{} del beacon y registra el valor \textquotesingle{}minor\textquotesingle{}. Los tipos de medición reconocidos son CO2 y Temperatura, identificados por sus respectivos códigos.
+Este método determina el tipo de medición a partir del valor \textquotesingle{}major\textquotesingle{} del beacon y registra el valor \textquotesingle{}minor\textquotesingle{}. Los tipos de medición reconocidos son ozono y Temperatura, identificados por sus respectivos códigos.
 
 
 \begin{DoxyParams}{Parámetros}
 {\em major} & El valor \textquotesingle{}major\textquotesingle{} del beacon, que contiene el tipo de medición y un contador. \\
 \hline
-{\em minor} & El valor \textquotesingle{}minor\textquotesingle{} del beacon, que representa el dato medido (por ejemplo, CO2 o temperatura). \\
+{\em minor} & El valor \textquotesingle{}minor\textquotesingle{} del beacon, que representa el dato medido (por ejemplo, ozono o temperatura). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}
 Un entero que representa el tipo de medición\+:
 \begin{DoxyItemize}
-\item 1 si el dato es de CO2
+\item 1 si el dato es de ozono
 \item 2 si el dato es de temperatura
 \item 0 si el tipo de dato no es reconocido. 
 \end{DoxyItemize}

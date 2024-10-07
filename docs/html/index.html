@@ -88,12 +88,12 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
-<p>Este proyecto es una aplicación Android que utiliza beacons para medir niveles de CO2 y temperatura. La aplicación se conecta a un servidor para almacenar y recuperar datos de sensores a través de una API REST.</p>
+<p>Este proyecto es una aplicación Android que utiliza beacons para medir niveles de ozono y temperatura. La aplicación se conecta a un servidor para almacenar y recuperar datos de sensores a través de una API REST.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Funcionalidades</h1>
 <ul>
 <li><b>Detección de Dispositivos BTLE</b>: La aplicación busca y se conecta a beacons Bluetooth Low Energy.</li>
-<li><b>Medición de Sensores</b>: Recopila datos de sensores (CO2 y temperatura) y los envía al servidor.</li>
+<li><b>Medición de Sensores</b>: Recopila datos de sensores (ozono y temperatura) y los envía al servidor.</li>
 <li><b>Gestión de Usuarios</b>: Permite la creación y eliminación de usuarios en el sistema.</li>
 <li><b>Interfaz de Usuario</b>: Interfaz sencilla para interactuar con la aplicación y visualizar datos.</li>
 </ul>
@@ -131,7 +131,7 @@ Estructura de la Base de Datos</h2>
 <ul>
 <li><b>Tabla <code>sensors</code></b>:<ul>
 <li><code>id</code>: Identificador único.</li>
-<li><code>type</code>: Tipo de sensor (CO2, temperatura).</li>
+<li><code>type</code>: Tipo de sensor (ozono, temperatura).</li>
 <li><code>value</code>: Valor medido.</li>
 <li><code>timestamp</code>: Marca de tiempo de la medición.</li>
 <li><code>user_id</code>: Identificador del usuario.</li>
