@@ -376,7 +376,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, "buscarTodosLosDispositivosBTLE(): empezamos a escanear todos los dispositivos");
 
         // Iniciar el escaneo de dispositivos BTLE
-        this.elEscanner.startScan(null, scanSettings, this.callbackDelEscaneo);
+        try {
+            this.elEscanner.startScan(null, scanSettings, this.callbackDelEscaneo);
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Por favor acepta los permisos de bletooth y actívalo", Toast.LENGTH_SHORT).show();
+            Log.d(ETIQUETA_LOG, "Error de bletooth: " + e);
+        }
     }
 
 
@@ -656,7 +661,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, "buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado);
 
         // Iniciar el escaneo sin filtros
-        this.elEscanner.startScan(null, scanSettings, this.callbackDelEscaneo);
+        try {
+            this.elEscanner.startScan(null, scanSettings, this.callbackDelEscaneo);
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Por favor acepta los permisos de bletooth y actívalo", Toast.LENGTH_SHORT).show();
+            Log.d(ETIQUETA_LOG, "Error de bletooth: " + e);
+        }
     }
 
 
@@ -697,8 +707,14 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        try {
+            this.elEscanner.stopScan(this.callbackDelEscaneo);
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Por favor acepta los permisos de bletooth y actívalo", Toast.LENGTH_SHORT).show();
+            Log.d(ETIQUETA_LOG, "Error de bletooth: " + e);
+        }
         // Detener el escaneo y limpiar el callback
-        this.elEscanner.stopScan(this.callbackDelEscaneo);
+
         this.callbackDelEscaneo = null;
 
         // Eliminar todas las vistas de dispositivos detectados
