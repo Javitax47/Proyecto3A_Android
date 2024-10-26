@@ -188,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, "onCreate(): termina");
 
+        inicializarBlueTooth();
+
+
         nuevoUuid = "EQUIPO-JAVIER-3A";
 
         api = RetrofitClient.getClient(ip).create(SensorApi.class);
