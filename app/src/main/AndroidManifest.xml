@@ -9,6 +9,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
 
 
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
@@ -24,6 +28,13 @@
         android:theme="@style/Theme.Proyecto3A"
         tools:targetApi="31"
         android:networkSecurityConfig="@xml/network_security_config">
+
+
+        <service android:name=".BLEService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="dataSync"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
