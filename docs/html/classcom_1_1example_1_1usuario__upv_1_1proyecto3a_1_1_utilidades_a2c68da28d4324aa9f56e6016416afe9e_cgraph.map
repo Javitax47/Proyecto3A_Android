@@ -1,0 +1,7 @@
+<map id="com.example.usuario_upv.proyecto3a.Utilidades.uuidToString" name="com.example.usuario_upv.proyecto3a.Utilidades.uuidToString">
+<area shape="rect" id="Node000001" title="Convierte un UUID a una cadena." alt="" coords="5,47,212,105"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades.html#a476aab034e0394720a79d6a1200459c5" title="Convierte un arreglo de bytes a una cadena." alt="" coords="260,5,474,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,57,244,52,245,57,212,62"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades.html#a933ed17994e1301dd12d66df73d3b4fd" title="Convierte dos longitudes a un arreglo de bytes." alt="" coords="265,88,468,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,90,250,96,250,101,212,95"/>
+</map>

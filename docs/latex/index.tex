@@ -1,0 +1,83 @@
+\chapter{Proyecto3\+A\+\_\+\+Android}
+\hypertarget{index}{}\label{index}\index{Proyecto3A\_Android@{Proyecto3A\_Android}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+
+
+Este proyecto es una aplicación Android que utiliza beacons para medir niveles de CO2 y temperatura. La aplicación se conecta a un servidor para almacenar y recuperar datos de sensores a través de una API REST.\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Funcionalidades}{Funcionalidades}}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item {\bfseries{Detección de Dispositivos BTLE}}\+: La aplicación busca y se conecta a beacons Bluetooth Low Energy.
+\item {\bfseries{Medición de Sensores}}\+: Recopila datos de sensores (CO2 y temperatura) y los envía al servidor.
+\item {\bfseries{Gestión de Usuarios}}\+: Permite la creación y eliminación de usuarios en el sistema.
+\item {\bfseries{Interfaz de Usuario}}\+: Interfaz sencilla para interactuar con la aplicación y visualizar datos.
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Requisitos}{Requisitos}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Android Studio
+\item SDK de Android (versión mínima recomendada\+: 21)
+\item Dependencias\+:
+\begin{DoxyItemize}
+\item Retrofit para la comunicación con la API REST
+\item Gson para la conversión de JSON
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Estructura del Proyecto}{Estructura del Proyecto}}\label{index_autotoc_md3}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/app\ }
+\DoxyCodeLine{\ \ \ \ /src\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ /main\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ /java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /com.example.usuario\_upv.proyecto3a}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ MainActivity.java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ RetrofitClient.java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ SensorApi.java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ SensorData.java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ User.java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Utilidades.java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ TramaIBeacon.java\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ /res\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /layout\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /drawable\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /values}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Estructura de la Base de Datos}{Estructura de la Base de Datos}}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Tabla {\ttfamily sensors}}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily id}\+: Identificador único.
+\item {\ttfamily type}\+: Tipo de sensor (CO2, temperatura).
+\item {\ttfamily value}\+: Valor medido.
+\item {\ttfamily timestamp}\+: Marca de tiempo de la medición.
+\item {\ttfamily user\+\_\+id}\+: Identificador del usuario.
+\end{DoxyItemize}
+\item {\bfseries{Tabla {\ttfamily users}}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily id}\+: Identificador único.
+\item {\ttfamily username}\+: Nombre de usuario.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Instalación}{Instalación}}\label{index_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Clona este repositorio\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/Javitax47/Proyecto3A\_Android.git}
+
+\end{DoxyCode}
+
+\item Abre el proyecto en Android Studio.
+\item Asegúrate de tener configuradas las dependencias necesarias en tu archivo build.\+gradle.
+\item Ejecuta la aplicación en un dispositivo Android.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{Uso}{Uso}}\label{index_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item Abre la aplicación en tu dispositivo Android.
+\item Usa los botones de la interfaz para buscar dispositivos BTLE y detener la búsqueda.
+\item Se mostrarán los datos de los sensores en la interfaz.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Contribuciones}{Contribuciones}}\label{index_autotoc_md7}
+Si deseas contribuir a este proyecto, por favor, crea un fork del repositorio y envía un pull request con tus cambios.\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{Licencia}{Licencia}}\label{index_autotoc_md8}
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles. 

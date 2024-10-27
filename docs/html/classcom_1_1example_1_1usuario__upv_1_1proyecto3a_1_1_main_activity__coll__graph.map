@@ -1,0 +1,7 @@
+<map id="com.example.usuario_upv.proyecto3a.MainActivity" name="com.example.usuario_upv.proyecto3a.MainActivity">
+<area shape="rect" id="Node000001" title="MainActivity de la aplicación." alt="" coords="27,261,283,507"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,67,131,136"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,150,120,261,115,263,80,151"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api.html" title="Interfaz para definir los endpoints de la API de sensores." alt="" coords="155,5,327,197"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,198,200,246,195,244,210,196"/>
+</map>

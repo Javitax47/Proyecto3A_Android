@@ -1,0 +1,150 @@
+\doxysection{Referencia de la interface com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api}
+\hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api}{}\label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api}\index{com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}}
+
+
+Interfaz para definir los endpoints de la API de sensores.  
+
+
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_ad0d0a38af0a7b2c576087ca08d6804a7}{check\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Verifica la conexión con el servidor. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a216de437e09923dd3ac7d855dbdfb037}{setup\+Tables}} ()
+\begin{DoxyCompactList}\small\item\em Crea las tablas necesarias en la base de datos. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a17453d2eec96d0ef95196fa9c7b83cb6}{create\+User}} (@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user}{User}} user)
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo usuario en la base de datos. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a952d6307dfad80faf6d4cac86f752e84}{create\+Sensor\+Data}} (@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data}} sensor\+Data)
+\begin{DoxyCompactList}\small\item\em Inserta una medición de sensor en la base de datos. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a13c7da889bf08aac3c323f080bd0fc4b}{delete\+User}} (@Path("{}id"{}) int user\+Id)
+\begin{DoxyCompactList}\small\item\em Elimina un usuario de la base de datos por su ID. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_af0df11fd8e49c6bf291d128d1a879c02}{reset\+Tables}} ()
+\begin{DoxyCompactList}\small\item\em Resetea las tablas en la base de datos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Interfaz para definir los endpoints de la API de sensores. 
+
+Esta interfaz contiene métodos para interactuar con el servidor que gestiona los datos de los sensores y los usuarios. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_ad0d0a38af0a7b2c576087ca08d6804a7}\index{com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}!checkConnection@{checkConnection}}
+\index{checkConnection@{checkConnection}!com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}}
+\doxysubsubsection{\texorpdfstring{checkConnection()}{checkConnection()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_ad0d0a38af0a7b2c576087ca08d6804a7} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api.\+check\+Connection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica la conexión con el servidor. 
+
+Este método envía una solicitud GET al servidor para comprobar si está disponible.
+
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a952d6307dfad80faf6d4cac86f752e84}\index{com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}!createSensorData@{createSensorData}}
+\index{createSensorData@{createSensorData}!com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}}
+\doxysubsubsection{\texorpdfstring{createSensorData()}{createSensorData()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a952d6307dfad80faf6d4cac86f752e84} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api.\+create\+Sensor\+Data (\begin{DoxyParamCaption}\item[{@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data}}}]{sensor\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Inserta una medición de sensor en la base de datos. 
+
+Este método envía una solicitud POST con la información de la medición en el cuerpo de la solicitud.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sensor\+Data} & El objeto \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data} que contiene la información de la medición. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a17453d2eec96d0ef95196fa9c7b83cb6}\index{com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}!createUser@{createUser}}
+\index{createUser@{createUser}!com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a17453d2eec96d0ef95196fa9c7b83cb6} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api.\+create\+User (\begin{DoxyParamCaption}\item[{@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user}{User}}}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Inserta un nuevo usuario en la base de datos. 
+
+Este método envía una solicitud POST con la información del usuario en el cuerpo de la solicitud.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em user} & El objeto \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user}{User} que contiene la información del nuevo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a13c7da889bf08aac3c323f080bd0fc4b}\index{com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a13c7da889bf08aac3c323f080bd0fc4b} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api.\+delete\+User (\begin{DoxyParamCaption}\item[{@Path("{}id"{}) int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Elimina un usuario de la base de datos por su ID. 
+
+Este método envía una solicitud DELETE al endpoint correspondiente para eliminar al usuario especificado.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em user\+Id} & El ID del usuario que se desea eliminar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_af0df11fd8e49c6bf291d128d1a879c02}\index{com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}!resetTables@{resetTables}}
+\index{resetTables@{resetTables}!com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}}
+\doxysubsubsection{\texorpdfstring{resetTables()}{resetTables()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_af0df11fd8e49c6bf291d128d1a879c02} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api.\+reset\+Tables (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Resetea las tablas en la base de datos. 
+
+Este método envía una solicitud DELETE al endpoint para reiniciar las tablas.
+
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a216de437e09923dd3ac7d855dbdfb037}\index{com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}!setupTables@{setupTables}}
+\index{setupTables@{setupTables}!com.example.usuario\_upv.proyecto3a.SensorApi@{com.example.usuario\_upv.proyecto3a.SensorApi}}
+\doxysubsubsection{\texorpdfstring{setupTables()}{setupTables()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_api_a216de437e09923dd3ac7d855dbdfb037} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Api.\+setup\+Tables (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Crea las tablas necesarias en la base de datos. 
+
+Este método envía una solicitud GET al endpoint de configuración para crear las tablas requeridas.
+
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+
+
+La documentación de esta interface está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_sensor_api_8java}{Sensor\+Api.\+java}}\end{DoxyCompactItemize}
