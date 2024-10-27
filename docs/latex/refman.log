@@ -1610,13 +1610,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--47
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--50
-[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+<<<<<<< Updated upstream
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.LogicaFake,
+>>>>>>> Stashed changes
  []
 
 
@@ -1637,7 +1637,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 122--124
+<<<<<<< Updated upstream
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
@@ -1649,31 +1650,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--127
 
 Underfull \hbox (badness 10000) in paragraph at lines 131--133
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.LogicaFake,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--136
+Underfull \hbox (badness 10000) in paragraph at lines 125--127
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.LogicaFake,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.LogicaFake,
+>>>>>>> Stashed changes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
  []
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--212
+<<<<<<< Updated upstream
+Underfull \hbox (badness 10000) in paragraph at lines 206--208
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 231--233
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.SensorApi,
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 210--212
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.LogicaFake,
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
+[]| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.LogicaFake,
+>>>>>>> Stashed changes
+ []
 
-LaTeX Info: Redefining \. on input line 242.
-LaTeX Info: Redefining \% on input line 242.
-[44]
-Underfull \hbox (badness 10000) in paragraph at lines 242--244
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--240
 []| \T1/phv/m/n/10 com.example.usuario_upv.proyecto3a.Utilidades,
  []
 

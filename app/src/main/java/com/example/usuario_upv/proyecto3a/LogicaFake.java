@@ -1,13 +1,9 @@
 package com.example.usuario_upv.proyecto3a;
 
-
+import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
-
-import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -19,7 +15,7 @@ import retrofit2.http.Path;
  * Esta interfaz contiene métodos para interactuar con el servidor que gestiona
  * los datos de los sensores y los usuarios.
  */
-public interface SensorApi {
+public interface LogicaFake {
 
     /**
      * @brief Verifica la conexión con el servidor.
@@ -41,6 +37,20 @@ public interface SensorApi {
      * @param sensorData El objeto SensorData que contiene la información de la medición.
      * @return Un objeto Call que contiene la respuesta de la solicitud.
      */
-    @POST("/")
+    @POST("/mediciones")
     Call<Void> createSensorData(@Body SensorData sensorData);
+
+    @POST("/usuarios")
+    Call<Void> createUserData(@Body UserData userData);
+
+    @GET("/usuarios/login/{email}/{password}")
+    Call<User> getUserData(@Path(value = "email", encoded = true) String email, @Path("password") String password);
+
+    @GET("/usuarios/{email}/sensores")
+    Call<ResponseBody> getUserSensors(
+            @Path(value = "email", encoded = true) String email
+    );
+
+    @POST("/sensores")
+    Call<Void> createSensor(@Body Sensor sensor);
 }
