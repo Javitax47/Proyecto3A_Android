@@ -179,17 +179,23 @@ public class BLEService extends Service {
         boolean hasErroneousReadings = checkIfReadingsAreErroneous(result);
         boolean isBeaconNotSending = checkIfBeaconNotSending(result);
 
-        // Manejo de alertas usando la clase Alertas
-        if (isSensorDamaged && !sensorDamagedAlertSent) {
-            sendAlertNotification(Alertas.SENSOR_DANADO.getMensaje());
-            sensorDamagedAlertSent = true;
-        } else if (hasErroneousReadings && !erroneousReadingAlertSent) {
-            sendAlertNotification(Alertas.LECTURAS_ERRONEAS.getMensaje());
-            erroneousReadingAlertSent = true;
-        } else if (isBeaconNotSending && !beaconNotSendingAlertSent) {
-            sendAlertNotification(Alertas.BEACON_NO_ENVIANDO.getMensaje());
+        long currentTime = System.currentTimeMillis();
+        long timeSinceLastReading = currentTime - lastReadingTimestamp;
+        long timeoutThreshold = 5000; // 5 segundos
+
+        if (timeSinceLastReading > timeoutThreshold && !beaconNotSendingAlertSent) {
+            sendAlertNotification(Alertas.BEACON_NO_ENVIANDO);
             beaconNotSendingAlertSent = true;
         }
+
+        if (isSensorDamaged && !sensorDamagedAlertSent) {
+            sendAlertNotification(Alertas.SENSOR_DANADO);
+            sensorDamagedAlertSent = true;
+        } else if (hasErroneousReadings && !erroneousReadingAlertSent) {
+            sendAlertNotification(Alertas.LECTURAS_ERRONEAS);
+            erroneousReadingAlertSent = true;
+        }
+
 
         // Resetear alertas si el sensor está en estado correcto
         if (!isSensorDamaged) sensorDamagedAlertSent = false;
@@ -228,13 +234,13 @@ public class BLEService extends Service {
         return false;
     }
 
-    private void sendAlertNotification(String message) {
+    private void sendAlertNotification(Alertas alerta) {
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Alerta de Sensor")
-                .setContentText(message)
+                .setContentText(alerta.getMensaje())
                 .setSmallIcon(android.R.drawable.ic_dialog_alert)
                 .setContentIntent(pendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -242,7 +248,7 @@ public class BLEService extends Service {
                 .build();
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify((int) System.currentTimeMillis(), notification);
+        notificationManager.notify(alerta.getCodigo(), notification); // Usa el código de alerta como ID
     }
 
 

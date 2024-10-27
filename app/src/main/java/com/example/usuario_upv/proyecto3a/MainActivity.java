@@ -10,6 +10,7 @@ import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
 import android.content.pm.PackageManager;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -164,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
      * La clave es el identificador único del dispositivo, y el valor es la vista asociada.
      */
     private Map<String, View> vistasDispositivosDetectados = new HashMap<>();
+
+
+    private Point location = new Point(1, 2);
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -613,14 +617,7 @@ public class MainActivity extends AppCompatActivity {
                     // Llamar al método para actualizar la interfaz de usuario
                     actualizarVistaozonoyTemperatura(majorValue, minorValue);
 
-                    // Identificar el tipo de sensor
-                    if (procesarBeacon(majorValue, minorValue) == 1) {
-                        sensor = "ozono";
-                    } else if (procesarBeacon(majorValue, minorValue) == 2) {
-                        sensor = "temperature";
-                    }
-
-                    SensorData sensorData = new SensorData(sensor, minorValue, 1);
+                    SensorData sensorData = new SensorData(sensor, minorValue, procesarBeacon(majorValue, minorValue), location);
 
                     Call<Void> call = api.createSensorData(sensorData); // Instanciar call dentro del try
 

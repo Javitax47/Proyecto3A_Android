@@ -1,5 +1,7 @@
 package com.example.usuario_upv.proyecto3a;
 
+import android.graphics.Point;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -17,23 +19,26 @@ import java.util.Locale;
  * y el ID del usuario asociado.
  */
 public class SensorData {
-    private String type;      ///< Tipo de medición (ej. "ozono", "temperatura").
+    private int type;      ///< Tipo de medición (ej. "ozono", "temperatura").
     private float value;      ///< Valor de la medición.
     private String timestamp;  ///< Marca de tiempo en formato ISO 8601.
-    private int userId;      ///< ID del usuario asociado a la medición.
+    private Point location;
+    private String sensorId;
+
+
 
     /**
      * @brief Constructor de la clase SensorData.
      *
      * @param type Tipo de medición (ej. "ozono", "temperatura").
      * @param value Valor de la medición.
-     * @param userId ID del usuario que realiza la medición.
      */
-    public SensorData(String type, float value, int userId) {
-        this.type = type;
+    public SensorData(String sensorId, float value,  int type, Point location) {
+        this.sensorId = sensorId;
         this.value = value;
-        this.userId = userId;
+        this.type = type;
         this.timestamp = getCurrentTimestamp();
+        this.location = location;
     }
 
     /**
@@ -51,12 +56,12 @@ public class SensorData {
     /**
      * @return Tipo de medición.
      */
-    public String getType() { return type; }
+    public int getType() { return type; }
 
     /**
      * @param type Tipo de medición.
      */
-    public void setType(String type) { this.type = type; }
+    public void setType(int type) { this.type = type; }
 
     /**
      * @return Valor de la medición.
@@ -78,13 +83,20 @@ public class SensorData {
      */
     public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
 
-    /**
-     * @return ID del usuario asociado a la medición.
-     */
-    public int getUserId() { return userId; }
 
-    /**
-     * @param userId ID del usuario asociado a la medición.
-     */
-    public void setUserId(int userId) { this.userId = userId; }
+    public Point getLocation() {
+        return location;
+    }
+
+    public void setLocation(Point location) {
+        this.location = location;
+    }
+
+    public String getSensorId() {
+        return sensorId;
+    }
+
+    public void setSensorId(String sensorId) {
+        this.sensorId = sensorId;
+    }
 }
