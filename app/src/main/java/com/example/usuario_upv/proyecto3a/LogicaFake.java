@@ -1,6 +1,8 @@
 package com.example.usuario_upv.proyecto3a;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -38,12 +40,17 @@ public interface LogicaFake {
     @POST("/mediciones")
     Call<Void> createSensorData(@Body SensorData sensorData);
 
-    @POST("/users")
+    @POST("/usuarios")
     Call<Void> createUserData(@Body UserData userData);
 
-    @GET("users/login/{email}/{password}")
-    Call<LoginResponse> getUserData(
-            @Path(value = "email", encoded = true) String email,
-            @Path("password") String password
+    @GET("/usuarios/login/{email}/{password}")
+    Call<User> getUserData(@Path(value = "email", encoded = true) String email, @Path("password") String password);
+
+    @GET("/usuarios/{email}/sensores")
+    Call<ResponseBody> getUserSensors(
+            @Path(value = "email", encoded = true) String email
     );
+
+    @POST("/sensores")
+    Call<Void> createSensor(@Body Sensor sensor);
 }

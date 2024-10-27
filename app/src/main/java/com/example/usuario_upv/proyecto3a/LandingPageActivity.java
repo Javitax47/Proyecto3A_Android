@@ -1,7 +1,5 @@
 package com.example.usuario_upv.proyecto3a;
 
-import static androidx.core.app.PendingIntentCompat.getActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,6 +32,7 @@ public class LandingPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+
         // Comprobar si el usuario ya ha iniciado sesión
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String userEmail = sharedPreferences.getString("userEmail", null);

@@ -108,22 +108,21 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Iniciando sesión...");
         progressDialog.show();
 
-        Call<LoginResponse> call = api.getUserData(email, password);
+        Call<User> call = api.getUserData(email, password);
 
         // Log de la URL que se está llamando
         Log.d(ETIQUETA_LOG, "URL llamada: " + call.request().url());
 
-        call.enqueue(new Callback<LoginResponse>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, retrofit2.Response<LoginResponse> response) {
+            public void onResponse(Call<User> call, retrofit2.Response<User> response) {
                 progressDialog.dismiss();
 
                 if (response.isSuccessful() && response.body() != null) {
-                    LoginResponse loginResponse = response.body();
                     Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
                     // Guardar datos del usuario
-                    saveUserDataToPrefs(email, loginResponse);
+                    saveUserDataToPrefs(email);
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -149,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 progressDialog.dismiss();
                 Log.e(ETIQUETA_LOG, "Error de conexión", t);
                 Toast.makeText(LoginActivity.this,
@@ -159,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void saveUserDataToPrefs(String email, LoginResponse loginResponse) {
+    private void saveUserDataToPrefs(String email) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("userEmail", email);

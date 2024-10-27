@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
 
     // Nombres de las pestañas
-    private int[] imagenes = new int[]{R.drawable.mapa, R.drawable.menu, R.drawable.usuario};
+    private int[] imagenes = new int[]{R.drawable.mapa, R.drawable.menu, R.drawable.usuario, R.drawable.vehiculos};
 
     /**
      * @brief Método llamado cuando se crea la actividad.
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 3;
+            return 4;
         }
 
         @Override @NonNull
@@ -233,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0: return new Tab1();
                 case 1: return new Tab2();
                 case 2: return new Tab3();
+                case 3: return new Tab4();
             }
             return null;
         }
@@ -244,12 +245,8 @@ public class MainActivity extends AppCompatActivity {
      *
      * Este método se encarga de obtener el adaptador Bluetooth del dispositivo,
      * habilitarlo si es necesario, y obtener el escáner BLE. También verifica y
-     * solicita los permisos necesarios según la versión de Android en uso.
-     *
-     * - Para Android 12 (S) y versiones posteriores, se requieren permisos
-     *   específicos para el escaneo y conexión Bluetooth.
-     * - Para Android 11 (R) y versiones anteriores, se requieren permisos de
-     *   Bluetooth y localización.
+     * solicita los permisos necesarios según la versión de Android en uso, incluyendo
+     * permisos de cámara para el escáner QR.
      */
     private void inicializarBlueTooth() {
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): obtenemos adaptador BT ");
@@ -273,27 +270,39 @@ public class MainActivity extends AppCompatActivity {
 
         // Comprobamos la versión de Android
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            // Para Android 12 y versiones posteriores, pedimos permisos de "dispositivos cercanos"
+            // Para Android 12 y versiones posteriores
             if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                         MainActivity.this,
-                        new String[]{android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.ACCESS_FINE_LOCATION},
+                        new String[]{
+                                android.Manifest.permission.BLUETOOTH_SCAN,
+                                android.Manifest.permission.BLUETOOTH_CONNECT,
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.CAMERA
+                        },
                         CODIGO_PETICION_PERMISOS
                 );
             } else {
                 Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): parece que YA tengo los permisos necesarios en Android 12+ !!!!");
             }
         } else {
-            // Para Android 11 y versiones anteriores, pedimos los permisos de Bluetooth y localización antiguos
+            // Para Android 11 y versiones anteriores
             if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_ADMIN) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                         MainActivity.this,
-                        new String[]{android.Manifest.permission.BLUETOOTH, android.Manifest.permission.BLUETOOTH_ADMIN, Manifest.permission.ACCESS_FINE_LOCATION},
+                        new String[]{
+                                android.Manifest.permission.BLUETOOTH,
+                                android.Manifest.permission.BLUETOOTH_ADMIN,
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.CAMERA
+                        },
                         CODIGO_PETICION_PERMISOS
                 );
             } else {
@@ -301,7 +310,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     } // ()
-
 
     /**
      * @brief Maneja el resultado de las solicitudes de permisos.
@@ -317,16 +325,26 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
+        // Forward the permission result to the fragments
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
         switch (requestCode) {
             case CODIGO_PETICION_PERMISOS:
-                // Si la solicitud es cancelada, los arreglos de resultado están vacíos.
-                if (grantResults.length > 0 &&
-                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): permisos concedidos  !!!!");
-                    // El permiso ha sido concedido. Continuar con la acción o flujo en la app.
+                // Verifica que grantResults tenga al menos 4 resultados antes de acceder a ellos
+                if (grantResults.length >= 4 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[1] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[2] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[3] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): todos los permisos concedidos !!!!");
+                    // Los permisos han sido concedidos. Continuar con la acción o flujo en la app.
                 } else {
-                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): Socorro: permisos NO concedidos  !!!!");
+                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): Socorro: algunos permisos NO concedidos !!!!");
                 }
+                break;
         }
-    } // ()
+    }
+
 } // class
