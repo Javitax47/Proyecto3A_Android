@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
 
     // Nombres de las pestañas
-    private int[] imagenes = new int[]{R.drawable.mapa, R.drawable.menu, R.drawable.usuario};
+    private int[] imagenes = new int[]{R.drawable.mapa, R.drawable.menu, R.drawable.usuario, R.drawable.vehiculos};
 
     /**
      * @brief Método llamado cuando se crea la actividad.
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 3;
+            return 4;
         }
 
         @Override @NonNull
@@ -233,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0: return new Tab1();
                 case 1: return new Tab2();
                 case 2: return new Tab3();
+                case 3: return new Tab4();
             }
             return null;
         }

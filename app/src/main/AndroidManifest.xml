@@ -47,11 +47,11 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".LogIn"
+            android:name=".LoginActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".userConfig"
             android:exported="true">
         </activity>
     </application>
