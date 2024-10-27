@@ -1,166 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/botonBuscarDispositivosBTLE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:onClick="botonBuscarDispositivosBTLEPulsado"
-        android:text="Buscar Dispositivos BTLE nou 4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cuentaAtrasTemperatura" />
-
-    <Button
-        android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="botonDetenerBusquedaDispositivosBTLEPulsado"
-        android:text="Detener búsaqueda Dispositivos BTLE"
-        app:layout_constraintEnd_toEndOf="@+id/botonBuscarDispositivosBTLE"
-        app:layout_constraintStart_toStartOf="@+id/botonBuscarDispositivosBTLE"
-        app:layout_constraintTop_toBottomOf="@+id/botonBuscarDispositivosBTLE" />
-
-    <Button
-        android:id="@+id/botonBuscarNuestroDispositivoBTLE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="botonBuscarNuestroDispositivoBTLEPulsado"
-        android:text="Buscar nuestro dispositivo  BTLE"
-        app:layout_constraintEnd_toEndOf="@+id/botonDetenerBusquedaDispositivosBTLE"
-        app:layout_constraintStart_toStartOf="@+id/botonDetenerBusquedaDispositivosBTLE"
-        app:layout_constraintTop_toBottomOf="@+id/botonDetenerBusquedaDispositivosBTLE" />
-
-    <TextView
-        android:id="@+id/valor1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:text="CO2: Off"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/valor2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="ºC: Off"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="@+id/valor1"
-        app:layout_constraintStart_toStartOf="@+id/valor1"
-        app:layout_constraintTop_toBottomOf="@+id/cuentaAtrasCO2" />
-
-    <TextView
-        android:id="@+id/cuentaAtrasCO2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tiempo restante CO2: 0s"
-        app:layout_constraintEnd_toEndOf="@+id/valor1"
-        app:layout_constraintStart_toStartOf="@+id/valor1"
-        app:layout_constraintTop_toBottomOf="@+id/valor1" />
-
-    <TextView
-        android:id="@+id/cuentaAtrasTemperatura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tiempo restante Temperatura: 0s"
-        app:layout_constraintEnd_toEndOf="@+id/valor2"
-        app:layout_constraintStart_toStartOf="@+id/valor2"
-        app:layout_constraintTop_toBottomOf="@+id/valor2" />
-
-    <ImageView
-        android:id="@+id/valor1_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/valor1"
-        app:layout_constraintTop_toTopOf="@+id/valor1"
-        app:srcCompat="@android:drawable/ic_notification_overlay" />
-
-    <ImageView
-        android:id="@+id/valor2_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/valor2"
-        app:layout_constraintTop_toTopOf="@+id/valor2"
-        app:srcCompat="@android:drawable/ic_notification_overlay" />
-
-    <ImageView
-        android:id="@+id/image_buscarDispositivos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/botonBuscarDispositivosBTLE"
-        app:layout_constraintTop_toTopOf="@+id/botonBuscarDispositivosBTLE"
-        app:srcCompat="@android:drawable/ic_notification_overlay" />
-
-    <ImageView
-        android:id="@+id/image_buscarNuestro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintTop_toBottomOf="@+id/botonDetenerBusquedaDispositivosBTLE"
-        app:srcCompat="@android:drawable/ic_notification_overlay" />
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="0dp"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/border_drawable"
-        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/tabs"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/serverIP"
-        app:layout_constraintVertical_bias="0.0">
-
-        <LinearLayout
-            android:id="@+id/contenedorBeacons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
-    <EditText
-        android:id="@+id/serverIP"
-        android:layout_width="203dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="120dp"
-        android:ems="10"
-        android:hint="Server IP"
-        android:inputType="text"
-        android:text="192.168.189.140"
-        app:layout_constraintEnd_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintStart_toStartOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE" />
-
-    <Button
-        android:id="@+id/submitIP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:onClick="actualizarIP"
-        android:text="Actualizar"
-        app:layout_constraintBottom_toBottomOf="@+id/serverIP"
-        app:layout_constraintStart_toEndOf="@+id/serverIP"
-        app:layout_constraintTop_toTopOf="@+id/serverIP" />
-
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
