@@ -1,5 +1,7 @@
 package com.example.usuario_upv.proyecto3a;
 
+import android.graphics.Point;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -14,10 +16,10 @@ import java.util.Locale;
  */
 public class SensorData {
     private String sensorId;     ///< ID del sensor asociado.
-    private int type;      ///< Tipo de medición (ej. "ozono", "temperatura").
-    private float value;      ///< Valor de la medición.
+    private int tipo;      ///< Tipo de medición (ej. "ozono", "temperatura").
+    private float valor;      ///< Valor de la medición.
     private String timestamp; ///< Marca de tiempo en formato ISO 8601.
-    private int userId;       ///< ID del usuario asociado a la medición.
+    private Point location;       ///< ID del usuario asociado a la medición.
 
     /**
      * @brief Constructor de la clase SensorData.
@@ -26,15 +28,15 @@ public class SensorData {
      * el valor de la medición, el ID del usuario, el ID del sensor y la marca de tiempo actual.
      *
      * @param sensorId ID del sensor.
-     * @param type Tipo de medición (ej. "ozono", "temperatura").
-     * @param value Valor de la medición.
-     * @param userId ID del usuario que realiza la medición.
+     * @param tipo Tipo de medición (ej. "ozono", "temperatura").
+     * @param valor Valor de la medición.
+     * @param location ID del usuario que realiza la medición.
      */
-    public SensorData(String sensorId, int type, float value, int userId) {
+    public SensorData(String sensorId, float valor, int tipo, Point location) {
         this.sensorId = sensorId;
-        this.type = type;
-        this.value = value;
-        this.userId = userId;
+        this.tipo = tipo;
+        this.valor = valor;
+        this.location = location;
         this.timestamp = getCurrentTimestamp();
     }
 
@@ -78,16 +80,16 @@ public class SensorData {
      *
      * @return Tipo de medición.
      */
-    public int getType() { return type; }
+    public int gettipo() { return tipo; }
 
     /**
      * @brief Establece el tipo de medición.
      *
      * Este método establece el tipo de medición para esta instancia.
      *
-     * @param type Tipo de medición.
+     * @param tipo Tipo de medición.
      */
-    public void setType(int type) { this.type = type; }
+    public void settipo(int tipo) { this.tipo = tipo; }
 
     /**
      * @brief Obtiene el valor de la medición.
@@ -96,16 +98,16 @@ public class SensorData {
      *
      * @return Valor de la medición.
      */
-    public float getValue() { return value; }
+    public float getvalor() { return valor; }
 
     /**
      * @brief Establece el valor de la medición.
      *
      * Este método establece el valor de la medición para esta instancia.
      *
-     * @param value Valor de la medición.
+     * @param valor Valor de la medición.
      */
-    public void setValue(float value) { this.value = value; }
+    public void setvalor(float valor) { this.valor = valor; }
 
     /**
      * @brief Obtiene la marca de tiempo de la medición.
@@ -132,14 +134,14 @@ public class SensorData {
      *
      * @return ID del usuario asociado a la medición.
      */
-    public int getUserId() { return userId; }
+    public Point getlocation() { return location; }
 
     /**
      * @brief Establece el ID del usuario asociado a la medición.
      *
      * Este método establece el ID del usuario para la medición.
      *
-     * @param userId ID del usuario asociado a la medición.
+     * @param location ID del usuario asociado a la medición.
      */
-    public void setUserId(int userId) { this.userId = userId; }
+    public void setlocation(Point location) { this.location = location; }
 }

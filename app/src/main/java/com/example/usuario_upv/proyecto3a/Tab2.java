@@ -8,6 +8,7 @@ import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
 import android.content.pm.PackageManager;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +29,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -110,14 +112,9 @@ public class Tab2 extends Fragment {
     private EditText uuidDeseado;
 
     /**
-     * @brief String para asignar el nuevo UUID que se quiere detectar.
-     */
-    private String nuevoUuid;
-
-    /**
      * @brief String de puerto e ip por defecto (localhost).
      */
-    private String ip = Config.BASE_URL;
+    private String ip = "0.0.0.0";
 
     // --------------------------------------------------------------
     // Estados de los beacons
@@ -168,8 +165,6 @@ public class Tab2 extends Fragment {
             Toast.makeText(getActivity(), "Por favor, activa el Bluetooth", Toast.LENGTH_SHORT).show();
         }
 
-        nuevoUuid = "default-uuid";
-
         api = RetrofitClient.getClient(Config.BASE_URL).create(LogicaFake.class);
 
         dato1 = rootView.findViewById(R.id.valor1);
@@ -193,7 +188,7 @@ public class Tab2 extends Fragment {
         submitIPButton.setOnClickListener(this::actualizarIP);
         submitUUIDButton.setOnClickListener(this::actualizarUuid);
         SearchAllButton.setOnClickListener(this::botonBuscarDispositivosBTLEPulsado);
-        SearchOurButton.setOnClickListener(this::botonBuscarNuestroDispositivoBTLEPulsado);
+        SearchOurButton.setOnClickListener(this::botonBuscarNuestrosDispositivosBTLEPulsado);
         StopButton.setOnClickListener(this::botonDetenerBusquedaDispositivosBTLEPulsado);
 
         Log.d(ETIQUETA_LOG, "onCreate(): termina");
@@ -235,13 +230,13 @@ public class Tab2 extends Fragment {
     }
 
     public void actualizarUuid(View view) {
-        // Obtener la UUID ingresada por el usuario
-        nuevoUuid = uuidDeseado.getText().toString().trim();
 
         // Validar que la IP no esté vacía
-        if (nuevoUuid.isEmpty()) {
+        if (uuidDeseado.getText().toString().trim().isEmpty()) {
             Toast.makeText(getActivity(), "Please enter a valid UUID", Toast.LENGTH_SHORT).show();
         }
+
+        Config.addUUID(uuidDeseado.getText().toString().trim());
 
         Toast.makeText(getActivity(), "UUID actualizado", Toast.LENGTH_SHORT).show();
     }
@@ -566,75 +561,88 @@ public class Tab2 extends Fragment {
 
 
     /**
-     * @brief Busca un dispositivo BLE específico por su UUID.
+     * @brief Busca dispositivos BLE específicos por sus UUIDs.
      *
-     * Este método inicia un escaneo para buscar un dispositivo Bluetooth Low Energy
-     * (BLE) que coincida con el UUID proporcionado. Si se encuentra el dispositivo,
+     * Este método inicia un escaneo para buscar dispositivos Bluetooth Low Energy
+     * (BLE) que coincidan con los UUIDs proporcionados. Si se encuentran dispositivos,
      * se actualiza la interfaz de usuario y se envían los datos del sensor al servidor.
      *
-     * @param dispositivoBuscado El UUID del dispositivo que se desea encontrar.
+     * @param dispositivosBuscados Un arreglo de UUIDs de los dispositivos que se desea encontrar.
      */
-    private void buscarEsteDispositivoBTLE(final UUID dispositivoBuscado) {
-        Log.d(ETIQUETA_LOG, "buscarEsteDispositivoBTLE(): empieza");
+    private void buscarEstosDispositivosBTLE(final ArrayList<String> dispositivosBuscados) {
+        Log.d(ETIQUETA_LOG, "buscarEstosDispositivosBTLE(): empieza");
 
-        Log.d(ETIQUETA_LOG, "buscarEsteDispositivoBTLE(): instalamos scan callback");
+        Log.d(ETIQUETA_LOG, "buscarEstosDispositivosBTLE(): instalamos scan callback");
 
         this.callbackDelEscaneo = new ScanCallback() {
             @Override
             public void onScanResult(int callbackType, ScanResult resultado) {
                 super.onScanResult(callbackType, resultado);
-                Log.d(ETIQUETA_LOG, "buscarEsteDispositivoBTLE(): onScanResult()");
+                Log.d(ETIQUETA_LOG, "buscarEstosDispositivosBTLE(): onScanResult()");
 
                 byte[] bytes = resultado.getScanRecord().getBytes();
                 TramaIBeacon tib = new TramaIBeacon(bytes);
                 UUID uuid = Utilidades.stringToUUID(Utilidades.bytesToString(tib.getUUID()));
 
-                // Comprobar si se ha encontrado el dispositivo buscado
-                if (uuid.equals(dispositivoBuscado)) {
-                    Log.d(ETIQUETA_LOG, "Dispositivo encontrado: " + uuid);
-                    mostrarInformacionDispositivoBTLE(resultado, dispositivoBuscado);
+                // Comprobar si se ha encontrado alguno de los dispositivos buscados
+                for (String uuidStr : dispositivosBuscados) {
+                    if (Utilidades.uuidToString(uuid).equals(uuidStr)) {
+                        Log.d(ETIQUETA_LOG, "Dispositivo encontrado: " + uuid);
+                        mostrarInformacionDispositivoBTLE(resultado, Utilidades.stringToUUID(uuidStr));
 
-                    int majorValue = Utilidades.bytesToInt(tib.getMajor());
-                    int minorValue = Utilidades.bytesToInt(tib.getMinor());
+                        int majorValue = Utilidades.bytesToInt(tib.getMajor());
+                        int minorValue = Utilidades.bytesToInt(tib.getMinor());
 
-                    // Llamar al método para actualizar la interfaz de usuario
-                    actualizarVistaozonoyTemperatura(majorValue, minorValue);
+                        // Llamar al método para actualizar la interfaz de usuario
+                        actualizarVistaozonoyTemperatura(majorValue, minorValue);
 
-                    // Crear el objeto SensorData incluyendo el sensor_id, el valor y el timestamp
-                    int sensorTipo = procesarBeacon(majorValue, minorValue);
-                    SensorData sensorData = new SensorData(uuid.toString(), sensorTipo, minorValue, 1);
+                        Point location = new Point(1, 2);
 
-                    Call<Void> call = api.createSensorData(sensorData); // Instanciar call dentro del try
+                        // Crear el objeto SensorData
+                        int sensorTipo = procesarBeacon(majorValue, minorValue);
+                        SensorData sensorData = new SensorData(Utilidades.uuidToString(uuid), minorValue, sensorTipo, location);
 
-                    // Enviar datos del sensor al servidor
-                    call.enqueue(new Callback<Void>() {
-                        @Override
-                        public void onResponse(Call<Void> call, Response<Void> response) {
-                            if (response.isSuccessful()) {
-                                Toast.makeText(getActivity(), "Medición insertada con éxito en el servidor", Toast.LENGTH_SHORT).show();
+                        Call<Void> call = api.createSensorData(sensorData);
+                        Log.d(ETIQUETA_LOG, "Enviando datos...");
+
+                        // Enviar datos del sensor al servidor
+                        call.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+                                Log.d(ETIQUETA_LOG, "onResponse llamado");  // Log adicional
+                                if (response.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "Medición insertada con éxito en el servidor", Toast.LENGTH_SHORT).show();
+                                    Log.d(ETIQUETA_LOG, "Medición insertada con éxito en el servidor");
+                                } else {
+                                    // Agregar log para respuestas no exitosas
+                                    Log.d(ETIQUETA_LOG, "Respuesta no exitosa: " + response.code());
+                                }
                             }
-                        }
 
-                        @Override
-                        public void onFailure(Call<Void> call, Throwable t) {
-                            Toast.makeText(getActivity(), "Error al insertar medición en el servidor", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } else {
-                    Log.d(ETIQUETA_LOG, "Dispositivo no objetivo encontrado: " + uuid);
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+                                Log.d(ETIQUETA_LOG, "onFailure llamado");  // Log adicional
+                                Log.e(ETIQUETA_LOG, "Error detallado: ", t);  // Log del error completo
+                                Toast.makeText(getActivity(), "Error al insertar medición en el servidor", Toast.LENGTH_SHORT).show();
+                                Log.d(ETIQUETA_LOG, "Error al insertar medición en el servidor");
+                            }
+                        });
+                    } else {
+                        Log.d(ETIQUETA_LOG, "Dispositivo no objetivo encontrado: " + uuid);
+                    }
                 }
             }
 
             @Override
             public void onBatchScanResults(List<ScanResult> results) {
                 super.onBatchScanResults(results);
-                Log.d(ETIQUETA_LOG, "buscarEsteDispositivoBTLE(): onBatchScanResults()");
+                Log.d(ETIQUETA_LOG, "buscarEstosDispositivosBTLE(): onBatchScanResults()");
             }
 
             @Override
             public void onScanFailed(int errorCode) {
                 super.onScanFailed(errorCode);
-                Log.d(ETIQUETA_LOG, "buscarEsteDispositivoBTLE(): onScanFailed()");
+                Log.d(ETIQUETA_LOG, "buscarEstosDispositivosBTLE(): onScanFailed()");
             }
         };
 
@@ -643,36 +651,41 @@ public class Tab2 extends Fragment {
                 .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)  // Modo de escaneo rápido
                 .build();
 
-        Log.d(ETIQUETA_LOG, "buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado);
 
         // Iniciar el escaneo sin filtros
         try {
             this.elEscanner.startScan(null, scanSettings, this.callbackDelEscaneo);
-        }catch (Exception e){
-            Toast.makeText(getActivity(), "Por favor acepta los permisos de bletooth y actívalo", Toast.LENGTH_SHORT).show();
-            Log.d(ETIQUETA_LOG, "Error de bletooth: " + e);
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), "Por favor acepta los permisos de Bluetooth y actívalo", Toast.LENGTH_SHORT).show();
+            Log.d(ETIQUETA_LOG, "Error de Bluetooth: " + e);
         }
     }
 
-
     /**
-     * @brief Maneja el evento de pulsación del botón para buscar un dispositivo BLE específico.
+     * @brief Maneja el evento de pulsación del botón para buscar dispositivos BLE específicos.
      *
      * Este método se invoca cuando se pulsa el botón correspondiente en la interfaz de usuario.
-     * Cambia la visibilidad de una imagen y llama al método para buscar un dispositivo BLE
-     * con un UUID específico.
+     * Cambia la visibilidad de una imagen y llama al método para buscar dispositivos BLE
+     * con los UUIDs especificados.
      *
      * @param v La vista que ha sido pulsada (el botón).
      */
-    public void botonBuscarNuestroDispositivoBTLEPulsado(View v) {
-        Log.d(ETIQUETA_LOG, "boton nuestro dispositivo BTLE Pulsado");
+    public void botonBuscarNuestrosDispositivosBTLEPulsado(View v) {
+        Log.d(ETIQUETA_LOG, "boton nuestros dispositivos BTLE Pulsado");
 
         // Mostrar la imagen indicando que la búsqueda está en curso
         getActivity().runOnUiThread(() -> image4.setVisibility(View.VISIBLE));
 
-        // Llamar al método para buscar el dispositivo BTLE con el UUID especificado
-        this.buscarEsteDispositivoBTLE(Utilidades.stringToUUID(nuevoUuid));
+        if (Config.UUIDs != null){
+            // Llamar al método para buscar los dispositivos BTLE con los UUID especificados
+            this.buscarEstosDispositivosBTLE(Config.UUIDs);
+        }else {
+            getActivity().runOnUiThread(() -> image4.setVisibility(View.GONE));
+            Log.d(ETIQUETA_LOG, "No tienes sensores que detectar");
+        }
     }
+
+
 
 
     /**
