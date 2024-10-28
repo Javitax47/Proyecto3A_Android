@@ -6,6 +6,7 @@ import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -53,4 +54,7 @@ public interface LogicaFake {
 
     @POST("/sensores")
     Call<Void> createSensor(@Body Sensor sensor);
+
+    @PUT("/users/update")
+    Call<Void> updateUser(@Body UserData userData);
 }
