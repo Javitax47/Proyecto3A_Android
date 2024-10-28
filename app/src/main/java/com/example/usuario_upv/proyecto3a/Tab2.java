@@ -7,6 +7,7 @@ import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Build;
@@ -158,12 +159,7 @@ public class Tab2 extends Fragment {
 
         Log.d(ETIQUETA_LOG, "onCreate(): empieza");
 
-        // Inicializa el Bluetooth
-        try {
-            inicializarBlueTooth();
-        }catch (Exception e){
-            Toast.makeText(getActivity(), "Por favor, activa el Bluetooth", Toast.LENGTH_SHORT).show();
-        }
+        inicializarBlueTooth();
 
         api = RetrofitClient.getClient(Config.BASE_URL).create(LogicaFake.class);
 
@@ -194,6 +190,24 @@ public class Tab2 extends Fragment {
         Log.d(ETIQUETA_LOG, "onCreate(): termina");
 
         return rootView;
+    }
+
+    // Método para iniciar el servicio BLE
+    private void startBLEService() {
+        Intent serviceIntent = new Intent(getContext(), BLEService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (requireContext().checkSelfPermission(Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC)
+                    != PackageManager.PERMISSION_GRANTED) {
+                // Request the permission
+                requestPermissions(new String[]{
+                        Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC
+                }, CODIGO_PETICION_PERMISOS);
+                return;
+            }
+            requireActivity().startForegroundService(serviceIntent);
+        } else {
+            requireActivity().startService(serviceIntent);
+        }
     }
 
 
@@ -596,9 +610,15 @@ public class Tab2 extends Fragment {
                         // Llamar al método para actualizar la interfaz de usuario
                         actualizarVistaozonoyTemperatura(majorValue, minorValue);
 
-                        Point location = new Point(1, 2);
+                        // Iniciar el servicio BLE
+                        Intent serviceIntent = new Intent(getContext(), BLEService.class);
+                        getContext().startService(serviceIntent);
 
-                        // Crear el objeto SensorData
+                        serviceIntent.putExtra("majorValue", majorValue);
+                        serviceIntent.putExtra("minorValue", minorValue);
+                        getContext().startService(serviceIntent);
+
+                        Point location = new Point(1, 2);
                         int sensorTipo = procesarBeacon(majorValue, minorValue);
                         SensorData sensorData = new SensorData(Utilidades.uuidToString(uuid), minorValue, sensorTipo, location);
 
@@ -609,20 +629,19 @@ public class Tab2 extends Fragment {
                         call.enqueue(new Callback<Void>() {
                             @Override
                             public void onResponse(Call<Void> call, Response<Void> response) {
-                                Log.d(ETIQUETA_LOG, "onResponse llamado");  // Log adicional
+                                Log.d(ETIQUETA_LOG, "onResponse llamado");
                                 if (response.isSuccessful()) {
                                     Toast.makeText(getActivity(), "Medición insertada con éxito en el servidor", Toast.LENGTH_SHORT).show();
                                     Log.d(ETIQUETA_LOG, "Medición insertada con éxito en el servidor");
                                 } else {
-                                    // Agregar log para respuestas no exitosas
                                     Log.d(ETIQUETA_LOG, "Respuesta no exitosa: " + response.code());
                                 }
                             }
 
                             @Override
                             public void onFailure(Call<Void> call, Throwable t) {
-                                Log.d(ETIQUETA_LOG, "onFailure llamado");  // Log adicional
-                                Log.e(ETIQUETA_LOG, "Error detallado: ", t);  // Log del error completo
+                                Log.d(ETIQUETA_LOG, "onFailure llamado");
+                                Log.e(ETIQUETA_LOG, "Error detallado: ", t);
                                 Toast.makeText(getActivity(), "Error al insertar medición en el servidor", Toast.LENGTH_SHORT).show();
                                 Log.d(ETIQUETA_LOG, "Error al insertar medición en el servidor");
                             }
@@ -676,12 +695,23 @@ public class Tab2 extends Fragment {
         // Mostrar la imagen indicando que la búsqueda está en curso
         getActivity().runOnUiThread(() -> image4.setVisibility(View.VISIBLE));
 
-        if (Config.UUIDs != null){
-            // Llamar al método para buscar los dispositivos BTLE con los UUID especificados
-            this.buscarEstosDispositivosBTLE(Config.UUIDs);
-        }else {
-            getActivity().runOnUiThread(() -> image4.setVisibility(View.GONE));
-            Log.d(ETIQUETA_LOG, "No tienes sensores que detectar");
+        try {
+            // AQUÍ VA LO DE EN SEGUNDO PLANO
+            // --------------------------------------------------------------------
+            Intent serviceIntent = new Intent(getContext(), BLEService.class);
+            requireActivity().startService(serviceIntent);
+            // --------------------------------------------------------------------
+            // AQUÍ VA LO DE EN SEGUNDO PLANO
+            if (Config.UUIDs != null){
+
+                // Llamar al método para buscar los dispositivos BTLE con los UUID especificados
+                this.buscarEstosDispositivosBTLE(Config.UUIDs);
+            }else {
+                getActivity().runOnUiThread(() -> image4.setVisibility(View.GONE));
+                Log.d(ETIQUETA_LOG, "No tienes sensores que detectar");
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), "Por favor, activa el Bluetooth", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -727,7 +757,12 @@ public class Tab2 extends Fragment {
             dato1.setText("Ozono: Off");
             dato2.setText("ºC: Off");
         });
+
+        // Detener el servicio BLEService
+        Intent serviceIntent = new Intent(getActivity(), BLEService.class);
+        getActivity().stopService(serviceIntent);
     }
+
 
 
     /**
@@ -774,14 +809,14 @@ public class Tab2 extends Fragment {
      * habilitarlo si es necesario, y obtener el escáner BLE. También verifica y
      * solicita los permisos necesarios según la versión de Android en uso.
      *
-     * - Para Android 12 (S) y versiones posteriores, se requieren permisos
-     *   específicos para el escaneo y conexión Bluetooth.
+     * - Para Android 13 (T) y versiones posteriores, se requieren permisos
+     *   específicos para el escaneo y conexión Bluetooth, así como notificaciones si son necesarias.
+     * - Para Android 12 (S) se requieren permisos de escaneo y conexión Bluetooth.
      * - Para Android 11 (R) y versiones anteriores, se requieren permisos de
      *   Bluetooth y localización.
      */
     private void inicializarBlueTooth() {
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): obtenemos adaptador BT ");
-
         BluetoothAdapter bta = BluetoothAdapter.getDefaultAdapter();
 
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): habilitamos adaptador BT ");
@@ -800,35 +835,51 @@ public class Tab2 extends Fragment {
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): voy a pedir permisos (si no los tuviera) !!!!");
 
         // Comprobamos la versión de Android
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            // Para Android 12 y versiones posteriores, pedimos permisos de "dispositivos cercanos"
-            if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Para Android 13 y versiones posteriores
+            if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        getActivity(),
+                        new String[]{android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT, android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.POST_NOTIFICATIONS},
+                        CODIGO_PETICION_PERMISOS
+                );
+                startBLEService();
+            } else {
+                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios en Android 13+.");
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Para Android 12
+            if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                         getActivity(),
-                        new String[]{android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.ACCESS_FINE_LOCATION},
+                        new String[]{android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT, android.Manifest.permission.ACCESS_FINE_LOCATION},
                         CODIGO_PETICION_PERMISOS
                 );
+                startBLEService();
             } else {
-                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): parece que YA tengo los permisos necesarios en Android 12+ !!!!");
+                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios en Android 12.");
             }
         } else {
-            // Para Android 11 y versiones anteriores, pedimos los permisos de Bluetooth y localización antiguos
+            // Para Android 11 y versiones anteriores
             if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.BLUETOOTH_ADMIN) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                         getActivity(),
-                        new String[]{android.Manifest.permission.BLUETOOTH, android.Manifest.permission.BLUETOOTH_ADMIN, Manifest.permission.ACCESS_FINE_LOCATION},
+                        new String[]{android.Manifest.permission.BLUETOOTH, android.Manifest.permission.BLUETOOTH_ADMIN, android.Manifest.permission.ACCESS_FINE_LOCATION},
                         CODIGO_PETICION_PERMISOS
                 );
             } else {
-                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): parece que YA tengo los permisos necesarios !!!!");
+                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios.");
             }
         }
-    } // ()
+    }
+
 
 
     /**
@@ -844,6 +895,8 @@ public class Tab2 extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        startBLEService();
 
         switch (requestCode) {
             case CODIGO_PETICION_PERMISOS:
