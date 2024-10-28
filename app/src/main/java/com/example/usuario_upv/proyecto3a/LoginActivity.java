@@ -121,8 +121,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
+                    // Obtener el username del response
+                    String username = response.body().getUsername();
+
                     // Guardar datos del usuario
-                    saveUserDataToPrefs(email);
+                    saveUserDataToPrefs(email, username);
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -158,10 +161,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void saveUserDataToPrefs(String email) {
+    private void saveUserDataToPrefs(String email, String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("userEmail", email);
+        editor.putString("userName", username);
         editor.apply();
     }
 }
