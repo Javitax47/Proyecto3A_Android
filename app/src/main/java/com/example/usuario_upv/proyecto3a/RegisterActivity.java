@@ -80,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             Toast.makeText(RegisterActivity.this, "Registro exitoso.", Toast.LENGTH_SHORT).show();
 
-                            saveUserDataToPrefs(email);
+                            saveUserDataToPrefs(email, nombre);
 
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             startActivity(intent);
@@ -104,10 +104,11 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-    private void saveUserDataToPrefs(String email) {
+    private void saveUserDataToPrefs(String email, String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("userEmail", email);
+        editor.putString("userName", username);
         editor.apply();
     }
 }

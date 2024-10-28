@@ -33,7 +33,16 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_marginBottom="24dp"
-                android:fontFamily="monospace" /> <!-- Tipografía aplicada -->
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="monospace"
+                android:text="Actualizar datos"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/username"
@@ -46,27 +55,9 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="monospace" /> <!-- Tipografía aplicada -->
 
-            <EditText
-                android:id="@+id/firstName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nombre"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background"
-                android:inputType="text"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="monospace" /> <!-- Tipografía aplicada -->
+            <!-- Tipografía aplicada -->
 
-            <EditText
-                android:id="@+id/lastName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Apellidos"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background"
-                android:inputType="text"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="monospace" /> <!-- Tipografía aplicada -->
+            <!-- Tipografía aplicada -->
 
             <EditText
                 android:id="@+id/email"

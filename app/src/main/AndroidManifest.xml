@@ -56,6 +56,10 @@
             android:exported="true">
         </activity>
         <activity
+            android:name=".Tab4"
+            android:exported="true">
+        </activity>
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="android:screenOrientation" />
