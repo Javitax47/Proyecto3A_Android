@@ -81,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief TextView para mostrar el primer dato.
      */
-    private TextView dato1;
+    public TextView dato1;
 
     /**
      * @brief TextView para mostrar el segundo dato.
      */
-    private TextView dato2;
+    public TextView dato2;
 
     /**
      * @brief ImageView para mostrar una imagen asociada al primer dato.
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief Estado que indica si el beacon de temperatura está activo.
      */
-    private boolean beaconTemperaturaActivo = false;
+    public boolean beaconTemperaturaActivo = false;
 
     /**
      * @brief Instancia de la API que maneja la comunicación con los sensores.
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * La clave es el identificador único del dispositivo, y el valor es la vista asociada.
      */
-    private Map<String, View> vistasDispositivosDetectados = new HashMap<>();
+    private static Map<String, View> vistasDispositivosDetectados = new HashMap<>();
 
 
     private Point location = new Point(1, 2);
@@ -405,7 +405,7 @@ public class MainActivity extends AppCompatActivity {
      * @param resultado Resultado del escaneo BTLE que contiene la información del dispositivo detectado.
      * @param dispositivoBuscado UUID del dispositivo específico que se está buscando, si corresponde. Puede ser null.
      */
-    private void mostrarInformacionDispositivoBTLE(ScanResult resultado, UUID dispositivoBuscado) {
+    void mostrarInformacionDispositivoBTLE(ScanResult resultado, UUID dispositivoBuscado) {
         // Obtener el dispositivo detectado y su información
         BluetoothDevice bluetoothDevice = resultado.getDevice();
         byte[] bytes = resultado.getScanRecord().getBytes();
