@@ -44,4 +44,5 @@ dependencies {
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+    implementation ("androidx.biometric:biometric:1.2.0-alpha05")
 }

@@ -5,6 +5,7 @@ import static com.example.usuario_upv.proyecto3a.Tab2.ETIQUETA_LOG;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -80,7 +81,7 @@ public class Tab3 extends Fragment {
         api = retrofit.create(LogicaFake.class);
 
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-        userEmail = sharedPreferences.getString("userEmail", null);
+        userEmail = Uri.decode(sharedPreferences.getString("userEmail", null));
 
         obtenerSensoresPorUsuario();
 
@@ -187,6 +188,7 @@ public class Tab3 extends Fragment {
     }
 
     private void addSensor(String uuid) {
+
         Sensor sensor = new Sensor(uuid, userEmail);
 
         Log.d(ETIQUETA_LOG, "Uuid: " + uuid);
@@ -194,8 +196,7 @@ public class Tab3 extends Fragment {
         insertarSensor(sensor);
 
         obtenerSensoresPorUsuario();
-        Toast.makeText(getContext(), "Sensor añadido: " + uuid,
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Sensor añadido: " + uuid, Toast.LENGTH_SHORT).show();
     }
 
     private void insertarSensor(Sensor sensor){

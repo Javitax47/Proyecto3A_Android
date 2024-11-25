@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,9 +33,22 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import androidx.biometric.BiometricManager;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
+
+import java.util.concurrent.Executor;
+
+import androidx.biometric.BiometricManager;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
+
+import java.util.concurrent.Executor;
+
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText editTextEmail, editTextPassword;
     private Button buttonLogin;
+    private ImageView imageViewFingerprint;
     private LogicaFake api;
     private static final String ETIQUETA_LOG = "LoginActivity";
 
@@ -46,24 +60,15 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
+        //imageViewFingerprint = findViewById(R.id.imageViewFingerprint);
 
-        // Inicializar Retrofit con manejo de URL encoding
+        // Configurar Retrofit
         OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new Interceptor() {
-                    @Override
-                    public okhttp3.Response intercept(Chain chain) throws IOException {
-                        Request original = chain.request();
-                        HttpUrl originalHttpUrl = original.url();
-
-                        HttpUrl url = originalHttpUrl.newBuilder()
-                                .build();
-
-                        Request.Builder requestBuilder = original.newBuilder()
-                                .url(url);
-
-                        Request request = requestBuilder.build();
-                        return chain.proceed(request);
-                    }
+                .addInterceptor(chain -> {
+                    Request original = chain.request();
+                    HttpUrl url = original.url().newBuilder().build();
+                    Request request = original.newBuilder().url(url).build();
+                    return chain.proceed(request);
                 })
                 .build();
 
@@ -75,78 +80,102 @@ public class LoginActivity extends AppCompatActivity {
 
         api = retrofit.create(LogicaFake.class);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonLogin.setOnClickListener(view -> {
+            String email = editTextEmail.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
+
+            if (TextUtils.isEmpty(email)) {
+                editTextEmail.setError("Introducir email");
+                return;
+            }
+            if (TextUtils.isEmpty(password)) {
+                editTextPassword.setError("Introducir contraseña");
+                return;
+            }
+
+            try {
+                email = URLEncoder.encode(email, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            loginUser(email, password);
+        });
+
+        // Configurar autenticación biométrica
+        // imageViewFingerprint.setOnClickListener(v -> authenticateWithBiometrics());
+    }
+
+    private void authenticateWithBiometrics() {
+        Executor executor = ContextCompat.getMainExecutor(this);
+        BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
-            public void onClick(View view) {
-                String email = editTextEmail.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
+            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                Toast.makeText(LoginActivity.this, "Autenticación exitosa", Toast.LENGTH_SHORT).show();
 
-                if (TextUtils.isEmpty(email)) {
-                    editTextEmail.setError("Introducir email");
-                    return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    editTextPassword.setError("Introducir contraseña");
-                    return;
-                }
+                // Obtener usuario guardado para login automático
+                SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                String savedEmail = sharedPreferences.getString("userEmail", "");
+                String savedPassword = sharedPreferences.getString("userPassword", "");
 
-                // Codificar el email manualmente
-                try {
-                    email = URLEncoder.encode(email, "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                if (!TextUtils.isEmpty(savedEmail) && !TextUtils.isEmpty(savedPassword)) {
+                    loginUser(savedEmail, savedPassword);
+                } else {
+                    Toast.makeText(LoginActivity.this, "No se encontró información de usuario guardada", Toast.LENGTH_SHORT).show();
                 }
+            }
 
-                loginUser(email, password);
+            @Override
+            public void onAuthenticationError(int errorCode, CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                Toast.makeText(LoginActivity.this, "Error: " + errString, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(LoginActivity.this, "Autenticación fallida", Toast.LENGTH_SHORT).show();
             }
         });
+
+        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Iniciar sesión con huella")
+                .setSubtitle("Usa tu huella digital para iniciar sesión")
+                .setNegativeButtonText("Cancelar")
+                .build();
+
+        biometricPrompt.authenticate(promptInfo);
     }
 
     private void loginUser(String email, String password) {
-        // Mostrar progreso
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Iniciando sesión...");
         progressDialog.show();
 
         Call<User> call = api.getUserData(email, password);
-
-        // Log de la URL que se está llamando
         Log.d(ETIQUETA_LOG, "URL llamada: " + call.request().url());
 
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, retrofit2.Response<User> response) {
                 progressDialog.dismiss();
-
                 if (response.isSuccessful() && response.body() != null) {
                     Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
-                    // Obtener el username del response
                     String username = response.body().getUsername();
+                    String email = response.body().getEmail();
+                    Log.d(ETIQUETA_LOG, "Contenido de la respuesta: " + response.body());
 
-                    // Guardar datos del usuario
                     saveUserDataToPrefs(email, username);
+                    saveUserPasswordToPrefs(password);
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 } else {
-                    String errorBody = "";
-                    try {
-                        if (response.errorBody() != null) {
-                            errorBody = response.errorBody().string();
-                        }
-                    } catch (IOException e) {
-                        Log.e(ETIQUETA_LOG, "Error leyendo error body", e);
-                    }
-
-                    Log.d(ETIQUETA_LOG, "Error al registrar. Código: " + response.code() +
-                            " Mensaje: " + response.message() + " Body: " + errorBody);
-
-                    Toast.makeText(LoginActivity.this,
-                            "Error de autenticación: " + response.message(),
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Error de autenticación", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -154,9 +183,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 progressDialog.dismiss();
                 Log.e(ETIQUETA_LOG, "Error de conexión", t);
-                Toast.makeText(LoginActivity.this,
-                        "Error de conexión: " + t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Error de conexión", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -166,6 +193,12 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("userEmail", email);
         editor.putString("userName", username);
+        editor.apply();
+    }
+    private void saveUserPasswordToPrefs(String password) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("userPassword", password);
         editor.apply();
     }
 }

@@ -23,9 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="46dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="64dp"
         android:text="Crear cuenta"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -43,7 +43,6 @@
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/black"
         android:ems="10"
@@ -52,8 +51,7 @@
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/requirementsRegisterPass"
         tools:ignore="TouchTargetSizeCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -61,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/black"
         android:ems="10"
@@ -78,40 +76,28 @@
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.5"
         tools:ignore="TouchTargetSizeCheck" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="162dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="192dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="64dp"
         android:text="¡Regístrate!"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/identificador"
@@ -124,13 +110,46 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="163dp"
-        android:layout_height="275dp"
-        android:layout_marginStart="36dp"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toTopOf="@+id/logo"
-        tools:ignore="NotSibling" />
+    <CheckBox
+        android:id="@+id/checkbox_terms"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/crearCuenta"
+        app:layout_constraintStart_toStartOf="@+id/crearCuenta" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="He leído y acepto los "
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_terms"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_terms"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_terms" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="privacidad"
+        android:text="términos y política de privacidad"
+        android:textColor="#3F51B5"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/requirementsRegisterPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

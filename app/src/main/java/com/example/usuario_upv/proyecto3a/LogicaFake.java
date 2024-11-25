@@ -1,13 +1,17 @@
 package com.example.usuario_upv.proyecto3a;
 
+import java.util.List;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * @interface SensorApi
@@ -44,6 +48,9 @@ public interface LogicaFake {
     @POST("/usuarios")
     Call<Void> createUserData(@Body UserData userData);
 
+    @POST("/usuarios/verify-password")
+    Call<Void> verifyPassword(@Body UserData userData);
+
     @GET("/usuarios/login/{email}/{password}")
     Call<User> getUserData(@Path(value = "email", encoded = true) String email, @Path("password") String password);
 
@@ -57,4 +64,10 @@ public interface LogicaFake {
 
     @PUT("/users/update")
     Call<Void> updateUser(@Body UserData userData);
+
+    @GET("/alertas/{email}")
+    Call<List<AlertaData>> getUserAlerts(@Path(value = "email", encoded = true) String email);
+
+    @DELETE("/alertas/{email}/{alertaId}")
+    Call<ResponseBody> deleteAlert(@Path("email") String email, @Path("alertaId") int alertaId);
 }
