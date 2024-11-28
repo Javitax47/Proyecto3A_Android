@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -37,6 +39,18 @@ public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMa
         super.onViewCreated(view, savedInstanceState);
         super.onViewCreated(view, savedInstanceState);
         this.rootView = view;
+
+        Toolbar toolbar = view.findViewById(R.id.toolbar); // Asegúrate de que el ID del Toolbar sea correcto
+        if (toolbar != null) {
+            // Hacer que el Toolbar controle la ActionBar
+            ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
+            // Configurar el título
+            ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("Mapa");
+        }
+
+
+
+
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapa);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
