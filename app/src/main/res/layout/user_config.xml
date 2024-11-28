@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    tools:context=".UserConfig">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="24dp"
+        android:background="@android:color/white"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mi cuenta"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="monospace"
+                android:text="Actualizar datos"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de usuario"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background"
+                android:inputType="text"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="monospace" /> <!-- Tipografía aplicada -->
+
+            <!-- Tipografía aplicada -->
+
+            <!-- Tipografía aplicada -->
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo electrónico"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="monospace" /> <!-- Tipografía aplicada -->
+
+            <!-- Cambiado a un LinearLayout vertical para apilar los campos de contraseña -->
+            <LinearLayout
+                android:id="@+id/passwordGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="0dp">
+
+                <EditText
+                    android:id="@+id/actualpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/edit_text_background"
+                    android:fontFamily="monospace"
+                    android:hint="Contraseña actual"
+                    android:inputType="textPassword"
+                    android:padding="12dp" /> <!-- Tipografía aplicada -->
+
+                <TextView
+                    android:id="@+id/requirements"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/edit_text_background"
+                    android:fontFamily="monospace"
+                    android:hint="Contraseña nueva"
+                    android:inputType="textPassword"
+                    android:padding="12dp" /> <!-- Tipografía aplicada -->
+
+                <EditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Repita contraseña"
+                    android:padding="12dp"
+                    android:background="@drawable/edit_text_background"
+                    android:inputType="textPassword"
+                    android:fontFamily="monospace" /> <!-- Tipografía aplicada -->
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveButton"
+                android:layout_width="235dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:fontFamily="monospace"
+                android:padding="12dp"
+                android:text="Guardar datos"
+                android:textSize="18sp"
+                app:backgroundTint="@color/black" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

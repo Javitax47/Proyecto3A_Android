@@ -7,37 +7,22 @@ package com.example.usuario_upv.proyecto3a;
  * Esta clase contiene información sobre un usuario, incluyendo su nombre de usuario.
  */
 public class User {
-    private String username;  ///< Nombre de usuario.
+    private String username;
+    private String email;
 
-    /**
-     * @brief Constructor que crea una instancia de User.
-     *
-     * @param username Nombre de usuario.
-     */
-    public User(String username) {
-        this.username = username;
-    }
-
-    // -------------------------------------------------------------------------------
-    // Métodos Getters y Setters
-    // -------------------------------------------------------------------------------
-
-    /**
-     * @brief Obtiene el nombre de usuario.
-     *
-     * @return Nombre de usuario.
-     */
+    // Getters y setters
     public String getUsername() {
         return username;
     }
-
-    /**
-     * @brief Establece el nombre de usuario.
-     *
-     * @param username Nombre de usuario a establecer.
-     */
-    public void setUsername(String username) {
-        this.username = username;
+    public String getEmail() {
+        return email;
     }
-} // class User
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+}

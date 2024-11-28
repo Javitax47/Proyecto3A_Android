@@ -11,8 +11,11 @@ import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.os.IBinder;
@@ -20,241 +23,309 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import android.os.Handler;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class BLEService extends Service {
+
     private static final String TAG = "BLEService";
-    private static final String CHANNEL_ID = "BLEServiceChannel";
-
+    private static final String CHANNEL_ID = "BLEChannel";
     private BluetoothAdapter bluetoothAdapter;
-    private BluetoothManager bluetoothManager;
-    private BluetoothLeScanner bluetoothLeScanner;
+    private Timer noDataTimer;
+    private boolean dataReceived = false;
 
-    private long lastReadingTimestamp = 0; // Variable para almacenar el tiempo de la última lectura
-    private boolean sensorDamagedAlertSent = false;
-    private boolean erroneousReadingAlertSent = false;
-    private boolean beaconNotSendingAlertSent = false;
+    private int alertaId;
 
-    private Timer timer;
+    private String savedEmail;
 
 
+    private boolean alertasDeDatosActivas = true; // Controla alertas de datos
+    private boolean alertasDeMedidasErroneasActivas = true;
 
-    private BluetoothDevice lastDevice;
-    private ScanResult lastResult;
+
+    private void loadUserDataFromPrefs() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        savedEmail = sharedPreferences.getString("userEmail", "");
+    }
+
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG, "BLEService creado");
 
-        long interval = 5000; // 5000 ms = 5 segundos
-
-
-        bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        // Inicializar el BluetoothManager
+        BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
 
-        if (bluetoothAdapter != null && bluetoothAdapter.isEnabled()) {
-            bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
-            startBLEScan();
-        } else {
-            Log.e(TAG, "Bluetooth no está habilitado o no es compatible");
+        loadUserDataFromPrefs();
+
+        // Crear el canal de notificación para API 26+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel serviceChannel = new NotificationChannel(
+                    CHANNEL_ID,
+                    "BLE Service Channel",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(serviceChannel);
+            }
         }
 
-
-        timer = new Timer(interval, new Runnable() {
+        // Inicializar el Timer
+        noDataTimer = new Timer(5000, new Runnable() {
             @Override
             public void run() {
-                List<Integer> alertasActivas = new ArrayList<>();
-
-                // Llama a `checkSensorStatus` con el último dispositivo y resultado
-                if (lastDevice != null && lastResult != null) {
-                    checkSensorStatus(lastDevice, lastResult);
-
-                    // Verifica el estado de las alertas
-                    if (sensorDamagedAlertSent) alertasActivas.add(Alertas.SENSOR_DANADO.getCodigo());
-                    if (erroneousReadingAlertSent) alertasActivas.add(Alertas.LECTURAS_ERRONEAS.getCodigo());
-                    if (beaconNotSendingAlertSent) alertasActivas.add(Alertas.BEACON_NO_ENVIANDO.getCodigo());
+                if (!dataReceived && alertasDeDatosActivas) { // Verifica si las alertas están activas
+                    mostrarNotificacionNoDatos();
+                    obtenerAlertasUsuario(savedEmail);
                 }
-
-
-                // Vuelve a iniciar el timer
-                timer.start();
+                dataReceived = false; // Reinicia el estado de recepción de datos
             }
         });
 
-
+        IntentFilter filter = new IntentFilter("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED");
+        registerReceiver(notificationReceiver, filter);
     }
 
-    private void startBLEScan() {
-        Log.d(TAG, "Iniciando escaneo BLE en segundo plano...");
-        bluetoothLeScanner.startScan(scanCallback);
-    }
 
-    private final ScanCallback scanCallback = new ScanCallback() {
+
+    private final BroadcastReceiver notificationReceiver = new BroadcastReceiver() {
         @Override
-        public void onScanResult(int callbackType, ScanResult result) {
-            super.onScanResult(callbackType, result);
-            BluetoothDevice device = result.getDevice();
-            Log.d(TAG, "Dispositivo encontrado: " + device.getName());
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null && intent.getAction() != null && intent.getAction().equals("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED")) {
+                int alertaCodigo = intent.getIntExtra("alertaCodigo", -1);
 
-
-            lastDevice = device;
-            lastResult = result;
-
-            checkSensorStatus(device, result);
-        }
-
-        @Override
-        public void onBatchScanResults(List<ScanResult> results) {
-            for (ScanResult result : results) {
-                BluetoothDevice device = result.getDevice();
-                Log.d(TAG, "Dispositivo encontrado en batch: " + device.getName());
+                if (alertaCodigo == Alertas.BEACON_NO_ENVIANDO.getCodigo()) {
+                    // Desactivar las alertas de datos
+                    desactivarAlertasDeDatos();
+                } else if (esMedidaErronea(alertaCodigo)) {
+                    // Desactivar las alertas de medidas erróneas
+                    desactivarAlertasDeMedidasErroneas();
+                }
             }
-        }
-
-        @Override
-        public void onScanFailed(int errorCode) {
-            super.onScanFailed(errorCode);
-            Log.e(TAG, "Error en el escaneo: " + errorCode);
         }
     };
 
+    private boolean esMedidaErronea(int codigo) {
+        return codigo == Alertas.TEMPERATURA_BAJA.getCodigo() ||
+                codigo == Alertas.TEMPERATURA_ALTA.getCodigo() ||
+                codigo == Alertas.OZONO_BAJO.getCodigo() ||
+                codigo == Alertas.OZONO_ALTO.getCodigo();
+    }
+
+    private void desactivarAlertasDeDatos() {
+        Log.d(TAG, "Desactivando alertas de datos...");
+        alertasDeDatosActivas = false; // Desactiva alertas de datos
+
+        // Detener el temporizador relacionado con la alerta de datos
+        if (noDataTimer != null) {
+            noDataTimer.stop();
+        }
+    }
+
+    private void desactivarAlertasDeMedidasErroneas() {
+        Log.d(TAG, "Desactivando alertas de medidas erróneas...");
+        alertasDeMedidasErroneasActivas = false; // Desactiva alertas de medidas erróneas
+    }
+
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        createNotificationChannel();
+        Log.d(TAG, "BLEService iniciado");
+
+        // Mostrar notificación
+        mostrarNotificacion();
+
+        // Iniciar el temporizador para detectar la pérdida de datos
+        noDataTimer.start();
+
+        // Procesar datos del Intent si es necesario
+        if (intent != null) {
+            int majorValue = intent.getIntExtra("majorValue", -1);
+            int minorValue = intent.getIntExtra("minorValue", -1);
+            recibirDatosDeSensor(majorValue, minorValue);
+        }
+
+        // Si el sistema mata el servicio, reiniciarlo con la última intención
+        return START_STICKY;
+    }
+
+    private void mostrarNotificacion() {
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Escaneo de dispositivos BLE")
-                .setContentText("Escaneando dispositivos y enviando datos al servidor")
-                .setSmallIcon(android.R.drawable.ic_dialog_info)
+                .setContentTitle("BLE Service")
+                .setContentText("El servicio BLE está en funcionamiento")
                 .setContentIntent(pendingIntent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .build();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(1, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
-        } else {
-            startForeground(1, notification);
-        }
+        startForeground(1, notification);
+    }
 
-        return START_STICKY;
+    public void recibirDatosDeSensor(int majorValue, int minorValue) {
+        Log.d(TAG, "Datos del sensor recibidos: Major - " + majorValue + ", Minor - " + minorValue);
+        dataReceived = true; // Se han recibido datos
+
+        // Reiniciar el temporizador cuando se reciben datos
+        reiniciarTemporizador();
+    }
+
+    private void reiniciarTemporizador() {
+        noDataTimer.stop(); // Detener el temporizador
+        noDataTimer.start(); // Iniciar nuevamente
+    }
+
+    private void mostrarNotificacionNoDatos() {
+        // Intent para abrir MainActivity al tocar la notificación
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Intent para manejar la eliminación de la notificación
+        Intent deleteIntent = new Intent("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED");
+        deleteIntent.putExtra("alertaCodigo", Alertas.BEACON_NO_ENVIANDO.getCodigo());
+        PendingIntent deletePendingIntent = PendingIntent.getBroadcast(this, 0, deleteIntent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Construcción de la notificación
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle("Error de recepción de datos")
+                .setContentText(Alertas.BEACON_NO_ENVIANDO.getMensaje())
+                .setSmallIcon(R.drawable.logonoti) // Cambia por el ícono que desees usar
+                .setContentIntent(pendingIntent) // Acción al tocar la notificación
+                .setDeleteIntent(deletePendingIntent) // Acción al eliminar la notificación
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true)
+                .build();
+
+        // Mostrar la notificación
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        if (notificationManager != null) {
+            notificationManager.notify(Alertas.BEACON_NO_ENVIANDO.getCodigo(), notification);
+        }
+    }
+
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null; // Este servicio no está diseñado para ser vinculado
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (bluetoothLeScanner != null) {
-            bluetoothLeScanner.stopScan(scanCallback);
-        }
-
-        // Detiene el timer cuando el servicio es destruido
-        if (timer != null) {
-            timer.stop();
-        }
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel serviceChannel = new NotificationChannel(CHANNEL_ID, "Canal de Servicio BLE", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(serviceChannel);
-        }
-    }
-
-    private void checkSensorStatus(BluetoothDevice device, ScanResult result) {
-        // Lógica para verificar el estado del sensor
-        if (!checkIfBeaconNotSending(result)) {
-            lastReadingTimestamp = System.currentTimeMillis(); // Actualiza la última lectura
-        }
-
-        boolean isSensorDamaged = checkIfSensorIsDamaged(result);
-        boolean hasErroneousReadings = checkIfReadingsAreErroneous(result);
-        boolean isBeaconNotSending = checkIfBeaconNotSending(result);
-
-        long currentTime = System.currentTimeMillis();
-        long timeSinceLastReading = currentTime - lastReadingTimestamp;
-        long timeoutThreshold = 5000; // 5 segundos
-
-        if (timeSinceLastReading > timeoutThreshold && !beaconNotSendingAlertSent) {
-            sendAlertNotification(Alertas.BEACON_NO_ENVIANDO);
-            beaconNotSendingAlertSent = true;
-        }
-
-        if (isSensorDamaged && !sensorDamagedAlertSent) {
-            sendAlertNotification(Alertas.SENSOR_DANADO);
-            sensorDamagedAlertSent = true;
-        } else if (hasErroneousReadings && !erroneousReadingAlertSent) {
-            sendAlertNotification(Alertas.LECTURAS_ERRONEAS);
-            erroneousReadingAlertSent = true;
-        }
-
-
-        // Resetear alertas si el sensor está en estado correcto
-        if (!isSensorDamaged) sensorDamagedAlertSent = false;
-        if (!hasErroneousReadings) erroneousReadingAlertSent = false;
-        if (!isBeaconNotSending) beaconNotSendingAlertSent = false;
+        noDataTimer.stop(); // Detener el temporizador
+        Log.d(TAG, "BLEService destruido");
     }
 
 
-    private boolean checkIfSensorIsDamaged(ScanResult result) {
-        return checkIfBeaconNotSending(result);
+
+    private void obtenerAlertasUsuario(String email) {
+        // Configurar Retrofit
+        LogicaFake api = RetrofitClient.getClient(Config.BASE_URL).create(LogicaFake.class);
+
+        // Realizar la llamada al endpoint de alertas
+        Call<List<AlertaData>> call = api.getUserAlerts(email);
+
+        Log.d(TAG, "URL llamada: " + call.request().url());
+
+        call.enqueue(new Callback<List<AlertaData>>() {
+            @Override
+            public void onResponse(Call<List<AlertaData>> call, Response<List<AlertaData>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<AlertaData> alertas = response.body();
+                    for (AlertaData alertaData : alertas) {
+                        for (Alertas alerta : Alertas.values()) {
+                            if (alerta.getCodigo() == alertaData.getCodigo()) {
+                                mostrarNotificacionAlerta(alerta);
+                                alertaId = AlertaData.getId();
+                                //eliminarAlerta(email, alertaId);
+                                eliminarNotificacion(alertaId);
+                            }
+                        }
+                    }
+                } else {
+                    Log.d(TAG, "Error en la respuesta: " + response.code());
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<List<AlertaData>> call, Throwable t) {
+                Log.d(TAG, "Error en la respuesta: " + t);
+            }
+        });
     }
 
-    private boolean checkIfReadingsAreErroneous(ScanResult result) {
-        byte[] scanRecord = result.getScanRecord().getBytes();
+    private void eliminarNotificacion(int alertaId) {
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        if (notificationManager != null) {
+            notificationManager.cancel(alertaId);
+        }
+    }
 
-        if (scanRecord.length < 2) {
-            return false;
+
+    private void eliminarAlerta(String email, int id){
+        LogicaFake api = RetrofitClient.getClient(Config.BASE_URL).create(LogicaFake.class);
+        Call<ResponseBody> call2 = api.deleteAlert(email, id);
+
+        call2.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Log.d(TAG, "Alerta eliminada: " + response.body());
+                } else {
+                    Log.d(TAG, "Error en la respuesta: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.d(TAG, "Error en la respuesta: " + t);
+            }
+        });
+    }
+
+    private void mostrarNotificacionAlerta(Alertas alerta) {
+        if (!alertasDeMedidasErroneasActivas) {
+            Log.d(TAG, "Las alertas de medidas erróneas están desactivadas. No se enviará notificación.");
+            return; // No mostrar notificación si están desactivadas
         }
 
-        int temperature = scanRecord[0];
-        int co2Level = scanRecord[1];
-
-        boolean isTemperatureErroneous = temperature < 0 || temperature > 100;
-        boolean isCO2LevelErroneous = co2Level < 400 || co2Level > 5000;
-
-        return isTemperatureErroneous || isCO2LevelErroneous;
-    }
-
-    private boolean checkIfBeaconNotSending(ScanResult result) {
-        byte[] scanRecord = result.getScanRecord().getBytes();
-
-        if (scanRecord == null || scanRecord.length == 0) {
-            Log.d(TAG, "El registro de escaneo está vacío, el sensor no está enviando datos.");
-            return true;
-        }
-        return false;
-    }
-
-    private void sendAlertNotification(Alertas alerta) {
         Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
+
+        Intent deleteIntent = new Intent("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED");
+        deleteIntent.putExtra("alertaCodigo", alerta.getCodigo());
+        PendingIntent deletePendingIntent = PendingIntent.getBroadcast(this, 0, deleteIntent, PendingIntent.FLAG_IMMUTABLE);
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Alerta de Sensor")
+                .setContentTitle("Alerta Medidas Erróneas")
                 .setContentText(alerta.getMensaje())
-                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setSmallIcon(R.drawable.logonoti)
                 .setContentIntent(pendingIntent)
+                .setDeleteIntent(deletePendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
                 .build();
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(alerta.getCodigo(), notification); // Usa el código de alerta como ID
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        if (notificationManager != null) {
+            notificationManager.notify(alerta.getCodigo(), notification);
+        }
     }
-
 
 
 
 
 
 }
-
