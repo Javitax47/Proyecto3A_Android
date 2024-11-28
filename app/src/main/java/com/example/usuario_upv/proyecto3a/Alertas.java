@@ -1,13 +1,13 @@
 package com.example.usuario_upv.proyecto3a;
 
 public enum Alertas {
-    BEACON_NO_ENVIANDO(1003, "Alerta: No se envían datos."),
+    BEACON_NO_ENVIANDO(1003, "Error, no se estan recibiendo datos del sensor."),
 
-    TEMPERATURA_BAJA(101, "Alerta: Temperatura por debajo del rango permitido."),
-    TEMPERATURA_ALTA(102, "Alerta: Temperatura por encima del rango permitido."),
+    TEMPERATURA_BAJA(101, "Se ha detectado una temperatura muy baja en tu zona"),
+    TEMPERATURA_ALTA(102, "Se ha detectado una temperatura excesiva en tu zona"),
 
-    OZONO_BAJO(201, "Alerta: Ozono por debajo del rango permitido."),
-    OZONO_ALTO(202, "Alerta: Ozono por encima del rango permitido.");
+    OZONO_BAJO(201, "Se ha detectado un exceso en la concentración de X gas en tu zona"),
+    OZONO_ALTO(202, "Se ha detectado una escasa concentración de X gas en tu zona");
 
 
     private final int codigo;

@@ -33,15 +33,10 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
+
 import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
-
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
-import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
 
@@ -106,47 +101,6 @@ public class LoginActivity extends AppCompatActivity {
         // imageViewFingerprint.setOnClickListener(v -> authenticateWithBiometrics());
     }
 
-    private void authenticateWithBiometrics() {
-        Executor executor = ContextCompat.getMainExecutor(this);
-        BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
-            @Override
-            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
-                super.onAuthenticationSucceeded(result);
-                Toast.makeText(LoginActivity.this, "Autenticación exitosa", Toast.LENGTH_SHORT).show();
-
-                // Obtener usuario guardado para login automático
-                SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-                String savedEmail = sharedPreferences.getString("userEmail", "");
-                String savedPassword = sharedPreferences.getString("userPassword", "");
-
-                if (!TextUtils.isEmpty(savedEmail) && !TextUtils.isEmpty(savedPassword)) {
-                    loginUser(savedEmail, savedPassword);
-                } else {
-                    Toast.makeText(LoginActivity.this, "No se encontró información de usuario guardada", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onAuthenticationError(int errorCode, CharSequence errString) {
-                super.onAuthenticationError(errorCode, errString);
-                Toast.makeText(LoginActivity.this, "Error: " + errString, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onAuthenticationFailed() {
-                super.onAuthenticationFailed();
-                Toast.makeText(LoginActivity.this, "Autenticación fallida", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle("Iniciar sesión con huella")
-                .setSubtitle("Usa tu huella digital para iniciar sesión")
-                .setNegativeButtonText("Cancelar")
-                .build();
-
-        biometricPrompt.authenticate(promptInfo);
-    }
 
     private void loginUser(String email, String password) {
         ProgressDialog progressDialog = new ProgressDialog(this);

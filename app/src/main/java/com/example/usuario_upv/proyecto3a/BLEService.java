@@ -45,6 +45,10 @@ public class BLEService extends Service {
     private String savedEmail;
 
 
+    private boolean alertasDeDatosActivas = true; // Controla alertas de datos
+    private boolean alertasDeMedidasErroneasActivas = true;
+
+
     private void loadUserDataFromPrefs() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         savedEmail = sharedPreferences.getString("userEmail", "");
@@ -79,15 +83,59 @@ public class BLEService extends Service {
         noDataTimer = new Timer(5000, new Runnable() {
             @Override
             public void run() {
-                if (!dataReceived) {
+                if (!dataReceived && alertasDeDatosActivas) { // Verifica si las alertas están activas
                     mostrarNotificacionNoDatos();
-                    obtenerAlertasUsuario(savedEmail);// Llamar a la API de alertas aquí
+                    obtenerAlertasUsuario(savedEmail);
                 }
-                // Reiniciar el estado de recepción de datos
-                dataReceived = false;
+                dataReceived = false; // Reinicia el estado de recepción de datos
             }
         });
+
+        IntentFilter filter = new IntentFilter("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED");
+        registerReceiver(notificationReceiver, filter);
     }
+
+
+
+    private final BroadcastReceiver notificationReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null && intent.getAction() != null && intent.getAction().equals("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED")) {
+                int alertaCodigo = intent.getIntExtra("alertaCodigo", -1);
+
+                if (alertaCodigo == Alertas.BEACON_NO_ENVIANDO.getCodigo()) {
+                    // Desactivar las alertas de datos
+                    desactivarAlertasDeDatos();
+                } else if (esMedidaErronea(alertaCodigo)) {
+                    // Desactivar las alertas de medidas erróneas
+                    desactivarAlertasDeMedidasErroneas();
+                }
+            }
+        }
+    };
+
+    private boolean esMedidaErronea(int codigo) {
+        return codigo == Alertas.TEMPERATURA_BAJA.getCodigo() ||
+                codigo == Alertas.TEMPERATURA_ALTA.getCodigo() ||
+                codigo == Alertas.OZONO_BAJO.getCodigo() ||
+                codigo == Alertas.OZONO_ALTO.getCodigo();
+    }
+
+    private void desactivarAlertasDeDatos() {
+        Log.d(TAG, "Desactivando alertas de datos...");
+        alertasDeDatosActivas = false; // Desactiva alertas de datos
+
+        // Detener el temporizador relacionado con la alerta de datos
+        if (noDataTimer != null) {
+            noDataTimer.stop();
+        }
+    }
+
+    private void desactivarAlertasDeMedidasErroneas() {
+        Log.d(TAG, "Desactivando alertas de medidas erróneas...");
+        alertasDeMedidasErroneasActivas = false; // Desactiva alertas de medidas erróneas
+    }
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -138,26 +186,33 @@ public class BLEService extends Service {
     }
 
     private void mostrarNotificacionNoDatos() {
+        // Intent para abrir MainActivity al tocar la notificación
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
 
-        // Utilizamos el mensaje de la alerta correspondiente
-        String mensaje = Alertas.BEACON_NO_ENVIANDO.getMensaje();
+        // Intent para manejar la eliminación de la notificación
+        Intent deleteIntent = new Intent("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED");
+        deleteIntent.putExtra("alertaCodigo", Alertas.BEACON_NO_ENVIANDO.getCodigo());
+        PendingIntent deletePendingIntent = PendingIntent.getBroadcast(this, 0, deleteIntent, PendingIntent.FLAG_IMMUTABLE);
 
+        // Construcción de la notificación
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Alerta de Datos")
-                .setContentText(mensaje) // Usar el mensaje de la alerta
-                .setSmallIcon(android.R.drawable.ic_dialog_info) // Cambia esto por tu ícono de notificación o usa uno predeterminado
-                .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_HIGH) // Mayor prioridad para que sea visible
+                .setContentTitle("Error de recepción de datos")
+                .setContentText(Alertas.BEACON_NO_ENVIANDO.getMensaje())
+                .setSmallIcon(R.drawable.logonoti) // Cambia por el ícono que desees usar
+                .setContentIntent(pendingIntent) // Acción al tocar la notificación
+                .setDeleteIntent(deletePendingIntent) // Acción al eliminar la notificación
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
                 .build();
 
+        // Mostrar la notificación
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         if (notificationManager != null) {
-            notificationManager.notify(Alertas.BEACON_NO_ENVIANDO.getCodigo(), notification); // Usar el código de la alerta como ID
+            notificationManager.notify(Alertas.BEACON_NO_ENVIANDO.getCodigo(), notification);
         }
     }
+
 
     @Nullable
     @Override
@@ -241,23 +296,36 @@ public class BLEService extends Service {
     }
 
     private void mostrarNotificacionAlerta(Alertas alerta) {
+        if (!alertasDeMedidasErroneasActivas) {
+            Log.d(TAG, "Las alertas de medidas erróneas están desactivadas. No se enviará notificación.");
+            return; // No mostrar notificación si están desactivadas
+        }
+
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
 
+        Intent deleteIntent = new Intent("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED");
+        deleteIntent.putExtra("alertaCodigo", alerta.getCodigo());
+        PendingIntent deletePendingIntent = PendingIntent.getBroadcast(this, 0, deleteIntent, PendingIntent.FLAG_IMMUTABLE);
+
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Alerta de Sistema")
-                .setContentText(alerta.getMensaje()) // Mensaje dinámico
-                .setSmallIcon(android.R.drawable.ic_dialog_info) // Cambia por un ícono personalizado
+                .setContentTitle("Alerta Medidas Erróneas")
+                .setContentText(alerta.getMensaje())
+                .setSmallIcon(R.drawable.logonoti)
                 .setContentIntent(pendingIntent)
+                .setDeleteIntent(deletePendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
                 .build();
 
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         if (notificationManager != null) {
-            notificationManager.notify(alerta.getCodigo(), notification); // Código único de alerta
+            notificationManager.notify(alerta.getCodigo(), notification);
         }
     }
+
+
+
 
 
 }
