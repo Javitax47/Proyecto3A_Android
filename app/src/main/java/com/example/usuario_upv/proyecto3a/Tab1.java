@@ -2,16 +2,21 @@ package com.example.usuario_upv.proyecto3a;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -21,6 +26,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
     private GoogleMap mapa;
@@ -37,6 +44,7 @@ public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMa
         super.onViewCreated(view, savedInstanceState);
         super.onViewCreated(view, savedInstanceState);
         this.rootView = view;
+
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapa);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
@@ -61,6 +69,17 @@ public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMa
                 }
             }
         });
+
+        Toolbar toolbar = view.findViewById(R.id.toolbar); // Asegúrate de que el ID del Toolbar es correcto
+        if (toolbar != null) {
+            // Configurar el Toolbar como ActionBar
+            ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
+            // Opcional: Establecer el título
+            ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("Mi Mapa");
+        }
+
+        // Activar el menú de opciones
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -73,6 +92,25 @@ public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMa
 
     @Override
     public void onMapClick(@NonNull LatLng latLng) {
-
     }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_tab1, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Manejar el clic en el botón del menú
+        if (item.getItemId() == R.id.action_button) {
+            // Iniciar la actividad de alertas cuando el botón sea presionado
+            Intent intent = new Intent(getContext(), AlertActivity.class);
+            startActivity(intent); // Inicia la nueva actividad
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

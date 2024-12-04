@@ -5,13 +5,18 @@ import static com.example.usuario_upv.proyecto3a.Tab2.ETIQUETA_LOG;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -67,24 +72,35 @@ public class Tab3 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab3, container, false);
 
-        // Inicializar la lista de sensores
-        sensorList = new ArrayList<>();
-        setupRecyclerView(view);
-        setupQRScanner(view);
+        // Configurar el Toolbar
+        androidx.appcompat.widget.Toolbar toolbar = view.findViewById(R.id.toolbar);
+        if (getActivity() != null) {
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        }
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Config.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        api = retrofit.create(LogicaFake.class);
-
-        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-        userEmail = sharedPreferences.getString("userEmail", null);
-
-        obtenerSensoresPorUsuario();
+        // Inflar el menú
+        setHasOptionsMenu(true);
 
         return view;
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_tab3, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_button) {
+            // Acción al presionar el botón
+            Toast.makeText(getContext(), "Botón presionado", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void obtenerSensoresPorUsuario() {
@@ -134,13 +150,6 @@ public class Tab3 extends Fragment {
         });
     }
 
-    private void setupRecyclerView(View view) {
-        sensorsRecyclerView = view.findViewById(R.id.sensorsRecyclerView);
-        sensorAdapter = new SensorAdapter(sensorList);
-        sensorsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        sensorsRecyclerView.setAdapter(sensorAdapter);
-    }
-
     private void setupQRScanner(View view) {
         FloatingActionButton scanQrButton = view.findViewById(R.id.scanQrButton);
         scanQrButton.setOnClickListener(v -> {
@@ -187,6 +196,7 @@ public class Tab3 extends Fragment {
     }
 
     private void addSensor(String uuid) {
+
         Sensor sensor = new Sensor(uuid, userEmail);
 
         Log.d(ETIQUETA_LOG, "Uuid: " + uuid);
@@ -194,8 +204,7 @@ public class Tab3 extends Fragment {
         insertarSensor(sensor);
 
         obtenerSensoresPorUsuario();
-        Toast.makeText(getContext(), "Sensor añadido: " + uuid,
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Sensor añadido: " + uuid, Toast.LENGTH_SHORT).show();
     }
 
     private void insertarSensor(Sensor sensor){

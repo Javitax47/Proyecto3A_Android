@@ -37,6 +37,14 @@
                 android:fontFamily="monospace"
                 app:backgroundTint="@color/black" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/botonCerrarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#CF0025"
+                android:text="Cerrar Sesión"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

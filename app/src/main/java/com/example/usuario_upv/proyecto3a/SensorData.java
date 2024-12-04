@@ -21,6 +21,8 @@ public class SensorData {
     private String timestamp; ///< Marca de tiempo en formato ISO 8601.
     private Point location;       ///< ID del usuario asociado a la medición.
 
+
+
     /**
      * @brief Constructor de la clase SensorData.
      *
@@ -38,6 +40,7 @@ public class SensorData {
         this.valor = valor;
         this.location = location;
         this.timestamp = getCurrentTimestamp();
+        this.location = location;
     }
 
     /**

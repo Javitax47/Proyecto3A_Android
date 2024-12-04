@@ -10,6 +10,7 @@ import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
 import android.content.pm.PackageManager;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -86,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief TextView para mostrar el primer dato.
      */
-    private TextView dato1;
+    public TextView dato1;
 
     /**
      * @brief TextView para mostrar el segundo dato.
      */
-    private TextView dato2;
+    public TextView dato2;
 
     /**
      * @brief ImageView para mostrar una imagen asociada al primer dato.
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief Estado que indica si el beacon de temperatura está activo.
      */
-    private boolean beaconTemperaturaActivo = false;
+    public boolean beaconTemperaturaActivo = false;
 
     /**
      * @brief Instancia de la API que maneja la comunicación con los sensores.
@@ -164,13 +165,16 @@ public class MainActivity extends AppCompatActivity {
      *
      * La clave es el identificador único del dispositivo, y el valor es la vista asociada.
      */
-    private Map<String, View> vistasDispositivosDetectados = new HashMap<>();
+    private static Map<String, View> vistasDispositivosDetectados = new HashMap<>();
+
+
+    private Point location = new Point(1, 2);
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
     // Nombres de las pestañas
-    private int[] imagenes = new int[]{R.drawable.mapa, R.drawable.menu, R.drawable.usuario, R.drawable.vehiculos};
+    private int[] imagenes = new int[]{R.drawable.home, R.drawable.mundo, R.drawable.dispositivos, R.drawable.user};
 
     /**
      * @brief Método llamado cuando se crea la actividad.
@@ -249,12 +253,16 @@ public class MainActivity extends AppCompatActivity {
      *
      * Este método se encarga de obtener el adaptador Bluetooth del dispositivo,
      * habilitarlo si es necesario, y obtener el escáner BLE. También verifica y
-     * solicita los permisos necesarios según la versión de Android en uso, incluyendo
-     * permisos de cámara para el escáner QR.
+     * solicita los permisos necesarios según la versión de Android en uso.
+     *
+     * - Para Android 13 (T) y versiones posteriores, se requieren permisos
+     *   específicos para el escaneo y conexión Bluetooth, así como notificaciones si son necesarias.
+     * - Para Android 12 (S) se requieren permisos de escaneo y conexión Bluetooth.
+     * - Para Android 11 (R) y versiones anteriores, se requieren permisos de
+     *   Bluetooth y localización.
      */
     private void inicializarBlueTooth() {
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): obtenemos adaptador BT ");
-
         BluetoothAdapter bta = BluetoothAdapter.getDefaultAdapter();
 
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): habilitamos adaptador BT ");
@@ -273,47 +281,50 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): voy a pedir permisos (si no los tuviera) !!!!");
 
         // Comprobamos la versión de Android
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            // Para Android 12 y versiones posteriores
-            if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Para Android 13 y versiones posteriores
+            if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                         MainActivity.this,
-                        new String[]{
-                                android.Manifest.permission.BLUETOOTH_SCAN,
-                                android.Manifest.permission.BLUETOOTH_CONNECT,
-                                Manifest.permission.ACCESS_FINE_LOCATION,
-                                Manifest.permission.CAMERA
-                        },
+                        new String[]{android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT, android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.POST_NOTIFICATIONS},
                         CODIGO_PETICION_PERMISOS
                 );
             } else {
-                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): parece que YA tengo los permisos necesarios en Android 12+ !!!!");
+                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios en Android 13+.");
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Para Android 12
+            if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        MainActivity.this,
+                        new String[]{android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT, android.Manifest.permission.ACCESS_FINE_LOCATION},
+                        CODIGO_PETICION_PERMISOS
+                );
+            } else {
+                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios en Android 12.");
             }
         } else {
             // Para Android 11 y versiones anteriores
             if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_ADMIN) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                         MainActivity.this,
-                        new String[]{
-                                android.Manifest.permission.BLUETOOTH,
-                                android.Manifest.permission.BLUETOOTH_ADMIN,
-                                Manifest.permission.ACCESS_FINE_LOCATION,
-                                Manifest.permission.CAMERA
-                        },
+                        new String[]{android.Manifest.permission.BLUETOOTH, android.Manifest.permission.BLUETOOTH_ADMIN, android.Manifest.permission.ACCESS_FINE_LOCATION},
                         CODIGO_PETICION_PERMISOS
                 );
             } else {
-                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): parece que YA tengo los permisos necesarios !!!!");
+                Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios.");
             }
         }
-    } // ()
+    }
+
+
 
     /**
      * @brief Maneja el resultado de las solicitudes de permisos.
@@ -329,26 +340,17 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        // Forward the permission result to the fragments
-        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-            fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
         switch (requestCode) {
             case CODIGO_PETICION_PERMISOS:
-                // Verifica que grantResults tenga al menos 4 resultados antes de acceder a ellos
-                if (grantResults.length >= 4 &&
-                        grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                        grantResults[1] == PackageManager.PERMISSION_GRANTED &&
-                        grantResults[2] == PackageManager.PERMISSION_GRANTED &&
-                        grantResults[3] == PackageManager.PERMISSION_GRANTED) {
-                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): todos los permisos concedidos !!!!");
-                    // Los permisos han sido concedidos. Continuar con la acción o flujo en la app.
+                // Si la solicitud es cancelada, los arreglos de resultado están vacíos.
+                if (grantResults.length > 0 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): permisos concedidos  !!!!");
+                    // El permiso ha sido concedido. Continuar con la acción o flujo en la app.
                 } else {
-                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): Socorro: algunos permisos NO concedidos !!!!");
+                    Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): Socorro: permisos NO concedidos  !!!!");
                 }
-                break;
         }
-    }
+    } // ()
 
 } // class
