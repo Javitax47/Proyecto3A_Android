@@ -45,5 +45,6 @@ dependencies {
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation ("androidx.biometric:biometric:1.2.0-alpha05")
+    implementation ("androidx.fragment:fragment:1.6.0")   // También la fragmentación
 
 }

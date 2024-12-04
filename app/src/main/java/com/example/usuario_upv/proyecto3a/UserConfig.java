@@ -5,11 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -36,6 +38,12 @@ public class UserConfig extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_config);
+
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);  // Establecer el Toolbar como ActionBar
+        getSupportActionBar().setTitle("Configuración de usuario"); // Título del Toolbar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Inicializa los elementos de la interfaz
         usernameEditText = findViewById(R.id.username);
@@ -210,5 +218,15 @@ public class UserConfig extends AppCompatActivity {
         editor.putString("userEmail", email);
         editor.putString("userName", username);
         editor.apply();
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();  // Volver a la actividad anterior
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

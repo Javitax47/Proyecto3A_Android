@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
 
     // Nombres de las pestañas
-    private int[] imagenes = new int[]{R.drawable.inicio_icono, R.drawable.visualizador_icono, R.drawable.dispositivos_icono, R.drawable.perfil_icono};
+    private int[] imagenes = new int[]{R.drawable.home, R.drawable.mundo, R.drawable.dispositivos, R.drawable.user};
 
     /**
      * @brief Método llamado cuando se crea la actividad.

@@ -199,7 +199,7 @@ public class BLEService extends Service {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Error de recepción de datos")
                 .setContentText(Alertas.BEACON_NO_ENVIANDO.getMensaje())
-                .setSmallIcon(R.drawable.logonoti) // Cambia por el ícono que desees usar
+                .setSmallIcon(R.drawable.elverdaderologonoti) // Cambia por el ícono que desees usar
                 .setContentIntent(pendingIntent) // Acción al tocar la notificación
                 .setDeleteIntent(deletePendingIntent) // Acción al eliminar la notificación
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -311,7 +311,7 @@ public class BLEService extends Service {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Alerta Medidas Erróneas")
                 .setContentText(alerta.getMensaje())
-                .setSmallIcon(R.drawable.logonoti)
+                .setSmallIcon(R.drawable.elverdaderologonoti)
                 .setContentIntent(pendingIntent)
                 .setDeleteIntent(deletePendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
