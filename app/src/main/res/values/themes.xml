@@ -1,9 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Proyecto3A" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary color (light mode) -->
+        <item name="colorPrimary">@color/rosa</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Background color -->
+        <item name="colorOnBackground">@color/white</item>
+
+        <!-- Surface color -->
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+
+        <!-- Accent color -->
+        <item name="colorAccent">@color/rosa</item>
     </style>
 
+    <!-- Application theme, inheriting from base -->
     <style name="Theme.Proyecto3A" parent="Base.Theme.Proyecto3A" />
 </resources>

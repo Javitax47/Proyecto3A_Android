@@ -26,7 +26,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.widget.Toolbar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
@@ -35,7 +35,7 @@ public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMa
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.tab1, container, false);
+        rootView = inflater.inflate(R.layout.ejemplo_mapa, container, false);
         return rootView;
     }
 
@@ -70,14 +70,6 @@ public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMa
             }
         });
 
-        Toolbar toolbar = view.findViewById(R.id.toolbar); // Asegúrate de que el ID del Toolbar es correcto
-        if (toolbar != null) {
-            // Configurar el Toolbar como ActionBar
-            ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
-            // Opcional: Establecer el título
-            ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("Mi Mapa");
-        }
-
         // Activar el menú de opciones
         setHasOptionsMenu(true);
     }
@@ -92,24 +84,6 @@ public class Tab1 extends Fragment implements OnMapReadyCallback, GoogleMap.OnMa
 
     @Override
     public void onMapClick(@NonNull LatLng latLng) {
-    }
-
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_tab1, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Manejar el clic en el botón del menú
-        if (item.getItemId() == R.id.action_button) {
-            // Iniciar la actividad de alertas cuando el botón sea presionado
-            Intent intent = new Intent(getContext(), AlertActivity.class);
-            startActivity(intent); // Inicia la nueva actividad
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 

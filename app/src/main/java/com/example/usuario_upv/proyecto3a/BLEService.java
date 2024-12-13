@@ -19,12 +19,14 @@ import android.content.SharedPreferences;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import android.os.Handler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -102,12 +104,9 @@ public class BLEService extends Service {
         public void onReceive(Context context, Intent intent) {
             if (intent != null && intent.getAction() != null && intent.getAction().equals("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED")) {
                 int alertaCodigo = intent.getIntExtra("alertaCodigo", -1);
-
                 if (alertaCodigo == Alertas.BEACON_NO_ENVIANDO.getCodigo()) {
-                    // Desactivar las alertas de datos
                     desactivarAlertasDeDatos();
                 } else if (esMedidaErronea(alertaCodigo)) {
-                    // Desactivar las alertas de medidas erróneas
                     desactivarAlertasDeMedidasErroneas();
                 }
             }
@@ -122,12 +121,9 @@ public class BLEService extends Service {
     }
 
     private void desactivarAlertasDeDatos() {
-        Log.d(TAG, "Desactivando alertas de datos...");
-        alertasDeDatosActivas = false; // Desactiva alertas de datos
-
-        // Detener el temporizador relacionado con la alerta de datos
+        alertasDeDatosActivas = false;
         if (noDataTimer != null) {
-            noDataTimer.stop();
+            noDataTimer.stop();  // Detiene el temporizador si la alerta se desactiva
         }
     }
 
@@ -186,6 +182,9 @@ public class BLEService extends Service {
     }
 
     private void mostrarNotificacionNoDatos() {
+        Alertas alerta = Alertas.BEACON_NO_ENVIANDO;
+        enviarAlertaBroadcast(alerta);
+
         // Intent para abrir MainActivity al tocar la notificación
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
@@ -326,6 +325,11 @@ public class BLEService extends Service {
 
 
 
-
+    private void enviarAlertaBroadcast(Alertas alerta) {
+        Intent intent = new Intent("com.example.usuario_upv.proyecto3a.NEW_ALERT");
+        intent.putExtra("alerta", (Parcelable) alerta); // Forzamos el uso de Parcelable
+        sendBroadcast(intent);
+        Log.d(TAG, "Broadcast enviado con la alerta: " + alerta.getMensaje());
+    }
 
 }

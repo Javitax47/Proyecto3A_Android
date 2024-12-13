@@ -1,11 +1,9 @@
 package com.example.usuario_upv.proyecto3a;
 
-import static android.content.Context.MODE_PRIVATE;
 import static com.example.usuario_upv.proyecto3a.Tab2.ETIQUETA_LOG;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,21 +12,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.widget.Toast;
 
@@ -42,22 +36,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Tab3 extends Fragment {
     private static final int CAMERA_PERMISSION_REQUEST = 100;
@@ -72,36 +53,21 @@ public class Tab3 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab3, container, false);
 
-        // Configurar el Toolbar
-        androidx.appcompat.widget.Toolbar toolbar = view.findViewById(R.id.toolbar);
-        if (getActivity() != null) {
-            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        }
+        // PARA PONER EL COLOR BLANCO (QUE NO DEJA DE OTRA FORMA)
+        FloatingActionButton fab = view.findViewById(R.id.floatingActionButton);
+        fab.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.white)));
 
-        // Inflar el menú
-        setHasOptionsMenu(true);
+        // Configurar el listener para action_button
+        View actionButton = view.findViewById(R.id.floatingActionButton);
+        actionButton.setOnClickListener(v -> {
+            if (checkCameraPermission()) {
+                startQRScanner();
+            }
+        });
 
         return view;
     }
 
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_tab3, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_button) {
-            // Acción al presionar el botón
-            Toast.makeText(getContext(), "Botón presionado", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void obtenerSensoresPorUsuario() {
         Call<ResponseBody> call = api.getUserSensors(userEmail);
@@ -146,15 +112,6 @@ public class Tab3 extends Fragment {
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                 Log.d(ETIQUETA_LOG, "Error al obtener: " + t.getMessage());
-            }
-        });
-    }
-
-    private void setupQRScanner(View view) {
-        FloatingActionButton scanQrButton = view.findViewById(R.id.scanQrButton);
-        scanQrButton.setOnClickListener(v -> {
-            if (checkCameraPermission()) {
-                startQRScanner();
             }
         });
     }

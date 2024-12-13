@@ -1,17 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="blabla"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Política de Privacidad"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="#000000" />
+
+        <!-- Contenido de la Política -->
+        <TextView
+            android:id="@+id/tvPolicyContent3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Última actualización: [12/12/2024]  "
+            android:textColor="#555555"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bienvenido a Airmonitor, una aplicación diseñada para la monitorización y documentación de las medidas de un sensor que registra niveles de ozono y temperatura en tiempo real. \n  \nNos tomamos muy en serio la privacidad y la seguridad de tus datos. A continuación, te explicamos cómo usamos y protegemos la información recolectada:"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="#555555"
+            android:paddingTop="8dp" />
+
+        <!-- Espacio para contenido largo -->
+        <TextView
+            android:id="@+id/tvPolicyContent2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\n Permisos requeridos:"
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPermissionsContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Airmonitor no recoge información personal identificable. Los únicos datos procesados por la aplicación provienen del sensor, específicamente: \n \n Nivel de ozono: \n para monitorear la calidad del aire. \n \nTemperatura ambiental:\npara evaluar las condiciones atmosféricas."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="#555555"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\n Uso de los permisos "
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="      1. Acceso a la ubicación:"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="      Necesario para registrar y asociar las mediciones \n      del sensor con un lugar geográfico preciso."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="      2. Acceso a la internet:"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="      Requerido para sincronizar los datos con nuestros \n      servidores y mantener actualizados los registros."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\n Uso de datos"
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="La información recopilada se utiliza exclusivamente para los siguientes propósitos: \nAnalizar y documentar las condiciones ambientales. \nMostrar datos en gráficos y mapas interactivos dentro de la aplicación."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Airmonitor garantiza que los datos no serán compartidos con terceros.  "
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\n Tus derechos"
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Puedes revocar los permisos otorgados en cualquier momento desde la configuración de tu dispositivo. Sin embargo, ciertas funcionalidades podrían dejar de estar disponibles."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\n Aceptación de la política "
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Al usar la aplicación, confirmas que aceptas esta Política de Privacidad y das tu consentimiento para el uso de los permisos descritos. Si no estás de acuerdo con alguna parte, te recomendamos no continuar utilizando la aplicación."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Para más información, por favor contáctanos en: airmonitorgti@gmail.com"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <!-- Botones de aceptar y cancelar -->
+
+    </LinearLayout>
+</ScrollView>

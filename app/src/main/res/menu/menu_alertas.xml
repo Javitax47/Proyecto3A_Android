@@ -4,7 +4,7 @@
 
 
     <item
-        android:id="@+id/action_second_button"
+        android:id="@+id/papelera"
         android:icon="@drawable/papelera"
     android:title="Segundo Botón"
     android:orderInCategory="101"

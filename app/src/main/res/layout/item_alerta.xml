@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textoAlerta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="5dp"
+        android:text="Nueva Notificación"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iconoalerta"
+        app:layout_constraintEnd_toStartOf="@+id/borraralerta"
+        app:layout_constraintStart_toEndOf="@+id/iconoalerta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+
+    <TextView
+        android:id="@+id/fechaalerta"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:text="Hace 1 día"
+        android:textColor="#A19F9F"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textoAlerta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textoAlerta"
+        app:layout_constraintTop_toBottomOf="@+id/textoAlerta" />
+
+    <ImageButton
+        android:id="@+id/borraralerta"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="5dp"
+        android:background="@null"
+        android:onClick="onImageButtonClick"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cancel_alerta"
+        app:layout_constraintBottom_toBottomOf="@+id/iconoalerta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iconoalerta" />
+
+    <ImageView
+        android:id="@+id/iconoalerta"
+        android:layout_width="61dp"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_add_alert_24" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
