@@ -33,6 +33,9 @@ public interface LogicaFake {
     @GET("/")
     Call<Void> checkConnection();
 
+    @GET("/mediciones/{fecha}")
+    Call<List<SensorData>> medicionesbbdd(@Path(value = "fecha", encoded = true) String fecha);
+
     /**
      * @brief Inserta una medición de sensor en la base de datos.
      *
@@ -50,6 +53,9 @@ public interface LogicaFake {
 
     @POST("/usuarios/verify-password")
     Call<Void> verifyPassword(@Body UserData userData);
+
+    @GET("/token/{token}")
+    Call<Void> autenticarUsuario(@Path(value = "token", encoded = true) String token);
 
     @GET("/usuarios/login/{email}/{password}")
     Call<User> getUserData(@Path(value = "email", encoded = true) String email, @Path("password") String password);

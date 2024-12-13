@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Airmonitor</string>
+    <string-array name="measurement_types">
+        <item>Todos</item>
+        <item>Temperatura</item>
+        <item>Ozono</item>
+    </string-array>
+
 </resources>

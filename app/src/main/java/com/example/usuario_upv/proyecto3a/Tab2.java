@@ -10,6 +10,7 @@ import android.bluetooth.le.ScanSettings;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
+import android.graphics.PointF;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -618,9 +619,9 @@ public class Tab2 extends Fragment {
                         serviceIntent.putExtra("minorValue", minorValue);
                         getContext().startService(serviceIntent);
 
-                        Point location = new Point(1, 2);
+                        PointF location = new PointF(1, 2);
                         int sensorTipo = procesarBeacon(majorValue, minorValue);
-                        SensorData sensorData = new SensorData(Utilidades.uuidToString(uuid), minorValue, sensorTipo, location);
+                        SensorData sensorData = new SensorData(Utilidades.uuidToString(uuid), minorValue, sensorTipo, location, SensorData.getCurrentTimestamp());
 
                         Call<Void> call = api.createSensorData(sensorData);
                         Log.d(ETIQUETA_LOG, "Enviando datos...");

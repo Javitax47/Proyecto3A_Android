@@ -1,8 +1,8 @@
 package com.example.usuario_upv.proyecto3a;
 
+import android.net.Uri;
 
-import static com.example.usuario_upv.proyecto3a.Tab2.ETIQUETA_LOG;
-
+import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,6 +37,7 @@ import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 
 import androidx.biometric.BiometricManager;
@@ -51,11 +52,22 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView imageViewFingerprint;
     private LogicaFake api;
     private static final String ETIQUETA_LOG = "LoginActivity";
+    private Uri uri;
+    String param;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        uri = getIntent().getData();
+
+        if (uri != null) {
+            List<String> parameters = uri.getPathSegments();
+            param = parameters.get(parameters.size() - 1);
+
+            Log.d(ETIQUETA_LOG, "Parámetro Uri: " + param);
+        }
 
         editTextEmail = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
@@ -99,53 +111,30 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            loginUser(email, password);
+            verificarToken(email, password);
         });
-
-        // Configurar autenticación biométrica
-        // imageViewFingerprint.setOnClickListener(v -> authenticateWithBiometrics());
     }
 
-    private void authenticateWithBiometrics() {
-        Executor executor = ContextCompat.getMainExecutor(this);
-        BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
+    private void verificarToken(String email, String password) {
+        Call<Void> call = api.autenticarUsuario(param);
+
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
-                super.onAuthenticationSucceeded(result);
-                Toast.makeText(LoginActivity.this, "Autenticación exitosa", Toast.LENGTH_SHORT).show();
-
-                // Obtener usuario guardado para login automático
-                SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-                String savedEmail = sharedPreferences.getString("userEmail", "");
-                String savedPassword = sharedPreferences.getString("userPassword", "");
-
-                if (!TextUtils.isEmpty(savedEmail) && !TextUtils.isEmpty(savedPassword)) {
-                    loginUser(savedEmail, savedPassword);
+            public void onResponse(Call<Void> call, retrofit2.Response<Void> response) {
+                if (response.isSuccessful()) {
+                    loginUser(email, password);
                 } else {
-                    Toast.makeText(LoginActivity.this, "No se encontró información de usuario guardada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Error de autenticación", Toast.LENGTH_SHORT).show();
+                    Log.d(ETIQUETA_LOG, "Error de autenticación: " + response);
                 }
             }
 
             @Override
-            public void onAuthenticationError(int errorCode, CharSequence errString) {
-                super.onAuthenticationError(errorCode, errString);
-                Toast.makeText(LoginActivity.this, "Error: " + errString, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onAuthenticationFailed() {
-                super.onAuthenticationFailed();
-                Toast.makeText(LoginActivity.this, "Autenticación fallida", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e(ETIQUETA_LOG, "Error de conexión", t);
+                Toast.makeText(LoginActivity.this, "Error de conexión", Toast.LENGTH_SHORT).show();
             }
         });
-
-        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle("Iniciar sesión con huella")
-                .setSubtitle("Usa tu huella digital para iniciar sesión")
-                .setNegativeButtonText("Cancelar")
-                .build();
-
-        biometricPrompt.authenticate(promptInfo);
     }
 
     private void loginUser(String email, String password) {
@@ -161,23 +150,27 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<User> call, retrofit2.Response<User> response) {
                 progressDialog.dismiss();
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                    User user = response.body();
+                    Log.d(ETIQUETA_LOG, "Contenido de la respuesta: " + user);
 
-                    String username = response.body().getUsername();
-                    String email = response.body().getEmail();
-                    Log.d(ETIQUETA_LOG, "Contenido de la respuesta: " + response.body());
+                    if (user.isVerified()) {
+                        Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                        saveUserDataToPrefs(user.getEmail(), user.getUsername());
+                        saveUserPasswordToPrefs(password);
 
-                    saveUserDataToPrefs(email, username);
-                    saveUserPasswordToPrefs(password);
-
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Por favor, verifica tu cuenta antes de iniciar sesión", Toast.LENGTH_LONG).show();
+                    }
                 } else {
-                    Toast.makeText(LoginActivity.this, "Error de autenticación", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Correo o contraseña erróneos", Toast.LENGTH_SHORT).show();
+                    Log.d(ETIQUETA_LOG, "Correo o contraseña erróneos: " + response);
                 }
             }
+
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
@@ -187,6 +180,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void saveUserDataToPrefs(String email, String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);

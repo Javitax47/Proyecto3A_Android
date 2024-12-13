@@ -45,4 +45,5 @@ dependencies {
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation ("androidx.biometric:biometric:1.2.0-alpha05")
+    implementation ("com.google.maps.android:android-maps-utils:2.3.0")
 }

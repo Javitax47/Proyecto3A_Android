@@ -164,30 +164,35 @@ public class RegisterActivity extends AppCompatActivity {
                 UserData userData = new UserData(nombre, email, password);
                 Call<Void> call = api.createUserData(userData);
 
+                // En el método onResponse del botón de registro
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, retrofit2.Response<Void> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, "Registro exitoso.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,
+                                    "Registro exitoso. Revisa tu correo para verificar tu cuenta.",
+                                    Toast.LENGTH_SHORT).show();
 
-                            // Guardar datos temporalmente para la autenticación biométrica
-                            savedEmail = email;
-                            savedName = nombre;
-
-                            // Mostrar el prompt biométrico
-                            biometricPrompt.authenticate(promptInfo);
-
+                            // Redirigir a la página de inicio de sesión
+                            Intent intent = new Intent(RegisterActivity.this, LandingPageActivity.class);
+                            startActivity(intent);
+                            finish();
                         } else {
-                            Toast.makeText(RegisterActivity.this, "Error al registrar", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,
+                                    "Error al registrar. Inténtalo de nuevo.",
+                                    Toast.LENGTH_SHORT).show();
                             Log.d("RegisterActivity", "Error al registrar: " + response.message());
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(RegisterActivity.this, "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this,
+                                "Error de conexión: " + t.getMessage(),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
+
             }
 
             private boolean isValidEmail(String email) {
