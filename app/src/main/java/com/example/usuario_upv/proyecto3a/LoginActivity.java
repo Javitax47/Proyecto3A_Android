@@ -33,16 +33,11 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
+
 import androidx.core.content.ContextCompat;
 
 import java.util.List;
 import java.util.concurrent.Executor;
-
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
-import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
 
