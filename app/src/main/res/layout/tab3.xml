@@ -40,20 +40,20 @@
             app:layout_constraintTop_toBottomOf="@+id/textoUsuario" />
 
         <TextView
-            android:id="@+id/textoUsuario5"
+            android:id="@+id/sensorNameTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="afdafsthbtyjntydnjyt"
+            android:text="sensor"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textoUsuario3"
             app:layout_constraintTop_toBottomOf="@+id/textoUsuario3" />
 
         <TextView
-            android:id="@+id/textoUsuario2"
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gerard de la Fuente"
+            android:text="Usuario"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -103,13 +103,13 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/textoUsuario9"
+            app:layout_constraintEnd_toStartOf="@+id/sensorName"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <TextView
-            android:id="@+id/textoUsuario9"
+            android:id="@+id/sensorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -232,11 +232,11 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:text="ON"
-            app:layout_constraintBottom_toBottomOf="@+id/textoUsuario9"
+            app:layout_constraintBottom_toBottomOf="@+id/sensorName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textoUsuario9"
-            app:layout_constraintTop_toTopOf="@+id/textoUsuario9" />
+            app:layout_constraintStart_toEndOf="@+id/sensorName"
+            app:layout_constraintTop_toTopOf="@+id/sensorName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

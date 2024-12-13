@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -31,12 +30,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-import androidx.core.content.ContextCompat;
-
 import java.util.List;
-import java.util.concurrent.Executor;
-
-import java.util.concurrent.Executor;
 
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText editTextEmail, editTextPassword;
@@ -61,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
             Log.d(ETIQUETA_LOG, "Parámetro Uri: " + param);
         }
 
-        editTextEmail = findViewById(R.id.editTextTextEmailAddress);
-        editTextPassword = findViewById(R.id.editTextTextPassword);
+        editTextEmail = findViewById(R.id.email);
+        editTextPassword = findViewById(R.id.passw);
         buttonLogin = findViewById(R.id.buttonLogin);
         //imageViewFingerprint = findViewById(R.id.imageViewFingerprint);
 

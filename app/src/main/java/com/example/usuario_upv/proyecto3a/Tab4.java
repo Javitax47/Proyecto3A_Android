@@ -59,7 +59,7 @@ public class Tab4 extends Fragment {
             editor.apply();
 
             // Regresar a la pantalla de inicio de sesión
-            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            Intent intent = new Intent(getActivity(), LandingPageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });

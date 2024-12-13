@@ -48,8 +48,7 @@ dependencies {
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation ("androidx.biometric:biometric:1.2.0-alpha05")
     implementation ("androidx.fragment:fragment:1.6.0")   // También la fragmentación
-
-
+    implementation ("com.google.maps.android:android-maps-utils:2.3.0")
     implementation("androidx.palette:palette:1.0.0")
     implementation("com.makeramen:roundedimageview:2.3.0")
     implementation("com.google.android.material:material:1.2.0-alpha02")

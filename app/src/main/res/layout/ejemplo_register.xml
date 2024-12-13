@@ -33,7 +33,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveButton" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageBack"
@@ -105,7 +105,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+            android:id="@+id/email"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -161,7 +161,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/passw"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -268,7 +268,7 @@
             android:background="@null"
             android:hint="@string/introduce_el_nombre_de_usuario"
             android:imeOptions="actionDone"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:textColor="@color/primary_name"
             android:textColorHint="@color/secondary_item"
             android:textSize="16sp" />
@@ -321,7 +321,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/saveButton"
+        app:layout_constraintStart_toStartOf="@+id/buttonLogin"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <TextView
@@ -332,7 +332,7 @@
         android:layout_marginBottom="14dp"
         android:text="He leído y acepto los "
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/checkbox_terms" />
@@ -347,13 +347,13 @@
         android:textColor="#3F51B5"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/buttonLogin"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginTop="90dp"

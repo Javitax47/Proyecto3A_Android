@@ -61,7 +61,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+            android:id="@+id/email"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -117,7 +117,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/passw"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -326,7 +326,7 @@
         app:layout_constraintTop_toTopOf="@+id/layoutRepetirNuevaContraseña" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/buttonLogin"
         android:layout_width="363dp"
         android:layout_height="52dp"
         android:backgroundTint="@color/action_item"

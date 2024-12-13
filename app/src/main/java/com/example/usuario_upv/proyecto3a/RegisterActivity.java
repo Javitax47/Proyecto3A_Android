@@ -47,10 +47,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ejemplo_register);
 
-        editTextEmail = findViewById(R.id.username);
-        editTextPassword = findViewById(R.id.email);
+        editTextEmail = findViewById(R.id.email);
+        editTextPassword = findViewById(R.id.passw);
         editTextName = findViewById(R.id.password);
-        buttonReg = findViewById(R.id.saveButton);
+        buttonReg = findViewById(R.id.buttonLogin);
         checkBoxTerms = findViewById(R.id.checkbox_terms);
         // HAY QUE ARREGLAR ESTO
         // passwordRequirementsTextView = findViewById(R.id.requirementsRegisterPass);
@@ -239,7 +239,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // Mostrar el feedback en un TextView (por ejemplo, passwordRequirementsTextView)
-        passwordRequirementsTextView.setText(feedback.toString());
+        passwordRequirementsTextView = findViewById(R.id.requirementsRegisterPass);
     }
 
     public void privacidad(View v){

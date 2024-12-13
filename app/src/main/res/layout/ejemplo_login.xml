@@ -98,7 +98,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+            android:id="@+id/email"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -155,7 +155,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/passw"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -197,35 +197,11 @@
         app:layout_constraintTop_toTopOf="@id/layoutPasswordInput" />
 
 
-    <TextView
-        android:id="@+id/textForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:buttonTint="@color/rosa"
-        android:text="@string/contrase_a_olvidada"
-        android:textColor="@color/secondary_item"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/layoutPasswordInput"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPasswordInput" />
-
-
-    <View
-        android:id="@+id/viewForgotPasswordUnderline"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/secondary_item"
-        app:layout_constraintEnd_toEndOf="@id/textForgotPassword"
-        app:layout_constraintStart_toStartOf="@id/textForgotPassword"
-        app:layout_constraintTop_toBottomOf="@id/textForgotPassword"/>
-
-
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/buttonLogin"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="100dp"
         android:backgroundTint="@color/action_item"
         android:insetTop="0dp"
         android:insetBottom="0dp"
@@ -233,8 +209,9 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/layoutPasswordInput"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/layoutPasswordInput"
-        app:layout_constraintTop_toBottomOf="@+id/textForgotPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutPasswordInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

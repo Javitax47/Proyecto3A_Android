@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -42,12 +41,12 @@ public class UserConfig extends AppCompatActivity {
 
 
         // Inicializa los elementos de la interfaz
-        usernameEditText = findViewById(R.id.username);
-        emailEditText = findViewById(R.id.email);
+        usernameEditText = findViewById(R.id.email);
+        emailEditText = findViewById(R.id.passw);
         passwordActualEditText = findViewById(R.id.actualpassword);
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
-        saveButton = findViewById(R.id.saveButton);
+        saveButton = findViewById(R.id.buttonLogin);
         // passwordRequirementsTextView = findViewById(R.id.requirements);
 
 
