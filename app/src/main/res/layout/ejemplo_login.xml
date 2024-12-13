@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/botonRegistro"
+        android:layout_width="85dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/reg_strate"
+        android:textColor="@color/action_item"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/no_tienes_cuenta"
+        android:textColor="@color/secondary_item"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/textSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in"
+        android:textColor="@color/secondary_item"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/imageBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageBack"/>
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="@string/welcome_back"
+        android:textColor="@color/primary_name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/textSignIn"/>
+
+
+    <TextView
+        android:id="@+id/textSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/subtitle"
+        android:textColor="@color/secondary_item"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle"/>
+
+
+    <LinearLayout
+        android:id="@+id/layoutEmailInput"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/background_input"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/textSubtitle">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autofillHints="emailAddress"
+            android:background="@null"
+            android:hint="@string/introduce_tu_correo"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/primary_name"
+            android:textColorHint="@color/secondary_item"
+            android:textSize="16sp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageEmailIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_email"
+            android:tint="@color/secondary_item"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textEmailHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@color/white"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="@string/correo"
+        android:textColor="@color/secondary_item"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/layoutEmailInput"
+        app:layout_constraintStart_toStartOf="@id/layoutEmailInput"
+        app:layout_constraintTop_toTopOf="@id/layoutEmailInput" />
+
+
+    <LinearLayout
+        android:id="@+id/layoutPasswordInput"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/background_input"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutEmailInput">
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autofillHints="password"
+            android:background="@null"
+            android:hint="@string/introduce_la_contrase_a"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:textColor="@color/primary_name"
+            android:textColorHint="@color/secondary_item"
+            android:textSize="16sp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagePasswordIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_lock"
+            android:tint="@color/secondary_item" />
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/textPasswordHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@color/white"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="@string/password"
+        android:textColor="@color/secondary_item"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/layoutPasswordInput"
+        app:layout_constraintStart_toStartOf="@id/layoutPasswordInput"
+        app:layout_constraintTop_toTopOf="@id/layoutPasswordInput" />
+
+
+    <TextView
+        android:id="@+id/textForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="@color/rosa"
+        android:text="@string/contrase_a_olvidada"
+        android:textColor="@color/secondary_item"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/layoutPasswordInput"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPasswordInput" />
+
+
+    <View
+        android:id="@+id/viewForgotPasswordUnderline"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/secondary_item"
+        app:layout_constraintEnd_toEndOf="@id/textForgotPassword"
+        app:layout_constraintStart_toStartOf="@id/textForgotPassword"
+        app:layout_constraintTop_toBottomOf="@id/textForgotPassword"/>
+
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="65dp"
+        android:backgroundTint="@color/action_item"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Continuar"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/layoutPasswordInput"
+        app:layout_constraintStart_toStartOf="@+id/layoutPasswordInput"
+        app:layout_constraintTop_toBottomOf="@+id/textForgotPassword" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

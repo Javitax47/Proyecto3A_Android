@@ -1,7 +1,5 @@
 package com.example.usuario_upv.proyecto3a;
 
-import static com.example.usuario_upv.proyecto3a.Tab2.ETIQUETA_LOG;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,33 +19,14 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 import java.util.concurrent.Executor;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText editTextEmail, editTextPassword, editTextName;
@@ -66,14 +45,41 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.ejemplo_register);
 
-        editTextEmail = findViewById(R.id.editTextTextEmailAddress);
-        editTextPassword = findViewById(R.id.editTextTextPassword);
-        editTextName = findViewById(R.id.name);
-        buttonReg = findViewById(R.id.crearCuenta);
+        editTextEmail = findViewById(R.id.username);
+        editTextPassword = findViewById(R.id.email);
+        editTextName = findViewById(R.id.password);
+        buttonReg = findViewById(R.id.saveButton);
         checkBoxTerms = findViewById(R.id.checkbox_terms);
-        passwordRequirementsTextView = findViewById(R.id.requirementsRegisterPass);
+        // HAY QUE ARREGLAR ESTO
+        // passwordRequirementsTextView = findViewById(R.id.requirementsRegisterPass);
+
+
+
+        // BOTÓN ATRÁS
+        View imageBack = findViewById(R.id.imageBack);
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finaliza la actividad para regresar
+                onBackPressed();
+            }
+        });
+
+
+
+        // BOTÓN REGISTRO
+        TextView botonRegistro = findViewById(R.id.botonRegistro);
+        botonRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Iniciar RegisterActivity
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         editTextPassword.addTextChangedListener(new TextWatcher() {
             @Override

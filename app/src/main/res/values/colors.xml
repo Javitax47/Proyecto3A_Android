@@ -2,4 +2,35 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="rosa">#AB2C79</color>
+    <color name="rosaOscuro">#7A2157</color>
+
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="primary_name">#010101</color>
+    <color name="secondary_item">#848484</color>
+    <color name="action_item">#AB2C79</color>
+    <color name="icon_background">#F5F6F9</color>
+    <color name="icon_tint">#AB2C79</color>
+
+
+    <color name="colorLayerDark">#D6000000</color>
+    <color name="colorLayerSemiDark">#60000000</color>
+    <color name="colorBlack">#FF000000</color>
+    <color name="colorAccent">#333333</color>
+
+
+
+    <color name="colorBackgroundNoche">#000000</color> <!-- Fondo oscuro -->
+    <color name="colorOnBackground">#FFFFFF</color> <!-- Texto claro en fondo oscuro -->
+    <color name="colorSurface">#121212</color> <!-- Superficie oscura -->
+    <color name="colorOnSurface">#FFFFFF</color> <!-- Texto claro en superficie oscura -->
+
+
+
+
+    <color name="colorPrimary">#AB2C79</color>
+    <color name="colorPrimaryDark">#7A2157</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorDarkSemiTransparent">#C6000000</color>
+
 </resources>

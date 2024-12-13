@@ -3,6 +3,7 @@ package com.example.usuario_upv.proyecto3a;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -10,6 +11,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -219,6 +224,9 @@ public class Tab1 extends Fragment implements OnMapReadyCallback {
                 Toast.makeText(getContext(), "Failed to connect to server: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        // Activar el menú de opciones
+        setHasOptionsMenu(true);
     }
 
     private void processMeasurements(List<SensorData> measurements) {

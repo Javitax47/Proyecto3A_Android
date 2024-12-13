@@ -20,8 +20,12 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:tabIndicatorColor="#AB2C79"
+        app:tabIndicatorHeight="0dp"
+        app:tabIconTint="@color/tab_icon_selector"
+        style="@style/CustomTabIconSize"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

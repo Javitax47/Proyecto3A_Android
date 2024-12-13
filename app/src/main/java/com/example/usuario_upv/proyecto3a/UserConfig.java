@@ -5,11 +5,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -35,7 +38,8 @@ public class UserConfig extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_config);
+        setContentView(R.layout.ejemplo_user_config);
+
 
         // Inicializa los elementos de la interfaz
         usernameEditText = findViewById(R.id.username);
@@ -44,7 +48,22 @@ public class UserConfig extends AppCompatActivity {
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
         saveButton = findViewById(R.id.saveButton);
-        passwordRequirementsTextView = findViewById(R.id.requirements);
+        // passwordRequirementsTextView = findViewById(R.id.requirements);
+
+
+
+
+        // BOTÓN ATRÁS
+        View imageBack = findViewById(R.id.imageBack);
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finaliza la actividad para regresar
+                onBackPressed();
+            }
+        });
+
+
 
         passwordEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -210,5 +229,15 @@ public class UserConfig extends AppCompatActivity {
         editor.putString("userEmail", email);
         editor.putString("userName", username);
         editor.apply();
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();  // Volver a la actividad anterior
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

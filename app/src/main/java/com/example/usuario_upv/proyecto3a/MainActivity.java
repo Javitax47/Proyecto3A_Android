@@ -10,6 +10,9 @@ import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -86,12 +89,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief TextView para mostrar el primer dato.
      */
-    private TextView dato1;
+    public TextView dato1;
 
     /**
      * @brief TextView para mostrar el segundo dato.
      */
-    private TextView dato2;
+    public TextView dato2;
 
     /**
      * @brief ImageView para mostrar una imagen asociada al primer dato.
@@ -144,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief Estado que indica si el beacon de temperatura está activo.
      */
-    private boolean beaconTemperaturaActivo = false;
+    public boolean beaconTemperaturaActivo = false;
 
     /**
      * @brief Instancia de la API que maneja la comunicación con los sensores.
@@ -164,13 +167,22 @@ public class MainActivity extends AppCompatActivity {
      *
      * La clave es el identificador único del dispositivo, y el valor es la vista asociada.
      */
-    private Map<String, View> vistasDispositivosDetectados = new HashMap<>();
+    private static Map<String, View> vistasDispositivosDetectados = new HashMap<>();
+
+
+    private Point location = new Point(1, 2);
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
     // Nombres de las pestañas
-    private int[] imagenes = new int[]{R.drawable.inicio_icono, R.drawable.visualizador_icono, R.drawable.dispositivos_icono, R.drawable.perfil_icono};
+    private int[] imagenes = new int[]{
+            R.drawable.house,
+            R.drawable.globe,
+            R.drawable.dispos,
+            R.drawable.usuari
+    };
+
 
     /**
      * @brief Método llamado cuando se crea la actividad.
@@ -210,15 +222,46 @@ public class MainActivity extends AppCompatActivity {
                         ImageView imageView = tabView.findViewById(R.id.tab_image);
                         imageView.setImageResource(imagenes[position]); // Establecer la imagen aquí
 
-                        // Ajusta el tamaño de la imagen aquí
-                        imageView.getLayoutParams().height = 125;
-                        imageView.getLayoutParams().width = 125;
+                        imageView.getLayoutParams().height = 90;
+                        imageView.getLayoutParams().width = 90;
 
                         tab.setCustomView(tabView);
                     }
                 }).attach();
         // Deshabilitar el cambio de fragmentos deslizando horizontalmente
         viewPager.setUserInputEnabled(false);
+
+
+        // Resaltar el icono cuando se selecciona la pestaña
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                // Cambiar el color de la imagen cuando se selecciona la pestaña
+                View tabView = tab.getCustomView();
+                if (tabView != null) {
+                    ImageView imageView = tabView.findViewById(R.id.tab_image);
+                    // Cambiar el color de la imagen seleccionada
+                    imageView.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.rosa)); // Cambiar por el color deseado
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                // Restaurar el color original cuando se deselecciona la pestaña
+                View tabView = tab.getCustomView();
+                if (tabView != null) {
+                    ImageView imageView = tabView.findViewById(R.id.tab_image);
+                    // Restaurar el color original
+                    imageView.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.black)); // Cambiar por el color original
+                }
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                // No es necesario hacer nada aquí, pero puedes agregar efectos si lo deseas
+            }
+        });
+        tabs.getTabAt(0).select();  // Selecciona la primera pestaña
     }
 
     public class MiPagerAdapter extends FragmentStateAdapter {

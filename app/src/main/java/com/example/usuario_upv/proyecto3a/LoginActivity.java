@@ -12,20 +12,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Response;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
@@ -53,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.ejemplo_login);
 
         uri = getIntent().getData();
 
@@ -68,6 +65,30 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
         //imageViewFingerprint = findViewById(R.id.imageViewFingerprint);
+
+        // BOTÓN ATRÁS
+        View imageBack = findViewById(R.id.imageBack);
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finaliza la actividad para regresar
+                onBackPressed();
+            }
+        });
+
+
+        // BOTÓN REGISTRO
+        TextView botonRegistro = findViewById(R.id.botonRegistro);
+        botonRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Iniciar RegisterActivity
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         // Configurar Retrofit
         OkHttpClient client = new OkHttpClient.Builder()

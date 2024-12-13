@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Acerca De Airmonitor"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Contenido de la Política -->
+        <TextView
+            android:id="@+id/tvPolicyContent3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Versión: 1.0.0 \nDesarrollado por: AirmonitorEnterprises"
+            android:textColor="#555555"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Airmonitor es una aplicación diseñada para la monitorización y documentación de datos ambientales en tiempo real, utilizando sensores especializados para medir niveles de ozono y temperatura. \n\nNuestra misión es proporcionar herramientas confiables y accesibles para analizar la calidad del aire y las condiciones atmosféricas, ayudando a promover un entorno más saludable y sostenible."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <!-- Espacio para contenido largo -->
+        <TextView
+            android:id="@+id/tvPolicyContent2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\nCaracterísticas principales: "
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPermissionsContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Monitoreo en tiempo real: Accede a datos instantáneos de ozono y temperatura.
+                           \n\nVisualización interactiva: Explora mediciones en gráficos claros y mapas geográficos.
+                           \n\nHistorial de datos: Consulta y analiza registros pasados para identificar tendencias."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\n Nuestro compromiso "
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="En Airmonitor, creemos que la información es clave para la acción. Nuestro objetivo es equipar a individuos, organizaciones y comunidades con datos precisos que les permitan tomar decisiones informadas sobre la calidad del aire y su impacto en la salud y el medio ambiente."
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="\n Contacto"
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPolicyContent11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="8dp"
+            android:text="Si tienes preguntas, sugerencias o necesitas soporte técnico, no dudes en escribirnos a: \nCorreo electrónico: soporte@airmonitor.com \nSitio web: www.airmonitor.com"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <!-- Botones de aceptar y cancelar -->
+
+    </LinearLayout>
+</ScrollView>

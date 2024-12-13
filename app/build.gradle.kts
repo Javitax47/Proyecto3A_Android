@@ -29,6 +29,8 @@ android {
 }
 
 dependencies {
+
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -45,9 +47,12 @@ dependencies {
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation ("androidx.biometric:biometric:1.2.0-alpha05")
-<<<<<<< HEAD
-    implementation ("com.google.maps.android:android-maps-utils:2.3.0")
-=======
+    implementation ("androidx.fragment:fragment:1.6.0")   // También la fragmentación
 
->>>>>>> origin/main
+
+    implementation("androidx.palette:palette:1.0.0")
+    implementation("com.makeramen:roundedimageview:2.3.0")
+    implementation("com.google.android.material:material:1.2.0-alpha02")
+
+
 }
