@@ -18,11 +18,11 @@ public class SensorData {
     private String sensorId;
     private int tipo;
     private float valor;
-    private PointF location;
+    private String location;
     private String timestamp;
 
     // Constructor
-    public SensorData(String sensorId, float valor, int tipo, PointF location, String timestamp) {
+    public SensorData(String sensorId, float valor, int tipo, String location, String timestamp) {
         this.sensorId = sensorId;
         this.tipo = tipo;
         this.valor = valor;
@@ -30,15 +30,18 @@ public class SensorData {
         this.timestamp = timestamp;
     }
 
-    // Getter for latitude (y) from Point (latitude = y)
     public double getLatitude() {
-        return location.x;
+        // Extrae la coordenada y (latitud) de la cadena "location"
+        String[] coordinates = location.replace("(", "").replace(")", "").split(", ");
+        return Double.parseDouble(coordinates[1]); // Latitud (y)
     }
 
-    // Getter for longitude (x) from Point (longitude = x)
     public double getLongitude() {
-        return location.y;
+        // Extrae la coordenada x (longitud) de la cadena "location"
+        String[] coordinates = location.replace("(", "").replace(")", "").split(", ");
+        return Double.parseDouble(coordinates[0]); // Longitud (x)
     }
+
 
     // Other getters and setters
 
@@ -46,7 +49,7 @@ public class SensorData {
     public int getTipo() { return tipo; }
     public float getValor() { return valor; }
     public String getTimestamp() { return timestamp; }
-    public PointF getLocation() { return location; }
+    public String getLocation() { return location; }
 
     static String getCurrentTimestamp() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());

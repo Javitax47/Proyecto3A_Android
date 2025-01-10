@@ -52,6 +52,5 @@ dependencies {
     implementation("androidx.palette:palette:1.0.0")
     implementation("com.makeramen:roundedimageview:2.3.0")
     implementation("com.google.android.material:material:1.2.0-alpha02")
-
-
+    testImplementation ("org.mockito:mockito-core:5.5.0")
 }

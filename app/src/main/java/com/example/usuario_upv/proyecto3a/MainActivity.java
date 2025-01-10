@@ -149,35 +149,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public boolean beaconTemperaturaActivo = false;
 
-    /**
-     * @brief Instancia de la API que maneja la comunicación con los sensores.
-     */
-    LogicaFake api;
-
-    /**
-     * @brief Contenedor que almacena las vistas asociadas a los beacons detectados.
-     */
-    private LinearLayout contenedorBeacons;
-
-    // --------------------------------------------------------------
-    // Mapas para gestión de dispositivos detectados
-    // --------------------------------------------------------------
-    /**
-     * @brief Mapa que almacena las vistas correspondientes a cada dispositivo detectado.
-     *
-     * La clave es el identificador único del dispositivo, y el valor es la vista asociada.
-     */
-    private static Map<String, View> vistasDispositivosDetectados = new HashMap<>();
-
-
-    private Point location = new Point(1, 2);
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
     // Nombres de las pestañas
     private int[] imagenes = new int[]{
-            R.drawable.house,
             R.drawable.globe,
             R.drawable.dispos,
             R.drawable.usuari
@@ -201,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         // Inicializa el Bluetooth
         try {
             inicializarBlueTooth();
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(MainActivity.this, "Por favor, activa el Bluetooth", Toast.LENGTH_SHORT).show();
         }
 
@@ -217,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                 new TabLayoutMediator.TabConfigurationStrategy() {
                     // Dentro de onConfigureTab
                     @Override
-                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position){
+                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                         View tabView = getLayoutInflater().inflate(R.layout.custom_tab, null);
                         ImageView imageView = tabView.findViewById(R.id.tab_image);
                         imageView.setImageResource(imagenes[position]); // Establecer la imagen aquí
@@ -266,22 +243,25 @@ public class MainActivity extends AppCompatActivity {
 
     public class MiPagerAdapter extends FragmentStateAdapter {
 
-        public MiPagerAdapter(FragmentActivity activity){
+        public MiPagerAdapter(FragmentActivity activity) {
             super(activity);
         }
 
         @Override
         public int getItemCount() {
-            return 4;
+            return 3;
         }
 
-        @Override @NonNull
+        @Override
+        @NonNull
         public Fragment createFragment(int position) {
             switch (position) {
-                case 0: return new Tab1();
-                case 1: return new Tab2();
-                case 2: return new Tab3();
-                case 3: return new Tab4();
+                case 0:
+                    return new Tab1();
+                case 1:
+                    return new Tab3();
+                case 2:
+                    return new Tab4();
             }
             return null;
         }
@@ -305,6 +285,16 @@ public class MainActivity extends AppCompatActivity {
         BluetoothAdapter bta = BluetoothAdapter.getDefaultAdapter();
 
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): habilitamos adaptador BT ");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         bta.enable();
 
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): habilitado =  " + bta.isEnabled());

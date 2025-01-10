@@ -94,10 +94,7 @@ public class BLEService extends Service {
         });
 
         IntentFilter filter = new IntentFilter("com.example.usuario_upv.proyecto3a.NOTIFICATION_DELETED");
-        registerReceiver(notificationReceiver, filter);
     }
-
-
 
     private final BroadcastReceiver notificationReceiver = new BroadcastReceiver() {
         @Override
@@ -183,7 +180,6 @@ public class BLEService extends Service {
 
     private void mostrarNotificacionNoDatos() {
         Alertas alerta = Alertas.BEACON_NO_ENVIANDO;
-        enviarAlertaBroadcast(alerta);
 
         // Intent para abrir MainActivity al tocar la notificación
         Intent notificationIntent = new Intent(this, MainActivity.class);
@@ -211,7 +207,6 @@ public class BLEService extends Service {
             notificationManager.notify(Alertas.BEACON_NO_ENVIANDO.getCodigo(), notification);
         }
     }
-
 
     @Nullable
     @Override
