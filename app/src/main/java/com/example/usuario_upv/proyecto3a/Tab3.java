@@ -142,7 +142,7 @@ public class Tab3 extends Fragment {
     }
 
 
-    private void searchData() {
+    void searchData() {
         // Obtener los sensores del usuario desde el servidor
         Call<ResponseBody> call = api.getUserSensors(userEmail);
 
@@ -215,7 +215,7 @@ public class Tab3 extends Fragment {
                     getContext().startService(serviceIntent);
 
                     PointF location = new PointF(1, 2);
-                    String formattedLocation = "(" + location.x + ", " + location.y + ")";
+                    SensorData.Location formattedLocation = new SensorData.Location(location.x, location.y);
                     int sensorTipo = procesarBeacon(majorValue, minorValue);
 
                     SensorData sensorData = new SensorData(Utilidades.uuidToString(uuid), minorValue, sensorTipo, formattedLocation, SensorData.getCurrentTimestamp());

@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -31,6 +32,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -38,6 +40,8 @@ import com.google.android.gms.maps.model.TileOverlay;
 import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import com.google.maps.android.geometry.Point;
+import com.google.maps.android.heatmaps.Gradient;
 import com.google.maps.android.heatmaps.HeatmapTileProvider;
 import com.google.maps.android.heatmaps.WeightedLatLng;
 
@@ -62,6 +66,8 @@ public class Tab1 extends Fragment implements OnMapReadyCallback {
     private HeatmapTileProvider heatmapTempProvider;
     private TileOverlay heatmapO3Overlay;
     private TileOverlay heatmapTempOverlay;
+    private HeatmapTileProvider heatmapProvider;
+    private TileOverlay heatmapOverlay;
     private LogicaFake api;
     private Button btnSelectDate;
     private Button btnToggleView;  // Botón para alternar entre mapa de calor y puntos
@@ -69,12 +75,26 @@ public class Tab1 extends Fragment implements OnMapReadyCallback {
     private boolean isHeatmapVisible = true;  // Controla si estamos mostrando el mapa de calor o los puntos
     private List<LatLng> o3Locations = new ArrayList<>();
     private List<LatLng> tempLocations = new ArrayList<>();
+    // Reemplaza las listas de LatLng por listas de WeightedLatLng
+    private List<WeightedLatLng> o3Data = new ArrayList<>();
+    private List<WeightedLatLng> tempData = new ArrayList<>();
 
     private static final String DATE_FORMAT = "yyyy-MM-dd";  // Formato de fecha
     private String currentSelectedDate; // Almacena la fecha actualmente seleccionada por el usuario
 
     private Spinner spinnerMeasurementType; // Spinner para seleccionar el tipo de medición
     private int selectedMeasurementType = 0; // Tipo de medición actual (2 = Ozono, 1 = Temperatura)
+    static int[] colors = {
+            Color.argb(0,   0,   255, 0),   // Verde invisible al inicio
+            Color.argb(255, 255, 255, 0),   // Amarillo opaco
+            Color.argb(255, 255, 0,   0)    // Rojo opaco
+    };
+    static float[] startPoints = {
+            0.2f, 0.5f, 1.0f
+    };
+
+    private static final Gradient O3_GRADIENT = new Gradient(colors, startPoints);
+
 
 
     @Override
@@ -117,39 +137,35 @@ public class Tab1 extends Fragment implements OnMapReadyCallback {
         btnUpdateData.setOnClickListener(v -> fetchSensorData(SensorData.getCurrentTimestamp()));
 
         fetchSensorData(SensorData.getCurrentTimestamp()); // Cargar datos iniciales
+
         return rootView;
     }
 
     private void updateViewBasedOnSelection() {
-        if (selectedMeasurementType == 2) { // Mostrar solo ozono
+        if (selectedMeasurementType == 2) {
+            // Mostrar solo Ozono
             if (isHeatmapVisible) {
-                updateHeatmap(
-                        o3Locations.stream().map(location -> new WeightedLatLng(location)).collect(Collectors.toList()),
-                        Collections.emptyList()
-                );
+                updateHeatmap(o3Data, Collections.emptyList());
             } else {
-                updateMarkers(o3Locations, Collections.emptyList());
+                updateMarkers(o3Data, Collections.emptyList());
             }
-        } else if (selectedMeasurementType == 1) { // Mostrar solo temperatura
+        } else if (selectedMeasurementType == 1) {
+            // Mostrar solo Temperatura
             if (isHeatmapVisible) {
-                updateHeatmap(
-                        Collections.emptyList(),
-                        tempLocations.stream().map(location -> new WeightedLatLng(location)).collect(Collectors.toList())
-                );
+                updateHeatmap(Collections.emptyList(), tempData);
             } else {
-                updateMarkers(Collections.emptyList(), tempLocations);
+                updateMarkers(Collections.emptyList(), tempData);
             }
-        } else { // Mostrar todos (ozono y temperatura)
+        } else {
+            // Mostrar ambos (Ozono y Temperatura)
             if (isHeatmapVisible) {
-                updateHeatmap(
-                        o3Locations.stream().map(location -> new WeightedLatLng(location)).collect(Collectors.toList()),
-                        tempLocations.stream().map(location -> new WeightedLatLng(location)).collect(Collectors.toList())
-                );
+                updateHeatmap(o3Data, tempData);
             } else {
-                updateMarkers(o3Locations, tempLocations);
+                updateMarkers(o3Data, tempData);
             }
         }
     }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -167,7 +183,71 @@ public class Tab1 extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mapa = googleMap;
         mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        // 1. Listener que se activa cuando la cámara deja de moverse
+        mapa.setOnCameraIdleListener(() -> {
+            CameraPosition position = mapa.getCameraPosition();
+            double lat = position.target.latitude;
+            float zoom = position.zoom;
+
+            // Ajustamos el radio de los heatmaps
+            actualizarRadioHeatmaps(lat, zoom);
+        });
     }
+
+    private void actualizarRadioHeatmaps(double lat, float zoom) {
+        // 2. Definir el radio deseado en metros
+        double radioMetrosDeseado = 500.0;
+
+        // 3. Calcular la resolución del terreno (aprox. metros/pixel)
+        double scale = 1 << (int) zoom; // 2^zoom
+        double groundResolution = (Math.cos(Math.toRadians(lat)) * 40075016.686)
+                / (256 * scale);
+
+        // Convertir los metros deseados a pixeles
+        double radioEnPixeles = radioMetrosDeseado / groundResolution;
+
+        // Ejemplo: limitar el rango del radio en pixeles para que no sea demasiado grande o demasiado pequeño
+        int radioPixels = (int) Math.max(5, Math.min(radioEnPixeles, 200));
+
+        // 4. Asignar el nuevo radio y refrescar si los providers no son nulos
+        if (heatmapProvider != null) {
+            heatmapProvider.setRadius(radioPixels);
+            if (heatmapOverlay != null) {
+                heatmapOverlay.clearTileCache();
+            }
+        }
+    }
+
+    /**
+     * Cálculo aproximado de AQI para Ozono (O3) en función de la concentración (ej. en ppb o µg/m³).
+     * Adaptar los rangos y unidades según las tablas oficiales que estés usando.
+     */
+    private double computeAqiOzone(double concentration) {
+
+        if (concentration <= 0) {
+            // Evitar valores negativos o cero
+            return 0;
+        } else if (concentration <= 54) {
+            return linearInterpolate(concentration, 0, 54,   0,  50);
+        } else if (concentration <= 70) {
+            return linearInterpolate(concentration, 55, 70, 51, 100);
+        } else if (concentration <= 85) {
+            return linearInterpolate(concentration, 71, 85, 101, 150);
+        } else if (concentration <= 105) {
+            return linearInterpolate(concentration, 86, 105, 151, 200);
+        } else {
+            return 300;
+        }
+    }
+
+    /**
+     * Función auxiliar para la interpolación lineal entre dos tramos.
+     */
+    private double linearInterpolate(double c, double cLow, double cHigh, double iLow, double iHigh) {
+        return ( (iHigh - iLow) / (cHigh - cLow) ) * (c - cLow) + iLow;
+    }
+
 
     // Mostrar el DatePicker cuando el usuario haga clic en el botón
     private void showDatePickerDialog() {
@@ -230,83 +310,99 @@ public class Tab1 extends Fragment implements OnMapReadyCallback {
     }
 
     private void processMeasurements(List<SensorData> measurements) {
-        List<WeightedLatLng> newO3Points = new ArrayList<>();
-        List<WeightedLatLng> newTempPoints = new ArrayList<>();
-        o3Locations.clear();
-        tempLocations.clear();
+        // Limpiar las listas antes de llenarlas de nuevo
+        o3Data.clear();
+        tempData.clear();
 
         for (SensorData m : measurements) {
+            // Evitar valores sin coordenadas reales
             if (m.getLatitude() != 0.0 || m.getLongitude() != 0.0) {
-                LatLng location = new LatLng(m.getLatitude(), m.getLongitude());
+
+                double intensity;
                 if (m.getTipo() == 2) {
-                    newO3Points.add(new WeightedLatLng(location, m.getValor()));
-                    o3Locations.add(location);
+                    // Es O3 ⇒ Calculamos AQI
+                    intensity = computeAqiOzone(m.getValor());
+                } else {
+                    // Ejemplo: si no es O3 (p.ej., temperatura),
+                    // podrías dejar el valor tal cual, o escalarlo
+                    intensity = m.getValor();
+                }
+
+                WeightedLatLng weightedPoint = new WeightedLatLng(
+                        new LatLng(m.getLongitude(), m.getLatitude()),
+                        intensity
+                );
+
+                // Clasificar según tipo
+                if (m.getTipo() == 2) {
+                    // O3
+                    o3Data.add(weightedPoint);
                 } else if (m.getTipo() == 1) {
-                    newTempPoints.add(new WeightedLatLng(location, m.getValor()));
-                    tempLocations.add(location);
+                    // Temperatura
+                    tempData.add(weightedPoint);
                 }
             }
         }
 
-        // Actualizar mapa según la vista actual
-        if (isHeatmapVisible) {
-            updateHeatmap(newO3Points, newTempPoints);
-        } else {
-            updateMarkers(o3Locations, tempLocations);
-        }
+        updateViewBasedOnSelection();
     }
 
-    // Actualizar el heatmap dinámicamente
     private void updateHeatmap(List<WeightedLatLng> o3Points, List<WeightedLatLng> tempPoints) {
-        // Actualizar o crear el heatmap para ozono
-        if (!o3Points.isEmpty()) {
-            if (heatmapO3Provider == null) {
-                // Crear el proveedor y agregar el overlay si no existe
-                heatmapO3Provider = new HeatmapTileProvider.Builder().weightedData(o3Points).build();
-                heatmapO3Overlay = mapa.addTileOverlay(new TileOverlayOptions().tileProvider(heatmapO3Provider));
+        // 1. Combinar todas las mediciones en una sola lista
+        List<WeightedLatLng> unifiedData = new ArrayList<>();
+        unifiedData.addAll(o3Points);
+        unifiedData.addAll(tempPoints);
+
+        // 2. Si hay datos, actualizamos o creamos el Heatmap unificado
+        if (!unifiedData.isEmpty()) {
+            if (heatmapProvider == null) {
+                heatmapProvider = new HeatmapTileProvider.Builder()
+                        .weightedData(unifiedData)
+                        .radius(50)
+                        // AÑADE tu gradiente aquí, si quieres que todo use el mismo
+                        .gradient(O3_GRADIENT)
+                        .build();
+
+                // Overlay
+                heatmapOverlay = mapa.addTileOverlay(
+                        new TileOverlayOptions().tileProvider(heatmapProvider)
+                );
             } else {
-                // Actualizar los datos del proveedor existente sin remover el overlay
-                heatmapO3Provider.setWeightedData(o3Points);
-                heatmapO3Overlay.clearTileCache(); // Forzar la actualización visual
+                // Ya existía, solo actualizamos
+                heatmapProvider.setWeightedData(unifiedData);
+                if (heatmapOverlay != null) {
+                    heatmapOverlay.clearTileCache();
+                }
             }
-        } else if (heatmapO3Overlay != null) {
-            // Remover el overlay si no hay datos
-            heatmapO3Overlay.remove();
-            heatmapO3Overlay = null;
-            heatmapO3Provider = null;
-        }
-        // Actualizar o crear el heatmap para temperatura
-        if (!tempPoints.isEmpty()) {
-            if (heatmapTempProvider == null) {
-                // Crear el proveedor y agregar el overlay si no existe
-                heatmapTempProvider = new HeatmapTileProvider.Builder().weightedData(tempPoints).build();
-                heatmapTempOverlay = mapa.addTileOverlay(new TileOverlayOptions().tileProvider(heatmapTempProvider));
-            } else {
-                // Actualizar los datos del proveedor existente sin remover el overlay
-                heatmapTempProvider.setWeightedData(tempPoints);
-                heatmapTempOverlay.clearTileCache(); // Forzar la actualización visual
+        } else {
+            // 3. Si no hay datos, eliminamos el Heatmap si existe
+            if (heatmapOverlay != null) {
+                heatmapOverlay.remove();
+                heatmapOverlay = null;
             }
-        } else if (heatmapTempOverlay != null) {
-            // Remover el overlay si no hay datos
-            heatmapTempOverlay.remove();
-            heatmapTempOverlay = null;
-            heatmapTempProvider = null;
+            heatmapProvider = null;
         }
     }
-
 
     // Actualizar los marcadores dinámicamente
-    private void updateMarkers(List<LatLng> o3Locations, List<LatLng> tempLocations) {
+    private void updateMarkers(List<WeightedLatLng> o3Points, List<WeightedLatLng> tempPoints) {
         mapa.clear();
 
-        for (LatLng o3Location : o3Locations) {
-            mapa.addMarker(new MarkerOptions().position(o3Location).title("O3"));
+        // Marcadores para Ozono
+        for (WeightedLatLng w : o3Points) {
+            Point p = w.getPoint();
+            LatLng position = new LatLng(p.y, p.x);
+            mapa.addMarker(new MarkerOptions().position(position).title("O3: " + w.getIntensity()));
         }
 
-        for (LatLng tempLocation : tempLocations) {
-            mapa.addMarker(new MarkerOptions().position(tempLocation).title("Temp"));
+        // Marcadores para Temperatura
+        for (WeightedLatLng w : tempPoints) {
+            Point p = w.getPoint();
+            LatLng position = new LatLng(p.y, p.x);
+            mapa.addMarker(new MarkerOptions().position(position).title("Temp: " + w.getIntensity()));
         }
     }
+
 
 
     private void addHeatmap(List<WeightedLatLng> o3Points, List<WeightedLatLng> tempPoints) {

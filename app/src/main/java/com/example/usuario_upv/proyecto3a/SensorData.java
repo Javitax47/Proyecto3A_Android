@@ -1,7 +1,5 @@
 package com.example.usuario_upv.proyecto3a;
 
-import android.graphics.PointF;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -18,11 +16,11 @@ public class SensorData {
     private String sensorId;
     private int tipo;
     private float valor;
-    private String location;
+    private Location location; // Cambiado a objeto Location
     private String timestamp;
 
     // Constructor
-    public SensorData(String sensorId, float valor, int tipo, String location, String timestamp) {
+    public SensorData(String sensorId, float valor, int tipo, Location location, String timestamp) {
         this.sensorId = sensorId;
         this.tipo = tipo;
         this.valor = valor;
@@ -31,28 +29,40 @@ public class SensorData {
     }
 
     public double getLatitude() {
-        // Extrae la coordenada y (latitud) de la cadena "location"
-        String[] coordinates = location.replace("(", "").replace(")", "").split(", ");
-        return Double.parseDouble(coordinates[1]); // Latitud (y)
+        return location.getY();
     }
 
     public double getLongitude() {
-        // Extrae la coordenada x (longitud) de la cadena "location"
-        String[] coordinates = location.replace("(", "").replace(")", "").split(", ");
-        return Double.parseDouble(coordinates[0]); // Longitud (x)
+        return location.getX();
     }
 
-
-    // Other getters and setters
-
+    // Getters y setters
     public String getSensorId() { return sensorId; }
     public int getTipo() { return tipo; }
     public float getValor() { return valor; }
     public String getTimestamp() { return timestamp; }
-    public String getLocation() { return location; }
+    public Location getLocation() { return location; }
 
     static String getCurrentTimestamp() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
         return sdf.format(new Date());
+    }
+
+    public static class Location {
+        private double x; // Longitud
+        private double y; // Latitud
+
+        public Location(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public double getX() {
+            return x;
+        }
+
+        public double getY() {
+            return y;
+        }
     }
 }
