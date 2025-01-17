@@ -25,13 +25,19 @@ Este proyecto es una aplicación Android que utiliza beacons para medir niveles 
         /main 
             /java 
                 /com.example.usuario_upv.proyecto3a
+                - AlertaData.java
+                - AjustesAdapter.java
                 - MainActivity.java 
                 - RetrofitClient.java 
                 - SensorApi.java 
                 - SensorData.java 
                 - User.java 
                 - Utilidades.java 
-                - TramaIBeacon.java 
+                - TramaIBeacon.java
+                - Sensor.java
+                - SensorAdapter.java
+                - UserConfig.java
+                - Utilidades.java
             /res 
                 /layout 
                 /drawable 
