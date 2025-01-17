@@ -39,7 +39,9 @@ Este proyecto es una aplicación Android que utiliza beacons para medir niveles 
                 - UserConfig.java
                 - Utilidades.java
             /res 
-                /layout 
+                /layout
+                /menu
+                /mipmap
                 /drawable 
                 /values
 ```
