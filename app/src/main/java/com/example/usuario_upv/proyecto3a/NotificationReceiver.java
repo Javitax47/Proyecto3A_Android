@@ -5,9 +5,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+/**
+ * NotificationReceiver es un BroadcastReceiver que maneja la recepción de notificaciones eliminadas.
+ */
 public class NotificationReceiver extends BroadcastReceiver {
     private static final String TAG = "NotificationReceiver";
 
+    /**
+     * Método llamado cuando se recibe una transmisión.
+     *
+     * @param context El contexto en el que se está ejecutando el receptor.
+     * @param intent El Intent que contiene la acción de la transmisión.
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent != null && intent.getAction() != null) {
@@ -27,7 +36,12 @@ public class NotificationReceiver extends BroadcastReceiver {
         }
     }
 
-    // Método para obtener una alerta del enum Alertas por su código
+    /**
+     * Método para obtener una alerta del enum Alertas por su código.
+     *
+     * @param codigo El código de la alerta.
+     * @return La alerta correspondiente al código, o null si no se encuentra.
+     */
     private Alertas getAlertByCodigo(int codigo) {
         for (Alertas alerta : Alertas.values()) {
             if (alerta.getCodigo() == codigo) {

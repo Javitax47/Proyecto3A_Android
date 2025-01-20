@@ -1,0 +1,138 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter}\index{com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}}
+
+
+Adaptador para el Recycler\+View que maneja la lista de alertas.  
+
+
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Alertas\+View\+Holder}
+\begin{DoxyCompactList}\small\item\em Clase View\+Holder que contiene las vistas de un elemento del Recycler\+View. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_1_1_on_alertas_listener}{On\+Alertas\+Listener}}
+\begin{DoxyCompactList}\small\item\em Interfaz para manejar eventos de interacción con las alertas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_a5607a37de64592df37d74459ed03320a}{Alertas\+Adapter}} (List$<$ \mbox{\hyperlink{enumcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas}{Alertas}} $>$ alertas\+List, \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_1_1_on_alertas_listener}{On\+Alertas\+Listener}} listener)
+\begin{DoxyCompactList}\small\item\em Constructor de \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter}{Alertas\+Adapter}. \end{DoxyCompactList}\item 
+Alertas\+View\+Holder \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_ad606e195afd206feae6bd7e6939a0bd8}{on\+Create\+View\+Holder}} (View\+Group parent, int view\+Type)
+\begin{DoxyCompactList}\small\item\em Crea un nuevo View\+Holder para un elemento del Recycler\+View. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_a292833a4879a42e7eff4b24f69e6d364}{on\+Bind\+View\+Holder}} (Alertas\+View\+Holder holder, int position)
+\begin{DoxyCompactList}\small\item\em Vincula los datos de una alerta a una vista. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_ab2410978843ed6e1b28d15584e295ed6}{get\+Item\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve el número de elementos en la lista de alertas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Adaptador para el Recycler\+View que maneja la lista de alertas. 
+
+Facilita la vinculación entre los datos de las alertas y las vistas de la interfaz, proporcionando funcionalidades para mostrar y eliminar alertas. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_a5607a37de64592df37d74459ed03320a}\index{com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}!AlertasAdapter@{AlertasAdapter}}
+\index{AlertasAdapter@{AlertasAdapter}!com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}}
+\doxysubsubsection{\texorpdfstring{AlertasAdapter()}{AlertasAdapter()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_a5607a37de64592df37d74459ed03320a} 
+com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter.\+Alertas\+Adapter (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{enumcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas}{Alertas}} $>$}]{alertas\+List}{, }\item[{\mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_1_1_on_alertas_listener}{On\+Alertas\+Listener}}}]{listener}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter}{Alertas\+Adapter}. 
+
+Inicializa el adaptador con la lista de alertas y el listener para manejar eventos.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em alertas\+List} & Lista de alertas. \\
+\hline
+{\em listener} & Listener para manejar eventos de interacción. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_ab2410978843ed6e1b28d15584e295ed6}\index{com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}!getItemCount@{getItemCount}}
+\index{getItemCount@{getItemCount}!com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}}
+\doxysubsubsection{\texorpdfstring{getItemCount()}{getItemCount()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_ab2410978843ed6e1b28d15584e295ed6} 
+int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter.\+get\+Item\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve el número de elementos en la lista de alertas. 
+
+\begin{DoxyReturn}{Devuelve}
+Cantidad de alertas en la lista. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_a292833a4879a42e7eff4b24f69e6d364}\index{com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}!onBindViewHolder@{onBindViewHolder}}
+\index{onBindViewHolder@{onBindViewHolder}!com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}}
+\doxysubsubsection{\texorpdfstring{onBindViewHolder()}{onBindViewHolder()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_a292833a4879a42e7eff4b24f69e6d364} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter.\+on\+Bind\+View\+Holder (\begin{DoxyParamCaption}\item[{Alertas\+View\+Holder}]{holder}{, }\item[{int}]{position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vincula los datos de una alerta a una vista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em holder} & View\+Holder que contiene la vista del elemento. \\
+\hline
+{\em position} & Posición del elemento en la lista. \\
+\hline
+\end{DoxyParams}
+Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_a292833a4879a42e7eff4b24f69e6d364_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_ad606e195afd206feae6bd7e6939a0bd8}\index{com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}!onCreateViewHolder@{onCreateViewHolder}}
+\index{onCreateViewHolder@{onCreateViewHolder}!com.example.usuario\_upv.proyecto3a.AlertasAdapter@{com.example.usuario\_upv.proyecto3a.AlertasAdapter}}
+\doxysubsubsection{\texorpdfstring{onCreateViewHolder()}{onCreateViewHolder()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_ad606e195afd206feae6bd7e6939a0bd8} 
+Alertas\+View\+Holder com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter.\+on\+Create\+View\+Holder (\begin{DoxyParamCaption}\item[{View\+Group}]{parent}{, }\item[{int}]{view\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Crea un nuevo View\+Holder para un elemento del Recycler\+View. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & Vista padre donde se incluirá el nuevo elemento. \\
+\hline
+{\em view\+Type} & Tipo de vista (no utilizado en este caso). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un nuevo objeto Alertas\+View\+Holder. 
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_alertas_adapter_8java}{Alertas\+Adapter.\+java}}\end{DoxyCompactItemize}

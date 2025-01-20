@@ -1,0 +1,146 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service}\index{com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}}
+
+
+Servicio encargado de gestionar la conectividad BLE y alertas asociadas.  
+
+
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a2c37c9a8bb516800ebfc91bac18bb211}{on\+Create}} ()
+\begin{DoxyCompactList}\small\item\em Método llamado cuando el servicio es creado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_ac90be5a5cfc57ad6a7eb566f838a4431}{on\+Start\+Command}} (Intent intent, int flags, int start\+Id)
+\begin{DoxyCompactList}\small\item\em Método llamado cuando se inicia el servicio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a10f7f1c05f7df1cd332aa1b445e87584}{recibir\+Datos\+De\+Sensor}} (int major\+Value, int minor\+Value)
+\begin{DoxyCompactList}\small\item\em Maneja la recepción de datos del sensor. \end{DoxyCompactList}\item 
+IBinder \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_ae8624517d0f44bf472623cc7972b4b9f}{on\+Bind}} (Intent intent)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a7b25cec21b22d8dd40642282b63aff99}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Método llamado cuando el servicio es destruido. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Servicio encargado de gestionar la conectividad BLE y alertas asociadas. 
+
+\doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service}{BLEService} implementa la gestión de dispositivos BLE, el envío de notificaciones relacionadas con eventos y la comunicación con un servidor remoto utilizando Retrofit. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_ae8624517d0f44bf472623cc7972b4b9f}\index{com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}!onBind@{onBind}}
+\index{onBind@{onBind}!com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}}
+\doxysubsubsection{\texorpdfstring{onBind()}{onBind()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_ae8624517d0f44bf472623cc7972b4b9f} 
+IBinder com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService.\+on\+Bind (\begin{DoxyParamCaption}\item[{Intent}]{intent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a2c37c9a8bb516800ebfc91bac18bb211}\index{com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}}
+\doxysubsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a2c37c9a8bb516800ebfc91bac18bb211} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService.\+on\+Create (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método llamado cuando el servicio es creado. 
+
+Inicializa el adaptador Bluetooth, configura el canal de notificaciones y prepara el temporizador para manejar la detección de datos faltantes. \Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a7b25cec21b22d8dd40642282b63aff99}\index{com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}}
+\doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a7b25cec21b22d8dd40642282b63aff99} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService.\+on\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método llamado cuando el servicio es destruido. 
+
+Detiene el temporizador y realiza tareas de limpieza. Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a7b25cec21b22d8dd40642282b63aff99_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_ac90be5a5cfc57ad6a7eb566f838a4431}\index{com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}!onStartCommand@{onStartCommand}}
+\index{onStartCommand@{onStartCommand}!com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}}
+\doxysubsubsection{\texorpdfstring{onStartCommand()}{onStartCommand()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_ac90be5a5cfc57ad6a7eb566f838a4431} 
+int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService.\+on\+Start\+Command (\begin{DoxyParamCaption}\item[{Intent}]{intent}{, }\item[{int}]{flags}{, }\item[{int}]{start\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método llamado cuando se inicia el servicio. 
+
+Muestra una notificación persistente, inicia el temporizador para detectar la falta de datos y procesa datos del Intent recibido.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em intent} & Intent que inicia el servicio. \\
+\hline
+{\em flags} & Indicadores sobre cómo iniciar el servicio. \\
+\hline
+{\em start\+Id} & ID único del inicio del servicio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Indica cómo debe comportarse el sistema si el servicio es eliminado. 
+\end{DoxyReturn}
+Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_ac90be5a5cfc57ad6a7eb566f838a4431_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a10f7f1c05f7df1cd332aa1b445e87584}\index{com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}!recibirDatosDeSensor@{recibirDatosDeSensor}}
+\index{recibirDatosDeSensor@{recibirDatosDeSensor}!com.example.usuario\_upv.proyecto3a.BLEService@{com.example.usuario\_upv.proyecto3a.BLEService}}
+\doxysubsubsection{\texorpdfstring{recibirDatosDeSensor()}{recibirDatosDeSensor()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a10f7f1c05f7df1cd332aa1b445e87584} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+BLEService.\+recibir\+Datos\+De\+Sensor (\begin{DoxyParamCaption}\item[{int}]{major\+Value}{, }\item[{int}]{minor\+Value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Maneja la recepción de datos del sensor. 
+
+Reinicia el temporizador cuando se reciben nuevos datos.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em major\+Value} & Valor mayor recibido del sensor. \\
+\hline
+{\em minor\+Value} & Valor menor recibido del sensor. \\
+\hline
+\end{DoxyParams}
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service_a10f7f1c05f7df1cd332aa1b445e87584_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_b_l_e_service_8java}{BLEService.\+java}}\end{DoxyCompactItemize}

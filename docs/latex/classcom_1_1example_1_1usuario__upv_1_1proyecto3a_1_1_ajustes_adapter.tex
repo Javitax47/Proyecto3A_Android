@@ -1,0 +1,140 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Ajustes\+Adapter}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter}\index{com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}}
+
+
+Adaptador para manejar la lista de ajustes en el Recycler\+View.  
+
+
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Ajustes\+Adapter
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Ajustes\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Ajustes\+View\+Holder}
+\begin{DoxyCompactList}\small\item\em Clase View\+Holder que contiene las vistas de un elemento. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_1_1_on_item_click_listener}{On\+Item\+Click\+Listener}}
+\begin{DoxyCompactList}\small\item\em Interfaz para manejar eventos de clic en los elementos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a588473d49f2c26b6ff2bf4bb6b264681}{Ajustes\+Adapter}} (List$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajuste}{Ajuste}} $>$ ajustes\+List, Context context, \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_1_1_on_item_click_listener}{On\+Item\+Click\+Listener}} on\+Item\+Click\+Listener)
+\begin{DoxyCompactList}\small\item\em Constructor de \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter}{Ajustes\+Adapter}. \end{DoxyCompactList}\item 
+Ajustes\+View\+Holder \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_ab0877a3c4ffa52be0b6ddd27688aafd8}{on\+Create\+View\+Holder}} (@Non\+Null View\+Group parent, int view\+Type)
+\begin{DoxyCompactList}\small\item\em Crea un nuevo View\+Holder para un elemento del Recycler\+View. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a8b73d89146a95c1035d56775fb76a3d1}{on\+Bind\+View\+Holder}} (@Non\+Null Ajustes\+View\+Holder holder, int position)
+\begin{DoxyCompactList}\small\item\em Vincula los datos de un ajuste a una vista. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a2016ae7d98109a508f7dc4e27694cc32}{get\+Item\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve el número de elementos en la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Adaptador para manejar la lista de ajustes en el Recycler\+View. 
+
+Este adaptador facilita la visualización de cada elemento en la lista de ajustes, inflando un layout personalizado y gestionando eventos de clic. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a588473d49f2c26b6ff2bf4bb6b264681}\index{com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}!AjustesAdapter@{AjustesAdapter}}
+\index{AjustesAdapter@{AjustesAdapter}!com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}}
+\doxysubsubsection{\texorpdfstring{AjustesAdapter()}{AjustesAdapter()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a588473d49f2c26b6ff2bf4bb6b264681} 
+com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Ajustes\+Adapter.\+Ajustes\+Adapter (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajuste}{Ajuste}} $>$}]{ajustes\+List}{, }\item[{Context}]{context}{, }\item[{\mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_1_1_on_item_click_listener}{On\+Item\+Click\+Listener}}}]{on\+Item\+Click\+Listener}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter}{Ajustes\+Adapter}. 
+
+Inicializa el adaptador con la lista de ajustes, el contexto y el listener de clics.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ajustes\+List} & Lista de ajustes. \\
+\hline
+{\em context} & Contexto de la aplicación. \\
+\hline
+{\em on\+Item\+Click\+Listener} & Listener para manejar los eventos de clic. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a2016ae7d98109a508f7dc4e27694cc32}\index{com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}!getItemCount@{getItemCount}}
+\index{getItemCount@{getItemCount}!com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}}
+\doxysubsubsection{\texorpdfstring{getItemCount()}{getItemCount()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a2016ae7d98109a508f7dc4e27694cc32} 
+int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Ajustes\+Adapter.\+get\+Item\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve el número de elementos en la lista. 
+
+\begin{DoxyReturn}{Devuelve}
+Cantidad de elementos en la lista de ajustes. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a8b73d89146a95c1035d56775fb76a3d1}\index{com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}!onBindViewHolder@{onBindViewHolder}}
+\index{onBindViewHolder@{onBindViewHolder}!com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}}
+\doxysubsubsection{\texorpdfstring{onBindViewHolder()}{onBindViewHolder()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a8b73d89146a95c1035d56775fb76a3d1} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Ajustes\+Adapter.\+on\+Bind\+View\+Holder (\begin{DoxyParamCaption}\item[{@Non\+Null Ajustes\+View\+Holder}]{holder}{, }\item[{int}]{position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vincula los datos de un ajuste a una vista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em holder} & View\+Holder que contiene la vista del elemento. \\
+\hline
+{\em position} & Posición del elemento en la lista. \\
+\hline
+\end{DoxyParams}
+Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_a8b73d89146a95c1035d56775fb76a3d1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_ab0877a3c4ffa52be0b6ddd27688aafd8}\index{com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}!onCreateViewHolder@{onCreateViewHolder}}
+\index{onCreateViewHolder@{onCreateViewHolder}!com.example.usuario\_upv.proyecto3a.AjustesAdapter@{com.example.usuario\_upv.proyecto3a.AjustesAdapter}}
+\doxysubsubsection{\texorpdfstring{onCreateViewHolder()}{onCreateViewHolder()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_ajustes_adapter_ab0877a3c4ffa52be0b6ddd27688aafd8} 
+Ajustes\+View\+Holder com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Ajustes\+Adapter.\+on\+Create\+View\+Holder (\begin{DoxyParamCaption}\item[{@Non\+Null View\+Group}]{parent}{, }\item[{int}]{view\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Crea un nuevo View\+Holder para un elemento del Recycler\+View. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & Vista padre donde se incluirá el nuevo elemento. \\
+\hline
+{\em view\+Type} & Tipo de vista (no utilizado en este caso). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un nuevo objeto Ajustes\+View\+Holder. 
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_ajustes_adapter_8java}{Ajustes\+Adapter.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,95 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Timer}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer}\index{com.example.usuario\_upv.proyecto3a.Timer@{com.example.usuario\_upv.proyecto3a.Timer}}
+
+
+Clase que representa un temporizador.  
+
+
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Timer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_ab39cdc1c94de835cf92e1c00f9da31d8}{Timer}} (long interval, Runnable runnable)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer}{Timer}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a5c67be8555ceab274b1e5cf20fefa8f6}{start}} ()
+\begin{DoxyCompactList}\small\item\em Inicia el temporizador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a9e55c5dd68f4c129817ed002bf3b6c50}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Detiene el temporizador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase que representa un temporizador. 
+
+Esta clase permite ejecutar una tarea periódicamente en un intervalo especificado. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_ab39cdc1c94de835cf92e1c00f9da31d8}\index{com.example.usuario\_upv.proyecto3a.Timer@{com.example.usuario\_upv.proyecto3a.Timer}!Timer@{Timer}}
+\index{Timer@{Timer}!com.example.usuario\_upv.proyecto3a.Timer@{com.example.usuario\_upv.proyecto3a.Timer}}
+\doxysubsubsection{\texorpdfstring{Timer()}{Timer()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_ab39cdc1c94de835cf92e1c00f9da31d8} 
+com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Timer.\+Timer (\begin{DoxyParamCaption}\item[{long}]{interval}{, }\item[{Runnable}]{runnable}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer}{Timer}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em interval} & Intervalo de tiempo en milisegundos entre ejecuciones de la tarea. \\
+\hline
+{\em runnable} & Tarea a ejecutar periódicamente. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a5c67be8555ceab274b1e5cf20fefa8f6}\index{com.example.usuario\_upv.proyecto3a.Timer@{com.example.usuario\_upv.proyecto3a.Timer}!start@{start}}
+\index{start@{start}!com.example.usuario\_upv.proyecto3a.Timer@{com.example.usuario\_upv.proyecto3a.Timer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a5c67be8555ceab274b1e5cf20fefa8f6} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Timer.\+start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicia el temporizador. 
+
+Si el temporizador no está en ejecución, comienza a ejecutar la tarea periódicamente. Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a5c67be8555ceab274b1e5cf20fefa8f6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a9e55c5dd68f4c129817ed002bf3b6c50}\index{com.example.usuario\_upv.proyecto3a.Timer@{com.example.usuario\_upv.proyecto3a.Timer}!stop@{stop}}
+\index{stop@{stop}!com.example.usuario\_upv.proyecto3a.Timer@{com.example.usuario\_upv.proyecto3a.Timer}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a9e55c5dd68f4c129817ed002bf3b6c50} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Timer.\+stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Detiene el temporizador. 
+
+Si el temporizador está en ejecución, detiene la ejecución periódica de la tarea. Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer_a9e55c5dd68f4c129817ed002bf3b6c50_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_timer_8java}{Timer.\+java}}\end{DoxyCompactItemize}

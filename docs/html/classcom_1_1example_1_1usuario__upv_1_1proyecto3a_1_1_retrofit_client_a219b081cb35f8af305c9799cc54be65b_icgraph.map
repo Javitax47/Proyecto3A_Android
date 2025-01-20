@@ -1,7 +1,9 @@
 <map id="com.example.usuario_upv.proyecto3a.RetrofitClient.getClient" name="com.example.usuario_upv.proyecto3a.RetrofitClient.getClient">
-<area shape="rect" id="Node000001" title="Obtiene la instancia de Retrofit." alt="" coords="318,35,537,93"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity.html#a2142f848a202d56733b7b6a24ad368b0" title="Actualiza la dirección IP del servidor para la conexión con la API." alt="" coords="5,5,270,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="302,51,270,46,270,41,302,45"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity.html#a2c2bbc12224b5e242e827cfad993597d" title="Método llamado cuando se crea la actividad." alt="" coords="33,72,242,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="302,83,243,90,242,85,302,77"/>
+<area shape="rect" id="Node000001" title="Obtiene la instancia de Retrofit." alt="" coords="288,80,507,139"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity.html#afebd1609ba8600ddb576e6e5fee069dc" title="Actualiza la dirección IP del servidor para la conexión con la API." alt="" coords="25,5,220,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,78,220,64,221,59,273,73"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab1.html#a2a13067052fdcfea38195869d6661706" title="Método llamado cuando se crea la vista del fragmento." alt="" coords="5,88,240,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,112,240,112,240,107,272,107"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3.html#a346d83a8beb0384a7fafaabfd66e209a" title="Método llamado cuando se crea la vista del fragmento." alt="" coords="5,155,240,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="273,142,214,157,213,151,272,137"/>
 </map>

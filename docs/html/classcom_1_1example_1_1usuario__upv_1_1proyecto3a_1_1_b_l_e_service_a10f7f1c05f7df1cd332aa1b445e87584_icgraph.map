@@ -1,0 +1,5 @@
+<map id="com.example.usuario_upv.proyecto3a.BLEService.recibirDatosDeSensor" name="com.example.usuario_upv.proyecto3a.BLEService.recibirDatosDeSensor">
+<area shape="rect" id="Node000001" title="Maneja la recepción de datos del sensor." alt="" coords="261,5,489,64"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service.html#ac90be5a5cfc57ad6a7eb566f838a4431" title="Método llamado cuando se inicia el servicio." alt="" coords="5,5,213,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,37,213,37,213,32,245,32"/>
+</map>

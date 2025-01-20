@@ -1,0 +1,7 @@
+<map id="com.example.usuario_upv.proyecto3a.BLEService.onStartCommand" name="com.example.usuario_upv.proyecto3a.BLEService.onStartCommand">
+<area shape="rect" id="Node000001" title="Método llamado cuando se inicia el servicio." alt="" coords="5,43,213,101"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_b_l_e_service.html#a10f7f1c05f7df1cd332aa1b445e87584" title="Maneja la recepción de datos del sensor." alt="" coords="261,5,489,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,55,245,50,246,56,214,60"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer.html#a5c67be8555ceab274b1e5cf20fefa8f6" title="Inicia el temporizador." alt="" coords="283,88,466,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,84,268,92,267,97,213,89"/>
+</map>

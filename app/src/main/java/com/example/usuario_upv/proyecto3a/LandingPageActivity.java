@@ -16,7 +16,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class LandingPageActivity extends AppCompatActivity {
 
     private String ip = Config.BASE_URL;
@@ -28,6 +27,13 @@ public class LandingPageActivity extends AppCompatActivity {
 
     LogicaFake api;
 
+    /**
+     * @brief Método llamado cuando se crea la actividad.
+     *
+     * Inicializa la actividad, configura la vista y verifica si el usuario ya ha iniciado sesión.
+     *
+     * @param savedInstanceState Estado guardado de la actividad.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +78,6 @@ public class LandingPageActivity extends AppCompatActivity {
         Config.BASE_URL = baseUrl;
         api = RetrofitClient.getClient(baseUrl).create(LogicaFake.class);
 
-
         // Mostrar un mensaje con la IP configurada
         Toast.makeText(LandingPageActivity.this, "Server IP set to: " + baseUrl, Toast.LENGTH_SHORT).show();
 
@@ -80,7 +85,6 @@ public class LandingPageActivity extends AppCompatActivity {
         checkConnection();
     }
 
-    // Método para comprobar la conexión con el servidor
     /**
      * @brief Verifica la conexión con el servidor mediante una llamada a la API.
      *
@@ -130,16 +134,37 @@ public class LandingPageActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @brief Lanza la actividad de inicio de sesión.
+     *
+     * Este método es llamado cuando el usuario presiona el botón para iniciar sesión.
+     *
+     * @param view La vista que desencadena este método, generalmente el botón de inicio de sesión.
+     */
     public void lanzarLogin(View view) {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
     }
 
+    /**
+     * @brief Lanza la actividad de registro.
+     *
+     * Este método es llamado cuando el usuario presiona el botón para registrarse.
+     *
+     * @param view La vista que desencadena este método, generalmente el botón de registro.
+     */
     public void lanzarRegister(View view) {
         Intent i = new Intent(this, RegisterActivity.class);
         startActivity(i);
     }
 
+    /**
+     * @brief Accede a la aplicación de forma anónima.
+     *
+     * Este método es llamado cuando el usuario presiona el botón para acceder de forma anónima.
+     *
+     * @param view La vista que desencadena este método, generalmente el botón de acceso anónimo.
+     */
     public void accederAnonimo(View view) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);

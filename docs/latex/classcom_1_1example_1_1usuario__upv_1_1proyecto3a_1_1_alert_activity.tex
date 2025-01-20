@@ -1,0 +1,139 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity}\index{com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}}
+
+
+Clase que implementa la actividad para mostrar y gestionar alertas.  
+
+
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a2b3ccf37fd346a8788e6c1777862bd8f}{on\+Create\+Options\+Menu}} (Menu menu)
+\begin{DoxyCompactList}\small\item\em Infla el menú de opciones. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a5b98d07f334c49a3b7b7494aa0fa6fc0}{on\+Options\+Item\+Selected}} (Menu\+Item item)
+\begin{DoxyCompactList}\small\item\em Maneja las opciones seleccionadas en el menú. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a7cb1643309becbd629db5a57a89a6a36}{on\+Eliminar\+Alerta}} (int position)
+\begin{DoxyCompactList}\small\item\em Maneja la eliminación de una alerta por posición. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos heredados de \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_1_1_on_alertas_listener}{com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter.\+On\+Alertas\+Listener}}}
+\doxysubsubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a09d9fa78c8cd9157bae4dc24be5b38d4}{on\+Create}} (Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Método que se llama al crear la actividad. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a05b87146d086b3ecdac480262b2d44b2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Método que se llama cuando se destruye la actividad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase que implementa la actividad para mostrar y gestionar alertas. 
+
+La actividad utiliza un Recycler\+View para mostrar alertas que se reciben mediante un Broadcast\+Receiver. También incluye funcionalidades para borrar alertas y gestionar el menú. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a09d9fa78c8cd9157bae4dc24be5b38d4}\index{com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}}
+\doxysubsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a09d9fa78c8cd9157bae4dc24be5b38d4} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity.\+on\+Create (\begin{DoxyParamCaption}\item[{Bundle}]{saved\+Instance\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Método que se llama al crear la actividad. 
+
+Inicializa el Recycler\+View, el adaptador, y registra un Broadcast\+Receiver para recibir alertas.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em saved\+Instance\+State} & Estado guardado de la actividad. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a2b3ccf37fd346a8788e6c1777862bd8f}\index{com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}!onCreateOptionsMenu@{onCreateOptionsMenu}}
+\index{onCreateOptionsMenu@{onCreateOptionsMenu}!com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}}
+\doxysubsubsection{\texorpdfstring{onCreateOptionsMenu()}{onCreateOptionsMenu()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a2b3ccf37fd346a8788e6c1777862bd8f} 
+boolean com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity.\+on\+Create\+Options\+Menu (\begin{DoxyParamCaption}\item[{Menu}]{menu}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Infla el menú de opciones. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em menu} & Objeto Menu a inflar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si el menú se infla correctamente. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a05b87146d086b3ecdac480262b2d44b2}\index{com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}}
+\doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a05b87146d086b3ecdac480262b2d44b2} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity.\+on\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Método que se llama cuando se destruye la actividad. 
+
+Desregistra el Broadcast\+Receiver para evitar fugas de memoria. \Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a7cb1643309becbd629db5a57a89a6a36}\index{com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}!onEliminarAlerta@{onEliminarAlerta}}
+\index{onEliminarAlerta@{onEliminarAlerta}!com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}}
+\doxysubsubsection{\texorpdfstring{onEliminarAlerta()}{onEliminarAlerta()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a7cb1643309becbd629db5a57a89a6a36} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity.\+on\+Eliminar\+Alerta (\begin{DoxyParamCaption}\item[{int}]{position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Maneja la eliminación de una alerta por posición. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em position} & Posición de la alerta a eliminar. \\
+\hline
+\end{DoxyParams}
+
+
+Implementa \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alertas_adapter_1_1_on_alertas_listener_abd23f26e99dba3369be6acd907fbf9e7}{com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alertas\+Adapter.\+On\+Alertas\+Listener}}.
+
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a5b98d07f334c49a3b7b7494aa0fa6fc0}\index{com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}!onOptionsItemSelected@{onOptionsItemSelected}}
+\index{onOptionsItemSelected@{onOptionsItemSelected}!com.example.usuario\_upv.proyecto3a.AlertActivity@{com.example.usuario\_upv.proyecto3a.AlertActivity}}
+\doxysubsubsection{\texorpdfstring{onOptionsItemSelected()}{onOptionsItemSelected()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity_a5b98d07f334c49a3b7b7494aa0fa6fc0} 
+boolean com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Alert\+Activity.\+on\+Options\+Item\+Selected (\begin{DoxyParamCaption}\item[{Menu\+Item}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Maneja las opciones seleccionadas en el menú. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em item} & Elemento del menú seleccionado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si se maneja la acción correctamente. 
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_alert_activity_8java}{Alert\+Activity.\+java}}\end{DoxyCompactItemize}

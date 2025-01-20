@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['oncreate_0',['onCreate',['../classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity.html#a2c2bbc12224b5e242e827cfad993597d',1,'com::example::usuario_upv::proyecto3a::MainActivity']]],
-  ['onrequestpermissionsresult_1',['onRequestPermissionsResult',['../classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity.html#afdbd4eed9230ad64c9ecb6c3142e433b',1,'com::example::usuario_upv::proyecto3a::MainActivity']]]
+  ['initializeapp_0',['initializeApp',['../classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity.html#ac519bb7fa33467d6ddf0e15e5ab331aa',1,'com::example::usuario_upv::proyecto3a::MainActivity']]],
+  ['isverified_1',['isVerified',['../classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user.html#aa710cdc357789fe6d1a79166b9e3cc46',1,'com::example::usuario_upv::proyecto3a::User']]]
 ];

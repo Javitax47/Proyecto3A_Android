@@ -32,34 +32,86 @@ public class TramaIBeacon {
     // Métodos Getters
     // -------------------------------------------------------------------------------
 
+    /**
+     * @brief Obtiene el prefijo del beacon.
+     * @return Array de bytes que representa el prefijo.
+     */
     public byte[] getPrefijo() { return prefijo; }
 
+    /**
+     * @brief Obtiene el UUID del beacon.
+     * @return Array de bytes que representa el UUID.
+     */
     public byte[] getUUID() { return uuid; }
 
+    /**
+     * @brief Obtiene el major del beacon.
+     * @return Array de bytes que representa el major.
+     */
     public byte[] getMajor() { return major; }
 
+    /**
+     * @brief Obtiene el minor del beacon.
+     * @return Array de bytes que representa el minor.
+     */
     public byte[] getMinor() { return minor; }
 
+    /**
+     * @brief Obtiene el TxPower del beacon.
+     * @return Byte que representa el TxPower.
+     */
     public byte getTxPower() { return txPower; }
 
+    /**
+     * @brief Obtiene el array de bytes original recibido.
+     * @return Array de bytes original.
+     */
     public byte[] getLosBytes() { return losBytes; }
 
+    /**
+     * @brief Obtiene las banderas de publicidad.
+     * @return Array de bytes que representa las banderas de publicidad.
+     */
     public byte[] getAdvFlags() { return advFlags; }
 
+    /**
+     * @brief Obtiene el encabezado de publicidad.
+     * @return Array de bytes que representa el encabezado de publicidad.
+     */
     public byte[] getAdvHeader() { return advHeader; }
 
+    /**
+     * @brief Obtiene el ID de la compañía.
+     * @return Array de bytes que representa el ID de la compañía.
+     */
     public byte[] getCompanyID() { return companyID; }
 
+    /**
+     * @brief Obtiene el tipo de iBeacon.
+     * @return Byte que representa el tipo de iBeacon.
+     */
     public byte getiBeaconType() { return iBeaconType; }
 
+    /**
+     * @brief Obtiene la longitud del iBeacon.
+     * @return Byte que representa la longitud del iBeacon.
+     */
     public byte getiBeaconLength() { return iBeaconLength; }
 
     // -------------------------------------------------------------------------------
     // Métodos Setters
     // -------------------------------------------------------------------------------
 
+    /**
+     * @brief Establece el valor del major del beacon.
+     * @param major Array de bytes que representa el major.
+     */
     public void setMajor(byte[] major) { this.major = major; }
 
+    /**
+     * @brief Establece el valor del minor del beacon.
+     * @param minor Array de bytes que representa el minor.
+     */
     public void setMinor(byte[] minor) { this.minor = minor; }
 
     // -------------------------------------------------------------------------------

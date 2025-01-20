@@ -1,0 +1,5 @@
+<map id="com.example.usuario_upv.proyecto3a.BLEService.onDestroy" name="com.example.usuario_upv.proyecto3a.BLEService.onDestroy">
+<area shape="rect" id="Node000001" title="Método llamado cuando el servicio es destruido." alt="" coords="5,5,213,64"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_timer.html#a9e55c5dd68f4c129817ed002bf3b6c50" title="Detiene el temporizador." alt="" coords="261,13,443,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,32,245,32,245,37,213,37"/>
+</map>

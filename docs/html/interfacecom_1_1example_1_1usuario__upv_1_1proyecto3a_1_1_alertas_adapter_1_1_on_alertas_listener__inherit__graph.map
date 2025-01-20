@@ -1,0 +1,5 @@
+<map id="com.example.usuario_upv.proyecto3a.AlertasAdapter.OnAlertasListener" name="com.example.usuario_upv.proyecto3a.AlertasAdapter.OnAlertasListener">
+<area shape="rect" id="Node000001" title="Interfaz para manejar eventos de interacción con las alertas." alt="" coords="5,5,207,107"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alert_activity.html" title="Clase que implementa la actividad para mostrar y gestionar alertas." alt="" coords="15,155,197,325"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,122,109,155,103,155,103,122"/>
+</map>

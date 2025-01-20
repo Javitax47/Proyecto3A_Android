@@ -1,0 +1,94 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Register\+Activity}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity}\index{com.example.usuario\_upv.proyecto3a.RegisterActivity@{com.example.usuario\_upv.proyecto3a.RegisterActivity}}
+
+
+Actividad para el registro de usuarios.  
+
+
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Register\+Activity
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Register\+Activity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity_a4834290664b0d571b469270c90032d99}{privacidad}} (View v)
+\begin{DoxyCompactList}\small\item\em Muestra la política de privacidad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity_a75a018ffff64c4b0f2eea039c49ebdef}{on\+Create}} (Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Método llamado cuando se crea la actividad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Actividad para el registro de usuarios. 
+
+Esta actividad permite a los usuarios registrarse proporcionando su correo electrónico, nombre y contraseña. También incluye autenticación biométrica y validación de requisitos de contraseña. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity_a75a018ffff64c4b0f2eea039c49ebdef}\index{com.example.usuario\_upv.proyecto3a.RegisterActivity@{com.example.usuario\_upv.proyecto3a.RegisterActivity}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!com.example.usuario\_upv.proyecto3a.RegisterActivity@{com.example.usuario\_upv.proyecto3a.RegisterActivity}}
+\doxysubsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity_a75a018ffff64c4b0f2eea039c49ebdef} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Register\+Activity.\+on\+Create (\begin{DoxyParamCaption}\item[{Bundle}]{saved\+Instance\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Método llamado cuando se crea la actividad. 
+
+Este método configura la vista de la actividad con el layout correspondiente y inicializa los componentes necesarios.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em saved\+Instance\+State} & Si la actividad se está re-\/inicializando después de haber sido previamente cerrada, este Bundle contiene los datos más recientes suministrados en on\+Save\+Instance\+State(\+Bundle). De lo contrario, está nulo. \\
+\hline
+\end{DoxyParams}
+Verifica si el correo electrónico es válido.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em email} & El correo electrónico a verificar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si el correo electrónico es válido, false en caso contrario.
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity_a4834290664b0d571b469270c90032d99}\index{com.example.usuario\_upv.proyecto3a.RegisterActivity@{com.example.usuario\_upv.proyecto3a.RegisterActivity}!privacidad@{privacidad}}
+\index{privacidad@{privacidad}!com.example.usuario\_upv.proyecto3a.RegisterActivity@{com.example.usuario\_upv.proyecto3a.RegisterActivity}}
+\doxysubsubsection{\texorpdfstring{privacidad()}{privacidad()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity_a4834290664b0d571b469270c90032d99} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Register\+Activity.\+privacidad (\begin{DoxyParamCaption}\item[{View}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra la política de privacidad. 
+
+Este método inicia la actividad que muestra la política de privacidad.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em v} & La vista que desencadena este método. \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_register_activity_8java}{Register\+Activity.\+java}}\end{DoxyCompactItemize}

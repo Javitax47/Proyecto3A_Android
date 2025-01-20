@@ -21,6 +21,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Clase UserConfig que maneja la configuración del usuario.
+ */
 public class UserConfig extends AppCompatActivity {
 
     private EditText usernameEditText;
@@ -34,11 +37,14 @@ public class UserConfig extends AppCompatActivity {
 
     private LogicaFake api;
 
+    /**
+     * Método onCreate que inicializa la actividad.
+     * @param savedInstanceState Estado guardado de la instancia.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ejemplo_user_config);
-
 
         // Inicializa los elementos de la interfaz
         usernameEditText = findViewById(R.id.email);
@@ -47,10 +53,6 @@ public class UserConfig extends AppCompatActivity {
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
         saveButton = findViewById(R.id.buttonLogin);
-        // passwordRequirementsTextView = findViewById(R.id.requirements);
-
-
-
 
         // BOTÓN ATRÁS
         View imageBack = findViewById(R.id.imageBack);
@@ -61,8 +63,6 @@ public class UserConfig extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
 
         passwordEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -92,7 +92,10 @@ public class UserConfig extends AppCompatActivity {
         saveButton.setOnClickListener(v -> handleFormSubmission());
     }
 
-    // Método para validar los requisitos de la contraseña
+    /**
+     * Método para validar los requisitos de la contraseña.
+     * @param password La contraseña a validar.
+     */
     private void validatePasswordRequirements(String password) {
         StringBuilder feedback = new StringBuilder("Requisitos de la contraseña:\n");
         boolean isValid = true;
@@ -127,6 +130,9 @@ public class UserConfig extends AppCompatActivity {
         passwordRequirementsTextView.setText(feedback.toString());
     }
 
+    /**
+     * Método para cargar los datos del usuario desde SharedPreferences.
+     */
     private void loadUserDataFromPrefs() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String savedUsername = sharedPreferences.getString("userName", "");
@@ -137,6 +143,9 @@ public class UserConfig extends AppCompatActivity {
         emailEditText.setText(savedEmail);
     }
 
+    /**
+     * Método para manejar el envío del formulario.
+     */
     private void handleFormSubmission() {
         String username = usernameEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
@@ -179,6 +188,13 @@ public class UserConfig extends AppCompatActivity {
         verifyCurrentPassword(email, passwordActual, username, password);
     }
 
+    /**
+     * Método para verificar la contraseña actual.
+     * @param email El correo electrónico del usuario.
+     * @param passwordActual La contraseña actual del usuario.
+     * @param username El nombre de usuario.
+     * @param newPassword La nueva contraseña.
+     */
     private void verifyCurrentPassword(String email, String passwordActual, String username, String newPassword) {
         UserData userData = new UserData(username, email, passwordActual);
         api.verifyPassword(userData).enqueue(new Callback<Void>() {
@@ -198,6 +214,12 @@ public class UserConfig extends AppCompatActivity {
         });
     }
 
+    /**
+     * Método para actualizar los datos del usuario.
+     * @param username El nombre de usuario.
+     * @param email El correo electrónico del usuario.
+     * @param password La nueva contraseña.
+     */
     private void updateUser(String username, String email, String password) {
         UserData userData = new UserData(username, email, password);
 
@@ -222,6 +244,11 @@ public class UserConfig extends AppCompatActivity {
         });
     }
 
+    /**
+     * Método para guardar los datos del usuario en SharedPreferences.
+     * @param email El correo electrónico del usuario.
+     * @param username El nombre de usuario.
+     */
     private void saveUserDataToPrefs(String email, String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -230,7 +257,11 @@ public class UserConfig extends AppCompatActivity {
         editor.apply();
     }
 
-
+    /**
+     * Método para manejar la selección de opciones del menú.
+     * @param item El elemento del menú seleccionado.
+     * @return true si el elemento seleccionado es el botón de retroceso, de lo contrario llama al método de la superclase.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

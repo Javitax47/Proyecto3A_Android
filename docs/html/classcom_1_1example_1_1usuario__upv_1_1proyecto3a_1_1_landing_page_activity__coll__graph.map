@@ -1,0 +1,7 @@
+<map id="com.example.usuario_upv.proyecto3a.LandingPageActivity" name="com.example.usuario_upv.proyecto3a.LandingPageActivity">
+<area shape="rect" id="Node000001" title=" " alt="" coords="63,389,249,576"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,131,131,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,214,133,389,128,390,79,215"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake.html" title="Interfaz para definir los endpoints de la API de sensores." alt="" coords="155,5,333,325"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,326,189,374,184,372,197,324"/>
+</map>

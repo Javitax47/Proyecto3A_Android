@@ -1,7 +1,5 @@
 <map id="com.example.usuario_upv.proyecto3a.Utilidades.bytesToLong" name="com.example.usuario_upv.proyecto3a.Utilidades.bytesToLong">
-<area shape="rect" id="Node000001" title="Convierte un arreglo de bytes a un long." alt="" coords="569,5,783,64"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades.html#a04bf03f15e4d007dd843c17572e4d37a" title="Convierte una cadena de 16 caracteres a un UUID." alt="" coords="307,5,521,64"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="553,37,521,37,521,32,553,32"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_main_activity.html#a6106cd52543793a4decb28c4ce49d674" title="Maneja el evento de pulsación del botón para buscar un dispositivo BLE específico." alt="" coords="5,5,259,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="291,37,259,37,259,32,291,32"/>
+<area shape="rect" id="Node000001" title="Convierte un arreglo de bytes a un long." alt="" coords="268,5,482,64"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_utilidades.html#a04bf03f15e4d007dd843c17572e4d37a" title="Convierte una cadena de 16 caracteres a un UUID." alt="" coords="5,5,220,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,37,220,37,220,32,252,32"/>
 </map>

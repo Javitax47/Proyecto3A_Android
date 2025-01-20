@@ -1,0 +1,276 @@
+\doxysection{Referencia de la interface com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake}
+\hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake}{}\label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+
+
+Interfaz para definir los endpoints de la API de sensores.  
+
+
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a4bcd9b549b4bc2710418c62a80a50781}{check\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Verifica la conexión con el servidor. \end{DoxyCompactList}\item 
+Call$<$ List$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data}} $>$ $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_ab068f19fc6e562a1492696f661438b20}{medicionesbbdd}} (@Path(value="{}fecha"{}, encoded=true) String fecha)
+\begin{DoxyCompactList}\small\item\em Obtiene las mediciones de la base de datos para una fecha específica. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aeef5f431a73c28f291f57c9431d9d10d}{create\+Sensor\+Data}} (@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data}} sensor\+Data)
+\begin{DoxyCompactList}\small\item\em Inserta una medición de sensor en la base de datos. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a87a04eb04f1fc658d169c9fa9c85bdae}{create\+User\+Data}} (@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data}} user\+Data)
+\begin{DoxyCompactList}\small\item\em Crea un nuevo usuario en la base de datos. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a26f28b83e67f9e6bf62c3c3fe2d59166}{verify\+Password}} (@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data}} user\+Data)
+\begin{DoxyCompactList}\small\item\em Verifica la contraseña de un usuario. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aa8f9f8dc0b5d0df8a784047f38e021b2}{autenticar\+Usuario}} (@Path(value="{}token"{}, encoded=true) String token)
+\begin{DoxyCompactList}\small\item\em Autentica un usuario mediante un token. \end{DoxyCompactList}\item 
+Call$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user}{User}} $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aeb12e56aadd384e612e1728f67dc4a30}{get\+User\+Data}} (@Path(value="{}email"{}, encoded=true) String email, @Path("{}password"{}) String password)
+\begin{DoxyCompactList}\small\item\em Obtiene los datos de un usuario mediante su email y contraseña. \end{DoxyCompactList}\item 
+Call$<$ Response\+Body $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a8c837622a8f046bf417793cf445318c3}{get\+User\+Sensors}} (@Path(value="{}email"{}, encoded=true) String email)
+\begin{DoxyCompactList}\small\item\em Obtiene los sensores de un usuario mediante su email. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a6d36950d7d3d70e7db306895857e310c}{create\+Sensor}} (@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor}{Sensor}} sensor)
+\begin{DoxyCompactList}\small\item\em Crea un nuevo sensor en la base de datos. \end{DoxyCompactList}\item 
+Call$<$ Void $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a9a353c98bfcc0343bcbe60cfc0cbbcd0}{update\+User}} (@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data}} user\+Data)
+\begin{DoxyCompactList}\small\item\em Actualiza la información de un usuario. \end{DoxyCompactList}\item 
+Call$<$ List$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alerta_data}{Alerta\+Data}} $>$ $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a6df8a72a163322394d2f084d81ec670f}{get\+User\+Alerts}} (@Path(value="{}email"{}, encoded=true) String email)
+\begin{DoxyCompactList}\small\item\em Obtiene las alertas de un usuario mediante su email. \end{DoxyCompactList}\item 
+Call$<$ Response\+Body $>$ \mbox{\hyperlink{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a43096ad287b233bdf845475e510b8531}{delete\+Alert}} (@Path("{}email"{}) String email, @Path("{}alerta\+Id"{}) int alerta\+Id)
+\begin{DoxyCompactList}\small\item\em Elimina una alerta específica de un usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Interfaz para definir los endpoints de la API de sensores. 
+
+Esta interfaz contiene métodos para interactuar con el servidor que gestiona los datos de los sensores y los usuarios. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aa8f9f8dc0b5d0df8a784047f38e021b2}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!autenticarUsuario@{autenticarUsuario}}
+\index{autenticarUsuario@{autenticarUsuario}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{autenticarUsuario()}{autenticarUsuario()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aa8f9f8dc0b5d0df8a784047f38e021b2} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+autenticar\+Usuario (\begin{DoxyParamCaption}\item[{@Path(value="{}token"{}, encoded=true) String}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Autentica un usuario mediante un token. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em token} & El token de autenticación. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a4bcd9b549b4bc2710418c62a80a50781}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!checkConnection@{checkConnection}}
+\index{checkConnection@{checkConnection}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{checkConnection()}{checkConnection()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a4bcd9b549b4bc2710418c62a80a50781} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+check\+Connection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica la conexión con el servidor. 
+
+Este método envía una solicitud GET al servidor para comprobar si está disponible.
+
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a6d36950d7d3d70e7db306895857e310c}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!createSensor@{createSensor}}
+\index{createSensor@{createSensor}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{createSensor()}{createSensor()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a6d36950d7d3d70e7db306895857e310c} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+create\+Sensor (\begin{DoxyParamCaption}\item[{@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor}{Sensor}}}]{sensor}{}\end{DoxyParamCaption})}
+
+
+
+Crea un nuevo sensor en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sensor} & El objeto \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor}{Sensor} que contiene la información del sensor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aeef5f431a73c28f291f57c9431d9d10d}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!createSensorData@{createSensorData}}
+\index{createSensorData@{createSensorData}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{createSensorData()}{createSensorData()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aeef5f431a73c28f291f57c9431d9d10d} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+create\+Sensor\+Data (\begin{DoxyParamCaption}\item[{@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data}}}]{sensor\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Inserta una medición de sensor en la base de datos. 
+
+Este método envía una solicitud POST con la información de la medición en el cuerpo de la solicitud.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sensor\+Data} & El objeto \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data} que contiene la información de la medición. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a87a04eb04f1fc658d169c9fa9c85bdae}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!createUserData@{createUserData}}
+\index{createUserData@{createUserData}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{createUserData()}{createUserData()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a87a04eb04f1fc658d169c9fa9c85bdae} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+create\+User\+Data (\begin{DoxyParamCaption}\item[{@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data}}}]{user\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Crea un nuevo usuario en la base de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em user\+Data} & El objeto \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data} que contiene la información del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a43096ad287b233bdf845475e510b8531}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!deleteAlert@{deleteAlert}}
+\index{deleteAlert@{deleteAlert}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{deleteAlert()}{deleteAlert()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a43096ad287b233bdf845475e510b8531} 
+Call$<$ Response\+Body $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+delete\+Alert (\begin{DoxyParamCaption}\item[{@Path("{}email"{}) String}]{email}{, }\item[{@Path("{}alerta\+Id"{}) int}]{alerta\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Elimina una alerta específica de un usuario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em email} & El email del usuario. \\
+\hline
+{\em alerta\+Id} & El ID de la alerta a eliminar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a6df8a72a163322394d2f084d81ec670f}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!getUserAlerts@{getUserAlerts}}
+\index{getUserAlerts@{getUserAlerts}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{getUserAlerts()}{getUserAlerts()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a6df8a72a163322394d2f084d81ec670f} 
+Call$<$ List$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_alerta_data}{Alerta\+Data}} $>$ $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+get\+User\+Alerts (\begin{DoxyParamCaption}\item[{@Path(value="{}email"{}, encoded=true) String}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene las alertas de un usuario mediante su email. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em email} & El email del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene una lista de datos de alertas. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aeb12e56aadd384e612e1728f67dc4a30}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!getUserData@{getUserData}}
+\index{getUserData@{getUserData}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{getUserData()}{getUserData()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_aeb12e56aadd384e612e1728f67dc4a30} 
+Call$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user}{User}} $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+get\+User\+Data (\begin{DoxyParamCaption}\item[{@Path(value="{}email"{}, encoded=true) String}]{email}{, }\item[{@Path("{}password"{}) String}]{password}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene los datos de un usuario mediante su email y contraseña. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em email} & El email del usuario. \\
+\hline
+{\em password} & La contraseña del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene los datos del usuario. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a8c837622a8f046bf417793cf445318c3}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!getUserSensors@{getUserSensors}}
+\index{getUserSensors@{getUserSensors}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{getUserSensors()}{getUserSensors()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a8c837622a8f046bf417793cf445318c3} 
+Call$<$ Response\+Body $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+get\+User\+Sensors (\begin{DoxyParamCaption}\item[{@Path(value="{}email"{}, encoded=true) String}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene los sensores de un usuario mediante su email. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em email} & El email del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_ab068f19fc6e562a1492696f661438b20}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!medicionesbbdd@{medicionesbbdd}}
+\index{medicionesbbdd@{medicionesbbdd}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{medicionesbbdd()}{medicionesbbdd()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_ab068f19fc6e562a1492696f661438b20} 
+Call$<$ List$<$ \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_data}{Sensor\+Data}} $>$ $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+medicionesbbdd (\begin{DoxyParamCaption}\item[{@Path(value="{}fecha"{}, encoded=true) String}]{fecha}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene las mediciones de la base de datos para una fecha específica. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em fecha} & Fecha para la cual se desean obtener las mediciones. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene una lista de datos de sensores. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a9a353c98bfcc0343bcbe60cfc0cbbcd0}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!updateUser@{updateUser}}
+\index{updateUser@{updateUser}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{updateUser()}{updateUser()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a9a353c98bfcc0343bcbe60cfc0cbbcd0} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+update\+User (\begin{DoxyParamCaption}\item[{@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data}}}]{user\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza la información de un usuario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em user\+Data} & El objeto \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data} que contiene la información del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a26f28b83e67f9e6bf62c3c3fe2d59166}\index{com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}!verifyPassword@{verifyPassword}}
+\index{verifyPassword@{verifyPassword}!com.example.usuario\_upv.proyecto3a.LogicaFake@{com.example.usuario\_upv.proyecto3a.LogicaFake}}
+\doxysubsubsection{\texorpdfstring{verifyPassword()}{verifyPassword()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_logica_fake_a26f28b83e67f9e6bf62c3c3fe2d59166} 
+Call$<$ Void $>$ com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Logica\+Fake.\+verify\+Password (\begin{DoxyParamCaption}\item[{@Body \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data}}}]{user\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Verifica la contraseña de un usuario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em user\+Data} & El objeto \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_user_data}{User\+Data} que contiene la información del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un objeto Call que contiene la respuesta de la solicitud. 
+\end{DoxyReturn}
+
+
+La documentación de esta interface está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_logica_fake_8java}{Logica\+Fake.\+java}}\end{DoxyCompactItemize}

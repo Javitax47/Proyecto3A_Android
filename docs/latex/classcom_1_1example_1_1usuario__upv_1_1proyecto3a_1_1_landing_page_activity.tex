@@ -1,0 +1,139 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity}\index{com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}}
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_afebd1609ba8600ddb576e6e5fee069dc}{actualizar\+IP}} (View view)
+\begin{DoxyCompactList}\small\item\em Actualiza la dirección IP del servidor para la conexión con la API. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_a2b5ebecef662658a27dcd797a259a4fa}{lanzar\+Login}} (View view)
+\begin{DoxyCompactList}\small\item\em Lanza la actividad de inicio de sesión. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_aa7dfe7cf457c35c5178246a775a1d278}{lanzar\+Register}} (View view)
+\begin{DoxyCompactList}\small\item\em Lanza la actividad de registro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_a3e89bbe6f1208abb6725b81feaa5a5f1}{acceder\+Anonimo}} (View view)
+\begin{DoxyCompactList}\small\item\em Accede a la aplicación de forma anónima. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_acf968c83c5964bf1f147977103f7131f}{on\+Create}} (Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Método llamado cuando se crea la actividad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_a3e89bbe6f1208abb6725b81feaa5a5f1}\index{com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}!accederAnonimo@{accederAnonimo}}
+\index{accederAnonimo@{accederAnonimo}!com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}}
+\doxysubsubsection{\texorpdfstring{accederAnonimo()}{accederAnonimo()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_a3e89bbe6f1208abb6725b81feaa5a5f1} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity.\+acceder\+Anonimo (\begin{DoxyParamCaption}\item[{View}]{view}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accede a la aplicación de forma anónima. 
+
+Este método es llamado cuando el usuario presiona el botón para acceder de forma anónima.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em view} & La vista que desencadena este método, generalmente el botón de acceso anónimo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_afebd1609ba8600ddb576e6e5fee069dc}\index{com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}!actualizarIP@{actualizarIP}}
+\index{actualizarIP@{actualizarIP}!com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}}
+\doxysubsubsection{\texorpdfstring{actualizarIP()}{actualizarIP()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_afebd1609ba8600ddb576e6e5fee069dc} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity.\+actualizar\+IP (\begin{DoxyParamCaption}\item[{View}]{view}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Actualiza la dirección IP del servidor para la conexión con la API. 
+
+Este método es llamado cuando el usuario introduce una IP y presiona el botón para actualizarla. Valida que la IP no esté vacía, construye la URL base para las peticiones HTTP mediante Retrofit y actualiza la instancia de la API. Muestra un mensaje en pantalla indicando la nueva IP del servidor.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em view} & La vista que desencadena este método, generalmente el botón de envío de la IP. \\
+\hline
+\end{DoxyParams}
+Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_afebd1609ba8600ddb576e6e5fee069dc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_a2b5ebecef662658a27dcd797a259a4fa}\index{com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}!lanzarLogin@{lanzarLogin}}
+\index{lanzarLogin@{lanzarLogin}!com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}}
+\doxysubsubsection{\texorpdfstring{lanzarLogin()}{lanzarLogin()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_a2b5ebecef662658a27dcd797a259a4fa} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity.\+lanzar\+Login (\begin{DoxyParamCaption}\item[{View}]{view}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lanza la actividad de inicio de sesión. 
+
+Este método es llamado cuando el usuario presiona el botón para iniciar sesión.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em view} & La vista que desencadena este método, generalmente el botón de inicio de sesión. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_aa7dfe7cf457c35c5178246a775a1d278}\index{com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}!lanzarRegister@{lanzarRegister}}
+\index{lanzarRegister@{lanzarRegister}!com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}}
+\doxysubsubsection{\texorpdfstring{lanzarRegister()}{lanzarRegister()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_aa7dfe7cf457c35c5178246a775a1d278} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity.\+lanzar\+Register (\begin{DoxyParamCaption}\item[{View}]{view}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lanza la actividad de registro. 
+
+Este método es llamado cuando el usuario presiona el botón para registrarse.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em view} & La vista que desencadena este método, generalmente el botón de registro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_acf968c83c5964bf1f147977103f7131f}\index{com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!com.example.usuario\_upv.proyecto3a.LandingPageActivity@{com.example.usuario\_upv.proyecto3a.LandingPageActivity}}
+\doxysubsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_landing_page_activity_acf968c83c5964bf1f147977103f7131f} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Landing\+Page\+Activity.\+on\+Create (\begin{DoxyParamCaption}\item[{Bundle}]{saved\+Instance\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Método llamado cuando se crea la actividad. 
+
+Inicializa la actividad, configura la vista y verifica si el usuario ya ha iniciado sesión.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em saved\+Instance\+State} & Estado guardado de la actividad. \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_landing_page_activity_8java}{Landing\+Page\+Activity.\+java}}\end{DoxyCompactItemize}

@@ -149,17 +149,17 @@ public class MainActivity extends AppCompatActivity {
      */
     public boolean beaconTemperaturaActivo = false;
 
-
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
-    // Nombres de las pestañas
+    /**
+     * @brief Nombres de las pestañas.
+     */
     private int[] imagenes = new int[]{
             R.drawable.globe,
             R.drawable.dispos,
             R.drawable.usuari
     };
-
 
     /**
      * @brief Método llamado cuando se crea la actividad.
@@ -185,6 +185,11 @@ public class MainActivity extends AppCompatActivity {
         initializeApp();
     }
 
+    /**
+     * @brief Inicializa la aplicación.
+     *
+     * Configura las pestañas y su comportamiento, así como la interfaz de usuario.
+     */
     protected void initializeApp() {
         //Pestañas
         ViewPager2 viewPager = findViewById(R.id.viewpager);
@@ -192,12 +197,11 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         new TabLayoutMediator(tabs, viewPager,
                 new TabLayoutMediator.TabConfigurationStrategy() {
-                    // Dentro de onConfigureTab
                     @Override
                     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                         View tabView = getLayoutInflater().inflate(R.layout.custom_tab, null);
                         ImageView imageView = tabView.findViewById(R.id.tab_image);
-                        imageView.setImageResource(imagenes[position]); // Establecer la imagen aquí
+                        imageView.setImageResource(imagenes[position]);
 
                         imageView.getLayoutParams().height = 90;
                         imageView.getLayoutParams().width = 90;
@@ -205,31 +209,24 @@ public class MainActivity extends AppCompatActivity {
                         tab.setCustomView(tabView);
                     }
                 }).attach();
-        // Deshabilitar el cambio de fragmentos deslizando horizontalmente
         viewPager.setUserInputEnabled(false);
 
-
-        // Resaltar el icono cuando se selecciona la pestaña
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                // Cambiar el color de la imagen cuando se selecciona la pestaña
                 View tabView = tab.getCustomView();
                 if (tabView != null) {
                     ImageView imageView = tabView.findViewById(R.id.tab_image);
-                    // Cambiar el color de la imagen seleccionada
-                    imageView.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.rosa)); // Cambiar por el color deseado
+                    imageView.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.rosa));
                 }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                // Restaurar el color original cuando se deselecciona la pestaña
                 View tabView = tab.getCustomView();
                 if (tabView != null) {
                     ImageView imageView = tabView.findViewById(R.id.tab_image);
-                    // Restaurar el color original
-                    imageView.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.black)); // Cambiar por el color original
+                    imageView.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.black));
                 }
             }
 
@@ -238,20 +235,40 @@ public class MainActivity extends AppCompatActivity {
                 // No es necesario hacer nada aquí, pero puedes agregar efectos si lo deseas
             }
         });
-        tabs.getTabAt(0).select();  // Selecciona la primera pestaña
+        tabs.getTabAt(0).select();
     }
 
+    /**
+     * @class MiPagerAdapter
+     * @brief Adaptador para gestionar las pestañas de la aplicación.
+     */
     public class MiPagerAdapter extends FragmentStateAdapter {
 
+        /**
+         * @brief Constructor del adaptador.
+         *
+         * @param activity Actividad que contiene el adaptador.
+         */
         public MiPagerAdapter(FragmentActivity activity) {
             super(activity);
         }
 
+        /**
+         * @brief Obtiene el número de pestañas.
+         *
+         * @return Número de pestañas.
+         */
         @Override
         public int getItemCount() {
             return 3;
         }
 
+        /**
+         * @brief Crea el fragmento correspondiente a la posición dada.
+         *
+         * @param position Posición de la pestaña.
+         * @return Fragmento correspondiente a la posición.
+         */
         @Override
         @NonNull
         public Fragment createFragment(int position) {
@@ -286,13 +303,6 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): habilitamos adaptador BT ");
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         bta.enable();
@@ -309,9 +319,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): voy a pedir permisos (si no los tuviera) !!!!");
 
-        // Comprobamos la versión de Android
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            // Para Android 13 y versiones posteriores
             if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -325,7 +333,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios en Android 13+.");
             }
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            // Para Android 12
             if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -338,7 +345,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(ETIQUETA_LOG, "inicializarBlueTooth(): YA tengo los permisos necesarios en Android 12.");
             }
         } else {
-            // Para Android 11 y versiones anteriores
             if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.BLUETOOTH_ADMIN) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -352,8 +358,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
     /**
      * @brief Maneja el resultado de las solicitudes de permisos.
@@ -371,15 +375,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch (requestCode) {
             case CODIGO_PETICION_PERMISOS:
-                // Si la solicitud es cancelada, los arreglos de resultado están vacíos.
                 if (grantResults.length > 0 &&
                         grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): permisos concedidos  !!!!");
-                    // El permiso ha sido concedido. Continuar con la acción o flujo en la app.
                 } else {
                     Log.d(ETIQUETA_LOG, "onRequestPermissionResult(): Socorro: permisos NO concedidos  !!!!");
                 }
         }
-    } // ()
-
-} // class
+    }
+}

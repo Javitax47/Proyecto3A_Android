@@ -1,0 +1,5 @@
+<map id="com.example.usuario_upv.proyecto3a.Tab3.onCreateView" name="com.example.usuario_upv.proyecto3a.Tab3.onCreateView">
+<area shape="rect" id="Node000001" title="Método llamado cuando se crea la vista del fragmento." alt="" coords="5,13,240,56"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_retrofit_client.html#a219b081cb35f8af305c9799cc54be65b" title="Obtiene la instancia de Retrofit." alt="" coords="288,5,507,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,32,272,32,272,37,240,37"/>
+</map>

@@ -14,8 +14,23 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
 
+/**
+ * @brief Fragmento que representa la cuarta pestaña de la aplicación.
+ *
+ * Este fragmento se encarga de gestionar la interfaz de usuario y las interacciones
+ * relacionadas con la configuración del usuario, notificaciones, información de la aplicación
+ * y el asistente.
+ */
 public class Tab4 extends Fragment {
 
+    /**
+     * @brief Método que se llama para crear y devolver la jerarquía de vistas asociada con el fragmento.
+     *
+     * @param inflater El LayoutInflater que se puede usar para inflar cualquier vista en el fragmento.
+     * @param container Si no es nulo, es la vista principal a la que se adjuntará el fragmento.
+     * @param savedInstanceState Si no es nulo, este fragmento se está reconstruyendo a partir de un estado guardado anterior.
+     * @return La vista para la interfaz de usuario del fragmento.
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,11 +56,6 @@ public class Tab4 extends Fragment {
 
         campoAcercaDe.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), AcercaDeActivity.class);
-            startActivity(intent);
-        });
-
-        campoAsistente.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), Asistente.class);
             startActivity(intent);
         });
 

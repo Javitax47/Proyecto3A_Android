@@ -1,0 +1,124 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Adapter}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter}\index{com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}}
+
+
+Adaptador para mostrar una lista de sensores en un Recycler\+View.  
+
+
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Adapter
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Sensor\+View\+Holder}
+\begin{DoxyCompactList}\small\item\em View\+Holder para los elementos del sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a2c0bcb6a739a55b4896d32d517d3e06e}{Sensor\+Adapter}} (List$<$ String $>$ sensor\+List)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter}{Sensor\+Adapter}. \end{DoxyCompactList}\item 
+Sensor\+View\+Holder \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a630ac8ca5e832208eb2dc9cf121bfb84}{on\+Create\+View\+Holder}} (View\+Group parent, int view\+Type)
+\begin{DoxyCompactList}\small\item\em Crea nuevos View\+Holder cuando no hay suficientes View\+Holder existentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a1b150935fea9118d9f4b934af025632c}{on\+Bind\+View\+Holder}} (Sensor\+View\+Holder holder, int position)
+\begin{DoxyCompactList}\small\item\em Vincula los datos del sensor a un View\+Holder. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a42d86e901c9ebcecdf412be595d3420c}{get\+Item\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el número de sensores en la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Adaptador para mostrar una lista de sensores en un Recycler\+View. 
+
+Esta clase extiende Recycler\+View.\+Adapter y proporciona un adaptador personalizado para mostrar una lista de sensores en un Recycler\+View. 
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a2c0bcb6a739a55b4896d32d517d3e06e}\index{com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}!SensorAdapter@{SensorAdapter}}
+\index{SensorAdapter@{SensorAdapter}!com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}}
+\doxysubsubsection{\texorpdfstring{SensorAdapter()}{SensorAdapter()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a2c0bcb6a739a55b4896d32d517d3e06e} 
+com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Adapter.\+Sensor\+Adapter (\begin{DoxyParamCaption}\item[{List$<$ String $>$}]{sensor\+List}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase \doxylink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter}{Sensor\+Adapter}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sensor\+List} & Lista de sensores a mostrar. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a42d86e901c9ebcecdf412be595d3420c}\index{com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}!getItemCount@{getItemCount}}
+\index{getItemCount@{getItemCount}!com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}}
+\doxysubsubsection{\texorpdfstring{getItemCount()}{getItemCount()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a42d86e901c9ebcecdf412be595d3420c} 
+int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Adapter.\+get\+Item\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el número de sensores en la lista. 
+
+\begin{DoxyReturn}{Devuelve}
+El número de sensores en la lista. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a1b150935fea9118d9f4b934af025632c}\index{com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}!onBindViewHolder@{onBindViewHolder}}
+\index{onBindViewHolder@{onBindViewHolder}!com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}}
+\doxysubsubsection{\texorpdfstring{onBindViewHolder()}{onBindViewHolder()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a1b150935fea9118d9f4b934af025632c} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Adapter.\+on\+Bind\+View\+Holder (\begin{DoxyParamCaption}\item[{Sensor\+View\+Holder}]{holder}{, }\item[{int}]{position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vincula los datos del sensor a un View\+Holder. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em holder} & El View\+Holder que debe ser actualizado. \\
+\hline
+{\em position} & La posición del sensor en la lista. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a630ac8ca5e832208eb2dc9cf121bfb84}\index{com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}!onCreateViewHolder@{onCreateViewHolder}}
+\index{onCreateViewHolder@{onCreateViewHolder}!com.example.usuario\_upv.proyecto3a.SensorAdapter@{com.example.usuario\_upv.proyecto3a.SensorAdapter}}
+\doxysubsubsection{\texorpdfstring{onCreateViewHolder()}{onCreateViewHolder()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_sensor_adapter_a630ac8ca5e832208eb2dc9cf121bfb84} 
+Sensor\+View\+Holder com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Sensor\+Adapter.\+on\+Create\+View\+Holder (\begin{DoxyParamCaption}\item[{View\+Group}]{parent}{, }\item[{int}]{view\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Crea nuevos View\+Holder cuando no hay suficientes View\+Holder existentes. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & El View\+Group al que se añadirá el nuevo View. \\
+\hline
+{\em view\+Type} & El tipo de vista del nuevo View. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un nuevo Sensor\+View\+Holder. 
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_sensor_adapter_8java}{Sensor\+Adapter.\+java}}\end{DoxyCompactItemize}

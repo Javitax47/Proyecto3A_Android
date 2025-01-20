@@ -20,88 +20,310 @@
 \contentsline {chapter}{\numberline {6}Documentación de espacios de nombres}{11}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Paquete com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a}{11}{section.6.1}%
 \contentsline {chapter}{\numberline {7}Documentación de clases}{13}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{13}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Descripción detallada}{15}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Documentación de funciones miembro}{15}{subsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.2.1}actualizarIP()}{15}{subsubsection.7.1.2.1}%
-\contentsline {subsubsection}{\numberline {7.1.2.2}actualizarUuid()}{15}{subsubsection.7.1.2.2}%
-\contentsline {subsubsection}{\numberline {7.1.2.3}botonBuscarDispositivosBTLEPulsado()}{16}{subsubsection.7.1.2.3}%
-\contentsline {subsubsection}{\numberline {7.1.2.4}botonBuscarNuestroDispositivoBTLEPulsado()}{16}{subsubsection.7.1.2.4}%
-\contentsline {subsubsection}{\numberline {7.1.2.5}botonDetenerBusquedaDispositivosBTLEPulsado()}{16}{subsubsection.7.1.2.5}%
-\contentsline {subsubsection}{\numberline {7.1.2.6}onCreate()}{17}{subsubsection.7.1.2.6}%
-\contentsline {subsubsection}{\numberline {7.1.2.7}onRequestPermissionsResult()}{17}{subsubsection.7.1.2.7}%
-\contentsline {subsubsection}{\numberline {7.1.2.8}procesarBeacon()}{18}{subsubsection.7.1.2.8}%
-\contentsline {section}{\numberline {7.2}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Retrofit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client}{18}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Descripción detallada}{19}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Documentación de funciones miembro}{19}{subsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.2.1}getClient()}{19}{subsubsection.7.2.2.1}%
-\contentsline {section}{\numberline {7.3}Referencia de la interface com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Api}{20}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Descripción detallada}{20}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Documentación de funciones miembro}{21}{subsection.7.3.2}%
-\contentsline {subsubsection}{\numberline {7.3.2.1}checkConnection()}{21}{subsubsection.7.3.2.1}%
-\contentsline {subsubsection}{\numberline {7.3.2.2}createSensorData()}{21}{subsubsection.7.3.2.2}%
-\contentsline {subsubsection}{\numberline {7.3.2.3}createUser()}{21}{subsubsection.7.3.2.3}%
-\contentsline {subsubsection}{\numberline {7.3.2.4}deleteUser()}{21}{subsubsection.7.3.2.4}%
-\contentsline {subsubsection}{\numberline {7.3.2.5}resetTables()}{22}{subsubsection.7.3.2.5}%
-\contentsline {subsubsection}{\numberline {7.3.2.6}setupTables()}{22}{subsubsection.7.3.2.6}%
-\contentsline {section}{\numberline {7.4}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{23}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Descripción detallada}{23}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Documentación de constructores y destructores}{24}{subsection.7.4.2}%
-\contentsline {subsubsection}{\numberline {7.4.2.1}SensorData()}{24}{subsubsection.7.4.2.1}%
-\contentsline {subsection}{\numberline {7.4.3}Documentación de funciones miembro}{24}{subsection.7.4.3}%
-\contentsline {subsubsection}{\numberline {7.4.3.1}getTimestamp()}{24}{subsubsection.7.4.3.1}%
-\contentsline {subsubsection}{\numberline {7.4.3.2}getType()}{24}{subsubsection.7.4.3.2}%
-\contentsline {subsubsection}{\numberline {7.4.3.3}getUserId()}{24}{subsubsection.7.4.3.3}%
-\contentsline {subsubsection}{\numberline {7.4.3.4}getValue()}{24}{subsubsection.7.4.3.4}%
-\contentsline {subsubsection}{\numberline {7.4.3.5}setTimestamp()}{24}{subsubsection.7.4.3.5}%
-\contentsline {subsubsection}{\numberline {7.4.3.6}setType()}{25}{subsubsection.7.4.3.6}%
-\contentsline {subsubsection}{\numberline {7.4.3.7}setUserId()}{25}{subsubsection.7.4.3.7}%
-\contentsline {subsubsection}{\numberline {7.4.3.8}setValue()}{25}{subsubsection.7.4.3.8}%
-\contentsline {section}{\numberline {7.5}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trama\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IBeacon}{26}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}Descripción detallada}{27}{subsection.7.5.1}%
-\contentsline {subsection}{\numberline {7.5.2}Documentación de constructores y destructores}{27}{subsection.7.5.2}%
-\contentsline {subsubsection}{\numberline {7.5.2.1}TramaIBeacon()}{27}{subsubsection.7.5.2.1}%
-\contentsline {subsection}{\numberline {7.5.3}Documentación de funciones miembro}{27}{subsection.7.5.3}%
-\contentsline {subsubsection}{\numberline {7.5.3.1}getAdvFlags()}{27}{subsubsection.7.5.3.1}%
-\contentsline {subsubsection}{\numberline {7.5.3.2}getAdvHeader()}{27}{subsubsection.7.5.3.2}%
-\contentsline {subsubsection}{\numberline {7.5.3.3}getCompanyID()}{27}{subsubsection.7.5.3.3}%
-\contentsline {subsubsection}{\numberline {7.5.3.4}getiBeaconLength()}{27}{subsubsection.7.5.3.4}%
-\contentsline {subsubsection}{\numberline {7.5.3.5}getiBeaconType()}{27}{subsubsection.7.5.3.5}%
-\contentsline {subsubsection}{\numberline {7.5.3.6}getLosBytes()}{28}{subsubsection.7.5.3.6}%
-\contentsline {subsubsection}{\numberline {7.5.3.7}getMajor()}{28}{subsubsection.7.5.3.7}%
-\contentsline {subsubsection}{\numberline {7.5.3.8}getMinor()}{28}{subsubsection.7.5.3.8}%
-\contentsline {subsubsection}{\numberline {7.5.3.9}getPrefijo()}{28}{subsubsection.7.5.3.9}%
-\contentsline {subsubsection}{\numberline {7.5.3.10}getTxPower()}{28}{subsubsection.7.5.3.10}%
-\contentsline {subsubsection}{\numberline {7.5.3.11}getUUID()}{28}{subsubsection.7.5.3.11}%
-\contentsline {subsubsection}{\numberline {7.5.3.12}setMajor()}{28}{subsubsection.7.5.3.12}%
-\contentsline {subsubsection}{\numberline {7.5.3.13}setMinor()}{28}{subsubsection.7.5.3.13}%
-\contentsline {section}{\numberline {7.6}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User}{29}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Descripción detallada}{29}{subsection.7.6.1}%
-\contentsline {subsection}{\numberline {7.6.2}Documentación de constructores y destructores}{29}{subsection.7.6.2}%
-\contentsline {subsubsection}{\numberline {7.6.2.1}User()}{29}{subsubsection.7.6.2.1}%
-\contentsline {subsection}{\numberline {7.6.3}Documentación de funciones miembro}{30}{subsection.7.6.3}%
-\contentsline {subsubsection}{\numberline {7.6.3.1}getUsername()}{30}{subsubsection.7.6.3.1}%
-\contentsline {subsubsection}{\numberline {7.6.3.2}setUsername()}{30}{subsubsection.7.6.3.2}%
-\contentsline {section}{\numberline {7.7}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utilidades}{30}{section.7.7}%
-\contentsline {subsection}{\numberline {7.7.1}Descripción detallada}{31}{subsection.7.7.1}%
-\contentsline {subsection}{\numberline {7.7.2}Documentación de funciones miembro}{31}{subsection.7.7.2}%
-\contentsline {subsubsection}{\numberline {7.7.2.1}bytesToHexString()}{31}{subsubsection.7.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.7.2.2}bytesToInt()}{32}{subsubsection.7.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.7.2.3}bytesToIntOK()}{32}{subsubsection.7.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.7.2.4}bytesToLong()}{32}{subsubsection.7.7.2.4}%
-\contentsline {subsubsection}{\numberline {7.7.2.5}bytesToString()}{33}{subsubsection.7.7.2.5}%
-\contentsline {subsubsection}{\numberline {7.7.2.6}dosLongToBytes()}{33}{subsubsection.7.7.2.6}%
-\contentsline {subsubsection}{\numberline {7.7.2.7}stringToBytes()}{34}{subsubsection.7.7.2.7}%
-\contentsline {subsubsection}{\numberline {7.7.2.8}stringToUUID()}{34}{subsubsection.7.7.2.8}%
-\contentsline {subsubsection}{\numberline {7.7.2.9}uuidToHexString()}{35}{subsubsection.7.7.2.9}%
-\contentsline {subsubsection}{\numberline {7.7.2.10}uuidToString()}{36}{subsubsection.7.7.2.10}%
-\contentsline {chapter}{\numberline {8}Documentación de archivos}{37}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{37}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Retrofit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client.java}{38}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Api.java}{38}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.java}{39}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trama\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IBeacon.java}{40}{section.8.5}%
-\contentsline {section}{\numberline {8.6}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User.java}{40}{section.8.6}%
-\contentsline {section}{\numberline {8.7}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utilidades.java}{41}{section.8.7}%
-\contentsline {section}{\numberline {8.8}Referencia del archivo README.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md}{41}{section.8.8}%
-\contentsline {chapter}{\'{I}ndice alfab\'{e}tico}{43}{section*.50}%
+\contentsline {section}{\numberline {7.1}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Acerca\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}De\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{13}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Descripción detallada}{14}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Documentación de funciones miembro}{14}{subsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.2.1}onCreate()}{14}{subsubsection.7.1.2.1}%
+\contentsline {section}{\numberline {7.2}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ajuste}{15}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Descripción detallada}{15}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Documentación de constructores y destructores}{15}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}Ajuste()}{15}{subsubsection.7.2.2.1}%
+\contentsline {subsection}{\numberline {7.2.3}Documentación de funciones miembro}{16}{subsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.3.1}getImagen()}{16}{subsubsection.7.2.3.1}%
+\contentsline {subsubsection}{\numberline {7.2.3.2}getTexto()}{16}{subsubsection.7.2.3.2}%
+\contentsline {section}{\numberline {7.3}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ajustes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter}{17}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Descripción detallada}{18}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Documentación de constructores y destructores}{19}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}AjustesAdapter()}{19}{subsubsection.7.3.2.1}%
+\contentsline {subsection}{\numberline {7.3.3}Documentación de funciones miembro}{19}{subsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.3.1}getItemCount()}{19}{subsubsection.7.3.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.3.2}onBindViewHolder()}{19}{subsubsection.7.3.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3.3}onCreateViewHolder()}{20}{subsubsection.7.3.3.3}%
+\contentsline {section}{\numberline {7.4}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alert\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{21}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Descripción detallada}{22}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Documentación de funciones miembro}{23}{subsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.2.1}onCreate()}{23}{subsubsection.7.4.2.1}%
+\contentsline {subsubsection}{\numberline {7.4.2.2}onCreateOptionsMenu()}{23}{subsubsection.7.4.2.2}%
+\contentsline {subsubsection}{\numberline {7.4.2.3}onDestroy()}{23}{subsubsection.7.4.2.3}%
+\contentsline {subsubsection}{\numberline {7.4.2.4}onEliminarAlerta()}{23}{subsubsection.7.4.2.4}%
+\contentsline {subsubsection}{\numberline {7.4.2.5}onOptionsItemSelected()}{23}{subsubsection.7.4.2.5}%
+\contentsline {section}{\numberline {7.5}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alerta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{24}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Descripción detallada}{25}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Documentación de funciones miembro}{25}{subsection.7.5.2}%
+\contentsline {subsubsection}{\numberline {7.5.2.1}getCodigo()}{25}{subsubsection.7.5.2.1}%
+\contentsline {subsubsection}{\numberline {7.5.2.2}getId()}{25}{subsubsection.7.5.2.2}%
+\contentsline {subsubsection}{\numberline {7.5.2.3}getLocation()}{26}{subsubsection.7.5.2.3}%
+\contentsline {subsubsection}{\numberline {7.5.2.4}getTimestamp()}{26}{subsubsection.7.5.2.4}%
+\contentsline {subsubsection}{\numberline {7.5.2.5}setCodigo()}{26}{subsubsection.7.5.2.5}%
+\contentsline {subsubsection}{\numberline {7.5.2.6}setId()}{26}{subsubsection.7.5.2.6}%
+\contentsline {subsubsection}{\numberline {7.5.2.7}setLocation()}{26}{subsubsection.7.5.2.7}%
+\contentsline {subsubsection}{\numberline {7.5.2.8}setTimestamp()}{27}{subsubsection.7.5.2.8}%
+\contentsline {section}{\numberline {7.6}Referencia de la enumeración com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alertas}{28}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Documentación de constructores y destructores}{30}{subsection.7.6.1}%
+\contentsline {subsubsection}{\numberline {7.6.1.1}Alertas()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{30}{subsubsection.7.6.1.1}%
+\contentsline {subsubsection}{\numberline {7.6.1.2}Alertas()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{30}{subsubsection.7.6.1.2}%
+\contentsline {subsection}{\numberline {7.6.2}Documentación de funciones miembro}{30}{subsection.7.6.2}%
+\contentsline {subsubsection}{\numberline {7.6.2.1}describeContents()}{30}{subsubsection.7.6.2.1}%
+\contentsline {subsubsection}{\numberline {7.6.2.2}getCodigo()}{31}{subsubsection.7.6.2.2}%
+\contentsline {subsubsection}{\numberline {7.6.2.3}getMensaje()}{31}{subsubsection.7.6.2.3}%
+\contentsline {subsubsection}{\numberline {7.6.2.4}writeToParcel()}{31}{subsubsection.7.6.2.4}%
+\contentsline {subsection}{\numberline {7.6.3}Documentación de datos miembro}{32}{subsection.7.6.3}%
+\contentsline {subsubsection}{\numberline {7.6.3.1}BEACON\_NO\_ENVIANDO}{32}{subsubsection.7.6.3.1}%
+\contentsline {subsubsection}{\numberline {7.6.3.2}CREATOR}{32}{subsubsection.7.6.3.2}%
+\contentsline {subsubsection}{\numberline {7.6.3.3}OZONO\_ALTO}{32}{subsubsection.7.6.3.3}%
+\contentsline {subsubsection}{\numberline {7.6.3.4}OZONO\_BAJO}{32}{subsubsection.7.6.3.4}%
+\contentsline {subsubsection}{\numberline {7.6.3.5}TEMPERATURA\_ALTA}{32}{subsubsection.7.6.3.5}%
+\contentsline {subsubsection}{\numberline {7.6.3.6}TEMPERATURA\_BAJA}{32}{subsubsection.7.6.3.6}%
+\contentsline {section}{\numberline {7.7}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alertas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter}{33}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Descripción detallada}{34}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}Documentación de constructores y destructores}{35}{subsection.7.7.2}%
+\contentsline {subsubsection}{\numberline {7.7.2.1}AlertasAdapter()}{35}{subsubsection.7.7.2.1}%
+\contentsline {subsection}{\numberline {7.7.3}Documentación de funciones miembro}{35}{subsection.7.7.3}%
+\contentsline {subsubsection}{\numberline {7.7.3.1}getItemCount()}{35}{subsubsection.7.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.7.3.2}onBindViewHolder()}{35}{subsubsection.7.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.7.3.3}onCreateViewHolder()}{36}{subsubsection.7.7.3.3}%
+\contentsline {section}{\numberline {7.8}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BLEService}{36}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Descripción detallada}{37}{subsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.8.2}Documentación de funciones miembro}{37}{subsection.7.8.2}%
+\contentsline {subsubsection}{\numberline {7.8.2.1}onBind()}{37}{subsubsection.7.8.2.1}%
+\contentsline {subsubsection}{\numberline {7.8.2.2}onCreate()}{38}{subsubsection.7.8.2.2}%
+\contentsline {subsubsection}{\numberline {7.8.2.3}onDestroy()}{38}{subsubsection.7.8.2.3}%
+\contentsline {subsubsection}{\numberline {7.8.2.4}onStartCommand()}{38}{subsubsection.7.8.2.4}%
+\contentsline {subsubsection}{\numberline {7.8.2.5}recibirDatosDeSensor()}{39}{subsubsection.7.8.2.5}%
+\contentsline {section}{\numberline {7.9}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config}{40}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Descripción detallada}{40}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.9.2}Documentación de datos miembro}{40}{subsection.7.9.2}%
+\contentsline {subsubsection}{\numberline {7.9.2.1}BASE\_URL}{40}{subsubsection.7.9.2.1}%
+\contentsline {subsubsection}{\numberline {7.9.2.2}UUIDs}{41}{subsubsection.7.9.2.2}%
+\contentsline {section}{\numberline {7.10}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Landing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Page\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{41}{section.7.10}%
+\contentsline {subsection}{\numberline {7.10.1}Documentación de funciones miembro}{43}{subsection.7.10.1}%
+\contentsline {subsubsection}{\numberline {7.10.1.1}accederAnonimo()}{43}{subsubsection.7.10.1.1}%
+\contentsline {subsubsection}{\numberline {7.10.1.2}actualizarIP()}{43}{subsubsection.7.10.1.2}%
+\contentsline {subsubsection}{\numberline {7.10.1.3}lanzarLogin()}{43}{subsubsection.7.10.1.3}%
+\contentsline {subsubsection}{\numberline {7.10.1.4}lanzarRegister()}{44}{subsubsection.7.10.1.4}%
+\contentsline {subsubsection}{\numberline {7.10.1.5}onCreate()}{44}{subsubsection.7.10.1.5}%
+\contentsline {section}{\numberline {7.11}Referencia de la interface com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Logica\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fake}{44}{section.7.11}%
+\contentsline {subsection}{\numberline {7.11.1}Descripción detallada}{46}{subsection.7.11.1}%
+\contentsline {subsection}{\numberline {7.11.2}Documentación de funciones miembro}{46}{subsection.7.11.2}%
+\contentsline {subsubsection}{\numberline {7.11.2.1}autenticarUsuario()}{46}{subsubsection.7.11.2.1}%
+\contentsline {subsubsection}{\numberline {7.11.2.2}checkConnection()}{46}{subsubsection.7.11.2.2}%
+\contentsline {subsubsection}{\numberline {7.11.2.3}createSensor()}{46}{subsubsection.7.11.2.3}%
+\contentsline {subsubsection}{\numberline {7.11.2.4}createSensorData()}{47}{subsubsection.7.11.2.4}%
+\contentsline {subsubsection}{\numberline {7.11.2.5}createUserData()}{47}{subsubsection.7.11.2.5}%
+\contentsline {subsubsection}{\numberline {7.11.2.6}deleteAlert()}{47}{subsubsection.7.11.2.6}%
+\contentsline {subsubsection}{\numberline {7.11.2.7}getUserAlerts()}{48}{subsubsection.7.11.2.7}%
+\contentsline {subsubsection}{\numberline {7.11.2.8}getUserData()}{48}{subsubsection.7.11.2.8}%
+\contentsline {subsubsection}{\numberline {7.11.2.9}getUserSensors()}{48}{subsubsection.7.11.2.9}%
+\contentsline {subsubsection}{\numberline {7.11.2.10}medicionesbbdd()}{49}{subsubsection.7.11.2.10}%
+\contentsline {subsubsection}{\numberline {7.11.2.11}updateUser()}{49}{subsubsection.7.11.2.11}%
+\contentsline {subsubsection}{\numberline {7.11.2.12}verifyPassword()}{49}{subsubsection.7.11.2.12}%
+\contentsline {section}{\numberline {7.12}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Login\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{50}{section.7.12}%
+\contentsline {subsection}{\numberline {7.12.1}Descripción detallada}{51}{subsection.7.12.1}%
+\contentsline {subsection}{\numberline {7.12.2}Documentación de funciones miembro}{51}{subsection.7.12.2}%
+\contentsline {subsubsection}{\numberline {7.12.2.1}onCreate()}{51}{subsubsection.7.12.2.1}%
+\contentsline {section}{\numberline {7.13}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{52}{section.7.13}%
+\contentsline {subsection}{\numberline {7.13.1}Descripción detallada}{54}{subsection.7.13.1}%
+\contentsline {subsection}{\numberline {7.13.2}Documentación de funciones miembro}{54}{subsection.7.13.2}%
+\contentsline {subsubsection}{\numberline {7.13.2.1}initializeApp()}{54}{subsubsection.7.13.2.1}%
+\contentsline {subsubsection}{\numberline {7.13.2.2}onCreate()}{54}{subsubsection.7.13.2.2}%
+\contentsline {subsubsection}{\numberline {7.13.2.3}onRequestPermissionsResult()}{55}{subsubsection.7.13.2.3}%
+\contentsline {subsection}{\numberline {7.13.3}Documentación de datos miembro}{55}{subsection.7.13.3}%
+\contentsline {subsubsection}{\numberline {7.13.3.1}beaconTemperaturaActivo}{55}{subsubsection.7.13.3.1}%
+\contentsline {subsubsection}{\numberline {7.13.3.2}dato1}{55}{subsubsection.7.13.3.2}%
+\contentsline {subsubsection}{\numberline {7.13.3.3}dato2}{55}{subsubsection.7.13.3.3}%
+\contentsline {section}{\numberline {7.14}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pager\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter}{56}{section.7.14}%
+\contentsline {subsection}{\numberline {7.14.1}Descripción detallada}{57}{subsection.7.14.1}%
+\contentsline {subsection}{\numberline {7.14.2}Documentación de constructores y destructores}{57}{subsection.7.14.2}%
+\contentsline {subsubsection}{\numberline {7.14.2.1}MiPagerAdapter()}{57}{subsubsection.7.14.2.1}%
+\contentsline {subsection}{\numberline {7.14.3}Documentación de funciones miembro}{57}{subsection.7.14.3}%
+\contentsline {subsubsection}{\numberline {7.14.3.1}createFragment()}{57}{subsubsection.7.14.3.1}%
+\contentsline {subsubsection}{\numberline {7.14.3.2}getItemCount()}{58}{subsubsection.7.14.3.2}%
+\contentsline {section}{\numberline {7.15}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Notification\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Receiver}{58}{section.7.15}%
+\contentsline {subsection}{\numberline {7.15.1}Descripción detallada}{59}{subsection.7.15.1}%
+\contentsline {subsection}{\numberline {7.15.2}Documentación de funciones miembro}{59}{subsection.7.15.2}%
+\contentsline {subsubsection}{\numberline {7.15.2.1}onReceive()}{59}{subsubsection.7.15.2.1}%
+\contentsline {section}{\numberline {7.16}Referencia de la interface com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alertas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}On\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alertas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener}{60}{section.7.16}%
+\contentsline {subsection}{\numberline {7.16.1}Descripción detallada}{61}{subsection.7.16.1}%
+\contentsline {subsection}{\numberline {7.16.2}Documentación de funciones miembro}{61}{subsection.7.16.2}%
+\contentsline {subsubsection}{\numberline {7.16.2.1}onEliminarAlerta()}{61}{subsubsection.7.16.2.1}%
+\contentsline {section}{\numberline {7.17}Referencia de la interface com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ajustes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}On\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Click\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener}{62}{section.7.17}%
+\contentsline {subsection}{\numberline {7.17.1}Descripción detallada}{62}{subsection.7.17.1}%
+\contentsline {subsection}{\numberline {7.17.2}Documentación de funciones miembro}{62}{subsection.7.17.2}%
+\contentsline {subsubsection}{\numberline {7.17.2.1}onItemClick()}{62}{subsubsection.7.17.2.1}%
+\contentsline {section}{\numberline {7.18}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Privacidad}{63}{section.7.18}%
+\contentsline {subsection}{\numberline {7.18.1}Descripción detallada}{64}{subsection.7.18.1}%
+\contentsline {subsection}{\numberline {7.18.2}Documentación de funciones miembro}{64}{subsection.7.18.2}%
+\contentsline {subsubsection}{\numberline {7.18.2.1}onCreate()}{64}{subsubsection.7.18.2.1}%
+\contentsline {section}{\numberline {7.19}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Register\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{65}{section.7.19}%
+\contentsline {subsection}{\numberline {7.19.1}Descripción detallada}{66}{subsection.7.19.1}%
+\contentsline {subsection}{\numberline {7.19.2}Documentación de funciones miembro}{66}{subsection.7.19.2}%
+\contentsline {subsubsection}{\numberline {7.19.2.1}onCreate()}{66}{subsubsection.7.19.2.1}%
+\contentsline {subsubsection}{\numberline {7.19.2.2}privacidad()}{66}{subsubsection.7.19.2.2}%
+\contentsline {section}{\numberline {7.20}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Retrofit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client}{67}{section.7.20}%
+\contentsline {subsection}{\numberline {7.20.1}Descripción detallada}{67}{subsection.7.20.1}%
+\contentsline {subsection}{\numberline {7.20.2}Documentación de funciones miembro}{67}{subsection.7.20.2}%
+\contentsline {subsubsection}{\numberline {7.20.2.1}getClient()}{67}{subsubsection.7.20.2.1}%
+\contentsline {section}{\numberline {7.21}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor}{68}{section.7.21}%
+\contentsline {subsection}{\numberline {7.21.1}Descripción detallada}{69}{subsection.7.21.1}%
+\contentsline {subsection}{\numberline {7.21.2}Documentación de constructores y destructores}{69}{subsection.7.21.2}%
+\contentsline {subsubsection}{\numberline {7.21.2.1}Sensor()}{69}{subsubsection.7.21.2.1}%
+\contentsline {subsection}{\numberline {7.21.3}Documentación de funciones miembro}{69}{subsection.7.21.3}%
+\contentsline {subsubsection}{\numberline {7.21.3.1}getemail()}{69}{subsubsection.7.21.3.1}%
+\contentsline {subsubsection}{\numberline {7.21.3.2}getUuid()}{70}{subsubsection.7.21.3.2}%
+\contentsline {subsubsection}{\numberline {7.21.3.3}setemail()}{70}{subsubsection.7.21.3.3}%
+\contentsline {subsubsection}{\numberline {7.21.3.4}setUuid()}{70}{subsubsection.7.21.3.4}%
+\contentsline {section}{\numberline {7.22}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter}{71}{section.7.22}%
+\contentsline {subsection}{\numberline {7.22.1}Descripción detallada}{72}{subsection.7.22.1}%
+\contentsline {subsection}{\numberline {7.22.2}Documentación de constructores y destructores}{73}{subsection.7.22.2}%
+\contentsline {subsubsection}{\numberline {7.22.2.1}SensorAdapter()}{73}{subsubsection.7.22.2.1}%
+\contentsline {subsection}{\numberline {7.22.3}Documentación de funciones miembro}{73}{subsection.7.22.3}%
+\contentsline {subsubsection}{\numberline {7.22.3.1}getItemCount()}{73}{subsubsection.7.22.3.1}%
+\contentsline {subsubsection}{\numberline {7.22.3.2}onBindViewHolder()}{73}{subsubsection.7.22.3.2}%
+\contentsline {subsubsection}{\numberline {7.22.3.3}onCreateViewHolder()}{73}{subsubsection.7.22.3.3}%
+\contentsline {section}{\numberline {7.23}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{74}{section.7.23}%
+\contentsline {subsection}{\numberline {7.23.1}Descripción detallada}{75}{subsection.7.23.1}%
+\contentsline {subsection}{\numberline {7.23.2}Documentación de constructores y destructores}{75}{subsection.7.23.2}%
+\contentsline {subsubsection}{\numberline {7.23.2.1}SensorData()}{75}{subsubsection.7.23.2.1}%
+\contentsline {subsection}{\numberline {7.23.3}Documentación de funciones miembro}{76}{subsection.7.23.3}%
+\contentsline {subsubsection}{\numberline {7.23.3.1}getLatitude()}{76}{subsubsection.7.23.3.1}%
+\contentsline {subsubsection}{\numberline {7.23.3.2}getLocation()}{76}{subsubsection.7.23.3.2}%
+\contentsline {subsubsection}{\numberline {7.23.3.3}getLongitude()}{76}{subsubsection.7.23.3.3}%
+\contentsline {subsubsection}{\numberline {7.23.3.4}getSensorId()}{76}{subsubsection.7.23.3.4}%
+\contentsline {subsubsection}{\numberline {7.23.3.5}getTimestamp()}{76}{subsubsection.7.23.3.5}%
+\contentsline {subsubsection}{\numberline {7.23.3.6}getTipo()}{77}{subsubsection.7.23.3.6}%
+\contentsline {subsubsection}{\numberline {7.23.3.7}getValor()}{77}{subsubsection.7.23.3.7}%
+\contentsline {section}{\numberline {7.24}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Splash\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity}{77}{section.7.24}%
+\contentsline {subsection}{\numberline {7.24.1}Documentación de funciones miembro}{78}{subsection.7.24.1}%
+\contentsline {subsubsection}{\numberline {7.24.1.1}onCreate()}{78}{subsubsection.7.24.1.1}%
+\contentsline {subsubsection}{\numberline {7.24.1.2}onPause()}{78}{subsubsection.7.24.1.2}%
+\contentsline {subsubsection}{\numberline {7.24.1.3}onResume()}{79}{subsubsection.7.24.1.3}%
+\contentsline {section}{\numberline {7.25}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab1}{79}{section.7.25}%
+\contentsline {subsection}{\numberline {7.25.1}Descripción detallada}{80}{subsection.7.25.1}%
+\contentsline {subsection}{\numberline {7.25.2}Documentación de funciones miembro}{80}{subsection.7.25.2}%
+\contentsline {subsubsection}{\numberline {7.25.2.1}onCreateView()}{80}{subsubsection.7.25.2.1}%
+\contentsline {subsubsection}{\numberline {7.25.2.2}onMapReady()}{81}{subsubsection.7.25.2.2}%
+\contentsline {subsubsection}{\numberline {7.25.2.3}onViewCreated()}{81}{subsubsection.7.25.2.3}%
+\contentsline {section}{\numberline {7.26}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab3}{82}{section.7.26}%
+\contentsline {subsection}{\numberline {7.26.1}Descripción detallada}{83}{subsection.7.26.1}%
+\contentsline {subsection}{\numberline {7.26.2}Documentación de funciones miembro}{84}{subsection.7.26.2}%
+\contentsline {subsubsection}{\numberline {7.26.2.1}onActivityResult()}{84}{subsubsection.7.26.2.1}%
+\contentsline {subsubsection}{\numberline {7.26.2.2}onCreateView()}{84}{subsubsection.7.26.2.2}%
+\contentsline {subsubsection}{\numberline {7.26.2.3}onRequestPermissionsResult()}{85}{subsubsection.7.26.2.3}%
+\contentsline {subsubsection}{\numberline {7.26.2.4}procesarBeacon()}{85}{subsubsection.7.26.2.4}%
+\contentsline {section}{\numberline {7.27}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab4}{86}{section.7.27}%
+\contentsline {subsection}{\numberline {7.27.1}Descripción detallada}{87}{subsection.7.27.1}%
+\contentsline {subsection}{\numberline {7.27.2}Documentación de funciones miembro}{87}{subsection.7.27.2}%
+\contentsline {subsubsection}{\numberline {7.27.2.1}onCreateView()}{87}{subsubsection.7.27.2.1}%
+\contentsline {section}{\numberline {7.28}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Timer}{87}{section.7.28}%
+\contentsline {subsection}{\numberline {7.28.1}Descripción detallada}{88}{subsection.7.28.1}%
+\contentsline {subsection}{\numberline {7.28.2}Documentación de constructores y destructores}{88}{subsection.7.28.2}%
+\contentsline {subsubsection}{\numberline {7.28.2.1}Timer()}{88}{subsubsection.7.28.2.1}%
+\contentsline {subsection}{\numberline {7.28.3}Documentación de funciones miembro}{88}{subsection.7.28.3}%
+\contentsline {subsubsection}{\numberline {7.28.3.1}start()}{88}{subsubsection.7.28.3.1}%
+\contentsline {subsubsection}{\numberline {7.28.3.2}stop()}{89}{subsubsection.7.28.3.2}%
+\contentsline {section}{\numberline {7.29}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trama\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IBeacon}{89}{section.7.29}%
+\contentsline {subsection}{\numberline {7.29.1}Descripción detallada}{91}{subsection.7.29.1}%
+\contentsline {subsection}{\numberline {7.29.2}Documentación de constructores y destructores}{91}{subsection.7.29.2}%
+\contentsline {subsubsection}{\numberline {7.29.2.1}TramaIBeacon()}{91}{subsubsection.7.29.2.1}%
+\contentsline {subsection}{\numberline {7.29.3}Documentación de funciones miembro}{91}{subsection.7.29.3}%
+\contentsline {subsubsection}{\numberline {7.29.3.1}getAdvFlags()}{91}{subsubsection.7.29.3.1}%
+\contentsline {subsubsection}{\numberline {7.29.3.2}getAdvHeader()}{92}{subsubsection.7.29.3.2}%
+\contentsline {subsubsection}{\numberline {7.29.3.3}getCompanyID()}{92}{subsubsection.7.29.3.3}%
+\contentsline {subsubsection}{\numberline {7.29.3.4}getiBeaconLength()}{92}{subsubsection.7.29.3.4}%
+\contentsline {subsubsection}{\numberline {7.29.3.5}getiBeaconType()}{92}{subsubsection.7.29.3.5}%
+\contentsline {subsubsection}{\numberline {7.29.3.6}getLosBytes()}{92}{subsubsection.7.29.3.6}%
+\contentsline {subsubsection}{\numberline {7.29.3.7}getMajor()}{93}{subsubsection.7.29.3.7}%
+\contentsline {subsubsection}{\numberline {7.29.3.8}getMinor()}{93}{subsubsection.7.29.3.8}%
+\contentsline {subsubsection}{\numberline {7.29.3.9}getPrefijo()}{93}{subsubsection.7.29.3.9}%
+\contentsline {subsubsection}{\numberline {7.29.3.10}getTxPower()}{93}{subsubsection.7.29.3.10}%
+\contentsline {subsubsection}{\numberline {7.29.3.11}getUUID()}{93}{subsubsection.7.29.3.11}%
+\contentsline {subsubsection}{\numberline {7.29.3.12}setMajor()}{93}{subsubsection.7.29.3.12}%
+\contentsline {subsubsection}{\numberline {7.29.3.13}setMinor()}{94}{subsubsection.7.29.3.13}%
+\contentsline {section}{\numberline {7.30}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User}{94}{section.7.30}%
+\contentsline {subsection}{\numberline {7.30.1}Descripción detallada}{95}{subsection.7.30.1}%
+\contentsline {subsection}{\numberline {7.30.2}Documentación de constructores y destructores}{95}{subsection.7.30.2}%
+\contentsline {subsubsection}{\numberline {7.30.2.1}User()}{95}{subsubsection.7.30.2.1}%
+\contentsline {subsection}{\numberline {7.30.3}Documentación de funciones miembro}{96}{subsection.7.30.3}%
+\contentsline {subsubsection}{\numberline {7.30.3.1}getEmail()}{96}{subsubsection.7.30.3.1}%
+\contentsline {subsubsection}{\numberline {7.30.3.2}getUsername()}{96}{subsubsection.7.30.3.2}%
+\contentsline {subsubsection}{\numberline {7.30.3.3}isVerified()}{96}{subsubsection.7.30.3.3}%
+\contentsline {subsubsection}{\numberline {7.30.3.4}setEmail()}{96}{subsubsection.7.30.3.4}%
+\contentsline {subsubsection}{\numberline {7.30.3.5}setUsername()}{96}{subsubsection.7.30.3.5}%
+\contentsline {subsubsection}{\numberline {7.30.3.6}setVerified()}{97}{subsubsection.7.30.3.6}%
+\contentsline {subsubsection}{\numberline {7.30.3.7}toString()}{97}{subsubsection.7.30.3.7}%
+\contentsline {section}{\numberline {7.31}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config}{97}{section.7.31}%
+\contentsline {subsection}{\numberline {7.31.1}Descripción detallada}{98}{subsection.7.31.1}%
+\contentsline {subsection}{\numberline {7.31.2}Documentación de funciones miembro}{98}{subsection.7.31.2}%
+\contentsline {subsubsection}{\numberline {7.31.2.1}onCreate()}{98}{subsubsection.7.31.2.1}%
+\contentsline {subsubsection}{\numberline {7.31.2.2}onOptionsItemSelected()}{98}{subsubsection.7.31.2.2}%
+\contentsline {section}{\numberline {7.32}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{99}{section.7.32}%
+\contentsline {subsection}{\numberline {7.32.1}Descripción detallada}{100}{subsection.7.32.1}%
+\contentsline {subsection}{\numberline {7.32.2}Documentación de constructores y destructores}{100}{subsection.7.32.2}%
+\contentsline {subsubsection}{\numberline {7.32.2.1}UserData()}{100}{subsubsection.7.32.2.1}%
+\contentsline {subsection}{\numberline {7.32.3}Documentación de funciones miembro}{100}{subsection.7.32.3}%
+\contentsline {subsubsection}{\numberline {7.32.3.1}getEmail()}{100}{subsubsection.7.32.3.1}%
+\contentsline {subsubsection}{\numberline {7.32.3.2}getPassword()}{101}{subsubsection.7.32.3.2}%
+\contentsline {subsubsection}{\numberline {7.32.3.3}getusername()}{101}{subsubsection.7.32.3.3}%
+\contentsline {subsubsection}{\numberline {7.32.3.4}setEmail()}{101}{subsubsection.7.32.3.4}%
+\contentsline {subsubsection}{\numberline {7.32.3.5}setPassword()}{101}{subsubsection.7.32.3.5}%
+\contentsline {subsubsection}{\numberline {7.32.3.6}setusername()}{101}{subsubsection.7.32.3.6}%
+\contentsline {subsubsection}{\numberline {7.32.3.7}toString()}{102}{subsubsection.7.32.3.7}%
+\contentsline {section}{\numberline {7.33}Referencia de la clase com.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}example.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proyecto3a.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utilidades}{102}{section.7.33}%
+\contentsline {subsection}{\numberline {7.33.1}Descripción detallada}{103}{subsection.7.33.1}%
+\contentsline {subsection}{\numberline {7.33.2}Documentación de funciones miembro}{103}{subsection.7.33.2}%
+\contentsline {subsubsection}{\numberline {7.33.2.1}bytesToHexString()}{103}{subsubsection.7.33.2.1}%
+\contentsline {subsubsection}{\numberline {7.33.2.2}bytesToInt()}{104}{subsubsection.7.33.2.2}%
+\contentsline {subsubsection}{\numberline {7.33.2.3}bytesToIntOK()}{104}{subsubsection.7.33.2.3}%
+\contentsline {subsubsection}{\numberline {7.33.2.4}bytesToLong()}{104}{subsubsection.7.33.2.4}%
+\contentsline {subsubsection}{\numberline {7.33.2.5}bytesToString()}{105}{subsubsection.7.33.2.5}%
+\contentsline {subsubsection}{\numberline {7.33.2.6}dosLongToBytes()}{105}{subsubsection.7.33.2.6}%
+\contentsline {subsubsection}{\numberline {7.33.2.7}stringToBytes()}{106}{subsubsection.7.33.2.7}%
+\contentsline {subsubsection}{\numberline {7.33.2.8}stringToUUID()}{106}{subsubsection.7.33.2.8}%
+\contentsline {subsubsection}{\numberline {7.33.2.9}uuidToHexString()}{107}{subsubsection.7.33.2.9}%
+\contentsline {subsubsection}{\numberline {7.33.2.10}uuidToString()}{108}{subsubsection.7.33.2.10}%
+\contentsline {chapter}{\numberline {8}Documentación de archivos}{109}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Acerca\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}De\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{109}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Descripción detallada}{110}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ajuste.java}{110}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Descripción detallada}{110}{subsection.8.2.1}%
+\contentsline {section}{\numberline {8.3}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ajustes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter.java}{110}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Descripción detallada}{111}{subsection.8.3.1}%
+\contentsline {section}{\numberline {8.4}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alert\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{111}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Descripción detallada}{112}{subsection.8.4.1}%
+\contentsline {section}{\numberline {8.5}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alerta\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.java}{112}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Descripción detallada}{112}{subsection.8.5.1}%
+\contentsline {section}{\numberline {8.6}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alertas.java}{113}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}Descripción detallada}{113}{subsection.8.6.1}%
+\contentsline {section}{\numberline {8.7}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alertas\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter.java}{113}{section.8.7}%
+\contentsline {subsection}{\numberline {8.7.1}Descripción detallada}{114}{subsection.8.7.1}%
+\contentsline {section}{\numberline {8.8}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BLEService.java}{114}{section.8.8}%
+\contentsline {subsection}{\numberline {8.8.1}Descripción detallada}{115}{subsection.8.8.1}%
+\contentsline {section}{\numberline {8.9}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config.java}{115}{section.8.9}%
+\contentsline {subsection}{\numberline {8.9.1}Descripción detallada}{116}{subsection.8.9.1}%
+\contentsline {section}{\numberline {8.10}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Landing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Page\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{116}{section.8.10}%
+\contentsline {section}{\numberline {8.11}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Logica\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fake.java}{117}{section.8.11}%
+\contentsline {section}{\numberline {8.12}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Login\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{118}{section.8.12}%
+\contentsline {subsection}{\numberline {8.12.1}Descripción detallada}{118}{subsection.8.12.1}%
+\contentsline {section}{\numberline {8.13}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{119}{section.8.13}%
+\contentsline {section}{\numberline {8.14}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Notification\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Receiver.java}{119}{section.8.14}%
+\contentsline {section}{\numberline {8.15}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Privacidad.java}{120}{section.8.15}%
+\contentsline {subsection}{\numberline {8.15.1}Descripción detallada}{121}{subsection.8.15.1}%
+\contentsline {section}{\numberline {8.16}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Register\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{121}{section.8.16}%
+\contentsline {subsection}{\numberline {8.16.1}Descripción detallada}{122}{subsection.8.16.1}%
+\contentsline {section}{\numberline {8.17}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Retrofit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client.java}{122}{section.8.17}%
+\contentsline {section}{\numberline {8.18}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor.java}{122}{section.8.18}%
+\contentsline {section}{\numberline {8.19}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter.java}{123}{section.8.19}%
+\contentsline {section}{\numberline {8.20}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.java}{124}{section.8.20}%
+\contentsline {section}{\numberline {8.21}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Splash\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Activity.java}{125}{section.8.21}%
+\contentsline {subsection}{\numberline {8.21.1}Descripción detallada}{125}{subsection.8.21.1}%
+\contentsline {section}{\numberline {8.22}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab1.java}{126}{section.8.22}%
+\contentsline {section}{\numberline {8.23}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab3.java}{126}{section.8.23}%
+\contentsline {section}{\numberline {8.24}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tab4.java}{127}{section.8.24}%
+\contentsline {section}{\numberline {8.25}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Timer.java}{128}{section.8.25}%
+\contentsline {section}{\numberline {8.26}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trama\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IBeacon.java}{128}{section.8.26}%
+\contentsline {section}{\numberline {8.27}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User.java}{129}{section.8.27}%
+\contentsline {section}{\numberline {8.28}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config.java}{129}{section.8.28}%
+\contentsline {section}{\numberline {8.29}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data.java}{130}{section.8.29}%
+\contentsline {subsection}{\numberline {8.29.1}Descripción detallada}{130}{subsection.8.29.1}%
+\contentsline {section}{\numberline {8.30}Referencia del archivo app/src/main/java/com/example/usuario\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}upv/proyecto3a/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utilidades.java}{131}{section.8.30}%
+\contentsline {section}{\numberline {8.31}Referencia del archivo README.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md}{131}{section.8.31}%

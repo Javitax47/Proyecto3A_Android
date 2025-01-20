@@ -1,0 +1,152 @@
+\doxysection{Referencia de la clase com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Tab3}
+\hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3}{}\label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3}\index{com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}}
+
+
+Fragmento que representa la tercera pestaña de la aplicación.  
+
+
+
+
+Diagrama de herencia de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Tab3
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración de com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Tab3\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+View \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a346d83a8beb0384a7fafaabfd66e209a}{on\+Create\+View}} (Layout\+Inflater inflater, View\+Group container, Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Método llamado cuando se crea la vista del fragmento. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_acc60bc8698ceedcfc595a7d29da3bf66}{procesar\+Beacon}} (int major, int minor)
+\begin{DoxyCompactList}\small\item\em Procesa la información del beacon detectado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a52e9d8474a456e17f92f3574d61184c3}{on\+Activity\+Result}} (int request\+Code, int result\+Code, Intent data)
+\begin{DoxyCompactList}\small\item\em Maneja el resultado de la actividad de escaneo de códigos QR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a22c2304aff474765959e9bfa9b152e9c}{on\+Request\+Permissions\+Result}} (int request\+Code, @Non\+Null String\mbox{[}$\,$\mbox{]} permissions, @Non\+Null int\mbox{[}$\,$\mbox{]} grant\+Results)
+\begin{DoxyCompactList}\small\item\em Maneja el resultado de las solicitudes de permisos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Fragmento que representa la tercera pestaña de la aplicación. 
+
+Este fragmento se encarga de gestionar la interfaz de usuario y las interacciones relacionadas con los sensores, incluyendo la inicialización de Bluetooth, escaneo de beacons y procesamiento de datos de sensores. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a52e9d8474a456e17f92f3574d61184c3}\index{com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}!onActivityResult@{onActivityResult}}
+\index{onActivityResult@{onActivityResult}!com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}}
+\doxysubsubsection{\texorpdfstring{onActivityResult()}{onActivityResult()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a52e9d8474a456e17f92f3574d61184c3} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Tab3.\+on\+Activity\+Result (\begin{DoxyParamCaption}\item[{int}]{request\+Code}{, }\item[{int}]{result\+Code}{, }\item[{Intent}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Maneja el resultado de la actividad de escaneo de códigos QR. 
+
+Este método es llamado cuando se obtiene el resultado de la actividad de escaneo de códigos QR. Procesa el contenido del código QR escaneado y agrega el sensor correspondiente.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em request\+Code} & El código de solicitud de la actividad. \\
+\hline
+{\em result\+Code} & El código de resultado de la actividad. \\
+\hline
+{\em data} & Los datos de la actividad. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a346d83a8beb0384a7fafaabfd66e209a}\index{com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}!onCreateView@{onCreateView}}
+\index{onCreateView@{onCreateView}!com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}}
+\doxysubsubsection{\texorpdfstring{onCreateView()}{onCreateView()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a346d83a8beb0384a7fafaabfd66e209a} 
+View com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Tab3.\+on\+Create\+View (\begin{DoxyParamCaption}\item[{Layout\+Inflater}]{inflater}{, }\item[{View\+Group}]{container}{, }\item[{Bundle}]{saved\+Instance\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método llamado cuando se crea la vista del fragmento. 
+
+Este método inicializa la vista del fragmento, configurando el layout y asignando las referencias a los elementos de la interfaz de usuario, como los Text\+View, Image\+View, y el botón flotante. También se inicializa el Bluetooth y se recupera el email del usuario.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em inflater} & El Layout\+Inflater utilizado para inflar la vista del fragmento. \\
+\hline
+{\em container} & El contenedor donde se infla la vista del fragmento. \\
+\hline
+{\em saved\+Instance\+State} & Estado previamente guardado del fragmento, si existe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La vista inflada del fragmento. 
+\end{DoxyReturn}
+Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a346d83a8beb0384a7fafaabfd66e209a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a22c2304aff474765959e9bfa9b152e9c}\index{com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}!onRequestPermissionsResult@{onRequestPermissionsResult}}
+\index{onRequestPermissionsResult@{onRequestPermissionsResult}!com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}}
+\doxysubsubsection{\texorpdfstring{onRequestPermissionsResult()}{onRequestPermissionsResult()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_a22c2304aff474765959e9bfa9b152e9c} 
+void com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Tab3.\+on\+Request\+Permissions\+Result (\begin{DoxyParamCaption}\item[{int}]{request\+Code}{, }\item[{@Non\+Null String\mbox{[}$\,$\mbox{]}}]{permissions}{, }\item[{@Non\+Null int\mbox{[}$\,$\mbox{]}}]{grant\+Results}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Maneja el resultado de las solicitudes de permisos. 
+
+Este método es llamado cuando el usuario responde a una solicitud de permisos. Verifica si los permisos solicitados han sido concedidos y registra el resultado.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em request\+Code} & El código de la solicitud de permisos. \\
+\hline
+{\em permissions} & Un arreglo de permisos solicitados. \\
+\hline
+{\em grant\+Results} & Un arreglo de resultados correspondientes a cada permiso. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_acc60bc8698ceedcfc595a7d29da3bf66}\index{com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}!procesarBeacon@{procesarBeacon}}
+\index{procesarBeacon@{procesarBeacon}!com.example.usuario\_upv.proyecto3a.Tab3@{com.example.usuario\_upv.proyecto3a.Tab3}}
+\doxysubsubsection{\texorpdfstring{procesarBeacon()}{procesarBeacon()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3_acc60bc8698ceedcfc595a7d29da3bf66} 
+int com.\+example.\+usuario\+\_\+upv.\+proyecto3a.\+Tab3.\+procesar\+Beacon (\begin{DoxyParamCaption}\item[{int}]{major}{, }\item[{int}]{minor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Procesa la información del beacon detectado. 
+
+Este método determina el tipo de medición a partir del valor \textquotesingle{}major\textquotesingle{} del beacon y registra el valor \textquotesingle{}minor\textquotesingle{}. Los tipos de medición reconocidos son ozono y Temperatura, identificados por sus respectivos códigos.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em major} & El valor \textquotesingle{}major\textquotesingle{} del beacon, que contiene el tipo de medición y un contador. \\
+\hline
+{\em minor} & El valor \textquotesingle{}minor\textquotesingle{} del beacon, que representa el dato medido (por ejemplo, ozono o temperatura). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un entero que representa el tipo de medición\+:
+\begin{DoxyItemize}
+\item 1 si el dato es de ozono
+\item 2 si el dato es de temperatura
+\item 0 si el tipo de dato no es reconocido. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/usuario\+\_\+upv/proyecto3a/\mbox{\hyperlink{_tab3_8java}{Tab3.\+java}}\end{DoxyCompactItemize}

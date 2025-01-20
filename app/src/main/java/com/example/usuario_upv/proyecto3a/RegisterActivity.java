@@ -1,3 +1,9 @@
+/**
+ * @file RegisterActivity.java
+ * @brief Actividad para el registro de usuarios.
+ *
+ * Esta clase representa una actividad que permite a los usuarios registrarse en la aplicación.
+ */
 package com.example.usuario_upv.proyecto3a;
 
 import android.content.Intent;
@@ -28,6 +34,13 @@ import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
 
+/**
+ * @class RegisterActivity
+ * @brief Actividad para el registro de usuarios.
+ *
+ * Esta actividad permite a los usuarios registrarse proporcionando su correo electrónico, nombre y contraseña.
+ * También incluye autenticación biométrica y validación de requisitos de contraseña.
+ */
 public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText editTextEmail, editTextPassword, editTextName;
     private TextView passwordRequirementsTextView;
@@ -41,7 +54,16 @@ public class RegisterActivity extends AppCompatActivity {
 
     boolean isValid = false;
 
-
+    /**
+     * @brief Método llamado cuando se crea la actividad.
+     *
+     * Este método configura la vista de la actividad con el layout correspondiente y
+     * inicializa los componentes necesarios.
+     *
+     * @param savedInstanceState Si la actividad se está re-inicializando después de
+     *        haber sido previamente cerrada, este Bundle contiene los datos más recientes
+     *        suministrados en onSaveInstanceState(Bundle). De lo contrario, está nulo.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
         // HAY QUE ARREGLAR ESTO
         // passwordRequirementsTextView = findViewById(R.id.requirementsRegisterPass);
 
-
-
         // BOTÓN ATRÁS
         View imageBack = findViewById(R.id.imageBack);
         imageBack.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +86,6 @@ public class RegisterActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
 
         // BOTÓN REGISTRO
         TextView botonRegistro = findViewById(R.id.botonRegistro);
@@ -79,7 +97,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         editTextPassword.addTextChangedListener(new TextWatcher() {
             @Override
@@ -93,7 +110,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {}
         });
-
 
         // Inicializar Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -201,13 +217,26 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
 
+            /**
+             * @brief Verifica si el correo electrónico es válido.
+             *
+             * @param email El correo electrónico a verificar.
+             * @return true si el correo electrónico es válido, false en caso contrario.
+             */
             private boolean isValidEmail(String email) {
                 return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
             }
         });
     }
 
-    // Método para validar los requisitos de la contraseña
+    /**
+     * @brief Valida los requisitos de la contraseña.
+     *
+     * Este método verifica si la contraseña cumple con los requisitos mínimos y
+     * muestra un mensaje de retroalimentación.
+     *
+     * @param password La contraseña a validar.
+     */
     private void validatePasswordRequirements(String password) {
         StringBuilder feedback = new StringBuilder("Requisitos de la contraseña:\n");
         boolean isValid = true;
@@ -242,11 +271,24 @@ public class RegisterActivity extends AppCompatActivity {
         passwordRequirementsTextView = findViewById(R.id.requirementsRegisterPass);
     }
 
+    /**
+     * @brief Muestra la política de privacidad.
+     *
+     * Este método inicia la actividad que muestra la política de privacidad.
+     *
+     * @param v La vista que desencadena este método.
+     */
     public void privacidad(View v){
         Intent intent = new Intent(RegisterActivity.this, Privacidad.class);
         startActivity(intent);
     }
 
+    /**
+     * @brief Guarda los datos del usuario en SharedPreferences.
+     *
+     * @param email El correo electrónico del usuario.
+     * @param username El nombre de usuario.
+     */
     private void saveUserDataToPrefs(String email, String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

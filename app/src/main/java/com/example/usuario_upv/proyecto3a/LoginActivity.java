@@ -1,3 +1,12 @@
+/**
+ * @file LoginActivity.java
+ * @brief Clase que gestiona la actividad de inicio de sesión en la aplicación.
+ *
+ * Esta clase permite a los usuarios iniciar sesión utilizando su email y contraseña.
+ * También maneja la autenticación del usuario mediante un token y guarda los datos
+ * del usuario en las preferencias compartidas.
+ */
+
 package com.example.usuario_upv.proyecto3a;
 
 import android.net.Uri;
@@ -32,15 +41,29 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.List;
 
+/**
+ * @class LoginActivity
+ * @brief Clase que implementa la actividad de inicio de sesión.
+ *
+ * La actividad permite a los usuarios iniciar sesión, registrarse y manejar la autenticación
+ * mediante un token. Utiliza Retrofit para realizar las solicitudes a la API.
+ */
 public class LoginActivity extends AppCompatActivity {
-    private TextInputEditText editTextEmail, editTextPassword;
-    private Button buttonLogin;
-    private ImageView imageViewFingerprint;
-    private LogicaFake api;
-    private static final String ETIQUETA_LOG = "LoginActivity";
-    private Uri uri;
-    String param;
+    private TextInputEditText editTextEmail, editTextPassword; /**< Campos de texto para email y contraseña. */
+    private Button buttonLogin; /**< Botón para iniciar sesión. */
+    private ImageView imageViewFingerprint; /**< Imagen para la autenticación por huella digital (comentada). */
+    private LogicaFake api; /**< Interfaz de la API para realizar las solicitudes. */
+    private static final String ETIQUETA_LOG = "LoginActivity"; /**< Etiqueta para los logs. */
+    private Uri uri; /**< URI para obtener parámetros de la actividad. */
+    String param; /**< Parámetro obtenido de la URI. */
 
+    /**
+     * @brief Método que se llama al crear la actividad.
+     *
+     * Inicializa los componentes de la interfaz y configura Retrofit para las solicitudes a la API.
+     *
+     * @param savedInstanceState Estado guardado de la actividad.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,31 +81,25 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.passw);
         buttonLogin = findViewById(R.id.buttonLogin);
-        //imageViewFingerprint = findViewById(R.id.imageViewFingerprint);
 
         // BOTÓN ATRÁS
         View imageBack = findViewById(R.id.imageBack);
         imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Finaliza la actividad para regresar
                 onBackPressed();
             }
         });
-
 
         // BOTÓN REGISTRO
         TextView botonRegistro = findViewById(R.id.botonRegistro);
         botonRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Iniciar RegisterActivity
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
-
-
 
         // Configurar Retrofit
         OkHttpClient client = new OkHttpClient.Builder()
@@ -125,6 +142,14 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @brief Verifica el token del usuario.
+     *
+     * Envía una solicitud a la API para autenticar al usuario mediante un token.
+     *
+     * @param email Email del usuario.
+     * @param password Contraseña del usuario.
+     */
     private void verificarToken(String email, String password) {
         Call<Void> call = api.autenticarUsuario(param);
 
@@ -147,6 +172,15 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @brief Inicia sesión del usuario.
+     *
+     * Envía una solicitud a la API para obtener los datos del usuario y guarda los datos
+     * en las preferencias compartidas si la autenticación es exitosa.
+     *
+     * @param email Email del usuario.
+     * @param password Contraseña del usuario.
+     */
     private void loginUser(String email, String password) {
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Iniciando sesión...");
@@ -181,7 +215,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
 
-
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 progressDialog.dismiss();
@@ -191,7 +224,12 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * @brief Guarda los datos del usuario en las preferencias compartidas.
+     *
+     * @param email Email del usuario.
+     * @param username Nombre de usuario.
+     */
     private void saveUserDataToPrefs(String email, String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -199,6 +237,12 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("userName", username);
         editor.apply();
     }
+
+    /**
+     * @brief Guarda la contraseña del usuario en las preferencias compartidas.
+     *
+     * @param password Contraseña del usuario.
+     */
     private void saveUserPasswordToPrefs(String password) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tramaibeacon_0',['TramaIBeacon',['../classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_trama_i_beacon.html#aea0b44e643d186a87af83e502632011d',1,'com::example::usuario_upv::proyecto3a::TramaIBeacon']]]
+  ['privacidad_0',['privacidad',['../classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_register_activity.html#a4834290664b0d571b469270c90032d99',1,'com::example::usuario_upv::proyecto3a::RegisterActivity']]],
+  ['procesarbeacon_1',['procesarBeacon',['../classcom_1_1example_1_1usuario__upv_1_1proyecto3a_1_1_tab3.html#acc60bc8698ceedcfc595a7d29da3bf66',1,'com::example::usuario_upv::proyecto3a::Tab3']]]
 ];
